@@ -51,7 +51,7 @@ class LoginForm extends Component {
         <h2 className='log-reg-header log-header'>Login</h2>
         <form className="LoginForm" onSubmit={this.handleSubmit}>
           <div className="login-input">
-            <label htmlFor="login-username-input">Username</label>
+            <Label htmlFor="login-username-input">Username</Label>
             <Input
               ref={this.firstInput}
               id="login-username-input"
