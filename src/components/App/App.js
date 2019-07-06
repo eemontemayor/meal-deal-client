@@ -2,11 +2,44 @@
 import './App.css';
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom';
+import PrivateRoute from '../Utils/PrivateRoute';
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
+import LoginPage from '../../routes/LoginPage';
+import RegistrationPage from '../../routes/RegistrationPage';
 
 export default class App extends Component{
+  state={
+
+  }
+  
+  static getDerivedStateFromError(error) {
+    console.error(error);
+    return { hasError: true };
+  }
+
   render(){
     return(
-      <div>hello</div>
+      <div>
+<main className='App__main'>
+       
+       {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
+       <Switch>
+        
+        
+         <PublicOnlyRoute
+           path={'/login'}
+           component={LoginPage}
+         />
+         <PublicOnlyRoute
+           path={'/register'}
+           component={RegistrationPage}
+         />
+        
+       
+       </Switch>
+     </main>
+
+      </div>
     )
   }
 
