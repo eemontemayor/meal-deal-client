@@ -1,6 +1,6 @@
 import React from 'react'
 import { format as formatDate } from 'date-fns'
-// import cx from 'classnames'
+import cx from 'classnames'
 
 export function NiceDate({ date, format='Do MMMM YYYY' }) {
   return formatDate(date, format)
@@ -20,11 +20,11 @@ export function Textarea({ className, ...props }) {
   )
 }
 
-export function Input({ className, ...props }) {
+export const Input =  React.forwardRef(({ className, ...props }, ref) => {
   return (
-    <input className={['Input', className].join(' ')} {...props} />
+    <input className={cx('Input', className)} type='text' ref={ref} {...props} />
   )
-}
+})
 export function Label({ className, ...props }) {
   return (
     <label className={('Label', className)} {...props} />

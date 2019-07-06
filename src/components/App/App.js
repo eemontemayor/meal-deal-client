@@ -25,24 +25,24 @@ export default class App extends Component{
         <header className='App__header'>
           <Header />
         </header>
-<main className='App__main'>
+        <main className='App__main'>
        
-       {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
-       <Switch>
-        <Route exact path={'/'} component={LandingPage}/>
-        
-         <PublicOnlyRoute
-           path={'/login'}
-           component={LoginPage}
-         />
-         <PublicOnlyRoute
-           path={'/register'}
-           component={RegistrationPage}
-         />
-        
-       
-       </Switch>
-     </main>
+          {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
+          <Switch>
+            <Route exact path={'/'} component={RegistrationPage}/>
+            
+            <PublicOnlyRoute
+              path={'/login'}
+              component={LoginPage}
+            />
+            <PublicOnlyRoute
+              path={'/register'}
+              component={RegistrationPage}
+            />
+            
+          
+          </Switch>
+        </main>
 
       </div>
     )

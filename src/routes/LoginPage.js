@@ -18,7 +18,7 @@ class LoginPage extends Component {
   render() {
     return (
       <section>
-          Hello
+         
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
       </section>
     );
