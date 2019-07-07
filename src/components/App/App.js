@@ -22,14 +22,14 @@ export default class App extends Component{
   
     return(
       <div>
-        <header className='App__header'>
+    
           <Header />
-        </header>
+     
         <main className='App__main'>
        
           {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
           <Switch>
-            <Route exact path={'/'} component={RegistrationPage}/>
+            <Route exact path={'/'} component={LandingPage}/>
             
             <PublicOnlyRoute
               path={'/login'}

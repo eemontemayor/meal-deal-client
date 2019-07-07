@@ -30,17 +30,7 @@ class Header extends Component {
     )
   }
 
-  renderTrendsLink() {
-    return TokenService.hasAuthToken()
-    ? <Link to='/trends'>Trends</Link>
-    : ''
-  }
-
-  renderDashboardLink() {
-    return TokenService.hasAuthToken()
-      ? <Link to='/'>Dashboard</Link>
-      : ''
-  }
+ 
 
   renderGreeting() {
     return TokenService.hasAuthToken() && window.innerWidth > 760
