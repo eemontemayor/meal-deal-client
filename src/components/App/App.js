@@ -8,6 +8,7 @@ import LoginPage from '../../routes/LoginPage.js';
 import RegistrationPage from '../../routes/RegistrationPage';
 import LandingPage from '../../routes/LandingPage'
 import Header from '../Header/Header'
+// import Calendar from '../../routes/Calendar';
 export default class App extends Component{
   state={
     hasError: false,
@@ -39,7 +40,10 @@ export default class App extends Component{
               path={'/register'}
               component={RegistrationPage}
             />
-            
+             {/* <PrivateRoute
+              path={'/calendar'}
+              component={Calendar}
+            /> */}
           
           </Switch>
         </main>
