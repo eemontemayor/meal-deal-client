@@ -6,9 +6,9 @@ import PrivateRoute from '../Utils/PrivateRoute';
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import LoginPage from '../../routes/LoginPage.js';
 import RegistrationPage from '../../routes/RegistrationPage';
-import LandingPage from '../../routes/LandingPage'
+import LandingPage from '../../routes/LandingPage/LandingPage'
 import Header from '../Header/Header'
-// import Calendar from '../../routes/Calendar';
+import PlannerPage from '../../routes/Planner/PlannerPage';
 export default class App extends Component{
   state={
     hasError: false,
@@ -40,10 +40,10 @@ export default class App extends Component{
               path={'/register'}
               component={RegistrationPage}
             />
-             {/* <PrivateRoute
-              path={'/calendar'}
-              component={Calendar}
-            /> */}
+             <PrivateRoute
+              path={'/planner'}
+              component={PlannerPage}
+            />
           
           </Switch>
         </main>
