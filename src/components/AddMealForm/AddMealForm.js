@@ -18,8 +18,7 @@ export default class AddMealForm extends Component{
     [e.target.name]:e.target.value
     },()=>{
         console.log(this.state)
-
-    });
+    })
 
   }
 
@@ -28,11 +27,11 @@ export default class AddMealForm extends Component{
  
 
     render(){
- 
+       
       
         return(
     <div>
-        <form>
+        <form onSubmit={this.props.handlePostMeal.bind(this)}>
              
             <div className='add_meal_form'>
               <label htmlFor='addMealForm_meal_name'>

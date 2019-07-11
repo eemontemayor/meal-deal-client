@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './PlannerPage.css'
 import Calendar from 'react-calendar'
 import MealDeal from '../../components/MealDeal/MealDeal'
+
 export default class PlannerPage extends Component{
     state = {
         value: new Date(),
@@ -15,9 +16,7 @@ export default class PlannerPage extends Component{
           console.log(this.state)
         }
 
-        handlePostMeal=()=>{
-          
-        }  
+       
 
 
 

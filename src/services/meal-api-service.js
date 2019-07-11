@@ -32,9 +32,27 @@ const MealApiService = {
    
     },
 
+    findMealByDate(){
+      return fetch(`${config.API_ENDPOINT}/meals`,{
+        method:'GET',
+        headers:{
+          'content-type':'application/json',
+          'authorization':`bearer ${TokenService.getAuthToken()}`,
+        },
+      })
+      .then((mealsRes) => {
+        if (!mealsRes.ok)
+          return mealsRes.json().then(e => Promise.reject(e))
+        return mealsRes.json()
+      })
+      .catch(error => {
+        console.error({error})
+      })
+    },
 
     postMeal(x){
-      return fetch(`${config.API_ENDPOINT}/meals`,{ //TO-DO hide these endpoints in config/env files
+     
+      return fetch(`${config.API_ENDPOINT}/meals`,{ 
         method: 'POST',
         headers:{
           'content-type':'application/json',
@@ -44,10 +62,10 @@ const MealApiService = {
 
       })
       .then(res => { 
-      
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json().then(r => Promise.resolve(r))
+      console.log(res.meal)
+        // (!res.ok)
+        //   ? res.json().then(e => Promise.reject(e))
+        //   : res.json()
       })
       .catch(error => {
         console.log({error})
