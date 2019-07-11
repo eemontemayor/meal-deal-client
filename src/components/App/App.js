@@ -9,6 +9,8 @@ import RegistrationPage from '../../routes/RegistrationPage';
 import LandingPage from '../../routes/LandingPage/LandingPage'
 import Header from '../Header/Header'
 import PlannerPage from '../../routes/Planner/PlannerPage';
+
+
 export default class App extends Component{
   state={
     hasError: false,
@@ -30,6 +32,7 @@ export default class App extends Component{
        
           {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
           <Switch>
+
             <Route exact path={'/'} component={LandingPage}/>
             
             <PublicOnlyRoute

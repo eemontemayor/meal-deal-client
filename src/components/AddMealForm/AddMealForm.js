@@ -16,6 +16,9 @@ export default class AddMealForm extends Component{
   handleChange = (e) => {
     this.setState({
     [e.target.name]:e.target.value
+    },()=>{
+        console.log(this.state)
+
     });
 
   }
@@ -31,14 +34,14 @@ export default class AddMealForm extends Component{
           <div>
             <form>
              
-            <div className='meal_name'>
+            <div className='add_meal_form'>
               <label htmlFor='addMealForm_meal_name'>
                 Meal Name
               </label>
               <Input
                 type="text"
                 name='meal_name'
-                onChange={this.handleChange.bind(this)}
+                onChange={this.handleChange}
                 required
                 >
               </Input>
@@ -62,7 +65,7 @@ export default class AddMealForm extends Component{
               <Textarea
                 
                 name='ingredients'
-                // onChange={handleChange}
+              
                 id='addMealForm_ingredients'>
               </Textarea>
                 </div>
