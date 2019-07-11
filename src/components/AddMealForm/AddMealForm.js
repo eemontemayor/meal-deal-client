@@ -31,8 +31,8 @@ export default class AddMealForm extends Component{
  
       
         return(
-          <div>
-            <form>
+    <div>
+        <form>
              
             <div className='add_meal_form'>
               <label htmlFor='addMealForm_meal_name'>
@@ -56,24 +56,22 @@ export default class AddMealForm extends Component{
                     <option value="dinner">Dinner</option>
                     <option value="other">Other</option>
                 </select>
-              </div>
-                <div className= 'ingredients'>
+            </div>
+            <div className= 'ingredients'>
                 <label htmlFor='ingredients'>Ingredients
-
                 </label><br/>
 
               <Textarea
                 
                 name='ingredients'
-              
                 id='addMealForm_ingredients'>
               </Textarea>
-                </div>
-            <Button type='submit'>
-              Add Meal
-            </Button>
-          </form>
-          </div>  
+            </div>
+                <Button type='submit'>
+                    Add Meal
+                </Button>
+        </form>
+    </div>  
         )
     }
 }

@@ -8,17 +8,19 @@ export default class PlannerPage extends Component{
       }
     
      
-  handleClick = (e) => {
-    this.setState({
-    view:e.target.name
-    });
-  }
+  
 
       onChange = value => {
-
           this.setState({ value })
           console.log(this.state)
         }
+
+        handlePostMeal=()=>{
+          
+        }  
+
+
+
 
     render(){
         const { value } = this.state;

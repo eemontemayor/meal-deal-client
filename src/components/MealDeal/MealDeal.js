@@ -4,30 +4,32 @@ import dateFormat from 'dateformat';
 import AddMealForm from '../AddMealForm/AddMealForm'
 import BookMarks from '../BookMarks/BookMarks'
 import Explorer from '../Explorer/Explorer'
+import './MealDeal.css'
 export default class MealDeal extends Component{
     constructor(props) {
         super(props);
         this.state = { 
-            addMealForm: true,
-            bookMarks:false,
-            explorer:false,
+            view:'add-meal-form'
         };
       }
 
-
+    
       
 
       handleClick=(e)=>{
-          
           console.log(e.target.className)
         this.setState({
-            addMealForm: false,
-            bookMarks:false,
-            explorer:false,
+            view:e.target.className
         })
    
       }
 
+
+
+
+
+
+      
     render(){
         const day = this.props.value
         const formattedDate=dateFormat(day, 'ddd mm/dd/yy')
@@ -36,19 +38,23 @@ export default class MealDeal extends Component{
         console.log(day)
         return(
             <div>
-                <Section>
+                <Section className='meal-date'>
                     {formattedDate}
                 </Section>
+               
                 <div onClick={this.handleClick}>
 
-                    <button className='addMealForm' >Add Meal</button>
-                    <button className='bookMarks'>BookMarks</button>
+                    <button className='add-meal-form' >Add Meal</button>
+                    <button className='bookmarks'>BookMarks</button>
                     <button className='explorer'>Explore</button>
                 
-                    {this.state.addMealForm && <AddMealForm/>}
-                    {this.state.bookMarks &&  <BookMarks/>}
-                    {this.state.explorer &&  <Explorer/>}
+                    {this.state.view==='add-meal-form' && <AddMealForm/>}
+                    {this.state.view==='bookmarks' &&  <BookMarks/>}
+                    {this.state.view==='explorer' &&  <Explorer/>}
                 </div>
+                <Section className='meals-of-day'>
+                    
+                </Section>
             </div>
         )
     }
