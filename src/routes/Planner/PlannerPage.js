@@ -34,7 +34,7 @@ onChange = value => {
 handlePostMeal=(ev)=>{
     ev.preventDefault()
 
-    const on_day = this.props.value
+    const on_day = this.state.formattedDate
     console.log(on_day)
     const {meal_name, ingredients} = ev.target
     
@@ -46,8 +46,8 @@ handlePostMeal=(ev)=>{
     }
  
     MealApiService.postMeal(newMeal)
-    .then(res =>{ 
-        console.log(res)
+    .then(meal =>{ 
+        console.log(meal)
 
         this.setState({
             MOD:[...this.state.MOD,newMeal]

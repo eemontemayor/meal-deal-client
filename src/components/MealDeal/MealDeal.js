@@ -51,12 +51,13 @@ export default class MealDeal extends Component{
                 <Section className='meals-of-day'>
                     <Mod meals={this.props.mod}/>
                 </Section>
-                <div onClick={this.handleClick}>
+                {/* <div onClick={this.handleClick}> */}
+                <div>
                     <button className='add-meal-form' >Add Meal</button>
                     <button className='bookmarks'>BookMarks</button>
                     <button className='explorer'>Explore</button>
                 
-                    {this.state.view==='add-meal-form' && <AddMealForm date={day} handlePostMeal={this.props.handlePostMeal.bind(this)}/>}
+                    {this.state.view==='add-meal-form' && <AddMealForm date={day} handlePostMeal={this.props.handlePostMeal}/>}
                     {this.state.view==='bookmarks' &&  <BookMarks/>}
                     {this.state.view==='explorer' &&  <Explorer/>}
                 </div>
