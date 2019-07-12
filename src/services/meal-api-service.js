@@ -32,8 +32,9 @@ const MealApiService = {
    
     },
 
-    findMealByDate(){
-      return fetch(`${config.API_ENDPOINT}/meals`,{
+    findMealByDate(date){
+      console.log(date)
+      return fetch(`${config.API_ENDPOINT}/meals/${date}`,{
         method:'GET',
         headers:{
           'content-type':'application/json',
@@ -62,10 +63,10 @@ const MealApiService = {
 
       })
       .then(res => { 
-      console.log(res.meal)
-        // (!res.ok)
-        //   ? res.json().then(e => Promise.reject(e))
-        //   : res.json()
+      // console.log(res.meal)
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
       })
       .catch(error => {
         console.log({error})
