@@ -59,9 +59,9 @@ handlePostMeal=(ev)=>{
     })
 }
 
-handleDeleteMeal=(meal, mealNum)=>{
+handleDeleteMeal=(id)=>{
     let newMOD = this.state.MOD
-    console.log(meal, mealNum,'here')
+    console.log(id,'here')
     // if(meal.id === undefined){
     //   delete newMOD[mealNum]
     //   this.setState({
@@ -82,17 +82,21 @@ handleDeleteMeal=(meal, mealNum)=>{
 
 
     render(){
-        const { value } = this.state;
+        const  value  = {
+            day: this.state.value,
+            formattedDate:this.state.formattedDate,
+            MOD: this.state.MOD,
+            handlePostMeal: this.handlePostMeal,
+            handleDeleteMeal: this.handleDeleteMeal,
+            }
         return(
             <div className='planner-page'>
-
+            <MealContext.Provider value = {value}>
             <Calendar className='calendar'
             onChange={this.onChange}
-            value={value}/>
-            {this.state.formattedDate && <MealDeal value={this.state.formattedDate} 
-                                                    mod={this.state.MOD} 
-                                                    handlePostMeal={this.handlePostMeal}
-                                                    handleDeleteMeal={this.handleDeleteMeal} />}
+            value={this.state.value}/>
+            {this.state.formattedDate && <MealDeal value={this.state.formattedDate}  />}
+           </MealContext.Provider>
             </div>
         )
     }

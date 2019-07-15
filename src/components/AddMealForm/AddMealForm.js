@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Button, Input, Textarea } from '../Utils/Utils';
+import MealContext from '../../contexts/MealContext';
 
 
 
@@ -12,7 +13,7 @@ export default class AddMealForm extends Component{
       on_day:[],
     };
   }
-  
+  static contextType = MealContext
   handleChange = (e) => {
     this.setState({
     [e.target.name]:e.target.value

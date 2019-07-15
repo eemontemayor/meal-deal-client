@@ -1,10 +1,13 @@
 import React,{Component} from 'react'
 import ModItem from './ModItem.js'
+import MealContext from '../../contexts/MealContext'
 export default class Mod extends Component{
    
+  static contextType = MealContext
       render(){
-        console.log(this.props.meals)
-        const meals=this.props.meals.map((item, index)=>{
+    
+      
+        const meals=this.context.MOD.map((item, index)=>{
              return <li key={index}><ModItem meal={item}/></li>
         })
           return(

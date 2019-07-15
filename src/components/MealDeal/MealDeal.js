@@ -6,6 +6,7 @@ import BookMarks from '../BookMarks/BookMarks'
 import Explorer from '../Explorer/Explorer'
 import './MealDeal.css'
 import Mod from '../Mod/Mod'
+import MealContext from '../../contexts/MealContext';
 
 
 export default class MealDeal extends Component{
@@ -16,9 +17,7 @@ export default class MealDeal extends Component{
           
         }
       }
-
-
-
+      static contextType = MealContext
     
     
 
@@ -40,7 +39,7 @@ export default class MealDeal extends Component{
     render(){
         const day = dateFormat(this.props.value, 'mm/dd/yy')
         const formattedDay=dateFormat(day, 'ddd')
-        
+       
         return(
             <div>
                 <Section className='meal-date'>
@@ -49,7 +48,7 @@ export default class MealDeal extends Component{
                     
                 </Section>
                 <Section className='meals-of-day'>
-                    <Mod meals={this.props.mod} handleDeleteMeal={this.props.handleDeleteMeal}/>
+                    <Mod  />
                 </Section>
                 {/* <div onClick={this.handleClick}> */}
                 <div>
@@ -57,8 +56,8 @@ export default class MealDeal extends Component{
                     <button className='bookmarks'>BookMarks</button>
                     <button className='explorer'>Explore</button>
                 
-                    {this.state.view==='add-meal-form' && <AddMealForm date={day} handlePostMeal={this.props.handlePostMeal} handleDeleteMeal={this.props.handleDeleteMeal}/>}
-                    {this.state.view==='bookmarks' &&  <BookMarks handlePostMeal={this.props.handlePostMeal} handleDeleteMeal={this.props.handleDeleteMeal}/>}
+                    {this.state.view==='add-meal-form' && <AddMealForm date={day} handlePostMeal={this.context.handlePostMeal}/>}
+                    {this.state.view==='bookmarks' &&  <BookMarks />}
                     {this.state.view==='explorer' &&  <Explorer/>}
                 </div>
                
