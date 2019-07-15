@@ -6,11 +6,12 @@ export default class ModItem extends Component{
 static contextType = MealContext
 render(){
    const meal_name = this.props.meal.meal_name
-   const meal_id = this.props.meal.id
+
+   const index= this.props.index
     return(
         <div >
             {meal_name}
-            <button onClick={()=>this.context.handleDeleteMeal(meal_id)} >X</button>
+            <button onClick={()=>this.context.handleDeleteMeal(this.props.meal,index)} >X</button>
         </div>
     )
 }

@@ -8,7 +8,7 @@ export default class Mod extends Component{
     
       
         const meals=this.context.MOD.map((item, index)=>{
-             return <li key={index}><ModItem meal={item}/></li>
+             return <li key={index}><ModItem meal={item} index={index}/></li>
         })
           return(
               <div>

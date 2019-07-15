@@ -59,25 +59,26 @@ handlePostMeal=(ev)=>{
     })
 }
 
-handleDeleteMeal=(id)=>{
+handleDeleteMeal=(meal,index)=>{
     let newMOD = this.state.MOD
-    console.log(id,'here')
-    // if(meal.id === undefined){
-    //   delete newMOD[mealNum]
-    //   this.setState({
-    //     MOD:newMOD             
-    //   })
-    // } else{ 
+    let id=meal.id
+    console.log(id, index,'here')
+    if(id === undefined){
+      delete newMOD[index]
+      this.setState({
+        MOD:newMOD             
+      })
+    } else{ 
        
-    //     MealApiService.deleteMeal(meal)
-    //       .then(res =>{
+        MealApiService.deleteMeal(meal)
+          .then(res =>{
            
-    //         delete newMOD[mealNum]
-    //         this.setState({
-    //           MOD:newMOD
-    //         })
-    //       })
-    //   }
+            delete newMOD[index]
+            this.setState({
+              MOD:newMOD
+            })
+          })
+      }
   }
 
 

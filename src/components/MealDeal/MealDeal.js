@@ -43,19 +43,21 @@ export default class MealDeal extends Component{
         return(
             <div>
                 <Section className='meal-date'>
+                    {day}<br/>
                     {formattedDay}
-                    {day}
                     
                 </Section>
                 <Section className='meals-of-day'>
                     <Mod  />
                 </Section>
-                {/* <div onClick={this.handleClick}> */}
-                <div>
-                    <button className='add-meal-form' >Add Meal</button>
-                    <button className='bookmarks'>BookMarks</button>
-                    <button className='explorer'>Explore</button>
-                
+               
+                <div className='form-buttons'>
+                    <button className='add-meal-form'onClick={this.handleClick} >Add Meal</button>
+                    <button className='bookmarks'onClick={this.handleClick}>BookMarks</button>
+                    <button className='explorer'onClick={this.handleClick}>Explore</button>
+                </div>
+                <div className='form-box'>
+
                     {this.state.view==='add-meal-form' && <AddMealForm date={day} handlePostMeal={this.context.handlePostMeal}/>}
                     {this.state.view==='bookmarks' &&  <BookMarks />}
                     {this.state.view==='explorer' &&  <Explorer/>}

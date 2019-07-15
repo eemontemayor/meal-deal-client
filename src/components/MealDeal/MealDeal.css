@@ -1,0 +1,14 @@
+.meal-date{
+    font-size:1.2rem;
+    text-align: center
+}
+.form-box{
+    border:1px solid black;
+    padding:8px;
+}
+.form-buttons{
+    text-align: center
+}
+.form-buttons button{
+    border:.3px solid black;
+}
