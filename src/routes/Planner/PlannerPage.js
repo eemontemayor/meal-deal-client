@@ -4,14 +4,13 @@ import Calendar from 'react-calendar'
 import MealDeal from '../../components/MealDeal/MealDeal'
 import dateFormat from 'dateformat';
 import MealApiService from '../../services/meal-api-service'
-
+import MealContext from '../../contexts/MealContext'
 export default class PlannerPage extends Component{
     state = {
         value: new Date(),
         MOD:[],
         formattedDate:''
       }
-    
     
 
 onChange = value => {
@@ -60,6 +59,27 @@ handlePostMeal=(ev)=>{
     })
 }
 
+handleDeleteMeal=(meal, mealNum)=>{
+    let newMOD = this.state.MOD
+    console.log(meal, mealNum,'here')
+    // if(meal.id === undefined){
+    //   delete newMOD[mealNum]
+    //   this.setState({
+    //     MOD:newMOD             
+    //   })
+    // } else{ 
+       
+    //     MealApiService.deleteMeal(meal)
+    //       .then(res =>{
+           
+    //         delete newMOD[mealNum]
+    //         this.setState({
+    //           MOD:newMOD
+    //         })
+    //       })
+    //   }
+  }
+
 
     render(){
         const { value } = this.state;
@@ -69,8 +89,14 @@ handlePostMeal=(ev)=>{
             <Calendar className='calendar'
             onChange={this.onChange}
             value={value}/>
-            {this.state.formattedDate && <MealDeal value={this.state.formattedDate} mod={this.state.MOD} handlePostMeal={this.handlePostMeal} />}
+            {this.state.formattedDate && <MealDeal value={this.state.formattedDate} 
+                                                    mod={this.state.MOD} 
+                                                    handlePostMeal={this.handlePostMeal}
+                                                    handleDeleteMeal={this.handleDeleteMeal} />}
             </div>
         )
     }
 }
+
+
+

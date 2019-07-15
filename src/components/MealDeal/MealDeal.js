@@ -49,7 +49,7 @@ export default class MealDeal extends Component{
                     
                 </Section>
                 <Section className='meals-of-day'>
-                    <Mod meals={this.props.mod}/>
+                    <Mod meals={this.props.mod} handleDeleteMeal={this.props.handleDeleteMeal}/>
                 </Section>
                 {/* <div onClick={this.handleClick}> */}
                 <div>
@@ -57,8 +57,8 @@ export default class MealDeal extends Component{
                     <button className='bookmarks'>BookMarks</button>
                     <button className='explorer'>Explore</button>
                 
-                    {this.state.view==='add-meal-form' && <AddMealForm date={day} handlePostMeal={this.props.handlePostMeal}/>}
-                    {this.state.view==='bookmarks' &&  <BookMarks/>}
+                    {this.state.view==='add-meal-form' && <AddMealForm date={day} handlePostMeal={this.props.handlePostMeal} handleDeleteMeal={this.props.handleDeleteMeal}/>}
+                    {this.state.view==='bookmarks' &&  <BookMarks handlePostMeal={this.props.handlePostMeal} handleDeleteMeal={this.props.handleDeleteMeal}/>}
                     {this.state.view==='explorer' &&  <Explorer/>}
                 </div>
                
