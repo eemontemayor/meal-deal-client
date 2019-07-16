@@ -50,7 +50,7 @@ export default class Explorer extends Component{
                 type="search"
                 name='searchTerm'
                
-                id='BrowserForm_search_term'>
+                id='explorer_search_term'>
               </input>
             </div>
             {/* <div className='dishType'>

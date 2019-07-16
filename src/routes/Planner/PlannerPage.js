@@ -81,6 +81,29 @@ handleDeleteMeal=(meal,index)=>{
       }
   }
 
+  handleAddBookmark=(meal)=>{
+  
+
+ 
+  
+    
+    const newBookmark = {
+      meal_name: meal.meal_name,
+      ingredients: meal.ingredients,
+      bookmarked: true
+    }
+    console.log(newBookmark)
+    MealApiService.postBookmark(newBookmark)
+    .then(meal =>{ 
+        console.log(meal)
+    })
+    .catch(error => {
+        console.log({error})
+    })
+}
+
+
+
 
     render(){
         const  value  = {
@@ -89,6 +112,7 @@ handleDeleteMeal=(meal,index)=>{
             MOD: this.state.MOD,
             handlePostMeal: this.handlePostMeal,
             handleDeleteMeal: this.handleDeleteMeal,
+            handleAddBookmark:this.handleAddBookmark,
             }
         return(
             <div className='planner-page'>

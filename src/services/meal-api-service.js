@@ -91,8 +91,45 @@ const MealApiService = {
       // .catch(error => {
       //   console.log({error})
       // })
-    }
-  
+    },
+    getBookmark(){
+      console.log('here')
+      return fetch(`${config.API_ENDPOINT}/bookmarks`,{
+        method:'GET',
+        headers:{
+          'content-type':'application/json',
+          'authorization':`bearer ${TokenService.getAuthToken()}`,
+        },
+      })
+      .then((mealsRes) => {
+        if (!mealsRes.ok)
+          return mealsRes.json().then(e => Promise.reject(e))
+        return mealsRes.json()
+      })
+      .catch(error => {
+        console.error({error})
+      })
+    },
+    postBookmark(x){
+     
+      return fetch(`${config.API_ENDPOINT}/bookmarks`,{ 
+        method: 'POST',
+        headers:{
+          'content-type':'application/json',
+          'authorization':`bearer ${TokenService.getAuthToken()}`,
+        },
+        body: JSON.stringify(x)
+
+      })
+      .then(res => { 
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      })
+      .catch(error => {
+        console.log({error})
+      })
+    },
 
 };
 export default MealApiService;
