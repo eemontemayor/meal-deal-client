@@ -3,7 +3,7 @@ import {Section} from '../Utils/Utils'
 import dateFormat from 'dateformat';
 import AddMealForm from '../AddMealForm/AddMealForm'
 import BookMarks from '../BookMarks/BookMarks'
-import Explorer from '../Explorer/Explorer'
+import ExplorerForm from '../ExplorerForm/ExplorerForm'
 import './MealDeal.css'
 import Mod from '../Mod/Mod'
 import MealContext from '../../contexts/MealContext';
@@ -60,7 +60,7 @@ export default class MealDeal extends Component{
 
                     {this.state.view==='add-meal-form' && <AddMealForm date={day} handlePostMeal={this.context.handlePostMeal}/>}
                     {this.state.view==='bookmarks' &&  <BookMarks />}
-                    {this.state.view==='explorer' &&  <Explorer/>}
+                    {this.state.view==='explorer' &&  <ExplorerForm/>}
                 </div>
                
             </div>

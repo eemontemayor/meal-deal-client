@@ -9,6 +9,8 @@ import RegistrationPage from '../../routes/RegistrationPage';
 import LandingPage from '../../routes/LandingPage/LandingPage'
 import Header from '../Header/Header'
 import PlannerPage from '../../routes/Planner/PlannerPage';
+import ExplorerPage from '../../routes/ExplorerPage/ExplorerPage';
+
 import MealApiService from '../../services/meal-api-service';
 
 export default class App extends Component{
@@ -62,6 +64,10 @@ export default class App extends Component{
              <PrivateRoute
               path={'/planner'}
               component={PlannerPage}
+            />
+             <PrivateRoute
+              path={'/explore'}
+              component={ExplorerPage}
             />
           
           </Switch>
