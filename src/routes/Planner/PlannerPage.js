@@ -9,24 +9,34 @@ export default class PlannerPage extends Component{
     state = {
         value: new Date(),
         MOD:[],
-        formattedDate:''
+        formattedDate:'',
+        bookmarks:[],
       }
     
-
+  componentDidMount(){
+    MealApiService.getBookmarks()
+    .then(meals=>{
+        this.setState({
+            bookmarks:meals
+        },()=>{
+            console.log(this.state)
+        })
+    })
+  }
 onChange = value => {
     const formattedDate=dateFormat(value, 'yyyy-mm-dd')
+
+
 
     this.setState({ value,formattedDate },()=>{
     MealApiService.findMealByDate(formattedDate)
     .then(meals =>{ 
-        console.log(meals)
         this.setState({
             MOD:meals
-        },()=>{
-            console.log(this.state)
-            })
+        })
         })
     })
+  
 }
        
 
@@ -62,7 +72,7 @@ handlePostMeal=(ev)=>{
 handleDeleteMeal=(meal,index)=>{
     let newMOD = this.state.MOD
     let id=meal.id
-    console.log(id, index,'here')
+    
     if(id === undefined){
       delete newMOD[index]
       this.setState({
@@ -82,27 +92,40 @@ handleDeleteMeal=(meal,index)=>{
   }
 
   handleAddBookmark=(meal)=>{
-  
-
  
-  
-    
     const newBookmark = {
       meal_name: meal.meal_name,
       ingredients: meal.ingredients,
       bookmarked: true
     }
-    console.log(newBookmark)
+
     MealApiService.postBookmark(newBookmark)
     .then(meal =>{ 
-        console.log(meal)
+        MealApiService.getBookmarks()
+        .then(meals=>{
+            this.setState({
+                bookmarks:meals
+            },()=>{
+                console.log(this.state)
+            })
+        })
     })
     .catch(error => {
         console.log({error})
     })
 }
 
-
+handleDeleteBookmark=(meal,index)=>{
+    let newList = this.state.bookmarks
+   console.log(meal)
+    MealApiService.deleteBookmark(meal)
+    .then(res =>{
+        delete newList[index]
+        this.setState({
+            bookmarks:newList
+        })
+    })
+}
 
 
     render(){
@@ -110,9 +133,13 @@ handleDeleteMeal=(meal,index)=>{
             day: this.state.value,
             formattedDate:this.state.formattedDate,
             MOD: this.state.MOD,
+            bookmarks:this.state.bookmarks,
             handlePostMeal: this.handlePostMeal,
             handleDeleteMeal: this.handleDeleteMeal,
             handleAddBookmark:this.handleAddBookmark,
+            handleDeleteBookmark:this.handleDeleteBookmark,
+          
+
             }
         return(
             <div className='planner-page'>
