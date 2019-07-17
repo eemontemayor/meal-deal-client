@@ -93,7 +93,7 @@ const MealApiService = {
       // })
     },
     getBookmarks(){
-      console.log('here')
+      
       return fetch(`${config.API_ENDPOINT}/bookmarks`,{
         method:'GET',
         headers:{

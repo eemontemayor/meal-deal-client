@@ -14,6 +14,8 @@ export default class AddMealForm extends Component{
     };
   }
   static contextType = MealContext
+
+  
   handleChange = (e) => {
     this.setState({
     [e.target.name]:e.target.value

@@ -25,7 +25,7 @@ export default class PlannerPage extends Component{
   }
 onChange = value => {
     const formattedDate=dateFormat(value, 'yyyy-mm-dd')
-
+    
 
 
     this.setState({ value,formattedDate },()=>{
@@ -44,7 +44,7 @@ handlePostMeal=(ev)=>{
     ev.preventDefault()
 
     const on_day = this.state.formattedDate
-    console.log(on_day)
+
     const {meal_name, ingredients} = ev.target
     
     const newMeal = {
@@ -92,7 +92,7 @@ handleDeleteMeal=(meal,index)=>{
   }
 
   handleAddBookmark=(meal)=>{
- 
+ //adds to bookmark table in db
     const newBookmark = {
       meal_name: meal.meal_name,
       ingredients: meal.ingredients,
@@ -105,8 +105,6 @@ handleDeleteMeal=(meal,index)=>{
         .then(meals=>{
             this.setState({
                 bookmarks:meals
-            },()=>{
-                console.log(this.state)
             })
         })
     })
@@ -126,7 +124,29 @@ handleDeleteBookmark=(meal,index)=>{
         })
     })
 }
+handlePostBookmark=(newMeal)=>{
+    console.log(this.state.MOD)
 
+
+    if(this.state.MOD.includes(newMeal)){
+        console.log('here')
+    }
+
+    
+    MealApiService.postMeal(newMeal)
+    .then(meal =>{ 
+        console.log(meal)
+
+        this.setState({
+            MOD:[...this.state.MOD,newMeal]
+        },()=>{
+          console.log(this.state.MOD)
+        })
+    })
+    .catch(error => {
+        console.log({error})
+    })
+}
 
     render(){
         const  value  = {
@@ -138,6 +158,7 @@ handleDeleteBookmark=(meal,index)=>{
             handleDeleteMeal: this.handleDeleteMeal,
             handleAddBookmark:this.handleAddBookmark,
             handleDeleteBookmark:this.handleDeleteBookmark,
+            handlePostBookmark:this.handlePostBookmark,
           
 
             }
