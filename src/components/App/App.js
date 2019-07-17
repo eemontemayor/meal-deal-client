@@ -24,20 +24,20 @@ export default class App extends Component{
   }
 
 
-  componentDidMount(){
+  // componentDidMount(){
 
-       MealApiService.getUserMeals()
-       .then(meals => {
-         this.setState({
-           meals:meals
-         })
+  //      MealApiService.getUserMeals()
+  //      .then(meals => {
+  //        this.setState({
+  //          meals:meals
+  //        })
            
-       })
-       .catch(error =>{
-         console.error({error})
-       })
+  //      })
+  //      .catch(error =>{
+  //        console.error({error})
+  //      })
      
-   }
+  //  }
 
   render(){
   

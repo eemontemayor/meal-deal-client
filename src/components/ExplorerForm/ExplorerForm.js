@@ -45,13 +45,13 @@ export default class Explorer extends Component{
               <label htmlFor='explorer_search_term'>
                 Search for:
               </label>
-              <input
+              <Input
                 required
                 type="search"
                 name='searchTerm'
                
                 id='explorer_search_term'>
-              </input>
+              </Input>
             </div>
             {/* <div className='dishType'>
               <label htmlFor='dishType'>MealType
@@ -79,7 +79,6 @@ export default class Explorer extends Component{
             </Button>
           </form>
              {this.state.searchResults && <SearchResults results={this.state.searchResults}/>} 
-            {/* <MealBrowserResults showMod={this.props.showMod}results={searchResults} date={date} /> */}
           
         
             </div>

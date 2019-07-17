@@ -130,6 +130,23 @@ const MealApiService = {
         console.log({error})
       })
     },
+    deleteBookmark(meal){
+      return fetch(`${config.API_ENDPOINT}/bookmarks`, { 
+        method: 'DELETE',
+        headers:{
+          'content-type':'application/json',
+        },
+        body: JSON.stringify(meal)
+      })
+      // .then(res => { 
+      //   (!res.ok)
+      //     ? res.json().then(e => Promise.reject(e))
+      //     : res.json()
+      // })
+      // .catch(error => {
+      //   console.log({error})
+      // })
+    },
 
 };
 export default MealApiService;
