@@ -3,52 +3,66 @@ import {Section} from '../Utils/Utils'
 import dateFormat from 'dateformat';
 import AddMealForm from '../AddMealForm/AddMealForm'
 import BookMarks from '../BookMarks/BookMarks'
-import Explorer from '../Explorer/Explorer'
+import ExplorerForm from '../ExplorerForm/ExplorerForm'
+import './MealDeal.css'
+import Mod from '../Mod/Mod'
+import MealContext from '../../contexts/MealContext';
+
+
 export default class MealDeal extends Component{
     constructor(props) {
         super(props);
         this.state = { 
-            addMealForm: true,
-            bookMarks:false,
-            explorer:false,
-        };
-      }
-
-
-      
-
-      handleClick=(e)=>{
+            view:'add-meal-form',
           
+        }
+      }
+      static contextType = MealContext
+    
+    
+
+    handleClick=(e)=>{
           console.log(e.target.className)
         this.setState({
-            addMealForm: false,
-            bookMarks:false,
-            explorer:false,
+            view:e.target.className
         })
    
       }
 
-    render(){
-        const day = this.props.value
-        const formattedDate=dateFormat(day, 'ddd mm/dd/yy')
-       
 
-        console.log(day)
+
+
+
+
+
+      
+    render(){
+        const day = dateFormat(this.props.value, 'mm/dd/yy')
+        const formattedDay=dateFormat(day, 'ddd')
+       
         return(
             <div>
-                <Section>
-                    {formattedDate}
+                <Section className='meal-date'>
+                    {day}<br/>
+                    {formattedDay}
+                    
                 </Section>
-                <div onClick={this.handleClick}>
-
-                    <button className='addMealForm' >Add Meal</button>
-                    <button className='bookMarks'>BookMarks</button>
-                    <button className='explorer'>Explore</button>
-                
-                    {this.state.addMealForm && <AddMealForm/>}
-                    {this.state.bookMarks &&  <BookMarks/>}
-                    {this.state.explorer &&  <Explorer/>}
+                <Section className='meals-of-day'>
+                    <Mod  />
+                </Section>
+               
+                <div className='form-buttons'>
+                    <button className='add-meal-form'onClick={this.handleClick} >Add Meal</button>
+                    <button className='bookmarks'onClick={this.handleClick}>BookMarks</button>
+                    <button className='explorer'onClick={this.handleClick}>Explore</button>
                 </div>
+                <div className='form-box'>
+
+                    {this.state.view==='add-meal-form' && <AddMealForm date={day} handlePostMeal={this.context.handlePostMeal}/>}
+                    {this.state.view==='bookmarks' &&  <BookMarks />}
+                    {this.state.view==='explorer' &&  <ExplorerForm/>}
+                </div>
+               
             </div>
         )
     }

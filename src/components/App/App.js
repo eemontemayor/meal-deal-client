@@ -9,7 +9,9 @@ import RegistrationPage from '../../routes/RegistrationPage';
 import LandingPage from '../../routes/LandingPage/LandingPage'
 import Header from '../Header/Header'
 import PlannerPage from '../../routes/Planner/PlannerPage';
+import ExplorerPage from '../../routes/ExplorerPage/ExplorerPage';
 
+import MealApiService from '../../services/meal-api-service';
 
 export default class App extends Component{
   state={
@@ -20,6 +22,22 @@ export default class App extends Component{
     console.error(error);
     return { hasError: true };
   }
+
+
+  // componentDidMount(){
+
+  //      MealApiService.getUserMeals()
+  //      .then(meals => {
+  //        this.setState({
+  //          meals:meals
+  //        })
+           
+  //      })
+  //      .catch(error =>{
+  //        console.error({error})
+  //      })
+     
+  //  }
 
   render(){
   
@@ -46,6 +64,10 @@ export default class App extends Component{
              <PrivateRoute
               path={'/planner'}
               component={PlannerPage}
+            />
+             <PrivateRoute
+              path={'/explore'}
+              component={ExplorerPage}
             />
           
           </Switch>
