@@ -148,6 +148,33 @@ handlePostBookmark=(newMeal)=>{
     })
 }
 
+handlePostExpMeal=(meal)=>{
+
+    const on_day = this.state.formattedDate
+
+    const {meal_name, ingredients} = meal
+    
+    const newMeal = {
+      meal_name: meal_name,
+      ingredients: ingredients,
+      on_day: on_day, 
+      bookmarked: false
+    }
+ 
+    MealApiService.postMeal(newMeal)
+    .then(meal =>{ 
+        console.log(meal)
+
+        this.setState({
+            MOD:[...this.state.MOD,newMeal]
+        },()=>{
+          console.log(this.state.MOD)
+        })
+    })
+    .catch(error => {
+        console.log({error})
+    })
+}
     render(){
         const  value  = {
             day: this.state.value,
@@ -159,7 +186,7 @@ handlePostBookmark=(newMeal)=>{
             handleAddBookmark:this.handleAddBookmark,
             handleDeleteBookmark:this.handleDeleteBookmark,
             handlePostBookmark:this.handlePostBookmark,
-          
+            handlePostExpMeal:this.handlePostExpMeal
 
             }
         return(
