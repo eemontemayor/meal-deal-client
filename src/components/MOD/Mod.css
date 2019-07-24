@@ -1,0 +1,11 @@
+li {
+list-style: none;
+border:1px solid black;
+
+margin: auto;
+border-radius:10px;
+
+background-color: white;
+box-shadow: 5px 5px 3px grey;
+
+}

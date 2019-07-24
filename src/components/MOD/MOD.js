@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import ModItem from './ModItem.js'
 import MealContext from '../../contexts/MealContext'
+import './Mod.css'
 export default class Mod extends Component{
    
   static contextType = MealContext

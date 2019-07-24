@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import MealContext from '../../contexts/MealContext';
-
+import './Mod.css'
 export default class ModItem extends Component{
   
 static contextType = MealContext
