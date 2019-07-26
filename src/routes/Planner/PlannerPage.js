@@ -14,12 +14,22 @@ export default class PlannerPage extends Component{
       }
     
   componentDidMount(){
+    const formattedDate=dateFormat(this.state.value, 'yyyy-mm-dd')
+    this.setState({formattedDate },()=>{
+    MealApiService.findMealByDate(formattedDate)
+    .then(meals =>{ 
+        this.setState({
+            MOD:meals
+        })
+        })
+    })
+
     MealApiService.getBookmarks()
     .then(meals=>{
         this.setState({
             bookmarks:meals
         },()=>{
-            console.log(this.state)
+         console.log(this.state)
         })
     })
   }
@@ -138,7 +148,7 @@ handleDeleteBookmark=(meal,index)=>{
             <Calendar className='calendar'
             onChange={this.onChange}
             value={this.state.value}/>
-            {this.state.formattedDate && <MealDeal value={this.state.formattedDate}  />}
+            {this.state.value && <MealDeal value={this.state.formattedDate}  />}
            </MealContext.Provider>
             </div>
         )

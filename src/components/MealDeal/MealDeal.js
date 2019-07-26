@@ -41,7 +41,7 @@ export default class MealDeal extends Component{
         const formattedDay=dateFormat(day, 'ddd')
        
         return(
-            <div>
+            <div className='meal-deal-page'>
                 <Section className='meal-date'>
                     {day}<br/>
                     {formattedDay}

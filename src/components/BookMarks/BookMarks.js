@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import MealContext from '../../contexts/MealContext'
 import BookmarkItem from './BookmarkItem'
-
+import './BookMarks.css'
 export default class BookMarks extends Component{
    
     static contextType = MealContext
@@ -11,7 +11,7 @@ export default class BookMarks extends Component{
     render(){
        
         const bookmarks = this.context.bookmarks.map((item,index)=>{
-            return <li key={index}><BookmarkItem meal={item} index={index} /></li>
+            return <li className='bm-item' key={index}><BookmarkItem meal={item} index={index} /></li>
 
         })
         return(

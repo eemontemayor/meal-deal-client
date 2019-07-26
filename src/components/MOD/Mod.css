@@ -1,11 +1,18 @@
-li {
-list-style: none;
+
+.mod-item{
+    list-style: none;
 border:1px solid black;
 
-margin: auto;
-border-radius:10px;
+border-radius:3px;
 
-background-color: white;
-box-shadow: 5px 5px 3px grey;
+text-align: center;
 
+box-shadow: 2px 2px 1px grey;
+
+    background-color: rgba(0, 255, 255, 0.411);
+    padding:5px;
+}
+.mod-list{
+    margin-right:20px;
+margin-left:20px;
 }

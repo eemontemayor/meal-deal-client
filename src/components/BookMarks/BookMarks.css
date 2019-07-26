@@ -1,0 +1,11 @@
+.bm-item{
+    list-style: none;
+border:1px solid black;
+text-align: center;
+border-radius:3px;
+
+
+box-shadow: 2px 2px 1px grey;
+
+    background-color: rgba(145, 255, 0, 0.411);
+}

@@ -9,11 +9,11 @@ export default class Mod extends Component{
     
       
         const meals=this.context.MOD.map((item, index)=>{
-             return <li key={index}><ModItem meal={item} index={index}/></li>
+             return <li className='mod-item'key={index}><ModItem meal={item} index={index}/></li>
         })
           return(
-              <div>
-                  <ul>
+              <div className='mod-page'>
+                  <ul className='mod-list'>
                     {meals}
                   </ul>
            
