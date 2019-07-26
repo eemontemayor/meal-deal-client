@@ -58,7 +58,7 @@ export default class MealDeal extends Component{
                 </div>
                 <div className='form-box'>
 
-                    {this.state.view==='add-meal-form' && <AddMealForm date={day} handlePostMeal={this.context.handlePostMeal}/>}
+                    {this.state.view==='add-meal-form' && <AddMealForm date={day} />}
                     {this.state.view==='bookmarks' &&  <BookMarks />}
                     {this.state.view==='explorer' &&  <ExplorerForm/>}
                 </div>

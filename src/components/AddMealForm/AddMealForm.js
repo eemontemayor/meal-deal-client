@@ -25,7 +25,20 @@ export default class AddMealForm extends Component{
 
   }
 
+  handlePostMeal=(ev)=>{
+    ev.preventDefault()
 
+
+    const {meal_name, ingredients} = ev.target
+    
+    const newMeal = {
+      meal_name: meal_name.value,
+      ingredients: ingredients.value,
+      
+    }
+    this.context.postMeal(newMeal)
+   
+}
 
  
 
@@ -34,7 +47,7 @@ export default class AddMealForm extends Component{
       
         return(
     <div>
-        <form onSubmit={this.props.handlePostMeal.bind(this)}>
+        <form onSubmit={this.handlePostMeal.bind(this)}>
              
             <div className='add_meal_form'>
               <label htmlFor='addMealForm_meal_name'>

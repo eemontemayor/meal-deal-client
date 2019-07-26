@@ -23,11 +23,10 @@ export default class PlannerPage extends Component{
         })
     })
   }
+
 onChange = value => {
     const formattedDate=dateFormat(value, 'yyyy-mm-dd')
-    
-
-
+   
     this.setState({ value,formattedDate },()=>{
     MealApiService.findMealByDate(formattedDate)
     .then(meals =>{ 
@@ -39,29 +38,17 @@ onChange = value => {
   
 }
        
+postMeal=(newMeal)=>{ 
+    newMeal.on_day = this.state.formattedDate
 
-handlePostMeal=(ev)=>{
-    ev.preventDefault()
-
-    const on_day = this.state.formattedDate
-
-    const {meal_name, ingredients} = ev.target
-    
-    const newMeal = {
-      meal_name: meal_name.value,
-      ingredients: ingredients.value,
-      on_day: on_day, 
-      bookmarked: false
-    }
- 
     MealApiService.postMeal(newMeal)
-    .then(meal =>{ 
-        console.log(meal)
+    .then(res =>{ 
 
-        this.setState({
-            MOD:[...this.state.MOD,newMeal]
-        },()=>{
-          console.log(this.state.MOD)
+        MealApiService.findMealByDate(this.state.formattedDate)
+        .then(meals =>{ 
+            this.setState({
+                MOD:meals
+            })
         })
     })
     .catch(error => {
@@ -69,11 +56,15 @@ handlePostMeal=(ev)=>{
     })
 }
 
+
+
+
 handleDeleteMeal=(meal,index)=>{
     let newMOD = this.state.MOD
     let id=meal.id
     
     if(id === undefined){
+        console.log('_______________________')
       delete newMOD[index]
       this.setState({
         MOD:newMOD             
@@ -91,16 +82,16 @@ handleDeleteMeal=(meal,index)=>{
       }
   }
 
-  handleAddBookmark=(meal)=>{
- //adds to bookmark table in db
+  handleAddBookmark=(meal)=>{ //adds to bookmark table in db
+ 
     const newBookmark = {
       meal_name: meal.meal_name,
       ingredients: meal.ingredients,
-      bookmarked: true
     }
 
     MealApiService.postBookmark(newBookmark)
     .then(meal =>{ 
+        console.log(meal)
         MealApiService.getBookmarks()
         .then(meals=>{
             this.setState({
@@ -124,69 +115,21 @@ handleDeleteBookmark=(meal,index)=>{
         })
     })
 }
-handlePostBookmark=(newMeal)=>{
-    console.log(this.state.MOD)
 
 
-    if(this.state.MOD.includes(newMeal)){
-        console.log('here')
-    }
 
-    
-    MealApiService.postMeal(newMeal)
-    .then(meal =>{ 
-        console.log(meal)
 
-        this.setState({
-            MOD:[...this.state.MOD,newMeal]
-        },()=>{
-          console.log(this.state.MOD)
-        })
-    })
-    .catch(error => {
-        console.log({error})
-    })
-}
-
-handlePostExpMeal=(meal)=>{
-
-    const on_day = this.state.formattedDate
-
-    const {meal_name, ingredients} = meal
-    
-    const newMeal = {
-      meal_name: meal_name,
-      ingredients: ingredients,
-      on_day: on_day, 
-      bookmarked: false
-    }
- 
-    MealApiService.postMeal(newMeal)
-    .then(meal =>{ 
-        console.log(meal)
-
-        this.setState({
-            MOD:[...this.state.MOD,newMeal]
-        },()=>{
-          console.log(this.state.MOD)
-        })
-    })
-    .catch(error => {
-        console.log({error})
-    })
-}
     render(){
         const  value  = {
             day: this.state.value,
             formattedDate:this.state.formattedDate,
             MOD: this.state.MOD,
             bookmarks:this.state.bookmarks,
-            handlePostMeal: this.handlePostMeal,
             handleDeleteMeal: this.handleDeleteMeal,
             handleAddBookmark:this.handleAddBookmark,
             handleDeleteBookmark:this.handleDeleteBookmark,
-            handlePostBookmark:this.handlePostBookmark,
-            handlePostExpMeal:this.handlePostExpMeal
+            postMeal:this.postMeal,
+       
 
             }
         return(

@@ -15,7 +15,7 @@ render(){
     return(
         <div >
             {meal_name}
-            <button onClick={()=>this.context.handlePostBookmark(newMeal)}>+</button>
+            <button onClick={()=>this.context.postMeal(newMeal)}>+</button>
             <button onClick={()=>this.context.handleDeleteBookmark(this.props.meal,index)} >x</button>
         </div>
     )

@@ -11,7 +11,6 @@ import Header from '../Header/Header'
 import PlannerPage from '../../routes/Planner/PlannerPage';
 import ExplorerPage from '../../routes/ExplorerPage/ExplorerPage';
 
-import MealApiService from '../../services/meal-api-service';
 
 export default class App extends Component{
   state={
@@ -24,20 +23,6 @@ export default class App extends Component{
   }
 
 
-  // componentDidMount(){
-
-  //      MealApiService.getUserMeals()
-  //      .then(meals => {
-  //        this.setState({
-  //          meals:meals
-  //        })
-           
-  //      })
-  //      .catch(error =>{
-  //        console.error({error})
-  //      })
-     
-  //  }
 
   render(){
   
