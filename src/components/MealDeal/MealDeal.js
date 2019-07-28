@@ -39,7 +39,7 @@ export default class MealDeal extends Component{
     render(){
         const day = dateFormat(this.props.value, 'mm/dd/yy')
         const formattedDay=dateFormat(day, 'ddd')
-       
+       console.log(this.props.value)
         return(
             <div className='meal-deal-page'>
                 <Section className='meal-date'>

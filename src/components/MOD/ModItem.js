@@ -11,8 +11,8 @@ render(){
     return(
         <div >
             {meal_name}
-            <button onClick={()=>this.context.handleDeleteMeal(this.props.meal,index)} >x</button>
-            <button onClick={()=>this.context.handleAddBookmark(this.props.meal)}>bookmark</button>
+            <button className='del-btn'onClick={()=>this.context.handleDeleteMeal(this.props.meal,index)} >x</button>
+            <button className='bm-btn'onClick={()=>this.context.handleAddBookmark(this.props.meal)}>bookmark</button>
         </div>
     )
 }

@@ -45,6 +45,7 @@ onChange = value => {
         })
         })
     })
+    console.log(this.state.value)
   
 }
        
@@ -99,19 +100,25 @@ handleDeleteMeal=(meal,index)=>{
       ingredients: meal.ingredients,
     }
 
-    MealApiService.postBookmark(newBookmark)
-    .then(meal =>{ 
-        console.log(meal)
-        MealApiService.getBookmarks()
-        .then(meals=>{
-            this.setState({
-                bookmarks:meals
+    const list = this.state.bookmarks.map(i=> {
+        return i.meal_name
+    })
+ 
+   if(!list.includes(newBookmark.meal_name)){
+        MealApiService.postBookmark(newBookmark)
+        .then(meal =>{ 
+            console.log(meal)
+            MealApiService.getBookmarks()
+            .then(meals=>{
+                this.setState({
+                    bookmarks:meals
+                })
             })
         })
-    })
-    .catch(error => {
-        console.log({error})
-    })
+        .catch(error => {
+            console.log({error})
+        })
+    }
 }
 
 handleDeleteBookmark=(meal,index)=>{
@@ -139,16 +146,15 @@ handleDeleteBookmark=(meal,index)=>{
             handleAddBookmark:this.handleAddBookmark,
             handleDeleteBookmark:this.handleDeleteBookmark,
             postMeal:this.postMeal,
-       
-
             }
+           
         return(
             <div className='planner-page'>
             <MealContext.Provider value = {value}>
             <Calendar className='calendar'
             onChange={this.onChange}
             value={this.state.value}/>
-            {this.state.value && <MealDeal value={this.state.formattedDate}  />}
+            {this.state.value && <MealDeal value={this.state.value}  />}
            </MealContext.Provider>
             </div>
         )

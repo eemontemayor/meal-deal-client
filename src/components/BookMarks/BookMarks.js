@@ -15,8 +15,8 @@ export default class BookMarks extends Component{
 
         })
         return(
-            <div>
-                <ul>
+            <div className='bm-page'>
+                <ul className='bm-list'>
                     {bookmarks}
                 </ul>
             </div>
