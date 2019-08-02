@@ -17,3 +17,9 @@
 .meal-deal-page{
    margin-top:20px;
 }
+.meal-img{
+    max-width: 150px;
+}
+.search-results{
+    overflow:hidden;
+}

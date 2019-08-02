@@ -1,16 +1,20 @@
 import React,{Component} from 'react'
 import MealApiContext from '../../contexts/MealContext'
 
-export default class MealItem extends Component{
+export default class ResultItem extends Component{
     static contextType = MealApiContext
     render(){
         const meal ={
             meal_name: this.props.meal.recipe.label,
-            ingredients:this.props.meal.recipe.ingredients,
+            ingredients:this.props.meal.recipe.ingredientLines,
+            image:this.props.meal.recipe.image
         }
       console.log(meal)
         return(
             <div className='meal-item'>
+                <div>
+                  <img className='meal-img' src={meal.image} alt='x'/>
+                </div>
             <h2>
                 {meal.meal_name}
             </h2>

@@ -50,6 +50,13 @@ onChange = value => {
 }
        
 postMeal=(newMeal)=>{ 
+    let name =  newMeal.meal_name
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+  
+    newMeal.meal_name=name
+
     newMeal.on_day = this.state.formattedDate
 
     MealApiService.postMeal(newMeal)
@@ -95,8 +102,14 @@ handleDeleteMeal=(meal,index)=>{
 
   handleAddBookmark=(meal)=>{ //adds to bookmark table in db
  
+    let name =  meal.meal_name
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+  
+
     const newBookmark = {
-      meal_name: meal.meal_name,
+      meal_name:name,
       ingredients: meal.ingredients,
     }
 

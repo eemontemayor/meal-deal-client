@@ -31,7 +31,7 @@ export default class Explorer extends Component{
             this.setState({
                 searchResults: res.hits
                
-              })
+              },()=>{console.log(res)})
           })
       }
     render(){

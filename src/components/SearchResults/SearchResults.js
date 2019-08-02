@@ -1,10 +1,11 @@
 import React from 'react'
-import MealItem from '../MealItem/MealItem'
+import ResultItem from './ResultItem'
+
+
 export default function SearchResults(props){
-    console.log(props.results)
 
     const results=props.results.map((item,index)=>{
-        return <li key={index}><MealItem meal={item}/></li>
+        return <li key={index}><ResultItem meal={item}/></li>
     })
 
     return(
