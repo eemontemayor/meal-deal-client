@@ -14,8 +14,8 @@ export default class MealItem extends Component{
             <h2>
                 {meal.meal_name}
             </h2>
-            <button type='click'onClick={()=>this.context.postMeal(meal)}>Add to {this.context.formattedDate}</button>
-            <button type='click'onClick={()=>this.context.handleAddBookmark(meal)}>Add to Bookmarks</button>
+            <button className='add-btn' type='click'onClick={()=>this.context.postMeal(meal)}>Add to {this.context.formattedDate}</button>
+            <button className='bm-btn'type='click'onClick={()=>this.context.handleAddBookmark(meal)}>Add to Bookmarks</button>
         </div>
     )
 }
