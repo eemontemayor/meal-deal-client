@@ -14,6 +14,8 @@ export default class AddMealForm extends Component{
     };
   }
   static contextType = MealContext
+
+  
   handleChange = (e) => {
     this.setState({
     [e.target.name]:e.target.value
@@ -23,7 +25,20 @@ export default class AddMealForm extends Component{
 
   }
 
+  handlePostMeal=(ev)=>{
+    ev.preventDefault()
 
+
+    const {meal_name, ingredients} = ev.target
+    
+    const newMeal = {
+      meal_name: meal_name.value,
+      ingredients: ingredients.value,
+      
+    }
+    this.context.postMeal(newMeal)
+   
+}
 
  
 
@@ -32,7 +47,7 @@ export default class AddMealForm extends Component{
       
         return(
     <div>
-        <form onSubmit={this.props.handlePostMeal.bind(this)}>
+        <form onSubmit={this.handlePostMeal.bind(this)}>
              
             <div className='add_meal_form'>
               <label htmlFor='addMealForm_meal_name'>
@@ -67,7 +82,7 @@ export default class AddMealForm extends Component{
                 id='addMealForm_ingredients'>
               </Textarea>
             </div>
-                <Button type='submit'>
+                <Button type='submit' className='add-btn'>
                     Add Meal
                 </Button>
         </form>

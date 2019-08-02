@@ -1,0 +1,23 @@
+
+.mod-item{
+    list-style: none;
+    border:1px solid black;
+    border-radius:3px;
+    text-align: center;
+    box-shadow: 2px 2px 1px grey;
+    background-color: rgba(0, 255, 255, 0.411);
+    padding:10px;
+}
+.mod-list{
+   padding:0px;
+   
+}
+.del-btn{
+background-color: rgba(233, 47, 47, 0.76);
+}
+.bm-btn{
+    background-color: rgba(145, 255, 0, 0.411);
+}
+.mod-item button{
+    float:right;
+}

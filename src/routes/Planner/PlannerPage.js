@@ -9,49 +9,57 @@ export default class PlannerPage extends Component{
     state = {
         value: new Date(),
         MOD:[],
-        formattedDate:''
+        formattedDate:'',
+        bookmarks:[],
       }
     
+  componentDidMount(){
+    const formattedDate=dateFormat(this.state.value, 'yyyy-mm-dd')
+    this.setState({formattedDate },()=>{
+    MealApiService.findMealByDate(formattedDate)
+    .then(meals =>{ 
+        this.setState({
+            MOD:meals
+        })
+        })
+    })
+
+    MealApiService.getBookmarks()
+    .then(meals=>{
+        this.setState({
+            bookmarks:meals
+        },()=>{
+         console.log(this.state)
+        })
+    })
+  }
 
 onChange = value => {
     const formattedDate=dateFormat(value, 'yyyy-mm-dd')
-
+   
     this.setState({ value,formattedDate },()=>{
     MealApiService.findMealByDate(formattedDate)
     .then(meals =>{ 
-        console.log(meals)
         this.setState({
             MOD:meals
-        },()=>{
-            console.log(this.state)
-            })
+        })
         })
     })
+    console.log(this.state.value)
+  
 }
        
+postMeal=(newMeal)=>{ 
+    newMeal.on_day = this.state.formattedDate
 
-handlePostMeal=(ev)=>{
-    ev.preventDefault()
-
-    const on_day = this.state.formattedDate
-    console.log(on_day)
-    const {meal_name, ingredients} = ev.target
-    
-    const newMeal = {
-      meal_name: meal_name.value,
-      ingredients: ingredients.value,
-      on_day: on_day, 
-      bookmarked: false
-    }
- 
     MealApiService.postMeal(newMeal)
-    .then(meal =>{ 
-        console.log(meal)
+    .then(res =>{ 
 
-        this.setState({
-            MOD:[...this.state.MOD,newMeal]
-        },()=>{
-          console.log(this.state.MOD)
+        MealApiService.findMealByDate(this.state.formattedDate)
+        .then(meals =>{ 
+            this.setState({
+                MOD:meals
+            })
         })
     })
     .catch(error => {
@@ -59,11 +67,15 @@ handlePostMeal=(ev)=>{
     })
 }
 
+
+
+
 handleDeleteMeal=(meal,index)=>{
     let newMOD = this.state.MOD
     let id=meal.id
-    console.log(id, index,'here')
+    
     if(id === undefined){
+        console.log('_______________________')
       delete newMOD[index]
       this.setState({
         MOD:newMOD             
@@ -81,24 +93,43 @@ handleDeleteMeal=(meal,index)=>{
       }
   }
 
-  handleAddBookmark=(meal)=>{
-  
-
+  handleAddBookmark=(meal)=>{ //adds to bookmark table in db
  
-  
-    
     const newBookmark = {
       meal_name: meal.meal_name,
       ingredients: meal.ingredients,
-      bookmarked: true
     }
-    console.log(newBookmark)
-    MealApiService.postBookmark(newBookmark)
-    .then(meal =>{ 
-        console.log(meal)
+
+    const list = this.state.bookmarks.map(i=> {
+        return i.meal_name
     })
-    .catch(error => {
-        console.log({error})
+ 
+   if(!list.includes(newBookmark.meal_name)){
+        MealApiService.postBookmark(newBookmark)
+        .then(meal =>{ 
+            console.log(meal)
+            MealApiService.getBookmarks()
+            .then(meals=>{
+                this.setState({
+                    bookmarks:meals
+                })
+            })
+        })
+        .catch(error => {
+            console.log({error})
+        })
+    }
+}
+
+handleDeleteBookmark=(meal,index)=>{
+    let newList = this.state.bookmarks
+   console.log(meal)
+    MealApiService.deleteBookmark(meal)
+    .then(res =>{
+        delete newList[index]
+        this.setState({
+            bookmarks:newList
+        })
     })
 }
 
@@ -110,17 +141,20 @@ handleDeleteMeal=(meal,index)=>{
             day: this.state.value,
             formattedDate:this.state.formattedDate,
             MOD: this.state.MOD,
-            handlePostMeal: this.handlePostMeal,
+            bookmarks:this.state.bookmarks,
             handleDeleteMeal: this.handleDeleteMeal,
             handleAddBookmark:this.handleAddBookmark,
+            handleDeleteBookmark:this.handleDeleteBookmark,
+            postMeal:this.postMeal,
             }
+           
         return(
             <div className='planner-page'>
             <MealContext.Provider value = {value}>
             <Calendar className='calendar'
             onChange={this.onChange}
             value={this.state.value}/>
-            {this.state.formattedDate && <MealDeal value={this.state.formattedDate}  />}
+            {this.state.value && <MealDeal value={this.state.value}  />}
            </MealContext.Provider>
             </div>
         )

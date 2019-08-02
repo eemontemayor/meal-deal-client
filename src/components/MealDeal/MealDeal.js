@@ -39,9 +39,9 @@ export default class MealDeal extends Component{
     render(){
         const day = dateFormat(this.props.value, 'mm/dd/yy')
         const formattedDay=dateFormat(day, 'ddd')
-       
+       console.log(this.props.value)
         return(
-            <div>
+            <div className='meal-deal-page'>
                 <Section className='meal-date'>
                     {day}<br/>
                     {formattedDay}
@@ -58,7 +58,7 @@ export default class MealDeal extends Component{
                 </div>
                 <div className='form-box'>
 
-                    {this.state.view==='add-meal-form' && <AddMealForm date={day} handlePostMeal={this.context.handlePostMeal}/>}
+                    {this.state.view==='add-meal-form' && <AddMealForm date={day} />}
                     {this.state.view==='bookmarks' &&  <BookMarks />}
                     {this.state.view==='explorer' &&  <ExplorerForm/>}
                 </div>

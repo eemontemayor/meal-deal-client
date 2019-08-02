@@ -92,8 +92,8 @@ const MealApiService = {
       //   console.log({error})
       // })
     },
-    getBookmark(){
-      console.log('here')
+    getBookmarks(){
+      
       return fetch(`${config.API_ENDPOINT}/bookmarks`,{
         method:'GET',
         headers:{
@@ -122,6 +122,7 @@ const MealApiService = {
 
       })
       .then(res => { 
+       
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
