@@ -1,18 +1,40 @@
 .meal-date{
     font-size:1.2rem;
-    text-align: center
-}
-.form-box{
-    border:1px solid black;
-    padding:8px;
-    box-shadow: 10px 5px rgba(175, 175, 175, 0.287) inset;
+    text-align: center;
+   
 
 }
-.form-buttons{
-    text-align: center
+.day{
+    text-align: left;
 }
-.form-buttons button{
-    border:.3px solid black;
+.format-date{
+    text-align: right;
+
+
+}
+.form-box{
+    border-left:.5px solid black;
+    border-bottom:.5px solid black;
+    border-right:.5px solid black;
+    padding:8px;
+    box-shadow: 0px 0px 10px rgba(194, 145, 145, 0.287)inset
+}
+
+.form-buttons button {
+    border-top:.5px solid black;
+    border-bottom:.5px solid black;
+    border-left:.5px solid black;
+    border-right:.5px solid black;
+    width: 33.3vw;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 35px;
+    background-color: rgba(240, 248, 255, 0.534)
+}
+.form-buttons button:focus {
+    border-bottom:none;
+    background-color:rgba(255, 255, 0, 0.287);
+  
 }
 .meal-deal-page{
    margin-top:20px;
@@ -20,6 +42,4 @@
 .meal-img{
     max-width: 150px;
 }
-.search-results{
-    overflow:hidden;
-}
+
