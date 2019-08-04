@@ -9,6 +9,7 @@ import Mod from '../Mod/Mod'
 import MealContext from '../../contexts/MealContext';
 
 
+
 export default class MealDeal extends Component{
     constructor(props) {
         super(props);
@@ -41,6 +42,7 @@ export default class MealDeal extends Component{
         const formattedDay=dateFormat(day, 'ddd')
  
         return(
+            <div>
             <div className='meal-deal-page'>
                 <Section className='meal-date'>
                    {/* <p className='day'> */}
@@ -54,7 +56,7 @@ export default class MealDeal extends Component{
                 <Section className='meals-of-day'>
                     <Mod  />
                 </Section>
-               
+               </div>
                 <div className='form-buttons'>
                     <button className='add-meal-form' onClick={this.handleClick} >Add Meal</button>
                     <button className='bookmarks'onClick={this.handleClick}>BookMarks</button>
