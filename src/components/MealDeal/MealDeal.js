@@ -56,7 +56,9 @@ export default class MealDeal extends Component{
                 <Section className='meals-of-day'>
                     <Mod  />
                 </Section>
-               
+
+               <Section className='form-container'>
+
                 <div className='form-buttons'>
                     <button className='add-meal-form' onClick={this.handleClick} >Add Meal</button>
                     <button className='bookmarks'onClick={this.handleClick}>BookMarks</button>
@@ -67,6 +69,7 @@ export default class MealDeal extends Component{
                     {this.state.view==='bookmarks' &&  <BookMarks />}
                     {this.state.view==='explorer' &&  <ExplorerForm/>}
                 </div>
+               </Section>
                </div>
            
         )
