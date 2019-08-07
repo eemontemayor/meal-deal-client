@@ -11,6 +11,8 @@
     margin-bottom:5px;
     max-width: 80vw;
    text-overflow: ellipsis;
+   font-size: .9rem;
+   height:2.5em;
 }
 .mod-list{
    padding:0px;

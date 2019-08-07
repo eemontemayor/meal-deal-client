@@ -12,8 +12,23 @@
     grid-template-columns: 100%;
     grid-template-rows: 38% 30% 32%;
     height:95vh;
-    margin-top:5vh;
+    margin-top:3vh;
    
 }
+@media only screen and (min-width: 760px) {
+    /* .calendar{
+        transform: scale(1.5)
+    } */
+}
 
+@media only screen and (max-width: 360px) {
+    .calendar{
+        transform: scaleY(0.9)
+    }
+}
 
+@media only screen and (max-width: 320px) {
+    .calendar{
+        transform: scale(0.76)
+    }
+}
