@@ -2,7 +2,7 @@
     position: fixed;
     width: 100%;
     background-color:azure;
-    max-height:5vh;
+  height:5vh;
     z-index: 100;
     top: 0;
     padding: 3px;
