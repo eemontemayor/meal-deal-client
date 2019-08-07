@@ -1,29 +1,22 @@
 .meal-date{
-    font-size:1.2rem;
+    font-size:1.1rem;
     text-align: center;
    
 
 }
-.day{
-    text-align: left;
-}
-.format-date{
-    text-align: right;
 
-
-}
 .form-container{
     position: absolute;
     bottom:0;
-    
+    min-height: 30vh;
+    max-height:32vh;
     grid-row-start:3;
     grid-row-end: 4;
     z-index:3;
+    
 }
 .form-box{
-    /* border-left:.5px solid black;
-    border-bottom:.5px solid black;
-    border-right:.5px solid black; */
+
     padding:15px;
     background-color: white;
  

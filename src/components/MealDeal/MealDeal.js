@@ -45,12 +45,9 @@ export default class MealDeal extends Component{
          
             <div className='meal-deal-page'>
                 <Section className='meal-date'>
-                   {/* <p className='day'> */}
-                   {day}<br/>
-                   {/* </p>  */}
-                    {/* <p className='format-date'> */}
-                    {formattedDay}
-                    {/* </p> */}
+             
+                   {day} - {formattedDay}
+                
                     
                 </Section>
                 <Section className='meals-of-day'>
