@@ -1,11 +1,10 @@
 .calendar{
     margin:auto;
     /* margin-top:10px; */
-    box-shadow: 0px 0px 10px rgba(194, 145, 145, 0.287)inset;
+    box-shadow: 0px 0px 10px rgba(163, 23, 23, 0.904)inset;
     grid-row-start: 1;
     grid-row-end: 2;
-  
-    min-width:100vw;
+
 
 }
 
@@ -17,11 +16,26 @@
     margin-top:5vh;
    
 }
-@media only screen and (min-width: 760px) {
-    /* .calendar{
-        transform: scale(1.5)
-    } */
+ @media only screen and (min-width: 760px) {
+    .planner-page{
+        display:grid;
+        grid-template-columns: 40% 40%;
+        grid-template-rows: 45% 45%;
+        grid-gap:20px;
+    }
+    .calendar{ 
+        max-width:300px;
+        margin: auto;
+        grid-column-start: 1;
+       
+         grid-column-end: 2;
+        grid-row-start: 1;
+    grid-row-end: 2; 
 }
+}
+
+    
+ 
 
 @media only screen and (max-width: 360px) {
     .calendar{

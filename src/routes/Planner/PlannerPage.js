@@ -164,7 +164,7 @@ handleDeleteBookmark=(meal,index)=>{
         return(
             <div className='planner-page'>
             <MealContext.Provider value = {value}>
-            <Calendar className='calendar'
+            <Calendar className='calendar' id='rc'
             onChange={this.onChange}
             value={this.state.value}/>
             {this.state.value && <MealDeal value={this.state.value}  />}
