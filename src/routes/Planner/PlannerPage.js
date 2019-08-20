@@ -50,6 +50,7 @@ onChange = value => {
 }
        
 postMeal=(newMeal)=>{ 
+  
     let name =  newMeal.meal_name
     .split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
@@ -58,7 +59,7 @@ postMeal=(newMeal)=>{
     newMeal.meal_name=name
 
     newMeal.on_day = this.state.formattedDate
-
+    if(this.state.MOD.length < 4){
     MealApiService.postMeal(newMeal)
     .then(res =>{ 
 
@@ -72,6 +73,10 @@ postMeal=(newMeal)=>{
     .catch(error => {
         console.log({error})
     })
+}
+else{
+    return alert('only four meals per day allowed')
+}
 }
 
 

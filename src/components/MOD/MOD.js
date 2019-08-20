@@ -5,16 +5,25 @@ import './Mod.css'
 export default class Mod extends Component{
    
   static contextType = MealContext
-      render(){
+
+    list(mod){
+      const meal = mod
+      if(meal.length === 0){
+        return <li>Add a meal to this day!</li>
+      }
+      else{
+        return meal.map((item, index)=>{
+          return <li className='mod-item'key={index}><ModItem meal={item} index={index}/></li>
+       })
+      }
+   
     
-      
-        const meals=this.context.MOD.map((item, index)=>{
-             return <li className='mod-item'key={index}><ModItem meal={item} index={index}/></li>
-        })
+  }
+      render(){
           return(
               <div className='mod-page'>
                   <ul className='mod-list'>
-                    {meals}
+                    {this.list(this.context.MOD)}
                   </ul>
            
         </div>
