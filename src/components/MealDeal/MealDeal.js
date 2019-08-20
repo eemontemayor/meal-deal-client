@@ -5,7 +5,7 @@ import AddMealForm from '../AddMealForm/AddMealForm'
 import BookMarks from '../BookMarks/BookMarks'
 import ExplorerForm from '../ExplorerForm/ExplorerForm'
 import './MealDeal.css'
-import Mod from '../Mod/Mod'
+import Mod from '../MOD/MOD'
 import MealContext from '../../contexts/MealContext';
 
 
