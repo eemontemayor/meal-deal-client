@@ -5,6 +5,8 @@ import AddMealForm from '../AddMealForm/AddMealForm'
 import BookMarks from '../BookMarks/BookMarks'
 import ExplorerForm from '../ExplorerForm/ExplorerForm'
 import './MealDeal.css'
+import Calendar from 'react-calendar'
+
 import Mod from '../MOD/MOD'
 import MealContext from '../../contexts/MealContext';
 
@@ -44,6 +46,11 @@ export default class MealDeal extends Component{
         return(
          
             <div className='meal-deal-page'>
+
+            <Calendar className='calendar'
+            onChange={this.context.onChange}
+            value={this.context.value}/>  
+
                 <Section className='meal-date'>
              
                    {day} - {formattedDay}
