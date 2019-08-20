@@ -50,6 +50,7 @@ onChange = value => {
 }
        
 postMeal=(newMeal)=>{ 
+  
     let name =  newMeal.meal_name
     .split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
@@ -58,7 +59,7 @@ postMeal=(newMeal)=>{
     newMeal.meal_name=name
 
     newMeal.on_day = this.state.formattedDate
-
+    if(this.state.MOD.length < 4){
     MealApiService.postMeal(newMeal)
     .then(res =>{ 
 
@@ -72,6 +73,10 @@ postMeal=(newMeal)=>{
     .catch(error => {
         console.log({error})
     })
+}
+else{
+    return alert('only four meals per day allowed')
+}
 }
 
 
@@ -164,7 +169,7 @@ handleDeleteBookmark=(meal,index)=>{
         return(
             <div className='planner-page'>
             <MealContext.Provider value = {value}>
-            <Calendar className='calendar'
+            <Calendar className='calendar' id='rc'
             onChange={this.onChange}
             value={this.state.value}/>
             {this.state.value && <MealDeal value={this.state.value}  />}
