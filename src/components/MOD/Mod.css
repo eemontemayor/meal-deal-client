@@ -7,10 +7,16 @@
     box-shadow: 2px 2px 1px grey;
     background-color: rgba(0, 255, 255, 0.411);
     padding:10px;
+    margin:auto;
+    margin-bottom:5px;
+    max-width: 80vw;
+   text-overflow: ellipsis;
+   font-size: .9rem;
+   height:2.5em;
 }
 .mod-list{
    padding:0px;
-   
+  
 }
 .del-btn{
 background-color: rgba(233, 47, 47, 0.76);
@@ -20,4 +26,10 @@ background-color: rgba(233, 47, 47, 0.76);
 }
 .mod-item button{
     float:right;
+}
+.mod-page{
+    grid-row-start:2;
+    grid-row-end: 3;
+    z-index: -1;
+    overflow-y: scroll;
 }

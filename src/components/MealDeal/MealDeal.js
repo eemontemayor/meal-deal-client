@@ -9,6 +9,7 @@ import Mod from '../Mod/Mod'
 import MealContext from '../../contexts/MealContext';
 
 
+
 export default class MealDeal extends Component{
     constructor(props) {
         super(props);
@@ -39,31 +40,35 @@ export default class MealDeal extends Component{
     render(){
         const day = dateFormat(this.props.value, 'mm/dd/yy')
         const formattedDay=dateFormat(day, 'ddd')
-       console.log(this.props.value)
+ 
         return(
+         
             <div className='meal-deal-page'>
                 <Section className='meal-date'>
-                    {day}<br/>
-                    {formattedDay}
+             
+                   {day} - {formattedDay}
+                
                     
                 </Section>
                 <Section className='meals-of-day'>
                     <Mod  />
                 </Section>
-               
+
+               <Section className='form-container'>
+
                 <div className='form-buttons'>
-                    <button className='add-meal-form'onClick={this.handleClick} >Add Meal</button>
+                    <button className='add-meal-form' onClick={this.handleClick} >Add Meal</button>
                     <button className='bookmarks'onClick={this.handleClick}>BookMarks</button>
                     <button className='explorer'onClick={this.handleClick}>Explore</button>
                 </div>
                 <div className='form-box'>
-
                     {this.state.view==='add-meal-form' && <AddMealForm date={day} />}
                     {this.state.view==='bookmarks' &&  <BookMarks />}
                     {this.state.view==='explorer' &&  <ExplorerForm/>}
                 </div>
-               
-            </div>
+               </Section>
+               </div>
+           
         )
     }
 }

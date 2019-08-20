@@ -6,7 +6,8 @@
     box-shadow: 2px 2px 1px grey;
     background-color: rgba(145, 255, 0, 0.411);
     padding:10px;
-
+    margin:auto;
+    max-width: 80vw;
 }
 .bm-list{
     padding:0px;
