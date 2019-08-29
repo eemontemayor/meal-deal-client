@@ -3,8 +3,7 @@ import TokenService from './token-service';
 
 const MealApiService = {
   getExplorerMeals(x) {
-      // return fetch(`https://api.edamam.com/search?q=${x}&app_id=${config.APP_ID}&app_key=${config.API_KEY}`, { 
-        return fetch(`https://api.edamam.com/search?q=${x}&app_id=108438ee&app_key=9fa106c05de3b6d9c71df9aecbab94e6`, { 
+      return fetch(`https://api.edamam.com/search?q=${x}&app_id=${config.APP_ID}&app_key=${config.API_KEY}`, { 
       })
         .then(res =>
           (!res.ok)
