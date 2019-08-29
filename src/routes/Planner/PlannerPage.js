@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './PlannerPage.css'
-import Calendar from 'react-calendar'
 import MealDeal from '../../components/MealDeal/MealDeal'
 import dateFormat from 'dateformat';
 import MealApiService from '../../services/meal-api-service'
@@ -164,14 +163,13 @@ handleDeleteBookmark=(meal,index)=>{
             handleAddBookmark:this.handleAddBookmark,
             handleDeleteBookmark:this.handleDeleteBookmark,
             postMeal:this.postMeal,
+            onChange:this.onChange
             }
            
         return(
             <div className='planner-page'>
             <MealContext.Provider value = {value}>
-            <Calendar className='calendar' id='rc'
-            onChange={this.onChange}
-            value={this.state.value}/>
+          
             {this.state.value && <MealDeal value={this.state.value}  />}
            </MealContext.Provider>
             </div>
