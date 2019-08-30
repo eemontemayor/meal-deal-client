@@ -170,7 +170,7 @@ handleDeleteBookmark=(meal,index)=>{
             <div className='planner-page'>
             <MealContext.Provider value = {value}>
           
-            {this.state.value && <MealDeal value={this.state.value}  />}
+            {this.state.value && <MealDeal className='meal-deal-container'value={this.state.value}  />}
            </MealContext.Provider>
             </div>
         )

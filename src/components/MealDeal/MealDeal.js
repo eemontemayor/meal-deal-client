@@ -51,14 +51,15 @@ export default class MealDeal extends Component{
             onChange={this.context.onChange}
             value={this.context.value}/>  
 
-                <Section className='meal-date'>
+                <Section  className='mod-container'>
              
-                   {day} - {formattedDay}
+                   <p className='meal-date'>
+                    {day} - {formattedDay}      
+                   </p>
                 
                     
-                </Section>
-                <Section className='meals-of-day'>
-                    <Mod  />
+                
+                    <Mod className='meals-of-day' />
                 </Section>
 
                <Section className='form-container'>
