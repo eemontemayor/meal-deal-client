@@ -1,0 +1,14 @@
+.search-results{
+    list-style: none;
+    
+  
+}
+.meal-item{
+    margin-top:20px;
+    list-style: none;
+}
+
+.meal-img{
+    max-width: 150px;
+   
+}

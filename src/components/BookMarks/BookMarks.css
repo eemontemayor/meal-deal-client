@@ -5,12 +5,19 @@
     border-radius:3px;
     box-shadow: 2px 2px 1px grey;
     background-color: rgba(145, 255, 0, 0.411);
-    padding:10px;
+    
+    
+    padding:5px;
     margin:auto;
-    max-width: 80vw;
+    margin-bottom:5px;
+    max-width: 350px;
+   text-overflow: ellipsis;
+   font-size: .75em;
+   height:2.5em;
 }
 .bm-list{
     padding:0px;
+  
 }
 
 .add-btn{

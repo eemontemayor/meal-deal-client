@@ -1,6 +1,6 @@
 import React from 'react'
 import ResultItem from './ResultItem'
-
+import './SearchResults.css'
 
 export default function SearchResults(props){
 

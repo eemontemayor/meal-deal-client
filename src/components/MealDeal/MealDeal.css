@@ -48,21 +48,16 @@
 }
 .form-buttons button:active {
     border-bottom:none;
-   
+    background-color:yellow;
   
 }
-.highlight{
-    background-color:yellow;
-}
-.meal-img{
-    max-width: 150px;
-}
+
 
 @media only screen and (min-width: 760px) {
     .meal-deal-page{
-        margin-top: 50px;
+        margin-top:80px;
       
-        height:90vh;
+        height:100%;
         display:grid;
         grid-template-columns: 50% 50%;
         grid-template-rows: 50% 50%;
@@ -82,6 +77,7 @@
     }
     .form-buttons button{
         width:33%;
+        height:40px;
     }
     .calendar{ 
         max-width:300px;

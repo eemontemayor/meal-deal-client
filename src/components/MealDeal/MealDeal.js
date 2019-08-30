@@ -17,6 +17,7 @@ export default class MealDeal extends Component{
         super(props);
         this.state = { 
             view:'add-meal-form',
+            selected:'add-meal-form'
           
         }
       }
@@ -25,9 +26,12 @@ export default class MealDeal extends Component{
     
 
     handleClick=(e)=>{
-          console.log(e.target.className)
+         
         this.setState({
-            view:e.target.className
+            view:e.target.className,
+            selected:e.target.className
+        },()=>{
+            console.log(this.state)
         })
    
       }
@@ -65,7 +69,7 @@ export default class MealDeal extends Component{
                <Section className='form-container'>
 
                 <div className='form-buttons'>
-                    <button className='add-meal-form' onClick={this.handleClick} >Add Meal</button>
+                    <button className={`add-meal-form`} onClick={this.handleClick} >Add Meal</button>
                     <button className='bookmarks'onClick={this.handleClick}>BookMarks</button>
                     <button className='explorer'onClick={this.handleClick}>Explore</button>
                 </div>
