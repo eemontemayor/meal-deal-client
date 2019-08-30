@@ -6,9 +6,10 @@ export default class Mod extends Component{
    
   static contextType = MealContext
 
-    list(mod){
+    list=(mod)=>{
       const meal = mod
-      if(meal.length === 0){
+      if(meal.length === 0 || meal === undefined){
+        debugger
         return <li>Add a meal to this day!</li>
       }
       else{
