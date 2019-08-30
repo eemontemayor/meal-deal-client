@@ -9,7 +9,7 @@ export default class Mod extends Component{
     list=(mod)=>{
       const meal = mod
       if(meal.length === 0 || meal === undefined){
-        debugger
+        // debugger
         return <li>Add a meal to this day!</li>
       }
       else{
