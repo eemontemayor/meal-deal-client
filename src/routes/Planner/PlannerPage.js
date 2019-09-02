@@ -135,6 +135,8 @@ handleDeleteMeal=(meal,index)=>{
         .catch(error => {
             console.log({error})
         })
+    }else{
+        alert('Meal already in bookmarks!')
     }
 }
 

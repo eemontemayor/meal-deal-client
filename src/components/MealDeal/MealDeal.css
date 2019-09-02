@@ -9,9 +9,9 @@
     margin:auto;
     /* margin-top:10px; */
     box-shadow: 0px 0px 10px rgba(107, 107, 107, 0.904);
-    grid-row-start: 1;
-    grid-row-end: 2;
-
+    /* grid-row-start: 1; */
+    /* grid-row-end: 2; */
+    
 
 }
 
@@ -27,32 +27,59 @@
     z-index:3;
     
 } */
+
+.meal-deal-page{
+    margin-top: 45px;
+    height:100vh;
+    /* display:grid; */
+    /* grid-template-columns: 50% 50%; */
+    /* grid-template-rows: 35% 30% 36%; */
+    
+
+}
+
 .form-box{
 
     padding:15px;
     background-color: white;
  
-    box-shadow: 0px 5px 0px rgba(154, 154, 154, 0.287)inset
 }
 
 .form-buttons button {
-    border-top:.5px solid black;
-    border-bottom:.5px solid black;
-    border-left:.5px solid black;
-    border-right:.5px solid black;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+    border-left:1px solid black;
+    border-right:1px solid black;
     width: 33.3vw;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height:25px;
-    background-color: rgb(191, 191, 191)
+    box-shadow: 3px 0px 3px 0px rgba(0, 0, 0, 0.466) inset;
 }
-.form-buttons button:active {
+.form-buttons button:focus{
     border-bottom:none;
-    background-color:yellow;
-  
+    box-shadow: none;
+    background-color: white;
+}
+.form-buttons button .highlight{
+    background-color: black;
+    border-bottom:none;
+    box-shadow: none;
 }
 
+.add-meal-form-btn{
+    background-color: rgba(0, 255, 255, 0.411);
+   
+ 
+}
+.bookmarks-btn{
+    background-color: rgba(145, 255, 0, 0.411);
 
+}
+.explorer-btn{
+    background-color: rgba(195, 0, 255, 0.411);
+   
+}
 @media only screen and (min-width: 760px) {
     .meal-deal-page{
         margin-top:80px;

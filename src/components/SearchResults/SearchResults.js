@@ -9,7 +9,7 @@ export default function SearchResults(props){
     })
 
     return(
-        <div>
+        <div className='results-container'>
             <ul className='search-results'>
             {results}
             </ul>

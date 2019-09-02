@@ -24,14 +24,15 @@ export default class ResultItem extends Component{
       console.log(meal)
         return(
             <div className='meal-item'>
+                <h2>
+                {meal.meal_name}
+            </h2>
                 <div>
                   <img className='meal-img' src={meal.image} alt='x'/>
                   <button className='add-btn' type='click'onClick={()=>this.context.postMeal(meal)}>Add to {this.context.formattedDate}</button><br/>
             <button className='bm-btn'type='click'onClick={()=>this.context.handleAddBookmark(meal)}>Add to Bookmarks</button>
                 </div>
-            <h2>
-                {meal.meal_name}
-            </h2>
+            
             <button className='ing-btn' type='click' onClick={this.handleViewIngredients}>View Ingredients</button>
            {this.state.viewIngredients && meal.ingredients}<br/>
             

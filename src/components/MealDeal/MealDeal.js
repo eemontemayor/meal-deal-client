@@ -28,8 +28,9 @@ export default class MealDeal extends Component{
     handleClick=(e)=>{
          
         this.setState({
-            view:e.target.className,
-            selected:e.target.className
+            view:e.target.id,
+            selected:e.target.className,
+         
         },()=>{
             console.log(this.state)
         })
@@ -69,9 +70,9 @@ export default class MealDeal extends Component{
                <Section className='form-container'>
 
                 <div className='form-buttons'>
-                    <button className={`add-meal-form`} onClick={this.handleClick} >Add Meal</button>
-                    <button className='bookmarks'onClick={this.handleClick}>BookMarks</button>
-                    <button className='explorer'onClick={this.handleClick}>Explore</button>
+                    <button className={`add-meal-form-btn ${this.state.view==='add-meal-form'?'highlight':''}`} id='add-meal-form' onClick={this.handleClick} >Add Meal</button>
+                    <button className={`bookmarks-btn ${this.state.view==='bookmarks'?'highlight':''}`} id='bookmarks'onClick={this.handleClick}>BookMarks</button>
+                    <button className={`explorer-btn ${this.state.view==='explorer'?'highlight':''}`}id='explorer'onClick={this.handleClick}>Explore</button>
                 </div>
                 <div className='form-box'>
                     {this.state.view==='add-meal-form' && <AddMealForm date={day} />}

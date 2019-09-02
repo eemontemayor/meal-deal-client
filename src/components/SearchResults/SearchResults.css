@@ -1,6 +1,6 @@
-.search-results{
+div .search-results{
     list-style: none;
-    
+overflow: hidden;
   
 }
 .meal-item{
@@ -11,4 +11,8 @@
 .meal-img{
     max-width: 150px;
    
+}
+div.results-container{
+    height:100%;
+    /* overflow: scroll; */
 }
