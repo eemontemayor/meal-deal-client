@@ -37,6 +37,7 @@ export default class AddMealForm extends Component{
       
     }
     this.context.postMeal(newMeal)
+  
    
 }
 

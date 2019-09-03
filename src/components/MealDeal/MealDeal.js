@@ -52,7 +52,7 @@ export default class MealDeal extends Component{
          
             <div className='meal-deal-page'>
 
-            <Calendar className='calendar'
+            <Calendar className='calendar' id='cal'
             onChange={this.context.onChange}
             value={this.context.value}/>  
 
