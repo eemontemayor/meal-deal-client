@@ -27,14 +27,17 @@ export default class ResultItem extends Component{
                 <h2>
                 {meal.meal_name}
             </h2>
-                <div>
-                  <img className='meal-img' src={meal.image} alt='x'/>
-                  <button className='add-btn' type='click'onClick={()=>this.context.postMeal(meal)}>Add to {this.context.formattedDate}</button><br/>
+                <div className='meal-options'>
+                <button className='add-btn' type='click'onClick={()=>this.context.postMeal(meal)}>Add to {this.context.formattedDate}</button>
             <button className='bm-btn'type='click'onClick={()=>this.context.handleAddBookmark(meal)}>Add to Bookmarks</button>
-                </div>
-            
             <button className='ing-btn' type='click' onClick={this.handleViewIngredients}>View Ingredients</button>
-           {this.state.viewIngredients && meal.ingredients}<br/>
+           {this.state.viewIngredients && meal.ingredients}
+                </div>
+                  <img className='meal-img' src={meal.image} alt='x'/>
+                 
+            
+           
+                
             
         </div>
     )
