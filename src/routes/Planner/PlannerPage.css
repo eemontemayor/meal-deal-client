@@ -1,22 +1,8 @@
 
-
 .planner-page{
-    display:grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 38% 30% 32%;
-    height:95vh;
-    margin-top:5vh;
-   
+  height:100vh;
 }
- @media only screen and (min-width: 760px) {
-    .planner-page{
-        display:grid;
-        grid-template-columns: 40% 40%;
-        grid-template-rows: 45% 45%;
-        grid-gap:20px;
-    }
-  
-}
+
 
     
  

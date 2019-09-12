@@ -1,7 +1,19 @@
 import React,{Component} from 'react'
 import MealApiContext from '../../contexts/MealContext'
-
+import './SearchResults.css'
 export default class ResultItem extends Component{
+    state={
+        viewIngredients:false
+    }
+
+    handleViewIngredients=()=>{
+        this.setState({
+            viewIngredients:!this.state.viewIngredients
+        },()=>{
+            console.log(this.state)
+        })
+    }
+
     static contextType = MealApiContext
     render(){
         const meal ={
@@ -12,14 +24,23 @@ export default class ResultItem extends Component{
       console.log(meal)
         return(
             <div className='meal-item'>
-                <div>
-                  <img className='meal-img' src={meal.image} alt='x'/>
-                </div>
-            <h2>
+                <h2>
                 {meal.meal_name}
             </h2>
-            <button className='add-btn' type='click'onClick={()=>this.context.postMeal(meal)}>Add to {this.context.formattedDate}</button>
+                <div className='meal-options'>
+                <button className='add-btn' type='click'onClick={()=>this.context.postMeal(meal)}>Add to {this.context.formattedDate}</button>
             <button className='bm-btn'type='click'onClick={()=>this.context.handleAddBookmark(meal)}>Add to Bookmarks</button>
+            <button className='ing-btn' type='click' onClick={this.handleViewIngredients}>View Ingredients</button><br/>
+           {this.state.viewIngredients && meal.ingredients.map((item,index) =>{
+               return <li className='item-ingredient' key={index}>{item}</li>
+           })}
+                </div>
+                  <img className='meal-img' src={meal.image} alt='x'/>
+                 
+            
+           
+                
+            
         </div>
     )
 }

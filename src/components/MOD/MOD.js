@@ -8,9 +8,14 @@ export default class Mod extends Component{
 
     list=(mod)=>{
       const meal = mod
-      if(meal.length === 0 || meal === undefined){
-        debugger
-        return <li>Add a meal to this day!</li>
+      console.log(meal)
+      if( meal === undefined || meal === []){
+        // debugger
+        return <li className='place-holder'>
+     
+          Add a meal to this day!
+          
+          </li>
       }
       else{
         return meal.map((item, index)=>{

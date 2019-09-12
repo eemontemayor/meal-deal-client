@@ -1,6 +1,6 @@
 import React from 'react'
 import ResultItem from './ResultItem'
-
+import './SearchResults.css'
 
 export default function SearchResults(props){
 
@@ -9,7 +9,7 @@ export default function SearchResults(props){
     })
 
     return(
-        <div>
+        <div className='results-container'>
             <ul className='search-results'>
             {results}
             </ul>

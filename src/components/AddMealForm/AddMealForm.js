@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Button, Input, Textarea } from '../Utils/Utils';
 import MealContext from '../../contexts/MealContext';
-
+import './AddMealForm.css'
 
 
 export default class AddMealForm extends Component{
@@ -37,6 +37,7 @@ export default class AddMealForm extends Component{
       
     }
     this.context.postMeal(newMeal)
+  
    
 }
 
@@ -46,8 +47,8 @@ export default class AddMealForm extends Component{
        
       
         return(
-    <div>
-        <form onSubmit={this.handlePostMeal.bind(this)}>
+    <div className='add-meal-form'>
+        <form onSubmit={this.handlePostMeal.bind(this)} className='add-meal-form'>
              
             <div className='add_meal_form'>
               <label htmlFor='addMealForm_meal_name'>

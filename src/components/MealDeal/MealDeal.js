@@ -17,6 +17,7 @@ export default class MealDeal extends Component{
         super(props);
         this.state = { 
             view:'add-meal-form',
+            selected:'add-meal-form'
           
         }
       }
@@ -25,9 +26,13 @@ export default class MealDeal extends Component{
     
 
     handleClick=(e)=>{
-          console.log(e.target.className)
+         
         this.setState({
-            view:e.target.className
+            view:e.target.id,
+            selected:e.target.className,
+         
+        },()=>{
+            console.log(this.state)
         })
    
       }
@@ -47,26 +52,27 @@ export default class MealDeal extends Component{
          
             <div className='meal-deal-page'>
 
-            <Calendar className='calendar'
+            <Calendar className='calendar' id='cal'
             onChange={this.context.onChange}
             value={this.context.value}/>  
 
-                <Section className='meal-date'>
+                <Section  className='mod-container'>
              
-                   {day} - {formattedDay}
+                   <p className='meal-date'>
+                    {day} - {formattedDay}      
+                   </p>
                 
                     
-                </Section>
-                <Section className='meals-of-day'>
-                    <Mod  />
+                
+                    <Mod className='meals-of-day' />
                 </Section>
 
                <Section className='form-container'>
 
                 <div className='form-buttons'>
-                    <button className='add-meal-form' onClick={this.handleClick} >Add Meal</button>
-                    <button className='bookmarks'onClick={this.handleClick}>BookMarks</button>
-                    <button className='explorer'onClick={this.handleClick}>Explore</button>
+                    <button className={`add-meal-form-btn ${this.state.view==='add-meal-form'?'selected':''}`} id='add-meal-form' onClick={this.handleClick} >Add Meal</button>
+                    <button className={`bookmarks-btn ${this.state.view==='bookmarks'?'selected':''}`} id='bookmarks'onClick={this.handleClick}>BookMarks</button>
+                    <button className={`explorer-btn ${this.state.view==='explorer'?'selected':''}`}id='explorer'onClick={this.handleClick}>Explore</button>
                 </div>
                 <div className='form-box'>
                     {this.state.view==='add-meal-form' && <AddMealForm date={day} />}
