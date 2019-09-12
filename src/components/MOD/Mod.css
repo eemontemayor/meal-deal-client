@@ -33,3 +33,13 @@ background-color: rgba(233, 47, 47, 0.76);
     text-align: center;
     margin-top: 30px;
 }
+
+@media only screen and (min-width: 760px) {
+
+
+    .mod-item{
+        height:4rem;
+        font-size: 1.2rem;
+    }
+
+}
