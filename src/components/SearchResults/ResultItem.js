@@ -30,8 +30,10 @@ export default class ResultItem extends Component{
                 <div className='meal-options'>
                 <button className='add-btn' type='click'onClick={()=>this.context.postMeal(meal)}>Add to {this.context.formattedDate}</button>
             <button className='bm-btn'type='click'onClick={()=>this.context.handleAddBookmark(meal)}>Add to Bookmarks</button>
-            <button className='ing-btn' type='click' onClick={this.handleViewIngredients}>View Ingredients</button>
-           {this.state.viewIngredients && meal.ingredients}
+            <button className='ing-btn' type='click' onClick={this.handleViewIngredients}>View Ingredients</button><br/>
+           {this.state.viewIngredients && meal.ingredients.map((item,index) =>{
+               return <li className='item-ingredient' key={index}>{item}</li>
+           })}
                 </div>
                   <img className='meal-img' src={meal.image} alt='x'/>
                  
