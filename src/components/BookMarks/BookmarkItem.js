@@ -1,5 +1,7 @@
 import React,{Component} from 'react'
 import MealContext from '../../contexts/MealContext';
+import './BookMarks.css'
+
 
 export default class BookmarkItem extends Component{
     state={
@@ -15,7 +17,8 @@ seeMore = (meal) =>{
     
     this.setState({
         seeMore:!this.state.seeMore,
-        ingredients:meal.ingredients
+        ingredients:meal.ingredients,
+        image:meal.image
 
 
     },()=>{
@@ -23,17 +26,19 @@ seeMore = (meal) =>{
     })
 }
 }
-renderIngredients=()=>{
+renderMore=()=>{
 // console.log(this.state.ingredients)
 if(this.state.ingredients){
-    const ing = this.state.ingredients
-    console.log(ing)
+    const img = this.state.image
+
+    console.log(img)
 //     return ing.map((item,index) =>{
 //           return <li className='ingredient-item' key={index}>{item}</li>
 // })
     // console.log(ing)
-    // return <p>{ing}</p>
-}}
+    return <img  className='bm-img'  src={img} alt='x'/>
+}
+}
 
 render(){
     console.log(this.props)
@@ -54,7 +59,7 @@ render(){
             <div>
                 <ul>
 
-               {this.state.seeMore && this.renderIngredients()}
+               {this.state.seeMore && this.renderMore()}
               
                 </ul>
             </div>
