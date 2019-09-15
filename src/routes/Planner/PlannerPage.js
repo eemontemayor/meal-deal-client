@@ -115,6 +115,7 @@ handleDeleteMeal=(meal,index)=>{
     const newBookmark = {
       meal_name:name,
       ingredients: meal.ingredients,
+      image:meal.image
     }
 
     const list = this.state.bookmarks.map(i=> {

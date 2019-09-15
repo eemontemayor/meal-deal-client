@@ -3,12 +3,13 @@ import MealContext from '../../contexts/MealContext';
 
 export default class BookmarkItem extends Component{
     state={
-        seeMore:false
+        seeMore:false,
+        ingredients:[]
     }
 static contextType = MealContext
 
 seeMore = (meal) =>{
-    console.log(meal)
+    
     if(meal.ingredients){
 
     
@@ -18,25 +19,30 @@ seeMore = (meal) =>{
 
 
     },()=>{
-        console.log(this.state)
+        console.log(this.state.ingredients)
     })
 }
 }
 renderIngredients=()=>{
-console.log(this.state.ingredients)
+// console.log(this.state.ingredients)
 if(this.state.ingredients){
     const ing = this.state.ingredients
+    console.log(ing)
 //     return ing.map((item,index) =>{
 //           return <li className='ingredient-item' key={index}>{item}</li>
 // })
-    return <p>{ing}</p>
+    // console.log(ing)
+    // return <p>{ing}</p>
 }}
 
 render(){
+    console.log(this.props)
     const newMeal={
         meal_name:this.props.meal.meal_name,
-        ingredients:this.props.meal.ingredients
+        ingredients:this.props.meal.ingredients,
+        image:this.props.meal.image
     }
+    console.log(newMeal)
    const meal_name = this.props.meal.meal_name
    const index= this.props.index
     return(
