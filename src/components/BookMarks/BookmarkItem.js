@@ -57,11 +57,11 @@ render(){
             <button className='add-btn' onClick={()=>this.context.postMeal(newMeal)}>+</button>
             <button className='see-more-btn' onClick={()=>this.seeMore(newMeal)}>...</button>
             <div>
-                <ul>
+                
 
                {this.state.seeMore && this.renderMore()}
               
-                </ul>
+                
             </div>
 
         </div>

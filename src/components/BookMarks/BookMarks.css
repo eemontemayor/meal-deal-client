@@ -11,17 +11,20 @@
     margin:auto;
     margin-bottom:5px;
     max-width: 350px;
-    text-overflow: ellipsis;
+  
     /* white-space: nowrap; */
    font-size: .75em;
-   height:2.5em;
+   height:auto;
 }
 .bm-list{
     padding:0px;
   
 }
 
-
+.bm-img{
+    max-width: 150px;
+  
+}
 .add-btn{
     background-color: rgba(0, 255, 255, 0.637);
 
@@ -38,16 +41,14 @@
       margin:auto;
       height:auto;
       display:block;
+      margin-bottom:10px;
     }
     .bm-item button{
        position:relative;
       
 
     }
-    .bm-img{
-        max-width: 150px;
-      
-    }
+  
     .add-btn{
         position:relative;
         right:3px;
