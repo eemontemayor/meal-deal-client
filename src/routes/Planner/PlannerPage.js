@@ -155,6 +155,7 @@ handleDeleteBookmark=(meal,index)=>{
 
 
 
+
     render(){
         const  value  = {
             day: this.state.value,
@@ -165,7 +166,8 @@ handleDeleteBookmark=(meal,index)=>{
             handleAddBookmark:this.handleAddBookmark,
             handleDeleteBookmark:this.handleDeleteBookmark,
             postMeal:this.postMeal,
-            onChange:this.onChange
+            onChange:this.onChange,
+           
             }
            
         return(

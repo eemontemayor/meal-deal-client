@@ -62,7 +62,7 @@ export default class AddMealForm extends Component{
                 >
               </Input>
             </div>
-            <div className='dishType'>
+            {/* <div className='dishType'>
               <label htmlFor='dishType'>Meal Type
               </label>
                 <select>
@@ -72,7 +72,7 @@ export default class AddMealForm extends Component{
                     <option value="dinner">Dinner</option>
                     <option value="other">Other</option>
                 </select>
-            </div>
+            </div> */}
             <div className= 'ingredients'>
                 <label htmlFor='ingredients'>Ingredients
                 </label><br/>

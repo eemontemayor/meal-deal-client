@@ -3,6 +3,7 @@ import MealApiService from '../../services/meal-api-service'
 import MealContext from '../../contexts/MealContext'
 import {Input,Button} from '../Utils/Utils'
 import SearchResults from '../SearchResults/SearchResults';
+import './ExplorerForm.css'
 export default class Explorer extends Component{
 
     state={
@@ -36,7 +37,8 @@ export default class Explorer extends Component{
       }
     render(){
         return(
-            <div><h1>
+            <div>
+              <h1>
                 EXPLORER
                 </h1>
                 <div className='explorer_form'>

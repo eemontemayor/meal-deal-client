@@ -1,7 +1,7 @@
 .search-results{
     list-style: none;
 /* display:contents; */
- 
+ margin:auto;
 height:fit-content;
 text-align: center;
 
