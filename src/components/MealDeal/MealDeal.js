@@ -51,11 +51,13 @@ export default class MealDeal extends Component{
         return(
          
             <div className='meal-deal-page'>
+            <Section className='cal-container'>
 
             <Calendar className='calendar' id='cal'
             onChange={this.context.onChange}
             value={this.context.value}/>  
 
+            </Section>
                 <Section  className='mod-container'>
              
                    <p className='meal-date'>

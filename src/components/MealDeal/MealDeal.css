@@ -102,16 +102,24 @@
         width:33.3%;
         height:50px;
     }
-    div.react-calendar.calendar{       
+    .cal-container{
         grid-column: 1/2;       
         grid-row: 1/2;
-        transform: scale(1.6);
-        padding:15px;
-}
-#cal{
-    margin:auto;
-   /* box-sizing: border-box; */
-}
+    }
+    div.react-calendar.calendar{       
+      width:90%;
+      height:90%;
+        /* transform: scale(1.6); */
+        font-size:1.3rem;
+       
+    }
+    .react-calendar button{
+        /* background-color: pink; */
+      /* line-height:3; */
+        font-weight:500;
+    font-size: large; 
+    }
+
 }
 
 @media only screen and (max-width: 360px) {
