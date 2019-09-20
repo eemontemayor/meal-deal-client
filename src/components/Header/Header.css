@@ -1,7 +1,7 @@
 .main-header {
     position: fixed;
     width: 100%;
-    background-color:azure;
+    background-color:rgba(0, 255, 255, 0.411);
     height:40px;
     z-index: 100;
     top: 0;
@@ -51,10 +51,10 @@
   }
   
   .deal {
-    color: rgb(255, 7, 7);
+    color:  rgb(195, 0, 255)
   }
   .meal{
-    color: green;
+    color: rgb(64, 110, 3)
   }
   
   @media only screen and (max-width: 760px) {

@@ -14,12 +14,12 @@
     margin-bottom:5px;
     max-width: 350px;
    text-overflow: ellipsis;
-   font-size: .75em;
-   height:2.5em;
+   font-size: 1.1em;
+   height:6vh;
 }
 .mod-list{
    padding:0px;
-   min-height:33vh;
+   height:30vh;
   
 }
 .del-btn{
