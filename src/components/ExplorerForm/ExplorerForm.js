@@ -37,7 +37,7 @@ export default class Explorer extends Component{
       }
     render(){
         return(
-            <div>
+            <>
               <h1>
                 EXPLORER
                 </h1>
@@ -84,7 +84,7 @@ export default class Explorer extends Component{
           
         
             </div>
-            </div>
+            </>
         )
     }
 }
