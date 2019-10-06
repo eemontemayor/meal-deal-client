@@ -27,22 +27,20 @@ renderMore=()=>{
 
 if(this.state.ingredients){
     const pic = this.state.image
-    console.log(this.state.ingredients)
 
     let ing = this.state.ingredients.replace(/[{}]/g,'').split(',')
    
-    console.log(ing)
     const list = ing.map((item,index)=>{
         return <li key={index}>{item}</li>
     })
+
     return <div>
-        <img src={pic} alt='x'/>
+        <img className='bm-img'src={pic} alt='x'/><br/>
         Ingredients:
         <ul className='ing-list'>{list}</ul>
         </div>
         
         
-    // return <img  className='bm-img'  src={img} alt='x'/>
 }
 }
 

@@ -7,26 +7,56 @@ export default class ModItem extends Component{
   }
 static contextType = MealContext
 
-seeMore = () =>{
+seeMore = (meal) =>{
     this.setState({
-        seeMore:!this.state.seeMore
+        seeMore:!this.state.seeMore,
+        ingredients:meal.ingredients,
+        image:meal.image
     },()=>{
         console.log(this.state)
     })
 }
+renderMore=()=>{
 
+    if(this.state.ingredients){
+        const pic = this.state.image
+    
+        let ing = this.state.ingredients.replace(/[{}]/g,'').split(',')
+       
+        const list = ing.map((item,index)=>{
+            return <li key={index}>{item}</li>
+        })
+        
+        return <div>
+            <img className='bm-img'src={pic} alt='x'/><br/>
+            Ingredients:
+            <ul className='ing-list'>{list}</ul>
+            </div>
+            
+            
+    }
+   
+    }
 
 
 render(){
    const meal_name = this.props.meal.meal_name
-
    const index= this.props.index
+   const newMeal={
+    meal_name:this.props.meal.meal_name,
+    ingredients:this.props.meal.ingredients,
+    image:this.props.meal.image
+}
     return(
         <div >
             {meal_name}
             <button className='del-btn'onClick={()=>this.context.handleDeleteMeal(this.props.meal,index)} >x</button>
             <button className='bm-btn'onClick={()=>this.context.handleAddBookmark(this.props.meal)}>b</button>
-            <button className='see-more-btn' onClick={this.seeMore}>...</button>
+            <button className='see-more-btn' onClick={()=>this.seeMore(newMeal)}>...</button>
+            <div>
+
+            {this.state.seeMore && this.renderMore()}
+            </div>
         </div>
     )
 }

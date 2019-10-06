@@ -6,20 +6,19 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    
     box-shadow: 2px 2px 1px grey;
     background-color: rgba(0, 255, 255, 0.411);
     padding:5px;
     margin:auto;
     margin-bottom:5px;
     max-width: 350px;
-   text-overflow: ellipsis;
-   font-size: 1.1em;
-   height:6vh;
+   font-size: .75em;
+   height:auto;
+   min-height:6vh;
 }
 .mod-list{
    padding:0px;
-   height:30vh;
+   min-height:30vh;
   
 }
 .del-btn{
@@ -41,8 +40,15 @@ background-color: rgba(233, 47, 47, 0.76);
 
 
     .mod-item{
-        height:4rem;
+        /* min-height: auto; */
+       height:auto;
         font-size: 1.2rem;
+        margin-bottom:10px;
+        width:350px;
+        /* margin:auto; */
+        display:block;
+
+
     }
 
 }
