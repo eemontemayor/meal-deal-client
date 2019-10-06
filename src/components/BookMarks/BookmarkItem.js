@@ -14,40 +14,46 @@ seeMore = (meal) =>{
     
     if(meal.ingredients){
 
-    
-    this.setState({
-        seeMore:!this.state.seeMore,
-        ingredients:meal.ingredients,
-        image:meal.image
+        this.setState({
+            seeMore:!this.state.seeMore,
+            ingredients:meal.ingredients,
+            image:meal.image
+        })
+    }
+}
 
 
-    },()=>{
-        console.log(this.state.ingredients)
-    })
-}
-}
 renderMore=()=>{
-// console.log(this.state.ingredients)
-if(this.state.ingredients){
-    const img = this.state.image
 
-    console.log(img)
-//     return ing.map((item,index) =>{
-//           return <li className='ingredient-item' key={index}>{item}</li>
-// })
-    // console.log(ing)
-    return <img  className='bm-img'  src={img} alt='x'/>
+if(this.state.ingredients){
+    const pic = this.state.image
+    console.log(this.state.ingredients)
+
+    let ing = this.state.ingredients.replace(/[{}]/g,'').split(',')
+   
+    console.log(ing)
+    const list = ing.map((item,index)=>{
+        return <li key={index}>{item}</li>
+    })
+    return <div>
+        <img src={pic} alt='x'/>
+        Ingredients:
+        <ul className='ing-list'>{list}</ul>
+        </div>
+        
+        
+    // return <img  className='bm-img'  src={img} alt='x'/>
 }
 }
 
 render(){
-    console.log(this.props)
+    // console.log(this.props)
     const newMeal={
         meal_name:this.props.meal.meal_name,
         ingredients:this.props.meal.ingredients,
         image:this.props.meal.image
     }
-    console.log(newMeal)
+    // console.log(newMeal)
    const meal_name = this.props.meal.meal_name
    const index= this.props.index
     return(

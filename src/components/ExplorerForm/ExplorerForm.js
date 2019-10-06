@@ -55,27 +55,7 @@ export default class Explorer extends Component{
                 id='explorer_search_term'>
               </Input>
             </div>
-            {/* <div className='dishType'>
-              <label htmlFor='dishType'>MealType
-              </label>
-                <select>
-                    <option value="null">...</option>
-                    <option value="breakfast">Breakfast</option>
-                    <option value="lunch">Lunch</option>
-                    <option value="dinner">Dinner</option>
-                    <option value="dessert">Dessert</option>
-                </select>
-              </div>
-              <div className='cuisineType'>
-              <label htmlFor='cuisineType'>Cuisine Type
-              </label>
-                <Input
-                name="cuisineType"
-                id="BrowserForm_cuisine_search"
-                placeholder="e.g. Mexican"
-                >
-                </Input>
-              </div> */}
+         
             <Button type='submit'>
               Search
             </Button>

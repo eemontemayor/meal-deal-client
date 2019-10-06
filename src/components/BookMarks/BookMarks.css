@@ -20,7 +20,10 @@
     padding:0px;
   
 }
-
+.ing-list{
+    list-style: circle;
+    text-align: left;
+}
 .bm-img{
     max-width: 150px;
   
