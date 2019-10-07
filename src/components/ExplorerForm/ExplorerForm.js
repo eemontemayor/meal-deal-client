@@ -3,6 +3,7 @@ import MealApiService from '../../services/meal-api-service'
 import MealContext from '../../contexts/MealContext'
 import {Input,Button} from '../Utils/Utils'
 import SearchResults from '../SearchResults/SearchResults';
+import './ExplorerForm.css'
 export default class Explorer extends Component{
 
     state={
@@ -36,7 +37,8 @@ export default class Explorer extends Component{
       }
     render(){
         return(
-            <div><h1>
+            <>
+              <h1>
                 EXPLORER
                 </h1>
                 <div className='explorer_form'>
@@ -53,27 +55,7 @@ export default class Explorer extends Component{
                 id='explorer_search_term'>
               </Input>
             </div>
-            {/* <div className='dishType'>
-              <label htmlFor='dishType'>MealType
-              </label>
-                <select>
-                    <option value="null">...</option>
-                    <option value="breakfast">Breakfast</option>
-                    <option value="lunch">Lunch</option>
-                    <option value="dinner">Dinner</option>
-                    <option value="dessert">Dessert</option>
-                </select>
-              </div>
-              <div className='cuisineType'>
-              <label htmlFor='cuisineType'>Cuisine Type
-              </label>
-                <Input
-                name="cuisineType"
-                id="BrowserForm_cuisine_search"
-                placeholder="e.g. Mexican"
-                >
-                </Input>
-              </div> */}
+         
             <Button type='submit'>
               Search
             </Button>
@@ -82,7 +64,7 @@ export default class Explorer extends Component{
           
         
             </div>
-            </div>
+            </>
         )
     }
 }

@@ -24,24 +24,26 @@ export default class ResultItem extends Component{
       console.log(meal)
         return(
             <div className='meal-item'>
-                <h2>
-                {meal.meal_name}
-            </h2>
-                <div className='meal-options'>
-                <button className='add-btn' type='click'onClick={()=>this.context.postMeal(meal)}>Add to {this.context.formattedDate}</button>
-            <button className='bm-btn'type='click'onClick={()=>this.context.handleAddBookmark(meal)}>Add to Bookmarks</button>
-            <button className='ing-btn' type='click' onClick={this.handleViewIngredients}>View Ingredients</button><br/>
-           {this.state.viewIngredients && meal.ingredients.map((item,index) =>{
-               return <li className='item-ingredient' key={index}>{item}</li>
-           })}
+                <div  className='meal-item-header'>
+                    <h2>
+                        {meal.meal_name}
+                    </h2>
+                    <div className='meal-options'>
+                        <button className='add-btn' type='click'onClick={()=>this.context.postMeal(meal)}>Add to {this.context.formattedDate}</button>
+                        <button className='bm-btn'type='click'onClick={()=>this.context.handleAddBookmark(meal)}>Add to Bookmarks</button>
+                            <button className='ing-btn' type='click' onClick={this.handleViewIngredients}>View Ingredients</button><br/>
+                    </div>
                 </div>
-                  <img className='meal-img' src={meal.image} alt='x'/>
-                 
-            
-           
-                
-            
-        </div>
-    )
-}
+
+                <img className='meal-img' src={meal.image} alt='x'/>
+              
+                <ul className='ingredient-list'>
+
+                    {this.state.viewIngredients && meal.ingredients.map((item,index) =>{
+                        return <li className='ingredient-item' key={index}>{item}</li>
+                    })}
+                </ul>
+            </div>
+        )
+    }
 }

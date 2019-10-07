@@ -115,6 +115,7 @@ handleDeleteMeal=(meal,index)=>{
     const newBookmark = {
       meal_name:name,
       ingredients: meal.ingredients,
+      image:meal.image
     }
 
     const list = this.state.bookmarks.map(i=> {
@@ -155,6 +156,7 @@ handleDeleteBookmark=(meal,index)=>{
 
 
 
+
     render(){
         const  value  = {
             day: this.state.value,
@@ -165,7 +167,8 @@ handleDeleteBookmark=(meal,index)=>{
             handleAddBookmark:this.handleAddBookmark,
             handleDeleteBookmark:this.handleDeleteBookmark,
             postMeal:this.postMeal,
-            onChange:this.onChange
+            onChange:this.onChange,
+           
             }
            
         return(

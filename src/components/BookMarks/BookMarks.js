@@ -10,14 +10,17 @@ export default class BookMarks extends Component{
 
     render(){
        
-        const bookmarks = this.context.bookmarks.map((item,index)=>{
-            return <li className='bm-item' key={index}><BookmarkItem meal={item} index={index} /></li>
+        // const bookmarks = this.context.bookmarks.map((item,index)=>{
+        //     return <li className='bm-item' key={index}><BookmarkItem meal={item} index={index} /></li>
 
-        })
+        // })
         return(
             <div className='bm-page'>
                 <ul className='bm-list'>
-                    {bookmarks}
+                    {this.context.bookmarks && this.context.bookmarks.map((item,index)=>{
+            return <li className='bm-item' key={index}><BookmarkItem meal={item} index={index} /></li>
+
+        })}
                 </ul>
             </div>
         )
