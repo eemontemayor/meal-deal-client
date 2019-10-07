@@ -14,23 +14,27 @@ export default class PlannerPage extends Component{
     
   componentDidMount(){
     const formattedDate=dateFormat(this.state.value, 'yyyy-mm-dd')
-    this.setState({formattedDate },()=>{
-    MealApiService.findMealByDate(formattedDate)
-    .then(meals =>{ 
-        this.setState({
-            MOD:meals
-        })
-        })
-    })
+    console.log('here')
+    this.setState({formattedDate }
+    //     ,()=>{
+    // MealApiService.findMealByDate(formattedDate)
+    // .then(meals =>{ 
+    //     this.setState({
+    //         MOD:meals
+    //     })
+    //     })
+    // }
+    )
 
-    MealApiService.getBookmarks()
-    .then(meals=>{
-        this.setState({
-            bookmarks:meals
-        },()=>{
-         console.log(this.state)
-        })
-    })
+    // MealApiService.getBookmarks()
+    // .then(meals=>{
+    //     this.setState({
+    //         bookmarks:meals
+    //     },()=>{
+    //      console.log(this.state)
+    //     })
+    // }
+    // )
   }
 
 onChange = value => {
