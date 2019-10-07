@@ -47,6 +47,7 @@ const MealApiService = {
       })
       .catch(error => {
         console.error({error})
+        console.log('here')
       })
     },
 
