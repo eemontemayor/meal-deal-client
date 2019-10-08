@@ -1,7 +1,7 @@
 
 import './App.css';
 import React, { Component } from 'react'
-import { Switch } from 'react-router-dom';
+import {Route, Switch } from 'react-router-dom';
 import PrivateRoute from '../Utils/PrivateRoute';
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import LoginPage from '../../routes/LoginPage.js';
@@ -47,7 +47,7 @@ export default class App extends Component{
               component={RegistrationPage}
             />
              <PrivateRoute
-              exact path={'/'}
+               path={'/'}
               component={PlannerPage}
             />
                 {/* <PrivateRoute
