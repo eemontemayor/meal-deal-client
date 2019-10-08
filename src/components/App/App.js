@@ -47,7 +47,7 @@ export default class App extends Component{
               component={RegistrationPage}
             />
              <PrivateRoute
-               path={'/'}
+              exact path={'/'}
               component={PlannerPage}
             />
                 {/* <PrivateRoute
