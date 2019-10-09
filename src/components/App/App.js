@@ -2,7 +2,7 @@
 import './App.css';
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom';
-import PrivateRoute from '../Utils/PrivateRoute';
+// import PrivateRoute from '../Utils/PrivateRoute';
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import LoginPage from '../../routes/LoginPage.js';
 import RegistrationPage from '../../routes/RegistrationPage';
