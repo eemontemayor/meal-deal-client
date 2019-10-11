@@ -19,10 +19,11 @@ class LoginForm extends Component {
   firstInput = React.createRef();
 
   handleSubmit = ev => {
+    console.log('from loginform')
     ev.preventDefault();
+    this.setState({ error: null });
     const { username, password } = ev.target;
 
-    this.setState({ error: null });
 
     AuthApiService.postLogin({
       username: username.value,
