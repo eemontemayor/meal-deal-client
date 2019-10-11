@@ -1,7 +1,7 @@
 
 import './App.css';
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import PrivateRoute from '../Utils/PrivateRoute';
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import LoginPage from '../../routes/LoginPage.js';
@@ -36,7 +36,7 @@ export default class App extends Component{
           {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
           <Switch>
 
-            <Route exact path={'/'} component={LandingPage}/>
+            <PublicOnlyRoute exact path={'/'} component={LandingPage}/>
             
             <PublicOnlyRoute
               path={'/login'}
