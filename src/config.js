@@ -8,3 +8,4 @@ export default {
     APP_ID:process.env.REACT_APP_ID,
   }
 
+// fixed problem by taking ./build folder off of gitignore?
