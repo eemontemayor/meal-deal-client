@@ -10,7 +10,7 @@ import LandingPage from '../../routes/LandingPage/LandingPage'
 import Header from '../Header/Header'
 import PlannerPage from '../../routes/Planner/PlannerPage';
 import ExplorerPage from '../../routes/ExplorerPage/ExplorerPage';
-
+import ShoppingListPage from '../../routes/ShoppingListPage/ShoppingListPage'
 
 export default class App extends Component{
   state={
@@ -36,7 +36,7 @@ export default class App extends Component{
           {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
           <Switch>
 
-            <PublicOnlyRoute exact path={'/'} component={LandingPage}/>
+            <PrivateRoute exact path={'/'} component={LandingPage}/>
             
             <PublicOnlyRoute
               path={'/login'}
@@ -46,10 +46,6 @@ export default class App extends Component{
               path={'/register'}
               component={RegistrationPage}
             />
-             {/* <PrivateRoute
-              exact path={'/'}
-              component={PlannerPage}
-            /> */}
                 <PrivateRoute
               path={'/planner'}
               component={PlannerPage}
@@ -57,6 +53,10 @@ export default class App extends Component{
               <PrivateRoute
               path={'/explore'}
               component={ExplorerPage}
+            />
+            <PrivateRoute
+              path={'/shoppinglist'}
+              component={ShoppingListPage}
             />
           
           </Switch>

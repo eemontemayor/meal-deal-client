@@ -1,4 +1,27 @@
+.landing-btn{
+    display:block;
+    width:33vw;
+    height:25vh;
+    margin:auto;
+    margin-bottom:50px;
+    margin-top:50px;
+    cursor: pointer;
+
+}
+
+.explore-btn{
+    background-color:grey;
+}
+
+.shoplist-btn{
+    background-color:yellow;
+}
 .planner-btn{
-  
-    margin-top:30vh;
+    background-color:blue;
+
+}
+
+.landing-page{
+height:auto;
+width:100%;
 }
