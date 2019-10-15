@@ -10,7 +10,7 @@ export default class ShoppingListPage extends Component{
     state = {
         shoppingItems: [
           /* put stub items in here for testing */
-          { name: 'eggs', checked: false },
+        //   { name: 'eggs', checked: false },
           { name: 'fruit', checked: true },
           { name: 'wine', checked: false },
         ]
@@ -21,8 +21,7 @@ export default class ShoppingListPage extends Component{
             console.log(items)
 
             this.setState({
-                shoppingItems:this.state.shoppingItems,
-                            ...items
+                shoppingItems:[{ name: 'wine', checked: false },...items]
             },()=>{
                console.log(this.state)
            }
@@ -65,7 +64,7 @@ export default class ShoppingListPage extends Component{
 
 
     render(){
-      
+      const items=this.state.shoppingItems
     
         return(
             <div className= 'shopping-list-page'>
@@ -80,7 +79,7 @@ export default class ShoppingListPage extends Component{
           </section>
           <section>
             <ShoppingList 
-            items={this.state.shoppingItems} 
+            items={items} 
             onDeleteItem={this.handleDeleteItem}
             onCheckItem={this.handleCheckItem}
             />

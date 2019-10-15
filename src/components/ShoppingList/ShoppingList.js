@@ -2,6 +2,7 @@ import React from 'react'
 import ShoppingItem from './ShoppingItem'
 
 export default function ShoppingList(props) {
+  console.log(props)
   return (
     <ul>
       {props.items.map((item, i) =>

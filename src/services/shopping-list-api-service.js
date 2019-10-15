@@ -12,9 +12,9 @@ const ShoppingListApiService = {
             },
           })
           .then((itemRes) => { 
-            (!itemRes.ok)
-              ? itemRes.json().then(e => Promise.reject(e))
-              : itemRes.json()
+            if (!itemRes.ok)
+              return itemRes.json().then(e => Promise.reject(e))
+              return itemRes.json()
           })
           .catch(error => {
             console.log({error})
