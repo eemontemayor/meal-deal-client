@@ -9,17 +9,21 @@
 
 }
 
+
 .explore-btn{
-    background-color:grey;
+    /* background-color:grey; */
+    background: url('../../images/explorer-pic.jpg');
 }
 
 .shoplist-btn{
     background-color:yellow;
+    background:url('../../images/list-pic.jpg')
 }
 .planner-btn{
-    background-color:blue;
-
+    /* background-color:blue; */
+    background: url('../../images/plan-pic.jpg');
 }
+
 
 .landing-page{
 height:auto;

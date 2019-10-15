@@ -13,6 +13,7 @@ render(){
             <Link to='/explore' >
             <button className='landing-btn explore-btn'>
                Explore
+               
             </button> 
             </Link>
             <Link to='/shoppinglist' >
