@@ -2,7 +2,7 @@ import React , {Component} from 'react';
 import ShoppingList from '../../components/ShoppingList/ShoppingList'
 import AddItemForm from '../../components/ShoppingList/AddItemForm'
 import './ShoppingListPage.css'
-import ShoppingListService from '../../services/shopping-list-api-service'
+// import ShoppingListService from '../../services/shopping-list-api-service'
 
 export default class ShoppingListPage extends Component{
 
@@ -16,17 +16,17 @@ export default class ShoppingListPage extends Component{
         ]
       };
     componentDidMount(){
-        ShoppingListService.getAllItems()
-        .then(items=>{
-            console.log(items)
+        // ShoppingListService.getAllItems()
+        // .then(items=>{
+        //     console.log(items)
 
-            this.setState({
-                shoppingItems:[{ name: 'wine', checked: false },...items]
-            },()=>{
-               console.log(this.state)
-           }
-        )
-        })
+        //     this.setState({
+        //         shoppingItems:[{ name: 'wine', checked: false },...items]
+        //     },()=>{
+        //        console.log(this.state)
+        //    }
+        // )
+        // })
     }
 
    
