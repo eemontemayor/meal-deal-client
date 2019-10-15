@@ -15,6 +15,14 @@ export default class Explorer extends Component{
     static contextType = MealContext
 
 
+    componentDidMount(){
+      this.setState({
+       
+        searchResults:this.context.searchRes,
+       
+      })
+    }
+
     handleChange = (e) => {
         this.setState({
           searchTerm: e.target.value
@@ -32,10 +40,12 @@ export default class Explorer extends Component{
             this.setState({
                 searchResults: res.hits
                
-              },()=>{console.log(res)})
+              },()=>{this.context.saveSearchRes(this.state.searchResults)})
           })
       }
     render(){
+      console.log(this.context)
+      console.log(this.state)
         return(
             <>
               <h1>

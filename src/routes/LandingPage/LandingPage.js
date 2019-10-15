@@ -4,13 +4,23 @@ import './LandingPage.css'
 export default class LandingPage extends Component{
 render(){
     return(
-        <div>
-           <button className='planner-btn'>
-               <Link to='/planner' >Plan</Link>
+        <div className='landing-page'>
+            <Link to='/planner' >
+                <button className='landing-btn planner-btn'>
+                    Plan
+                </button> 
+            </Link>
+            <Link to='/explore' >
+            <button className='landing-btn explore-btn'>
+               Explore
+               
             </button> 
-            <button className='explorer-btn'>
-               <Link to='/explore' >Explore</Link>
-            </button> 
+            </Link>
+            <Link to='/shoppinglist' >
+                <button className='landing-btn shoplist-btn'>
+                    Shopping List
+                </button> 
+            </Link>
         </div>
     )
 }

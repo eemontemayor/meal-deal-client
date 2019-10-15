@@ -19,24 +19,24 @@ seeMore = (meal) =>{
 renderMore=()=>{
 
     if(this.state.ingredients){
-        const pic = this.state.image
-    
+
         let ing = this.state.ingredients.replace(/[{}]/g,'').split(',')
        
         const list = ing.map((item,index)=>{
             return <li key={index}>{item}</li>
         })
         
-        return <div>
-            <img className='bm-img'src={pic} alt='x'/><br/>
+        return( 
+        <div>
+            {this.state.image ? <img className='bm-img'src={this.state.image} alt='x'/>: null}
+            
+            <br/>
             Ingredients:
             <ul className='ing-list'>{list}</ul>
-            </div>
-            
-            
-    }
-   
-    }
+        </div>
+        )
+    }  
+}
 
 
 render(){

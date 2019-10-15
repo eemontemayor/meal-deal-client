@@ -10,6 +10,7 @@ export default class PlannerPage extends Component{
         MOD:[],
         formattedDate:'',
         bookmarks:[],
+        searchRes:[],
       }
     
   componentDidMount(){
@@ -152,6 +153,11 @@ handleDeleteBookmark=(meal,index)=>{
         })
     })
 }
+saveSearchResults = (arr) =>{
+    this.setState({
+        searchRes:[...arr]
+    })
+}
 
 
 
@@ -168,7 +174,8 @@ handleDeleteBookmark=(meal,index)=>{
             handleDeleteBookmark:this.handleDeleteBookmark,
             postMeal:this.postMeal,
             onChange:this.onChange,
-           
+            searchRes:this.state.searchRes,
+           saveSearchRes:this.saveSearchResults,
             }
            
         return(
