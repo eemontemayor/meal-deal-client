@@ -42,5 +42,14 @@ const ShoppingListApiService = {
             console.log({error})
           })
     },
+    deleteItem(item){
+      return fetch(`${config.API_ENDPOINT}/shoppinglist`, { 
+        method: 'DELETE',
+        headers:{
+          'content-type':'application/json',
+        },
+        body: JSON.stringify(item)
+      })
+    }
 }
 export default ShoppingListApiService;
