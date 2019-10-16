@@ -1,5 +1,5 @@
 .meal-date{
-    font-size:1.2rem;
+    font-size:1.5rem;
     text-align: center;
     margin-top:5px;
 
@@ -111,12 +111,12 @@
       width:90%;
       height:90%;
         /* transform: scale(1.6); */
-        font-size:1.3rem;
+        /* font-size:1.5rem; */
        
     }
     .react-calendar button{
         /* background-color: pink; */
-      /* line-height:3; */
+      line-height:2;
         font-weight:500;
     font-size: large; 
     }

@@ -21,7 +21,6 @@ export default class ResultItem extends Component{
             ingredients:this.props.meal.recipe.ingredientLines,
             image:this.props.meal.recipe.image
         }
-      console.log(meal)
         return(
             <div className='meal-item'>
                 <div  className='meal-item-header'>

@@ -8,13 +8,17 @@
     cursor: pointer;
     color: rgb(244, 248, 16);
     font-size: 3rem;
-    text-shadow:7px 7px 15px rgb(29, 29, 29);
+    text-shadow:7px 10px 10px rgb(29, 29, 29);
+    max-width: 500px;
+    max-height: 500px;
 }
 
 
 .explore-btn{
     /* background-color:grey; */
     background: url('../../images/explorer-pic.jpg')no-repeat center;
+    max-width: 500px;
+    max-height: 500px;
 }
 
 .shoplist-btn{

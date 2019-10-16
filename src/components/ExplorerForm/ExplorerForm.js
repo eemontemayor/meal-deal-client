@@ -16,11 +16,16 @@ export default class Explorer extends Component{
 
 
     componentDidMount(){
+
+
       this.setState({
        
         searchResults:this.context.searchRes,
        
+      },()=>{
+        console.log(this.state)
       })
+      
     }
 
     handleChange = (e) => {
@@ -32,27 +37,33 @@ export default class Explorer extends Component{
       }
 
 
-    handleSubmit = e => {
+    handleExplorerSubmit = e => {
         e.preventDefault()
-      
+      console.log(this.state)
         MealApiService.getExplorerMeals(this.state.searchTerm)
           .then(res => {
+            console.log(res.hits)
             this.setState({
                 searchResults: res.hits
                
-              },()=>{this.context.saveSearchRes(this.state.searchResults)})
+              },()=>{
+                console.log(this.state)
+
+                //if route = planner do this
+                this.context.saveSearchRes(this.state.searchResults)
+                  // to do: move this to meal deal so as to keep it away from explorer route
+                  })
           })
       }
     render(){
-      console.log(this.context)
-      console.log(this.state)
+     
         return(
             <>
               <h1>
                 EXPLORER
                 </h1>
                 <div className='explorer_form'>
-            <form onSubmit={this.handleSubmit}>           
+            <form onSubmit={this.handleExplorerSubmit}>           
             <div className='searchTerm'onChange={this.handleChange.bind(this)}>
               <label htmlFor='explorer_search_term'>
                 Search for:
