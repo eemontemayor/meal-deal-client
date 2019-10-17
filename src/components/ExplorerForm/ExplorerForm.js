@@ -16,16 +16,9 @@ export default class Explorer extends Component{
 
 
     componentDidMount(){
-
-
       this.setState({
-       
         searchResults:this.context.searchRes,
-       
-      },()=>{
-        console.log(this.state)
-      })
-      
+      })      
     }
 
     handleChange = (e) => {
@@ -47,16 +40,18 @@ export default class Explorer extends Component{
                 searchResults: res.hits
                
               },()=>{
-                console.log(this.state)
+          
+                if(!this.props.path){
+                  this.context.saveSearchRes(this.state.searchResults)
 
-                //if route = planner do this
-                this.context.saveSearchRes(this.state.searchResults)
-                  // to do: move this to meal deal so as to keep it away from explorer route
-                  })
+                }
+              })
           })
       }
+
+
     render(){
-     
+      console.log(this.props)
         return(
             <>
               <h1>
