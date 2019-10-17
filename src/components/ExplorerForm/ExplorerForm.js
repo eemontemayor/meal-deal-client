@@ -17,10 +17,8 @@ export default class Explorer extends Component{
 
     componentDidMount(){
       this.setState({
-       
         searchResults:this.context.searchRes,
-       
-      })
+      })      
     }
 
     handleChange = (e) => {
@@ -32,27 +30,35 @@ export default class Explorer extends Component{
       }
 
 
-    handleSubmit = e => {
+    handleExplorerSubmit = e => {
         e.preventDefault()
-      
+      console.log(this.state)
         MealApiService.getExplorerMeals(this.state.searchTerm)
           .then(res => {
+            console.log(res.hits)
             this.setState({
                 searchResults: res.hits
                
-              },()=>{this.context.saveSearchRes(this.state.searchResults)})
+              },()=>{
+          
+                if(!this.props.expPage){
+                  this.context.saveSearchRes(this.state.searchResults)
+
+                }
+              })
           })
       }
+
+
     render(){
-      console.log(this.context)
-      console.log(this.state)
+      console.log(this.props)
         return(
             <>
               <h1>
                 EXPLORER
                 </h1>
                 <div className='explorer_form'>
-            <form onSubmit={this.handleSubmit}>           
+            <form onSubmit={this.handleExplorerSubmit}>           
             <div className='searchTerm'onChange={this.handleChange.bind(this)}>
               <label htmlFor='explorer_search_term'>
                 Search for:
@@ -61,7 +67,6 @@ export default class Explorer extends Component{
                 required
                 type="search"
                 name='searchTerm'
-               
                 id='explorer_search_term'>
               </Input>
             </div>
@@ -70,7 +75,7 @@ export default class Explorer extends Component{
               Search
             </Button>
           </form>
-             {this.state.searchResults && <SearchResults results={this.state.searchResults}/>} 
+             {this.state.searchResults && <SearchResults expPage={this.props.expPage} results={this.state.searchResults}/>} 
           
         
             </div>

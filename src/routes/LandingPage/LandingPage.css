@@ -1,31 +1,49 @@
 .landing-btn{
     display:block;
-    width:33vw;
+    width:75vw;
     height:25vh;
     margin:auto;
-    margin-bottom:50px;
-    margin-top:50px;
+    /* margin-bottom:30px; */
+    margin-top:45px;
     cursor: pointer;
-
+    color: rgb(244, 248, 16);
+    font-size: 3rem;
+    text-shadow:7px 10px 10px rgb(29, 29, 29);
+    
+    border-radius:5px;
+    box-shadow: 3px 3px rgba(3, 3, 3, 0.295);
 }
 
 
 .explore-btn{
     /* background-color:grey; */
-    background: url('../../images/explorer-pic.jpg');
+    background: url('../../images/explorer-pic.jpg')no-repeat center;
+    max-width: 500px;
+    max-height: 500px;
 }
 
 .shoplist-btn{
-    background-color:yellow;
-    background:url('../../images/list-pic.jpg')
+    /* background-color:yellow; */
+    background:url('../../images/list-pic.jpg')no-repeat center;
 }
 .planner-btn{
     /* background-color:blue; */
-    background: url('../../images/plan-pic.jpg');
+   
+    background: url('../../images/plan-pic.jpg')no-repeat center;
 }
 
 
 .landing-page{
 height:auto;
 width:100%;
+}
+@media only screen and (min-width: 760px) {
+   .landing-btn{
+    max-width: 500px;
+    max-height: 500px;
+    margin-bottom:50px;
+    margin-top:50px;
+        width:33vw;
+        height:25vh;
+   }    
 }

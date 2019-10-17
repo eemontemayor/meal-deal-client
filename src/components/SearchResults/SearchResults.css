@@ -48,8 +48,23 @@ width:100%;
 
 @media only screen and (min-width: 760px) {
 
+    .search-results .exp-page{
+        /* margin: auto; */
+        background-color: rgb(231, 231, 231);
+    height: auto;
+    width: 30vw;
+    float: left;
+    margin-left:30px;
+    }
+    .meal-item .exp-page{
+        background-color: pink;
+        max-width: 500px;
+       
+    }
+
+
     .meal-item{
-        min-height:250px;
+        min-height:200px;
         margin:auto;
         margin-top:25px;
         margin-bottom:25px;

@@ -153,11 +153,13 @@ handleDeleteBookmark=(meal,index)=>{
         })
     })
 }
+
 saveSearchResults = (arr) =>{
     this.setState({
         searchRes:[...arr]
     })
 }
+
 
 
 
@@ -175,7 +177,7 @@ saveSearchResults = (arr) =>{
             postMeal:this.postMeal,
             onChange:this.onChange,
             searchRes:this.state.searchRes,
-           saveSearchRes:this.saveSearchResults,
+            saveSearchRes:this.saveSearchResults
             }
            
         return(

@@ -11,13 +11,13 @@ import Mod from '../MOD/MOD'
 import MealContext from '../../contexts/MealContext';
 
 
-
 export default class MealDeal extends Component{
     constructor(props) {
         super(props);
         this.state = { 
             view:'add-meal-form',
-            selected:'add-meal-form'
+            selected:'add-meal-form',
+            searchRes:[]
           
         }
       }
@@ -38,8 +38,9 @@ export default class MealDeal extends Component{
       }
 
 
+      
 
-
+  
 
 
 
@@ -61,7 +62,7 @@ export default class MealDeal extends Component{
                 <Section  className='mod-container'>
              
                    <p className='meal-date'>
-                    {day} - {formattedDay}      
+                    {day} {formattedDay}      
                    </p>
                 
                     
@@ -79,7 +80,7 @@ export default class MealDeal extends Component{
                 <div className='form-box'>
                     {this.state.view==='add-meal-form' && <AddMealForm date={day} />}
                     {this.state.view==='bookmarks' &&  <BookMarks />}
-                    {this.state.view==='explorer' &&  <ExplorerForm/>}
+                    {this.state.view==='explorer' &&  <ExplorerForm />}
                 </div>
                </Section>
                </div>

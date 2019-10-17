@@ -21,15 +21,15 @@ export default class ResultItem extends Component{
             ingredients:this.props.meal.recipe.ingredientLines,
             image:this.props.meal.recipe.image
         }
-      console.log(meal)
         return(
-            <div className='meal-item'>
+            <div className={this.props.expPage?'meal-item exp-page':'meal-item'}>
                 <div  className='meal-item-header'>
                     <h2>
                         {meal.meal_name}
                     </h2>
                     <div className='meal-options'>
-                        <button className='add-btn' type='click'onClick={()=>this.context.postMeal(meal)}>Add to {this.context.formattedDate}</button>
+                        {!this.props.expPage &&  <button className='add-btn' type='click'onClick={()=>this.context.postMeal(meal)}>Add to {this.context.formattedDate}</button>}
+                       
                         <button className='bm-btn'type='click'onClick={()=>this.context.handleAddBookmark(meal)}>Add to Bookmarks</button>
                             <button className='ing-btn' type='click' onClick={this.handleViewIngredients}>View Ingredients</button><br/>
                     </div>
