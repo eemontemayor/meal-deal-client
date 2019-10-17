@@ -4,7 +4,7 @@ export default function ExplorerPage(props){
     console.log(props.match.path)
     return(
         <div>
-            <ExplorerForm path={props.match.path}/>
+            <ExplorerForm expPage={props.match.path}/>
         </div>
     )
 }

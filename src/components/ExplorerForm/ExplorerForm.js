@@ -41,7 +41,7 @@ export default class Explorer extends Component{
                
               },()=>{
           
-                if(!this.props.path){
+                if(!this.props.expPage){
                   this.context.saveSearchRes(this.state.searchResults)
 
                 }
@@ -67,7 +67,6 @@ export default class Explorer extends Component{
                 required
                 type="search"
                 name='searchTerm'
-               
                 id='explorer_search_term'>
               </Input>
             </div>
@@ -76,7 +75,7 @@ export default class Explorer extends Component{
               Search
             </Button>
           </form>
-             {this.state.searchResults && <SearchResults results={this.state.searchResults}/>} 
+             {this.state.searchResults && <SearchResults expPage={this.props.expPage} results={this.state.searchResults}/>} 
           
         
             </div>
