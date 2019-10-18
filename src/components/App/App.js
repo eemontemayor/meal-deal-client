@@ -1,7 +1,7 @@
 
 import './App.css';
 import React, { Component } from 'react'
-import { Switch } from 'react-router-dom';
+import {Route, Switch } from 'react-router-dom';
 import PrivateRoute from '../Utils/PrivateRoute';
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import LoginPage from '../../routes/LoginPage.js';
@@ -11,7 +11,7 @@ import Header from '../Header/Header'
 import PlannerPage from '../../routes/Planner/PlannerPage';
 import ExplorerPage from '../../routes/ExplorerPage/ExplorerPage';
 import ShoppingListPage from '../../routes/ShoppingListPage/ShoppingListPage'
-
+import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 export default class App extends Component{
   state={
     hasError: false,
@@ -58,7 +58,9 @@ export default class App extends Component{
               path={'/shoppinglist'}
               component={ShoppingListPage}
             />
-          
+          <Route
+              component={NotFoundRoute}
+            />
           </Switch>
         </main>
 

@@ -19,7 +19,6 @@ class LoginForm extends Component {
   firstInput = React.createRef();
 
   handleSubmit = ev => {
-    console.log('from loginform')
     ev.preventDefault();
     this.setState({ error: null });
     const { username, password } = ev.target;
@@ -30,7 +29,6 @@ class LoginForm extends Component {
       password: password.value
     })
       .then(res => {
-        console.log('got here')
         username.value = "";
         password.value = "";
         this.context.processLogin(res.authToken);
