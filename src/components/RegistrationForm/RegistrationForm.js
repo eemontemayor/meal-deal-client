@@ -14,6 +14,7 @@ class RegistrationForm extends Component {
     name: '',
     username: '',
     password: '',
+    password2: '',
   };
 
   firstInput = React.createRef();
@@ -24,15 +25,18 @@ class RegistrationForm extends Component {
 
     // eslint-disable-next-line
     const REGEX = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&])[\S]+/;
-    let { name, username, password } = this.state;
+    let { name, username, password, password2 } = this.state;
 
-    if (!name || !username || !password) {
+    if (!name || !username || !password || !password2) {
       this.setState({ error: 'Please fill out all fields' })
       return;
     }
-
+    if(password !== password2){
+      this.setState({ error: 'Passwords do not match' })
+      return;
+    }
     if (password.length < 7) {
-      this.setState({ error: 'Password must be at least 6 characters' })
+      this.setState({ error: 'Password must be at least 6 characters and contain: an uppercase and lowercase letter, a number, and a special character' })
       return;
     }
 
@@ -113,6 +117,18 @@ class RegistrationForm extends Component {
             <Input
               id="registration-password-input"
               name="password"
+              type="password"
+              required
+            />
+          </div>
+          <div className="form-label">
+            <Label htmlFor="registration-password-input-2">
+              Re-enter password
+              <Required />
+            </Label>
+            <Input
+              id="registration-password-input-2"
+              name="password2"
               type="password"
               required
             />
