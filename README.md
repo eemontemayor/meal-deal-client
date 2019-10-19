@@ -1,68 +1,70 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## THE MEAL DEAL 2.0
 
-## Available Scripts
+### link 
+<a href="https://the-meal-deal.now.sh/login">live link </a>
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### API documentation
+    
+    GET /meals    
+            get all user meals
 
-### `npm test`
+    GET /meals/:date
+            get all user meals for particular day
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    GET /bookmarks
+            get all user bookmarked meals
 
-### `npm run build`
+    GET /shoppinglist
+            get user's shoppinglist
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+    POST /bookmarks
+            Post a meal as a saved bookmark
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    POST /meals/:date
+            Post a meal for a particular day
 
-### `npm run eject`
+    POST /shoppinglist
+            Post an item to the shopping list
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    DELETE /meals/:date
+            Delete meal for a particular day
+    
+    DELETE /bookmarks
+            Delete an item from bookmark list
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    DELETE /shoppinglist
+            Delete an item from the shopping list
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### screenshots
+coming soon...
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### summary
+This is a meal planner app.
+    
+The user can browse/search for meals on the 'edamam' website 
+and bookmark those meals for later.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The user can open up their calendar and click on a day.
 
-### Code Splitting
+After clicking on a day, the user can either add their own 
+meals to that day or browse meals from 'edamam' and add the
+meal to that particular day.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### future improvements
+User will be able to edit ingredients and meal names
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### technologies
+This app utilizes HTML, CSS, React, Node, Express, and PostgreSQL
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+API used:<a href="https://developer.edamam.com/edamam-docs-recipe-api">  Edamam Recipe Search API </a>

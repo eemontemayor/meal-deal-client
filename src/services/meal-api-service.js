@@ -72,6 +72,28 @@ const MealApiService = {
       })
     },
 
+//TODO: MAKE RESTFUL
+    // postMeal(meal, date){
+     
+    //   return fetch(`${config.API_ENDPOINT}/meals/{date}`,{ // should i add date to this endpoint
+    //     method: 'POST',
+    //     headers:{
+    //       'content-type':'application/json',
+    //       'authorization':`bearer ${TokenService.getAuthToken()}`,
+    //     },
+    //     body: JSON.stringify(x)
+
+    //   })
+    //   .then(res => { 
+    //     (!res.ok)
+    //       ? res.json().then(e => Promise.reject(e))
+    //       : res.json()
+    //   })
+    //   .catch(error => {
+    //     console.log({error})
+    //   })
+    // },
+
 
 
 
@@ -83,6 +105,18 @@ const MealApiService = {
         },
         body: JSON.stringify(meal)
       })
+    },
+
+
+//TODO: MAKE RESTFUL
+    // deleteMeal(meal_id, date){
+    //   return fetch(`${config.API_ENDPOINT}/meals/{date}/{meal_id}`, { // should i add date to this endpoint
+    //     method: 'DELETE',
+    //     headers:{
+    //       'content-type':'application/json',
+    //     },
+    //     
+    //   })
       // .then(res => { 
       //   (!res.ok)
       //     ? res.json().then(e => Promise.reject(e))
@@ -91,7 +125,12 @@ const MealApiService = {
       // .catch(error => {
       //   console.log({error})
       // })
-    },
+    // },
+
+
+
+
+
     getBookmarks(){
       
       return fetch(`${config.API_ENDPOINT}/bookmarks`,{
@@ -139,6 +178,18 @@ const MealApiService = {
         },
         body: JSON.stringify(meal)
       })
+   
+    },
+
+//TODO: MAKE RESTFUL make sure you pass in id and not the whole meal
+    // deleteBookmark(bookmark_id){
+    //   return fetch(`${config.API_ENDPOINT}/bookmarks/{bookmark_id}`, { 
+    //     method: 'DELETE',
+    //     headers:{
+    //       'content-type':'application/json',
+    //     },
+    //    
+    //   })
       // .then(res => { 
       //   (!res.ok)
       //     ? res.json().then(e => Promise.reject(e))
@@ -147,7 +198,6 @@ const MealApiService = {
       // .catch(error => {
       //   console.log({error})
       // })
-    },
-
+    // },
 };
 export default MealApiService;
