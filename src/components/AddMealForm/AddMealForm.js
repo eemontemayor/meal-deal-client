@@ -83,7 +83,7 @@ export default class AddMealForm extends Component{
                 id='addMealForm_ingredients'>
               </Textarea>
             </div>
-                <Button type='submit' className='add-btn'>
+                <Button type='submit' className='form-add-btn'>
                     Add Meal
                 </Button>
         </form>
