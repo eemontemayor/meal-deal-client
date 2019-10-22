@@ -11,7 +11,7 @@
     margin:auto;
     margin-bottom:5px;
     max-width: 350px;
-  
+  cursor: pointer;
     /* white-space: nowrap; */
    font-size: .75em;
    height:auto;

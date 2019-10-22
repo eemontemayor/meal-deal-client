@@ -55,11 +55,10 @@ render(){
    const meal_name = this.props.meal.meal_name
    const index= this.props.index
     return(
-        <div >
+        <li className='bm-item' key={index} onClick={()=>this.seeMore(newMeal)}>
             {meal_name}
             <button className='del-btn' onClick={()=>this.context.handleDeleteBookmark(this.props.meal,index)} >x</button>
             <button className='add-btn' onClick={()=>this.context.postMeal(newMeal)}>+</button>
-            <button className='see-more-btn' onClick={()=>this.seeMore(newMeal)}>...</button>
             <div>
                 
 
@@ -68,7 +67,7 @@ render(){
                 
             </div>
 
-        </div>
+        </li>
     )
 }
 }

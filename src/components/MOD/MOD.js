@@ -19,7 +19,7 @@ export default class Mod extends Component{
       }
       else{
         return meal.map((item, index)=>{
-          return <li className='mod-item'key={index}><ModItem meal={item} index={index}/></li>
+          return <ModItem meal={item} index={index}/>
        })
       }
    

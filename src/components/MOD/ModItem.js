@@ -48,18 +48,19 @@ render(){
     image:this.props.meal.image
 }
     return(
-        <div >
-             <div className='see-more-btn' onClick={()=>this.seeMore(newMeal)}>
+        <li className='mod-item' index={index}onClick={()=>this.seeMore(newMeal)}>
+             
+        
                 {meal_name}
                 <button className='del-btn'onClick={()=>this.context.handleDeleteMeal(this.props.meal,index)} >x</button>
                 <button className='bm-btn'onClick={()=>this.context.handleAddBookmark(this.props.meal)}>b</button>
-                {/* <button className='see-more-btn' onClick={()=>this.seeMore(newMeal)}>...</button> */}
-            </div>
+         
             <div>
 
             {this.state.seeMore && this.renderMore()}
             </div>
-        </div>
+           
+        </li>
     )
 }
 }

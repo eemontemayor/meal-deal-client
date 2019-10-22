@@ -18,7 +18,7 @@ export default class BookMarks extends Component{
             <div className='bm-page'>
                 <ul className='bm-list'>
                     {this.context.bookmarks && this.context.bookmarks.map((item,index)=>{
-            return <li className='bm-item' key={index}><BookmarkItem meal={item} index={index} /></li>
+            return <BookmarkItem meal={item} index={index} />
 
         })}
                 </ul>
