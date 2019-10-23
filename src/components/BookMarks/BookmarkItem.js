@@ -6,7 +6,9 @@ import './BookMarks.css'
 export default class BookmarkItem extends Component{
     state={
         seeMore:false,
-        ingredients:[]
+        ingredients:[],
+        // instructions:[],
+        image:''
     }
 static contextType = MealContext
 
@@ -17,6 +19,7 @@ seeMore = (meal) =>{
         this.setState({
             seeMore:!this.state.seeMore,
             ingredients:meal.ingredients,
+            // instructions:meal.instructions,
             image:meal.image
         })
     }
@@ -30,14 +33,16 @@ if(this.state.ingredients){
 
     let ing = this.state.ingredients.replace(/[{}]/g,'').split(',')
    
-    const list = ing.map((item,index)=>{
+    const ingredientList = ing.map((item,index)=>{
         return <li key={index}>{item}</li>
     })
 
     return <div>
         <img className='bm-img'src={pic} alt='x'/><br/>
         Ingredients:
-        <ul className='ing-list'>{list}</ul>
+        <ul className='ing-list'>{ingredientList}</ul>
+        {/* Instructions:
+        <ul className='instruction-list'>{instructionList}</ul> */}
         </div>
         
         
@@ -49,6 +54,7 @@ render(){
     const newMeal={
         meal_name:this.props.meal.meal_name,
         ingredients:this.props.meal.ingredients,
+        // instructions:this.props.meal.instructions,
         image:this.props.meal.image
     }
     // console.log(newMeal)
