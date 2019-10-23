@@ -1,12 +1,27 @@
 .add-meal-form{
     text-align: left;
-    margin-left:2vw;
-    margin-top:2vw;
+    margin:auto;
+    padding:30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(107, 107, 107, 0.904);
+    background-color: rgba(0, 255, 255, 0.486);
+    width:100%;
+    
+   
 }
 
 .form-add-btn{
-    /* position:relative; */
-    right:3px;
+    position: relative;;
+    right:0px;
   bottom:0px;
-  background-color: rgba(0, 255, 255, 0.637);
+  background-color: rgba(209, 212, 212, 0.932);
+  border:1px solid black;
+  float:right;
+  /* display: block; */
+  
+}
+.form-add-btn:hover{
+  /* position:relative; */
+ 
+background-color: rgb(0, 255, 255);
 }
