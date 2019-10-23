@@ -3,7 +3,7 @@
     display:contents;
      margin:auto;
     height:fit-content;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     /* text-align: center; */
 }
 

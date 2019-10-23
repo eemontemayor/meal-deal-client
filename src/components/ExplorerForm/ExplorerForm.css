@@ -1,10 +1,47 @@
 .explorer_form{
     text-align: center;
     /* overflow-y: hidden; */
+    width:100%;
+  
 }
 h1{
     text-align: center;
     font-size:1.5em;
     margin-top: 45px;
     
+}
+.searchForm{
+    position:sticky;
+    width:100%;
+    /* height:fit-content; */
+    min-height: 50px;
+    background-color: rgba(233, 27, 164, 0.836);
+    color:white;
+    /* position:absolute; */
+    top: 100px;
+    padding:20px;
+   
+    
+}
+.submit-search-btn{
+    width:25%;
+    /* float:right; */
+    padding:5px;
+    position: absolute;
+    right:0;
+    top:0;
+    height:100%;
+    background-color: cornsilk;
+    cursor: pointer;
+}
+@media only screen and (min-width: 760px) {
+    .searchForm{
+        margin:auto;
+        width:auto;
+        min-width: 40vw;
+        max-width:75vw;
+        /* z-index: 5; */
+    }
+
+   
 }

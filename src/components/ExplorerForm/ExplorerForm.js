@@ -58,7 +58,7 @@ export default class Explorer extends Component{
                 EXPLORER
                 </h1>
                 <div className='explorer_form'>
-            <form onSubmit={this.handleExplorerSubmit}>           
+            <form className='searchForm'onSubmit={this.handleExplorerSubmit}>           
             <div className='searchTerm'onChange={this.handleChange.bind(this)}>
               <label htmlFor='explorer_search_term'>
                 Search for:
@@ -71,7 +71,7 @@ export default class Explorer extends Component{
               </Input>
             </div>
          
-            <Button type='submit'>
+            <Button className='submit-search-btn' type='submit'>
               Search
             </Button>
           </form>
