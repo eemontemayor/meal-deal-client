@@ -19,7 +19,7 @@ seeMore = (meal) =>{
         this.setState({
             seeMore:!this.state.seeMore,
             ingredients:meal.ingredients,
-            // instructions:meal.instructions,
+            instructions:meal.instructions,
             image:meal.image
         })
     }
@@ -27,26 +27,42 @@ seeMore = (meal) =>{
 
 
 renderMore=()=>{
+    let ingList=[]
+    let instList=[]
+        if(this.state.ingredients){
+            let ing = this.state.ingredients
+            console.log(ing)
+        // let ing = this.state.ingredients.replace(/[{}]/g,'').split(',')
+       
+         ingList = ing.map((item,index)=>{
+            return <li key={index}>{item}</li>
+        })
+        if(this.state.instructions){
+            let inst = this.state.instructions
+            console.log(inst)
+           
+             instList = inst.map((item,index)=>{
+                return <li key={index}>{item}</li>
+            })
+        }
+        return( 
+        <div>
+            {this.state.image ? <img className='bm-img'src={this.state.image} alt='x'/>: null}
+            
+            <br/>
+            <div>
+                
+            Ingredients:
+            <ul className='ing-list'>{ingList}</ul>
+            </div>
+            <div>
 
-if(this.state.ingredients){
-    const pic = this.state.image
-
-    let ing = this.state.ingredients.replace(/[{}]/g,'').split(',')
-   
-    const ingredientList = ing.map((item,index)=>{
-        return <li key={index}>{item}</li>
-    })
-
-    return <div>
-        <img className='bm-img'src={pic} alt='x'/><br/>
-        Ingredients:
-        <ul className='ing-list'>{ingredientList}</ul>
-        {/* Instructions:
-        <ul className='instruction-list'>{instructionList}</ul> */}
+            instructions:
+            <ul className='inst-list'>{instList}</ul>
+            </div>
         </div>
-        
-        
-}
+        )
+    }  
 }
 
 render(){
