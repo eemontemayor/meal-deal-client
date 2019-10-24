@@ -6,6 +6,13 @@ export default class Mod extends Component{
    
   static contextType = MealContext
 
+
+  componentDidMount(){
+    console.log(this.context.MOD)
+}
+
+
+
     list=(mod)=>{
       const meal = mod
       console.log(meal)

@@ -28,7 +28,7 @@
     /* height:auto; */
     height:500px;
     width:100%;
-    overflow-y:auto;
+    /* overflow-y:auto; */
    
 }
 .del-btn{
@@ -62,12 +62,17 @@ background-color: rgba(233, 47, 47, 0.76);
 
 
     }
+    .mod-list{
+        height: 70%;
+        overflow-y: auto;
+    }
+   
 
     .mod-page{
         /* height:auto; */
         height:500px;
         width:100%;
-        overflow-y:auto;
+        /* overflow-y:auto; */
        
     }
     .mod-item-large{
