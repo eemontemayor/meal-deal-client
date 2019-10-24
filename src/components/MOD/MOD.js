@@ -11,7 +11,7 @@ export default class Mod extends Component{
       console.log(meal)
       if( meal === undefined || meal === []){
         // debugger
-        return <li className='place-holder'>
+        return <li key='0' className='place-holder'>
      
           Add a meal to this day!
           
@@ -19,7 +19,7 @@ export default class Mod extends Component{
       }
       else{
         return meal.map((item, index)=>{
-          return <ModItem meal={item} index={index}/>
+          return <ModItem meal={item} key={index}/>
        })
       }
    

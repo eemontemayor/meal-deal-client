@@ -16,11 +16,20 @@
    height:auto;
    min-height:6vh;
    cursor: pointer;
+   display:block;
+
 }
 .mod-list{
    padding:0px;
    min-height:30vh;
   
+}
+.mod-page{
+    /* height:auto; */
+    height:500px;
+    width:100%;
+    overflow-y:auto;
+   
 }
 .del-btn{
 background-color: rgba(233, 47, 47, 0.76);
@@ -52,6 +61,38 @@ background-color: rgba(233, 47, 47, 0.76);
         display:block;
 
 
+    }
+
+    .mod-page{
+        /* height:auto; */
+        height:500px;
+        width:100%;
+        overflow-y:auto;
+       
+    }
+    .mod-item-large{
+        /* height:50vh; */
+        /* max-height:100vh; */
+        height:auto;
+        z-index:50;
+        list-style: none;
+    border:1px solid black;
+    border-radius:3px;
+    text-align: center;
+   
+    box-shadow: 2px 2px 1px grey;
+    background-color: rgba(0, 255, 255, 0.411);
+    padding:15px;
+    margin:auto;
+    /* position: absolute;
+    bottom: 100px; left: 40px; */
+    /* margin-bottom:5px; */
+    max-width: 450px;
+   font-size: 1em;
+
+   cursor: pointer;
+   display:block;
+        /* transition: width 2s, height 2s, transform 2s; */
     }
 
 }

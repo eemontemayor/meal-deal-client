@@ -11,6 +11,7 @@ seeMore = (meal) =>{
     this.setState({
         seeMore:!this.state.seeMore,
         ingredients:meal.ingredients,
+        // ingredientsList:meal.ingredientsList,
         image:meal.image
     },()=>{
         console.log(this.state)
@@ -38,6 +39,7 @@ renderMore=()=>{
     }  
 }
 
+   
 
 render(){
    const meal_name = this.props.meal.meal_name
@@ -48,7 +50,7 @@ render(){
     image:this.props.meal.image
 }
     return(
-        <li className='mod-item' index={index}onClick={()=>this.seeMore(newMeal)}>
+        <li className= {this.state.seeMore?'mod-item-large':'mod-item'} key={index}onClick={()=>this.seeMore(newMeal)}>
              
         
                 {meal_name}
