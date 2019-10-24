@@ -37,13 +37,15 @@ export default class AddMealForm extends Component{
     const newMeal = {
       meal_name: meal_name.value,
       // ingredients:ingredients.value
-      // ingredientsList: this.state.ingredientsList,
-      
+      ingredients: this.state.ingredientsList,
+      instructions:this.state.instructionsList,    
     }
-    this.context.postMeal(newMeal)
-  
+
+  this.context.postMeal(newMeal)
    
 }
+
+
 handleAddIng=(ev)=>{
  ev.preventDefault()
   this.setState({
@@ -53,30 +55,31 @@ handleAddIng=(ev)=>{
   ,()=>{
     this.setState({
       currentIngredient:'',
-    }
-    )
+    })
   
-  }
-  )
+  })
 }
 
 renderIngList=()=>{
   let list = []
   if (this.state.ingredientsList){
-   list = this.state.ingredientsList.map((item, index)=>{
-   return <li key={index}>{item}</li>
-  })
+    list = this.state.ingredientsList.map((item, index)=>{
+      return <li key={index}>{item}</li>
+    })
   }
+  console.log(list, 'ing')
       return list
 }
+
 renderInstList=()=>{
-  console.log('here')
   let list = []
   if (this.state.instructionsList){
-   list = this.state.instructionsList.map((item, index)=>{
-   return <li key={index}>{item}</li>
-  })
+    list = this.state.instructionsList.map((item, index)=>{
+      return <li key={index}>{item}</li>
+    })
   }
+  console.log(list, 'inst')
+  
       return list
 }
  
@@ -85,17 +88,14 @@ renderInstList=()=>{
 handleAddInst=(ev)=>{
   ev.preventDefault()
    this.setState({
-     instructionstList:[this.state.currentInstruction,...this.state.instructionsList],
+     instructionsList:[this.state.currentInstruction,...this.state.instructionsList],
  
    }
    ,()=>{
      this.setState({
        currentInstruction:'',
-     }
-     )
-   
-   }
-   )
+     })
+   })
  }
 
     render(){
@@ -120,7 +120,7 @@ handleAddInst=(ev)=>{
               </Input>
             </div>
           
-            <div className= 'ingredients'>
+            <div className= 'ingredients-input'>
                 <label htmlFor='ingredients'>Ingredients
                 </label>
 
@@ -135,8 +135,8 @@ handleAddInst=(ev)=>{
               <Button onClick={this.handleAddIng.bind(this)}>+</Button>
             </div>
         
-
-            <div className= 'instructions'>
+           
+            <div className= 'instructions-input'>
                 <label htmlFor='instructions'>instructions
                 </label>
 
@@ -150,22 +150,19 @@ handleAddInst=(ev)=>{
               </Input>
               <Button onClick={this.handleAddInst.bind(this)}>+</Button>
             </div>
-               
-        </form>
-        <div>
-          
-          </div>    
-          <Section>
+         
+            </form>
+          <Section  className='ing-list'>
             Ingredients:
             <ul>
             {ingList}
-            {/* {this.renderIngList()} */}
             </ul>
 
           </Section>
-          <Section>
+          <Section className='inst-list'>
             Instructions:
             <ul>
+       
             {instList}
 
             </ul>

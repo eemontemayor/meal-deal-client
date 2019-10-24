@@ -14,6 +14,8 @@ export default class PlannerPage extends Component{
       }
     
   componentDidMount(){
+
+    //turn this into an async Promise.all?
     const formattedDate=dateFormat(this.state.value, 'yyyy-mm-dd')
     this.setState({formattedDate },()=>{
     MealApiService.findMealByDate(formattedDate)
