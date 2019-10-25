@@ -7,7 +7,7 @@
     /* text-align: center; */
 }
 
-.meal-item{
+.result-item{
     margin-top:25px;
     margin-bottom:25px;
     /* list-style: none; */
@@ -21,7 +21,7 @@
 
 }
 
-.meal-img{
+.result-item-img{
     max-width: 150px;
   
 }
@@ -56,14 +56,14 @@ width:100%;
     float: left;
     margin-left:30px;
     }
-    .meal-item .exp-page{
+    .result-item .exp-page{
         background-color: pink;
         max-width: 500px;
        
     }
 
 
-    .meal-item{
+    .result-item{
         min-height:200px;
         margin:auto;
         margin-top:25px;
@@ -74,7 +74,7 @@ width:100%;
         /* overflow: scroll; */
         display:block;
     }
-    .meal-img{
+    .result-item-img{
         max-width:220px;
         margin-top:20px;
         float:left;

@@ -62,7 +62,7 @@ postMeal=(newMeal)=>{
 
     newMeal.on_day = this.state.formattedDate
     if(this.state.MOD.length < 6){
-    MealApiService.postMeal(newMeal)
+    MealApiService.postMeal(newMeal, this.state.formattedDate)
     .then(res =>{ 
 
         MealApiService.findMealByDate(this.state.formattedDate)

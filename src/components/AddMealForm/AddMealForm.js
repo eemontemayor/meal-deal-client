@@ -36,7 +36,6 @@ export default class AddMealForm extends Component{
     
     const newMeal = {
       meal_name: meal_name.value,
-      // ingredients:ingredients.value
       ingredients: this.state.ingredientsList,
       instructions:this.state.instructionsList,    
     }
@@ -49,7 +48,7 @@ export default class AddMealForm extends Component{
 handleAddIng=(ev)=>{
  ev.preventDefault()
   this.setState({
-    ingredientsList:[this.state.currentIngredient,...this.state.ingredientsList],
+    ingredientsList:[...this.state.ingredientsList,this.state.currentIngredient],
 
   }
   ,()=>{
@@ -88,7 +87,7 @@ renderInstList=()=>{
 handleAddInst=(ev)=>{
   ev.preventDefault()
    this.setState({
-     instructionsList:[this.state.currentInstruction,...this.state.instructionsList],
+     instructionsList:[...this.state.instructionsList,this.state.currentInstruction],
  
    }
    ,()=>{

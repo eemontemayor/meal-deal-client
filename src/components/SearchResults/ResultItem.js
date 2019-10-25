@@ -22,8 +22,8 @@ export default class ResultItem extends Component{
             image:this.props.meal.recipe.image
         }
         return(
-            <div className={this.props.expPage?'meal-item exp-page':'meal-item'}>
-                <div  className='meal-item-header'>
+            <div className={this.props.expPage?'result-item exp-page':'result-item'}>
+                <div  className='result-item-header'>
                     <h2>
                         {meal.meal_name}
                     </h2>
@@ -35,7 +35,7 @@ export default class ResultItem extends Component{
                     </div>
                 </div>
 
-                <img className='meal-img' src={meal.image} alt='x'/>
+                <img className='result-item-img' src={meal.image} alt='x'/>
               
                 <ul className='ingredient-list'>
 
