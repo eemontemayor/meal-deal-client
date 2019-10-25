@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
-import ModItem from './ModItem.js'
+import MealItem from '../Meal_Item/MealItem'
 import MealContext from '../../contexts/MealContext'
-import './Mod.css'
+import '../Meal_Item/MealItem.css'
 export default class Mod extends Component{
    
   static contextType = MealContext
@@ -26,7 +26,7 @@ export default class Mod extends Component{
       }
       else{
         return meal.map((item, index)=>{
-          return <ModItem meal={item} key={index}/>
+          return <MealItem meal={item} key={index} view='meals-of-day' cssClass='mod-item'/>
        })
       }
    

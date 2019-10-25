@@ -1,9 +1,12 @@
 import React,{Component} from 'react'
 import MealContext from '../../contexts/MealContext';
-import './Mod.css'
-export default class ModItem extends Component{
+import './MealItem.css'
+export default class MealItem extends Component{
   state={
-      seeMore:false
+    seeMore:false,
+    ingredients:[],
+    // instructions:[],
+    image:''
   }
 static contextType = MealContext
 
@@ -45,7 +48,7 @@ renderMore=()=>{
         }
         return( 
         <div>
-            {this.state.image ? <img className='bm-img'src={this.state.image} alt='x'/>: null}
+            {this.state.image ? <img className='meal-img'src={this.state.image} alt='x'/>: null}
             
             <br/>
             <div>
@@ -66,21 +69,24 @@ renderMore=()=>{
    
 
 render(){
-  
+    const view = this.props.view
+
    const index= this.props.index
-   const newMeal={
+   const meal={
     meal_name:this.props.meal.meal_name,
     ingredients:this.props.meal.ingredients,
     instructions:this.props.meal.instructions,
     image:this.props.meal.image
 }
     return(
-        <li className= {this.state.seeMore?'mod-item-large':'mod-item'} key={index}onClick={()=>this.seeMore(newMeal)}>
+        <li className= {this.props.cssClass} key={index}onClick={()=>this.seeMore(meal)}>
              
         
-                {newMeal.meal_name}
-                <button className='del-btn'onClick={()=>this.context.handleDeleteMeal(newMeal,index)} >x</button>
-                <button className='bm-btn'onClick={()=>this.context.handleAddBookmark(newMeal)}>b</button>
+                {meal.meal_name}
+                <button className='item-del-btn'onClick={()=>this.context.handleDeleteMeal(meal,index)} >x</button>
+
+                {view === 'meals-of-day'&& <button className='item-bm-btn'onClick={()=>this.context.handleAddBookmark(meal)}>b</button>}
+                {view === 'bookmarks' &&   <button className='item-add-btn' onClick={()=>this.context.postMeal(meal)}>+</button> }
          
             <div>
 

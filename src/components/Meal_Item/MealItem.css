@@ -1,0 +1,111 @@
+.mod-item{
+    list-style: none;
+    border:1px solid black;
+    border-radius:3px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 2px 1px grey;
+    background-color: rgba(0, 255, 255, 0.411);
+    padding:5px;
+    margin:auto;
+    margin-bottom:5px;
+    max-width: 350px;
+   font-size: .75em;
+   height:auto;
+   min-height:6vh;
+   cursor: pointer;
+   display:block;
+
+}
+.bm-item{
+    list-style: none;
+    border:1px solid black;
+    text-align: center;
+    border-radius:3px;
+    box-shadow: 2px 2px 1px grey;
+    background-color: rgba(145, 255, 0, 0.411);
+    /* overflow: hidden; */
+    
+    padding:5px;
+    margin:auto;
+    margin-bottom:5px;
+    max-width: 350px;
+  cursor: pointer;
+    /* white-space: nowrap; */
+   font-size: .75em;
+   height:auto;
+
+   /* position: relative;
+    z-index:2; */
+}
+.meal-img{
+    max-width: 150px;
+  
+}
+
+.item-add-btn{
+    background-color: rgba(0, 255, 255, 0.637);
+    float:right;
+}
+
+.item-del-btn{
+    background-color: rgba(233, 47, 47, 0.76);
+    float:right;
+    }
+
+.item-bm-btn{
+    background-color: rgba(145, 255, 0, 0.411);
+    margin-right:5px;
+    float:right;
+}
+.place-holder{
+    text-align: center;
+    margin-top: 30px;
+}
+
+@media only screen and (min-width: 760px) {
+    .mod-item{
+        /* min-height: auto; */
+       height:auto;
+        font-size: 1.2rem;
+        margin-bottom:10px;
+        width:350px;
+        /* margin:auto; */
+        display:block;
+
+
+    }
+    .meal-item-large{
+        /* height:50vh; */
+        /* max-height:100vh; */
+        height:auto;
+        z-index:50;
+        list-style: none;
+    border:1px solid black;
+    border-radius:3px;
+    text-align: center;
+   
+    box-shadow: 2px 2px 1px grey;
+    background-color: rgba(0, 255, 255, 0.411);
+    padding:15px;
+    margin:auto;
+    /* position: absolute;
+    bottom: 100px; left: 40px; */
+    /* margin-bottom:5px; */
+    max-width: 450px;
+   font-size: 1em;
+
+   cursor: pointer;
+   display:block;
+        /* transition: width 2s, height 2s, transform 2s; */
+    }
+    .bm-item{
+        font-size: 1.2rem;
+        width:350px;
+        margin:auto;
+        height:auto;
+        display:block;
+        margin-bottom:10px;
+      }
+}
