@@ -61,7 +61,7 @@ postMeal=(newMeal)=>{
     newMeal.meal_name=name
 
     newMeal.on_day = this.state.formattedDate
-    if(this.state.MOD.length < 4){
+    if(this.state.MOD.length < 6){
     MealApiService.postMeal(newMeal)
     .then(res =>{ 
 
@@ -77,7 +77,7 @@ postMeal=(newMeal)=>{
     })
 }
 else{
-    return alert('only four meals per day allowed')
+    return alert('only 6 meals per day allowed')
 }
 }
 
@@ -89,7 +89,7 @@ handleDeleteMeal=(meal,index)=>{
     let id=meal.id
     
     if(id === undefined){
-        console.log('_______________________')
+       
       delete newMOD[index]
       this.setState({
         MOD:newMOD             
