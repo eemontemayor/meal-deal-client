@@ -10,7 +10,18 @@ export default class BookMarks extends Component{
     componentDidMount(){
         console.log(this.context.bookmarks)
     }
-    
+    seeMore = (meal) =>{
+        this.setState({
+            seeMore:!this.state.seeMore,
+            ingredients:meal.ingredients,
+            instructions:meal.instructions,
+        
+            image:meal.image
+        },()=>{
+            console.log(this.state)
+        })
+      }
+      
     list=(bookmarks)=>{
         const bm = bookmarks
        
@@ -24,7 +35,7 @@ export default class BookMarks extends Component{
         }
         else{
           return bm.map((item, index)=>{
-            return <MealItem meal={item} key={index} view='bookmarks' cssClass='bm-item'/>
+            return <MealItem meal={item} key={index} index={index}view='bookmarks' cssClass='bm-item'seeMore={this.seeMore}/>
          })
         }
     }

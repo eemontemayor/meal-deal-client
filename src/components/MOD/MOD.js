@@ -2,9 +2,13 @@ import React,{Component} from 'react'
 import MealItem from '../Meal_Item/MealItem'
 import MealContext from '../../contexts/MealContext'
 import '../Meal_Item/MealItem.css'
+import './Mod.css'
 export default class Mod extends Component{
    state={
-     MOD:[]
+     MOD:[],
+     seeMore:false,
+     selectedMeal:{}
+     
    }
   static contextType = MealContext
 
@@ -14,7 +18,6 @@ export default class Mod extends Component{
 
 
 }
-
 
 
     list=(meals)=>{
@@ -30,7 +33,7 @@ export default class Mod extends Component{
       }
       else{
         return meals.map((item, index)=>{
-          return <MealItem meal={item} key={index} index={index}view='meals-of-day' cssClass='mod-item'/>
+          return <MealItem meal={item} key={index} index={index}view='meals-of-day' cssClass='mod-item' seeMore={this.seeMore}/>
        })
       }
    
@@ -42,8 +45,8 @@ export default class Mod extends Component{
           return(
               <div className='mod-page'>
                   <ul className='mod-list'>
-                  
-                    {ModList}
+                  { ModList}
+                   
                   </ul>
            
         </div>

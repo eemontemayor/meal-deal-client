@@ -20,7 +20,7 @@
    
     .mod-list{
         height: 70%;
-        /* overflow-y: auto; */
+        overflow-y: auto;
     }
    
 
@@ -28,7 +28,7 @@
         /* height:auto; */
         height:500px;
         width:100%;
-        overflow-y:auto;
+        /* overflow-y:auto; */
        
     }
 

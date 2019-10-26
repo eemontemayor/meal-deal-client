@@ -5,7 +5,7 @@ export default class MealItem extends Component{
   state={
     seeMore:false,
     ingredients:[],
-    // instructions:[],
+    instructions:[],
     image:''
   }
 static contextType = MealContext
@@ -81,17 +81,21 @@ render(){
     image:this.props.meal.image
 }
     return(
-        <li className= {this.props.cssClass} 
+        <li
+        className= {this.state.seeMore ? 'item-selected': `${this.props.cssClass}`} 
         key={index}
-        // onClick={()=>this.seeMore(meal)}
+        onClick={()=>this.seeMore(meal)}
         >
              
         
                 {meal.meal_name}
-                <button className='item-del-btn'onClick={()=>this.context.handleDeleteMeal(this.props.meal,index)} >x</button>
+               
 
-                {view === 'meals-of-day'&& <button className='item-bm-btn'onClick={()=>this.context.handleAddBookmark(meal)}>b</button>}
-                {view === 'bookmarks' &&   <button className='item-add-btn' onClick={()=>this.context.postMeal(meal)}>+</button> }
+                {view === 'meals-of-day'&& <div><button className='item-bm-btn'onClick={()=>this.context.handleAddBookmark(meal)}>b</button>
+                <button className='item-del-btn'onClick={()=>this.context.handleDeleteMeal(this.props.meal,index)} >x</button></div>}
+
+                {view === 'bookmarks' &&  <div><button className='item-add-btn' onClick={()=>this.context.postMeal(meal)}>+</button> 
+             <button className='item-del-btn'onClick={()=>this.context.handleDeleteBookmark(this.props.meal,index)} >x</button></div> }
          
             <div>
 
