@@ -31,7 +31,7 @@ export default class PlannerPage extends Component{
         this.setState({
             bookmarks:meals
         },()=>{
-         console.log(this.state)
+        //  console.log(this.state)
         })
     })
   }
@@ -47,7 +47,7 @@ onChange = value => {
         })
         })
     })
-    console.log(this.state.value)
+    // console.log(this.state.value)
   
 }
        
@@ -88,21 +88,23 @@ handleDeleteMeal=(meal,index)=>{
     let newMOD = this.state.MOD
     let id=meal.id
     
-    if(id === undefined){
-       
+    if(id===undefined || !id){
+        console.log('if', index)
+
       delete newMOD[index]
       this.setState({
         MOD:newMOD             
       })
     } else{ 
-       
+        console.log('else', index)
+        // MealApiService.deleteMeal(id,this.state.formattedDate)
         MealApiService.deleteMeal(meal)
           .then(res =>{
            
-            delete newMOD[index]
-            this.setState({
-              MOD:newMOD
-            })
+              delete newMOD[index]
+              this.setState({
+                  MOD:newMOD
+                })
           })
       }
   }

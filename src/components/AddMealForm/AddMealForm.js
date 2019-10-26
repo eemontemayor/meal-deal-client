@@ -66,7 +66,6 @@ renderIngList=()=>{
       return <li key={index}>{item}</li>
     })
   }
-  console.log(list, 'ing')
       return list
 }
 
@@ -77,7 +76,6 @@ renderInstList=()=>{
       return <li key={index}>{item}</li>
     })
   }
-  console.log(list, 'inst')
   
       return list
 }

@@ -32,7 +32,7 @@ const MealApiService = {
     },
 
     findMealByDate(date){
-      console.log(date)
+      // console.log(date)
       return fetch(`${config.API_ENDPOINT}/meals/${date}`,{
         method:'GET',
         headers:{
@@ -111,13 +111,14 @@ const MealApiService = {
 
 
 //TODO: MAKE RESTFUL
-    // deleteMeal(meal_id, date){
-    //   return fetch(`${config.API_ENDPOINT}/meals/{date}/{meal_id}`, { // should i add date to this endpoint
+    // deleteMeal(meal_id,date){
+    //   return fetch(`${config.API_ENDPOINT}/meals/${date}/${meal_id}`, { // should i add date to this endpoint
     //     method: 'DELETE',
     //     headers:{
     //       'content-type':'application/json',
+    //       'authorization':`bearer ${TokenService.getAuthToken()}`,
     //     },
-    //     
+        
     //   })
       // .then(res => { 
       //   (!res.ok)

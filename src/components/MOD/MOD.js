@@ -3,20 +3,24 @@ import MealItem from '../Meal_Item/MealItem'
 import MealContext from '../../contexts/MealContext'
 import '../Meal_Item/MealItem.css'
 export default class Mod extends Component{
-   
+   state={
+     MOD:[]
+   }
   static contextType = MealContext
 
 
   componentDidMount(){
-    console.log(this.context.MOD)
+    // console.log(this.context.formattedDate)
+
+
 }
 
 
 
-    list=(mod)=>{
-      const meal = mod
-      console.log(meal)
-      if( meal === undefined || meal === []){
+    list=(meals)=>{
+      
+  
+      if( meals === undefined || meals === [] || meals.length <1 ){
         // debugger
         return <li key='0' className='place-holder'>
      
@@ -25,18 +29,21 @@ export default class Mod extends Component{
           </li>
       }
       else{
-        return meal.map((item, index)=>{
-          return <MealItem meal={item} key={index} view='meals-of-day' cssClass='mod-item'/>
+        return meals.map((item, index)=>{
+          return <MealItem meal={item} key={index} index={index}view='meals-of-day' cssClass='mod-item'/>
        })
       }
    
     
   }
       render(){
+        const ModList = this.list(this.context.MOD)
+        console.log(this.context.MOD)
           return(
               <div className='mod-page'>
                   <ul className='mod-list'>
-                    {this.list(this.context.MOD)}
+                  
+                    {ModList}
                   </ul>
            
         </div>

@@ -13,7 +13,7 @@ static contextType = MealContext
 
 
   componentDidMount(){
-      console.log(this.context.MOD)
+    //   console.log(this.context.MOD)
   }
 
 seeMore = (meal) =>{
@@ -72,18 +72,23 @@ render(){
     const view = this.props.view
 
    const index= this.props.index
+   console.log(index)
    const meal={
+    // id:this.props.meal.id,   // uncommented because it leads to pkey violations (bookmarks have their own id)
     meal_name:this.props.meal.meal_name,
     ingredients:this.props.meal.ingredients,
     instructions:this.props.meal.instructions,
     image:this.props.meal.image
 }
     return(
-        <li className= {this.props.cssClass} key={index}onClick={()=>this.seeMore(meal)}>
+        <li className= {this.props.cssClass} 
+        key={index}
+        // onClick={()=>this.seeMore(meal)}
+        >
              
         
                 {meal.meal_name}
-                <button className='item-del-btn'onClick={()=>this.context.handleDeleteMeal(meal,index)} >x</button>
+                <button className='item-del-btn'onClick={()=>this.context.handleDeleteMeal(this.props.meal,index)} >x</button>
 
                 {view === 'meals-of-day'&& <button className='item-bm-btn'onClick={()=>this.context.handleAddBookmark(meal)}>b</button>}
                 {view === 'bookmarks' &&   <button className='item-add-btn' onClick={()=>this.context.postMeal(meal)}>+</button> }
