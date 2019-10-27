@@ -128,19 +128,20 @@ button:hover{
         margin-bottom:10px;
       }
       #item-selected{
+          /* overflow-y:auto; */
           /* position: relative; */
           right:0;
           left:0;
           top:0;
         /* height:50vh; */
         /* max-height:100vh; */
-        height:100vh;
+       height:100vh;
         z-index:90;
         list-style: none;
     border:1px solid black;
     border-radius:3px;
     text-align: center;
-   min-width:100vw;
+   min-width:50vw;
     box-shadow: 2px 2px 1px grey;
    opacity:95%;
     padding:10px;
@@ -156,7 +157,12 @@ button:hover{
    display:block;
         /* transition: width 2s, height 2s, transform 2s; */
     }
-  
+  .ing-list{
+      width:auto;
+  }
+  .inst-list{
+    width:auto;
+}
       .meal-img{
         max-width: 250px;
       margin:auto;

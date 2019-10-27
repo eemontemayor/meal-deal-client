@@ -17,6 +17,7 @@ static contextType = MealContext
 
   componentDidMount(){
     //   console.log(this.context.MOD)
+  
   }
 
 seeMore = (meal) =>{
@@ -96,14 +97,15 @@ render(){
              
                 {view === 'meals-of-day'&& <div><button className='item-bm-btn'onClick={()=>this.context.handleAddBookmark(meal)}>b</button>
                 <button className='item-del-btn'onClick={()=>this.context.handleDeleteMeal(this.props.meal,index)} >x</button>
-                <Link to={`/planner/meal/${this.props.meal.id}`}onClick={()=>this.seeMore(meal)}>{this.state.seeMore? 'see less':'see more'}</Link></div>}
+                <Link to={`/planner/meal/${this.props.meal.id}`}onClick={()=>this.seeMore(meal)}>{!this.state.seeMore? 'see more':'see less'}</Link></div>}
 
                 {view === 'bookmarks' &&  <div><button className='item-add-btn' onClick={()=>this.context.postMeal(meal)}>+</button> 
-             <button className='item-del-btn'onClick={()=>this.context.handleDeleteBookmark(this.props.meal,index)} >x</button>   <Link to={`/planner/bookmark/${this.props.meal.id}`}onClick={()=>this.seeMore(meal)}>{this.state.seeMore? 'see less':'see more'}</Link></div> }
+             <button className='item-del-btn'onClick={()=>this.context.handleDeleteBookmark(this.props.meal,index)} >x</button> 
+              <Link to={`/planner/bookmark/${this.props.meal.id}`}onClick={()=>this.seeMore(meal)}>{!this.state.seeMore? 'edit':'go back'}</Link></div> } {/* have to pass this.props.meal.id here to avoid pkey constraint between md and bm */}
             <p className='meal-name'>{meal.meal_name}</p> 
             <div>
-            {/* <button onClick={()=>this.seeMore(meal)}>{this.state.seeMore? 'see less':'see more'}</button>
-            {this.state.seeMore && this.renderMore()} */}
+        
+            {this.state.seeMore && this.renderMore()} 
           
             </div>
            
