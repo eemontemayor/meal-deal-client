@@ -86,6 +86,10 @@ handleUpdateMeal = (meal)=>{
 }
 
 
+goBack=()=>{
+    this.props.history.push('/planner')
+}
+
 
 handleDeleteMeal=(meal,index)=>{
     let newMOD = this.state.MOD
@@ -184,7 +188,8 @@ saveSearchResults = (arr) =>{
             postMeal:this.postMeal,
             onChange:this.onChange,
             searchRes:this.state.searchRes,
-            saveSearchRes:this.saveSearchResults
+            saveSearchRes:this.saveSearchResults,
+            goBack:this.goBack
             }
            
         return(

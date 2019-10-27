@@ -28,9 +28,9 @@ seeMore = (meal) =>{
         image:meal.image
     },()=>{
         console.log(this.state)
-        // if(!this.state.seeMore){
-        //     this.history.push('/')
-        // }
+        if(!this.state.seeMore){
+            this.context.goBack()
+        }
     })
 }
 renderMore=()=>{
