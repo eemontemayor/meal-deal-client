@@ -78,9 +78,10 @@ render(){
     const view = this.props.view
 
    const index= this.props.index
-   console.log(index)
+   console.log(this.props.meal)
+//    const id=this.props.meal.id
    const meal={
-    id:this.props.meal.id,   // uncommented because it leads to pkey violations (bookmarks have their own id)
+  //  id:this.props.meal.id,   // uncommented because it leads to pkey violations (bookmarks have their own id)
     meal_name:this.props.meal.meal_name,
     ingredients:this.props.meal.ingredients,
     instructions:this.props.meal.instructions,
@@ -95,10 +96,10 @@ render(){
              
                 {view === 'meals-of-day'&& <div><button className='item-bm-btn'onClick={()=>this.context.handleAddBookmark(meal)}>b</button>
                 <button className='item-del-btn'onClick={()=>this.context.handleDeleteMeal(this.props.meal,index)} >x</button>
-                <Link to={`/planner/meal/${meal.id}`}onClick={()=>this.seeMore(meal)}>{this.state.seeMore? 'see less':'see more'}</Link></div>}
+                <Link to={`/planner/meal/${this.props.meal.id}`}onClick={()=>this.seeMore(meal)}>{this.state.seeMore? 'see less':'see more'}</Link></div>}
 
                 {view === 'bookmarks' &&  <div><button className='item-add-btn' onClick={()=>this.context.postMeal(meal)}>+</button> 
-             <button className='item-del-btn'onClick={()=>this.context.handleDeleteBookmark(this.props.meal,index)} >x</button>   <Link to={`/planner/bookmark/${meal.id}`}onClick={()=>this.seeMore(meal)}>{this.state.seeMore? 'see less':'see more'}</Link></div> }
+             <button className='item-del-btn'onClick={()=>this.context.handleDeleteBookmark(this.props.meal,index)} >x</button>   <Link to={`/planner/bookmark/${this.props.meal.id}`}onClick={()=>this.seeMore(meal)}>{this.state.seeMore? 'see less':'see more'}</Link></div> }
             <p className='meal-name'>{meal.meal_name}</p> 
             <div>
             {/* <button onClick={()=>this.seeMore(meal)}>{this.state.seeMore? 'see less':'see more'}</button>
