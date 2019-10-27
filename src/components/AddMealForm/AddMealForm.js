@@ -149,14 +149,14 @@ handleAddInst=(ev)=>{
             </div>
          
             </form>
-          <Section  className='ing-list'>
+          <Section  className='add-meal-ing-list'>
             Ingredients:
             <ul>
             {ingList}
             </ul>
 
           </Section>
-          <Section className='inst-list'>
+          <Section className='add-meal-inst-list'>
             Instructions:
             <ul>
        

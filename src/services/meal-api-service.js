@@ -109,7 +109,24 @@ const MealApiService = {
       })
     },
 
+    updateMeal(meal, meal_id){
+      return fetch(`${config.API_ENDPOINT}/meals/edit/${meal_id}`, { 
+        method: 'PATCH',
+        headers:{
+          'content-type':'application/json',
+        },
+        body: JSON.stringify(meal)
+      })
+      .then(res => { 
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      })
+      .catch(error => {
+        console.log({error})
+      })
 
+    },
 //TODO: MAKE RESTFUL
     // deleteMeal(meal_id,date){
     //   return fetch(`${config.API_ENDPOINT}/meals/${date}/${meal_id}`, { // should i add date to this endpoint

@@ -81,6 +81,9 @@ else{
 }
 }
 
+handleUpdateMeal = (meal)=>{
+    console.log(meal)
+}
 
 
 

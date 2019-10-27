@@ -51,6 +51,18 @@ export default class App extends Component{
               path={'/planner'}
               component={PlannerPage}
             /> 
+             <PrivateRoute
+              path={'/planner/:meal_id'}
+              render={({history})=>{
+                console.log(history,'+++++++')
+                return <PlannerPage onClickGoBack={() => history.push('/')} />
+              }}
+              component={PlannerPage}
+            /> 
+                <PrivateRoute
+              path={'/planner/:bookmark_id'}
+              component={PlannerPage}
+            /> 
               <PrivateRoute
               path={'/explore'}
               component={ExplorerPage}

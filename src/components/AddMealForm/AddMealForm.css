@@ -29,14 +29,14 @@
 background-color: rgb(0, 255, 255);
 }
 
-.inst-list{
+.add-meal-inst-list{
   min-height:100px;
   display: inline-block;
   height:auto;
   width:50%;
   border:1px solid black;
 }
-.ing-list{
+.add-meal-ing-list{
   min-height:100px;
   display: inline-block;
   height:auto;

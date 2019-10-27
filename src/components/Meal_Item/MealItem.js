@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import MealContext from '../../contexts/MealContext';
+import {Link } from 'react-router-dom';
 import './MealItem.css'
 
 
@@ -27,6 +28,9 @@ seeMore = (meal) =>{
         image:meal.image
     },()=>{
         console.log(this.state)
+        // if(!this.state.seeMore){
+        //     this.history.push('/')
+        // }
     })
 }
 renderMore=()=>{
@@ -76,7 +80,7 @@ render(){
    const index= this.props.index
    console.log(index)
    const meal={
-    // id:this.props.meal.id,   // uncommented because it leads to pkey violations (bookmarks have their own id)
+    id:this.props.meal.id,   // uncommented because it leads to pkey violations (bookmarks have their own id)
     meal_name:this.props.meal.meal_name,
     ingredients:this.props.meal.ingredients,
     instructions:this.props.meal.instructions,
@@ -89,20 +93,17 @@ render(){
       
         >
              
-        
-                
-               
-
                 {view === 'meals-of-day'&& <div><button className='item-bm-btn'onClick={()=>this.context.handleAddBookmark(meal)}>b</button>
-                <button className='item-del-btn'onClick={()=>this.context.handleDeleteMeal(this.props.meal,index)} >x</button></div>}
+                <button className='item-del-btn'onClick={()=>this.context.handleDeleteMeal(this.props.meal,index)} >x</button>
+                <Link to={`/planner/meal/${meal.id}`}onClick={()=>this.seeMore(meal)}>{this.state.seeMore? 'see less':'see more'}</Link></div>}
 
                 {view === 'bookmarks' &&  <div><button className='item-add-btn' onClick={()=>this.context.postMeal(meal)}>+</button> 
-             <button className='item-del-btn'onClick={()=>this.context.handleDeleteBookmark(this.props.meal,index)} >x</button></div> }
+             <button className='item-del-btn'onClick={()=>this.context.handleDeleteBookmark(this.props.meal,index)} >x</button>   <Link to={`/planner/bookmark/${meal.id}`}onClick={()=>this.seeMore(meal)}>{this.state.seeMore? 'see less':'see more'}</Link></div> }
             <p className='meal-name'>{meal.meal_name}</p> 
             <div>
-            <button onClick={()=>this.seeMore(meal)}>{this.state.seeMore? 'see less':'see more'}</button>
-            {this.state.seeMore && this.renderMore()}
-
+            {/* <button onClick={()=>this.seeMore(meal)}>{this.state.seeMore? 'see less':'see more'}</button>
+            {this.state.seeMore && this.renderMore()} */}
+          
             </div>
            
         </li>

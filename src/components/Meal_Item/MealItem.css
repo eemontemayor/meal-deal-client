@@ -11,7 +11,7 @@
     max-width: 350px;
     font-size: .75em;
     height:auto;
-    min-height:6vh;
+    min-height:4vh;
     display:block;
     
     /* cursor: pointer; */
@@ -32,7 +32,7 @@
     max-width: 350px;
     font-size: .75em;
     height:auto;
-    min-height:6vh;
+    min-height:4vh;
     display:block;
     
     /* cursor: pointer; */
@@ -70,7 +70,7 @@
 .lists{
     width:100%;
     text-align: left;
-   display: inline-block;
+   /* display: inline-block; */
     /* text-align: left; */
     /* background-color: rgb(236, 236, 236); */
 }
@@ -83,7 +83,7 @@
     background-color: rgb(236, 236, 236);
   float:left;
    width:35vw;
-    margin:30px;
+    margin-left:30px;
     height:auto;
     height:30vh;
 }
@@ -95,14 +95,17 @@
     box-shadow: 2px 2px 1px grey;
     width:35vw;
     text-align: left;
-    /* float:left; */
-    display: inline-block;
-    margin:30px;
+    float:left;
+    /* display: inline-block; */
+    margin-left:30px;
     height:30vh;
 }
 .meal-name{
     
     font-size:1.1em;
+}
+button:hover{
+    cursor: pointer;
 }
 @media only screen and (min-width: 760px) {
     .mod-item{
@@ -110,9 +113,9 @@
        height:auto;
         font-size: 1rem;
         margin-bottom:10px;
-        /* width:350px; */
-        /* margin:auto; */
-        /* display:block; */
+        width:350px;
+        margin:auto;
+        display:block;
 
 
     }
