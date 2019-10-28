@@ -148,6 +148,25 @@ const MealApiService = {
     // },
 
 
+    findBookmarkById(id){
+      // console.log(date)
+      return fetch(`${config.API_ENDPOINT}/bookmarks/${id}`,{
+        method:'GET',
+        headers:{
+          'content-type':'application/json',
+          'authorization':`bearer ${TokenService.getAuthToken()}`,
+        },
+      })
+      .then((mealsRes) => {
+        if (!mealsRes.ok)
+          return mealsRes.json().then(e => Promise.reject(e))
+        return mealsRes.json()
+      })
+      .catch(error => {
+        console.error({error})
+        console.log('here')
+      })
+    },
 
 
 
@@ -200,7 +219,27 @@ const MealApiService = {
       })
    
     },
+    updateBookmark(bookmark, id){
+      
+      return fetch(`${config.API_ENDPOINT}/bookmarks/edit/${id}`, { 
+        method: 'PATCH',
+        headers:{
+          'content-type':'application/json',
+          'authorization':`bearer ${TokenService.getAuthToken()}`,
+        },
+        body: JSON.stringify(bookmark)
+      })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(error => Promise.reject(error))
 
+        return res.json()
+      })
+      .catch(error => {
+        console.error(error)
+    
+      })
+    },
 //TODO: MAKE RESTFUL make sure you pass in id and not the whole meal
     // deleteBookmark(bookmark_id){
     //   return fetch(`${config.API_ENDPOINT}/bookmarks/{bookmark_id}`, { 

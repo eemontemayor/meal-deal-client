@@ -81,8 +81,11 @@ else{
 }
 }
 
-handleUpdateBookmark = (meal)=>{
-    console.log(meal)
+handleUpdateBookmark = (e)=>{
+    e.preventDefault()
+  console.log(e)
+    // MealApiService.updateBookmark(bookmark, id)
+
 }
 
 

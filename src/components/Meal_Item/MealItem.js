@@ -59,8 +59,9 @@ renderMore=()=>{
         }
         return( 
         <div>
+           {this.props.view === 'bookmarks' && <Link to={`/planner/bookmark/${this.props.meal.id}/edit`}>Edit Meal</Link>}
+           <br/>
             {this.state.image ? <img className='meal-img'src={this.state.image} alt='x'/>: null}
-            
             <br/>
             <div className='lists'>
               <div>
@@ -109,11 +110,12 @@ render(){
 
                 {view === 'bookmarks' &&  <div><button className='item-add-btn' onClick={()=>this.context.postMeal(meal)}>+</button> 
              <button className='item-del-btn'onClick={()=>this.context.handleDeleteBookmark(this.props.meal,index)} >x</button> 
-              <Link to={`/planner/bookmark/${this.props.meal.id}`}onClick={()=>this.seeMore(meal)}>{!this.state.seeMore? 'edit':'go back'}</Link></div> } {/* have to pass this.props.meal.id here to avoid pkey constraint between md and bm */}
+              <Link to={`/planner/bookmark/${this.props.meal.id}`}onClick={()=>this.seeMore(meal)}>{!this.state.seeMore? 'see more':'see less'}</Link> {/* have to pass this.props.meal.id here to avoid pkey constraint between md and bm */}
+              </div> }
             <p className='meal-name'>{meal.meal_name}</p> 
              </div>
             <div>
-        
+           
             {this.state.seeMore && this.renderMore()} 
           
             </div>

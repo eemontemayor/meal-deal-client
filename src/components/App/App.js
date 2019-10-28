@@ -12,6 +12,7 @@ import PlannerPage from '../../routes/Planner/PlannerPage';
 import ExplorerPage from '../../routes/ExplorerPage/ExplorerPage';
 import ShoppingListPage from '../../routes/ShoppingListPage/ShoppingListPage'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
+import EditMealItem from '../Meal_Item/EditMealItem';
 
 export default class App extends Component{
   state={
@@ -52,7 +53,7 @@ export default class App extends Component{
               component={PlannerPage}
             /> 
              <PrivateRoute
-              path={'/planner/:meal_id'}
+              path={'/planner/meal/:meal_id'}
               render={({history})=>{
                 
                 return <PlannerPage  />
@@ -60,10 +61,17 @@ export default class App extends Component{
               // component={PlannerPage}
             /> 
                 <PrivateRoute
-              path={'/planner/:bookmark_id'}
+              path={'/planner/bookmark/:bookmark_id'}
               render={({history})=>{
                
                 return <PlannerPage  />
+              }}
+                /> 
+                <PrivateRoute
+              path={'/planner/bookmark/:bookmark_id/edit'}
+              render={({history})=>{
+               
+                return <EditMealItem  />
               }}
                 /> 
               <PrivateRoute
