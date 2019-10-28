@@ -62,7 +62,7 @@ export default class MealDeal extends Component{
                 <Section  className='mod-container'>
              
                    <p className='meal-date'>
-                    {day} <br/> {formattedDay}      
+                    {day}  {formattedDay}      
                    
                    </p>
                 

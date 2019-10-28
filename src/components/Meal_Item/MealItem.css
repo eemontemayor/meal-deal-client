@@ -161,7 +161,7 @@ display:block;
 }
 .meal-name{
     
-    font-size:1.5em;
+    font-size:1.2em;
 }
 button:hover{
     cursor: pointer;
@@ -169,14 +169,16 @@ button:hover{
 h6{
     text-align: center;
 }
+.meal-date{
+}
 @media only screen and (min-width: 760px) {
     .mod-item{
-        /* min-height: auto; */
-       height:auto;
-        font-size: 1rem;
-        margin-bottom:10px;
+        height: fit-content;
+       max-height:15%;
+        font-size: .70em;
+        margin-bottom:5px;
         width:350px;
-        margin:auto;
+        /* margin:auto; */
         display:block;
 
 
@@ -194,8 +196,10 @@ h6{
         right:0;
         left:0;
         top:60px;
-        
+        min-height:100vh;
         /* width:50vw; */
+        padding:50px;
+        
     }
   .ing-list{
       /* width:auto; */
