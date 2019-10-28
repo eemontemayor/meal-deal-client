@@ -59,14 +59,17 @@ renderMore=()=>{
             
             <br/>
             <div className='lists'>
-                
+              <div>
             <h6>Ingredients:</h6>
             <ul className='ing-list'>{ingList}</ul>
+                  </div>  
          
 
+            <div>   
 
             <h6>Instructions:</h6>
             <ul className='inst-list'>{instList}</ul>
+            </div>
             </div>
         </div>
         )
@@ -94,7 +97,8 @@ render(){
         key={index}
       
         >
-             
+             <div className={this.state.seeMore ?'meal-item-header' :undefined}>
+
                 {view === 'meals-of-day'&& <div><button className='item-bm-btn'onClick={()=>this.context.handleAddBookmark(meal)}>b</button>
                 <button className='item-del-btn'onClick={()=>this.context.handleDeleteMeal(this.props.meal,index)} >x</button>
                 <Link to={`/planner/meal/${this.props.meal.id}`}onClick={()=>this.seeMore(meal)}>{!this.state.seeMore? 'see more':'see less'}</Link></div>}
@@ -103,6 +107,7 @@ render(){
              <button className='item-del-btn'onClick={()=>this.context.handleDeleteBookmark(this.props.meal,index)} >x</button> 
               <Link to={`/planner/bookmark/${this.props.meal.id}`}onClick={()=>this.seeMore(meal)}>{!this.state.seeMore? 'edit':'go back'}</Link></div> } {/* have to pass this.props.meal.id here to avoid pkey constraint between md and bm */}
             <p className='meal-name'>{meal.meal_name}</p> 
+             </div>
             <div>
         
             {this.state.seeMore && this.renderMore()} 

@@ -130,11 +130,22 @@ handleAddInst=(ev)=>{
                   
               </Input>
               <Button onClick={this.handleAddIng.bind(this)}>+</Button>
-            </div>
+            
         
            
-            <div className= 'instructions-input'>
-                <label htmlFor='instructions'>instructions
+      
+         
+            
+          <Section  className='add-meal-ing-list'>
+           
+            <ul>
+            {ingList}
+            </ul>
+
+          </Section>
+          </div>
+          <div className= 'instructions-input'>
+                <label htmlFor='instructions'>Instructions
                 </label>
 
   
@@ -146,18 +157,8 @@ handleAddInst=(ev)=>{
                   
               </Input>
               <Button onClick={this.handleAddInst.bind(this)}>+</Button>
-            </div>
-         
-            </form>
-          <Section  className='add-meal-ing-list'>
-            Ingredients:
-            <ul>
-            {ingList}
-            </ul>
-
-          </Section>
           <Section className='add-meal-inst-list'>
-            Instructions:
+          
             <ul>
        
             {instList}
@@ -165,6 +166,8 @@ handleAddInst=(ev)=>{
             </ul>
 
           </Section>
+            </div>
+          </form>
      </div>  
         )
     }

@@ -18,6 +18,12 @@
    /* overflow: hidden; */
 
 }
+.meal-item-header{
+    position:sticky;
+    top: 0;
+    height:100px;
+    z-index: 9;
+}
 .bm-item{
     list-style: none;
     border:1px solid black;
@@ -70,42 +76,60 @@
 .lists{
     width:100%;
     text-align: left;
-   /* display: inline-block; */
+    /* margin:auto; */
+   display: block;
     /* text-align: left; */
     /* background-color: rgb(236, 236, 236); */
 }
 .ing-list{
+    /* display: block; */
+    margin:auto;
+    /* margin:auto; */
     min-height:200px;
     border-radius:3px;
     box-shadow: 2px 2px 1px grey;
     text-align: left;
-    font-size:.85em;
+    /* font-size:.85em; */
     background-color: rgb(236, 236, 236);
-  float:left;
-   width:35vw;
+  /* float:left; */
+  min-width:35vw;
+  max-width:50vw;
     margin-left:30px;
-    height:auto;
-    height:30vh;
+    height:fit-content;
+    min-height:20vh;
+    padding:2em;
+    /* position: relative;
+    left:0; */
 }
 .inst-list{
+    /* display: block; */
+    margin:auto;
     min-height:200px;
-    font-size:.85em;
+    /* font-size:.85em; */
     background-color: rgb(236, 236, 236);
     border-radius:3px;
     box-shadow: 2px 2px 1px grey;
-    width:35vw;
+    min-width:35vw;
+    max-width:50vw;
     text-align: left;
-    float:left;
+    /* float:left; */
     /* display: inline-block; */
     margin-left:30px;
-    height:30vh;
+    height:fit-content;
+    min-height:20vh;
+    padding:2em;
+    /* position: relative;
+    right:0; */
 }
 .meal-name{
     
-    font-size:1.1em;
+    font-size:1.5em;
 }
 button:hover{
     cursor: pointer;
+}
+h6{
+    text-align: center;
 }
 @media only screen and (min-width: 760px) {
     .mod-item{
@@ -141,27 +165,31 @@ button:hover{
     border:1px solid black;
     border-radius:3px;
     text-align: center;
-   min-width:50vw;
+   min-width:100vw;
     box-shadow: 2px 2px 1px grey;
    opacity:95%;
     padding:10px;
     margin:auto;
     position: absolute;
+    overflow: auto;
     /* bottom: 0;  */
     /* transform: translate(150px, 100px); */
     /* margin-bottom:5px;
     max-width: 450px;
    font-size: 1em;
+   
 
    cursor: pointer;
    display:block;
         /* transition: width 2s, height 2s, transform 2s; */
     }
   .ing-list{
-      width:auto;
+      /* width:auto; */
+      margin:auto;
   }
   .inst-list{
-    width:auto;
+      margin: auto;
+    /* width:auto; */
 }
       .meal-img{
         max-width: 250px;
