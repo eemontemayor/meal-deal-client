@@ -45,9 +45,11 @@
        
 }
 .form-buttons{
-    position:sticky;
+    /* position:sticky; */
     top:40px;
     z-index:7;
+    position: fixed;
+    display: contents;
 }
 .add-meal-form-btn{
     background-color: rgb(0, 255, 255);

@@ -14,9 +14,9 @@
   width:100%;
 }
 .form-add-btn{
-    position: relative;
+    /* position: relative;
     right:0px;
-  bottom:0px;
+  bottom:0px; */
   background-color: rgba(209, 212, 212, 0.932);
   border:1px solid black;
   float:right;
