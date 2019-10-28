@@ -81,7 +81,7 @@ else{
 }
 }
 
-handleUpdateMeal = (meal)=>{
+handleUpdateBookmark = (meal)=>{
     console.log(meal)
 }
 
@@ -189,7 +189,8 @@ saveSearchResults = (arr) =>{
             onChange:this.onChange,
             searchRes:this.state.searchRes,
             saveSearchRes:this.saveSearchResults,
-            goBack:this.goBack
+            goBack:this.goBack,
+            handleUpdateBookmark:this.handleUpdateBookmark,
             }
            
         return(

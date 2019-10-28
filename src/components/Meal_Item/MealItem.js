@@ -37,21 +37,25 @@ seeMore = (meal) =>{
 renderMore=()=>{
     let ingList=[]
     let instList=[]
-        if(this.state.ingredients){
-            let ing = this.state.ingredients
+    if(this.state.ingredients){
+        let ing = this.state.ingredients
             console.log(ing)
         // let ing = this.state.ingredients.replace(/[{}]/g,'').split(',')
        
          ingList = ing.map((item,index)=>{
             return <li key={index}>{item}</li>
-        })
+        })} else {
+             ingList=<li key={0}>'No ingredients saved for this item'</li>
+        }
         if(this.state.instructions){
             let inst = this.state.instructions
             console.log(inst)
            
              instList = inst.map((item,index)=>{
                 return <li key={index}>{item}</li>
-            })
+            })} else {
+                 instList= <li key={0}>'No instructions saved for this item'</li>
+            
         }
         return( 
         <div>
@@ -74,7 +78,7 @@ renderMore=()=>{
         </div>
         )
     }  
-}
+
 
    
 
