@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import MealContext from '../../contexts/MealContext';
 import {Link } from 'react-router-dom';
 import './MealItem.css'
-
+import EditMealItem from './EditMealItem'
 
 export default class MealItem extends Component{
   state={
@@ -19,6 +19,12 @@ static contextType = MealContext
     //   console.log(this.context.MOD)
   
   }
+
+isEditing=()=>{
+  this.setState({
+    isEditing:!this.state.isEditing
+  })
+}
 
 seeMore = (meal) =>{
     this.setState({
@@ -59,7 +65,7 @@ renderMore=()=>{
         }
         return( 
         <div>
-           {this.props.view === 'bookmarks' && <Link to={`/planner/bookmark/${this.props.meal.id}/edit`}>Edit Meal</Link>}
+           {this.props.view === 'bookmarks' && <Link to={`/planner/bookmark/edit/${this.props.meal.id}`} onClick={this.isEditing}  >Edit Meal</Link>}
            <br/>
             {this.state.image ? <img className='meal-img'src={this.state.image} alt='x'/>: null}
             <br/>
@@ -97,6 +103,8 @@ render(){
     image:this.props.meal.image
 }
     return(
+      <div className={this.state.isEditing && 'edit-meal-page'}> {/* pretty hacky... should try to find another way*/ }
+
         <li
         className= {this.props.cssClass} id={this.state.seeMore ? `item-selected`: undefined} 
         key={index}
@@ -121,6 +129,7 @@ render(){
             </div>
            
         </li>
+        </div>
     )
 }
 }

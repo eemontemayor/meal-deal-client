@@ -68,7 +68,7 @@ export default class App extends Component{
               }}
                 /> 
                 <PrivateRoute
-              path={'/planner/bookmark/:bookmark_id/edit'}
+              path={'/planner/bookmark/edit/:bookmark_id'}
               render={({history})=>{
                
                 return <EditMealItem  />

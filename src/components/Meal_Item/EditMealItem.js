@@ -30,6 +30,7 @@ export default class EditMealItem extends Component{
 
       componentDidMount() {
         const { bookmark_id } = this.props.match.params
+        debugger
         MealApiService.findMealByDate(bookmark_id)
         
           .then(res => {
@@ -88,7 +89,7 @@ export default class EditMealItem extends Component{
       render(){
           const meal = this.state.meal
           return(
-            <div>
+            <div className='edit-meal-page'>
                 <form
                  onSubmit={this.handleSubmit}
                  onCancel={this.handleClickCancel}

@@ -18,7 +18,11 @@
    /* overflow: hidden; */
 
 }
-
+.edit-meal-page{
+    background-color: pink;
+    height:100vh;
+    z-index:99;
+}
 #item-selected{
     /* position:fixed; */
     /* overflow-y:auto; */
@@ -197,17 +201,17 @@ h6{
         left:0;
         top:60px;
         min-height:100vh;
-        /* width:50vw; */
+        /* width:50vw; to do:  use flex here to render lists side by side  */ 
         padding:50px;
         
     }
   .ing-list{
-      /* width:auto; */
+      width:fit-content;
       margin:auto;
   }
   .inst-list{
       margin: auto;
-    /* width:auto; */
+      width:fit-content;
 }
       .meal-img{
         max-width: 250px;

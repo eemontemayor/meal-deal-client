@@ -48,7 +48,44 @@ export default class Explorer extends Component{
               })
           })
       }
-
+      AddResultItemToBookmarks=(meal)=>{ //adds to bookmark table in db
+                                          // gonna have to fix this .... or change context schema
+ 
+        let name =  meal.meal_name
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+      
+    
+        const newBookmark = {
+          meal_name:name,
+          ingredients: meal.ingredients,
+          image:meal.image
+          // and other stuff
+        }
+    
+        const list = this.context.bookmarks.map(i=> {
+            return i.meal_name
+        })
+     
+       if(!list.includes(newBookmark.meal_name)){
+            MealApiService.postBookmark(newBookmark)
+            .then(meal =>{ 
+                console.log(meal)
+                MealApiService.getBookmarks()
+                .then(meals=>{
+                    this.setState({
+                        bookmarks:meals
+                    })
+                })
+            })
+            .catch(error => {
+                console.log({error})
+            })
+        }else{
+            alert('Meal already in bookmarks!')
+        }
+    }
 
     render(){
       console.log(this.props)
