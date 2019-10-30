@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './PlannerPage.css'
-import MealDeal from '../../components/MealDeal/MealDeal'
+import Planner from '../../components/Planner/Planner'
 import dateFormat from 'dateformat';
 import MealApiService from '../../services/meal-api-service'
 import MealContext from '../../contexts/MealContext'
@@ -200,7 +200,7 @@ saveSearchResults = (arr) =>{
             <div className='planner-page'>
             <MealContext.Provider value = {value}>
           
-            {this.state.value && <MealDeal className='meal-deal-container'value={this.state.value}  />}
+            {this.state.value && <Planner value={this.state.value}  />}
            </MealContext.Provider>
             </div>
         )

@@ -4,14 +4,14 @@ import dateFormat from 'dateformat';
 import AddMealForm from '../AddMealForm/AddMealForm'
 import BookMarks from '../BookMarks/BookMarks'
 import ExplorerForm from '../ExplorerForm/ExplorerForm'
-import './MealDeal.css'
+import './Planner.css'
 import Calendar from 'react-calendar'
 
 import Mod from '../MOD/MOD'
 import MealContext from '../../contexts/MealContext';
 
 
-export default class MealDeal extends Component{
+export default class Planner extends Component{
     constructor(props) {
         super(props);
         this.state = { 
