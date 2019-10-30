@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import MealContext from '../../contexts/MealContext';
 import {Link } from 'react-router-dom';
 import './MealItem.css'
-import EditMealItem from './EditMealItem'
+// import EditMealItem from './EditMealItem'
 
 export default class MealItem extends Component{
   state={

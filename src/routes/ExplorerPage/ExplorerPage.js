@@ -18,8 +18,8 @@ export default class ExplorerPage extends Component{
         })
     })
     }
-    // console.log(this.props.match.path)
- postBookmark=(meal)=>{ //adds to bookmark table in db
+   
+ postBookmark=(meal)=>{ //had to add this function because explorer page does not have access to context
  
         let name =  meal.meal_name
         .split(' ')
@@ -29,7 +29,7 @@ export default class ExplorerPage extends Component{
     
         const newBookmark = {
           meal_name:name,
-        //   ingredients: meal.ingredients,
+          ingredients: meal.ingredients,
           image:meal.image
         }
     
