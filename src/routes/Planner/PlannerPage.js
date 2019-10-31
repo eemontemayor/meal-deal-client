@@ -95,7 +95,7 @@ handleUpdateBookmark = (e)=>{
 
 
 goBack=()=>{
-    this.props.history.push('/planner')
+    this.props.history.push('/')
 }
 
 
@@ -202,7 +202,7 @@ findMealById=(id, list)=>{
 
 
     render(){
-        const  value  = {
+        const  contextValue  = {
             day: this.state.value,
             formattedDate:this.state.formattedDate,
             MOD: this.state.MOD,
@@ -221,10 +221,9 @@ findMealById=(id, list)=>{
            
         return(
             <div className='planner-page'>
-            <MealContext.Provider value = {value}>
-          
-            {this.state.value && <Planner value={this.state.value}  />}
-          {this.state.seeMealItem && <MealItemPage meal={this.state.selectedMeal}/>}
+            <MealContext.Provider value = {contextValue}> 
+           <Planner value={this.state.value}  />
+          {this.state.seeMealItem && <MealItemPage meal={this.state.selectedMeal}/>} {/* don't do this... use route props and dynamic routing instead(move context?)*/}
            </MealContext.Provider>
             </div>
         )

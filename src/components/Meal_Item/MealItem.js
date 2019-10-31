@@ -16,10 +16,8 @@ static contextType = MealContext
 
 
   componentDidMount(){
-    this.setState({
-      seeMore:this.props.seeMore
-    })
-  
+
+    console.log(this.props,'from MI ')
   }
 
 
@@ -125,7 +123,7 @@ render(){
             <div>
            
             {this.state.seeMore && lists}
-          { this.state.seeMore&& <button onClick={()=>this.props.history.goBack()}></button>}
+         
             </div>
            
         </li>
