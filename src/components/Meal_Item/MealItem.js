@@ -16,8 +16,19 @@ static contextType = MealContext
 
 
   componentDidMount(){
-    console.log(this.props.meal[0])
-    // console.log(this.props,'from MI ')
+    console.log(Object.entries(this.props.meal))
+    for (const [key, value] of Object.entries(this.props.meal)){
+      console.log(key)
+      console.log(value)
+    //   this.setState({
+    //     [key]:[...value]
+    //   },()=>{
+    //     console.log(this.state)
+
+    //   })
+    }
+    // console.log(this.props.meal.ingredients)
+    
   }
 
 
@@ -38,30 +49,31 @@ seeMore = (meal) =>{
 }
 renderMore=(ing, inst)=>{
     let ingList=[]
-    let instList=[]
+    // let instList=[]
     // console.log('hererere')
-    if(ing !== null){
-      console.log(ing)
+    console.log(ing,'input for list renderer on meal item')
+    // debugger
+    if(ing !== undefined ||ing!==null){
         // let ing = this.state.ingredients
             // console.log(ing)
         // let ing = this.state.ingredients.replace(/[{}]/g,'').split(',')
-        console.log('hererere')
+     
 
          ingList = ing.map((item,index)=>{
             return <li key={index}>{item}</li>
         })} else {
              ingList=<li key={0}>'No ingredients saved for this item'</li>
         }
-        if(inst !==null){
-            // let inst = this.state.instructions
-            // console.log(inst)
+        // if(inst !==undefined){
+        //     // let inst = this.state.instructions
+        //     // console.log(inst)
            
-             instList = inst.map((item,index)=>{
-                return <li key={index}>{item}</li>
-            })} else {
-                 instList= <li key={0}>'No instructions saved for this item'</li>
+        //      instList = inst.map((item,index)=>{
+        //         return <li key={index}>{item}</li>
+        //     })} else {
+        //          instList= <li key={0}>'No instructions saved for this item'</li>
             
-        }
+        // }
         return( 
         <div>
           <Link to={`/bookmark/edit/${this.props.meal.id}`} >Edit Meal</Link>
@@ -78,7 +90,7 @@ renderMore=(ing, inst)=>{
             <div>   
 
             <h6>Instructions:</h6>
-            <ul className='inst-list'>{instList}</ul>
+            {/* <ul className='inst-list'>{instList}</ul> */}
             </div>
             </div>
         </div>
@@ -102,8 +114,7 @@ render(){
       instructions:this.props.meal.instructions,
       image:this.props.meal.image
     }
-    // const lists = this.renderMore(this.props.meal.ingredients,this.props.meal.instructions)
-    console.log(this.props.meal)
+    console.log(meal)
     return(
       <div >
 
@@ -126,7 +137,7 @@ render(){
              </div>
             <div>
            
-            {/* {view === 'large' && lists} */}
+            {/* {view === 'large' && this.renderMore(meal.ingredients,meal.instructions)} */}
          
             </div>
            

@@ -9,9 +9,7 @@ export default class MealItemPage extends Component{
     }
     static contextType = MealContext
     componentDidMount(){
-        // this.setState({
-        //     meal:this.context.selectedMeal
-        // })
+      
         console.log(this.props.match.params.bookmark_id)
         MealApiService.findBookmarkById(this.props.match.params.bookmark_id)
         .then(meal =>{
@@ -26,7 +24,7 @@ export default class MealItemPage extends Component{
    
         render(){
             const meal = this.state.meal
-            console.log(meal.meal_name)
+         
             return(
                 
                 
