@@ -7,7 +7,7 @@ export default function MealItemPage(props){
 
 
    
-        console.log(props)
+        // console.log(props)
 
         return(
           

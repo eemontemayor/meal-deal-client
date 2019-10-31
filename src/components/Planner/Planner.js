@@ -48,7 +48,7 @@ export default class Planner extends Component{
     render(){
         const day = dateFormat(this.props.value, 'mm/dd/yy')
         const formattedDay=dateFormat(day, 'ddd')
- 
+        console.log(day,'dayfrom planner')
         return(
          
             <div className='meal-deal-page'>

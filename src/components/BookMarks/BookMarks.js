@@ -8,7 +8,7 @@ export default class BookMarks extends Component{
     static contextType = MealContext
 
     componentDidMount(){
-        console.log(this.context.bookmarks)
+        // console.log(this.context.bookmarks)
     }
     seeMore = (meal) =>{
         this.setState({
@@ -18,7 +18,7 @@ export default class BookMarks extends Component{
         
             image:meal.image
         },()=>{
-            console.log(this.state)
+            // console.log(this.state)
         })
       }
       

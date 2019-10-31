@@ -17,7 +17,7 @@ static contextType = MealContext
 
   componentDidMount(){
 
-    console.log(this.props,'from MI ')
+    // console.log(this.props,'from MI ')
   }
 
 
@@ -30,7 +30,7 @@ seeMore = (meal) =>{
     
         image:meal.image
     },()=>{
-        console.log(this.state)
+        // console.log(this.state)
         if(!this.state.seeMore){
             this.context.goBack()
         }
@@ -41,7 +41,7 @@ renderMore=(ing, inst)=>{
     let instList=[]
     if(ing !== Array){
         // let ing = this.state.ingredients
-            console.log(ing)
+            // console.log(ing)
         // let ing = this.state.ingredients.replace(/[{}]/g,'').split(',')
        
          ingList = ing.map((item,index)=>{
@@ -51,7 +51,7 @@ renderMore=(ing, inst)=>{
         }
         if(inst !== Array){
             // let inst = this.state.instructions
-            console.log(inst)
+            // console.log(inst)
            
              instList = inst.map((item,index)=>{
                 return <li key={index}>{item}</li>

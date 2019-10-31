@@ -25,17 +25,17 @@ export default class Explorer extends Component{
         this.setState({
           searchTerm: e.target.value
         },()=>{
-            console.log(this.state)
+            // console.log(this.state)
         });
       }
 
 
     handleExplorerSubmit = e => {
         e.preventDefault()
-      console.log(this.state)
+      // console.log(this.state)
         MealApiService.getExplorerMeals(this.state.searchTerm)
           .then(res => {
-            console.log(res.hits)
+            // console.log(res.hits)
             this.setState({
                 searchResults: res.hits
                
