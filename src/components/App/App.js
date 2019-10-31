@@ -24,7 +24,7 @@ export default class App extends Component{
         formattedDate:'',
         MOD:[],
         bookmarks:[],
-        selectedMeal:{},
+        selectedMeal:[],
         searchRes:[],
   }
   
@@ -177,20 +177,19 @@ console.log(e)
 }
 findMealById=(id, list)=>{
   console.log(id)
+  console.log(list)
   let meal 
   meal = list.filter(i => i.id === id)
-  this.setState({
-      seeMealItem:false,
-      selectedMeal:[]
-  },()=>{
+  
+  console.log(meal[0])
       this.setState({
-          seeMealItem:!this.state.seeMealItem,
+          // seeMealItem:!this.state.seeMealItem,
           selectedMeal:meal[0]
       })
-      // console.log(bookmark , 'from find bm by id func')
-  })
+      // debugger
+  }
 
-}
+
 goBack=()=>{
   this.props.history.push('/')
 }
@@ -215,6 +214,7 @@ saveSearchResults = (arr) =>{
       goBack:this.goBack,
       handleUpdateBookmark:this.handleUpdateBookmark,
       findMealById:this.findMealById,
+      selectedMeal:this.state.selectedMeal
       }
     return(
       <div>
@@ -251,20 +251,20 @@ saveSearchResults = (arr) =>{
 
 
 
-            {/* <PrivateRoute
-              path={'/planner/meal/:meal_id'}
+            <PrivateRoute
+              exact path={'/bookmark/:bookmark_id'}
+             component={MealItemPage}
+                
+                /> 
+                {/* <PrivateRoute
+              path={'/bookmark/:bookmark_id'}
               render={({routeProps})=>{
                   
-                  return <MealItemPage {...routeProps} />
-                }}
-                
-                />  */}
-                <PrivateRoute
-              path={'/bookmark/:bookmark_id'}
-              component={MealItemPage}
-             
-                />
-             
+                return <MealItemPage meal={this.state.selectedMeal} {...routeProps} />
+              }}
+              
+              /> 
+              */}
               <PrivateRoute
               path={'/explore'}
               component={ExplorerPage}

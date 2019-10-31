@@ -1,11 +1,13 @@
 .meal-item-page{
-    background-color: rgb(10, 0, 0);
+    background-color: rgba(10, 0, 0, 0.212);
     height:100vh;
     /* z-index:999; */
     width:100vw;
+    padding:70px;
 }
 .back-btn{
-    height:200px;
+    height:100px;
+    width:100px;
     margin:auto;
     float:right;
     /* position:relative;

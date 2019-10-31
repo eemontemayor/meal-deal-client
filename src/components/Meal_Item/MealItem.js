@@ -6,7 +6,7 @@ import './MealItem.css'
 
 export default class MealItem extends Component{
   state={
-    seeMore:false,
+    // seeMore:false,
     ingredients:[],
     instructions:[],
     image:''
@@ -16,7 +16,7 @@ static contextType = MealContext
 
 
   componentDidMount(){
-
+    console.log(this.props.meal[0])
     // console.log(this.props,'from MI ')
   }
 
@@ -39,17 +39,20 @@ seeMore = (meal) =>{
 renderMore=(ing, inst)=>{
     let ingList=[]
     let instList=[]
-    if(ing !== Array){
+    // console.log('hererere')
+    if(ing !== null){
+      console.log(ing)
         // let ing = this.state.ingredients
             // console.log(ing)
         // let ing = this.state.ingredients.replace(/[{}]/g,'').split(',')
-       
+        console.log('hererere')
+
          ingList = ing.map((item,index)=>{
             return <li key={index}>{item}</li>
         })} else {
              ingList=<li key={0}>'No ingredients saved for this item'</li>
         }
-        if(inst !== Array){
+        if(inst !==null){
             // let inst = this.state.instructions
             // console.log(inst)
            
@@ -61,7 +64,7 @@ renderMore=(ing, inst)=>{
         }
         return( 
         <div>
-           {this.props.view === 'bookmarks' && <Link to={`/planner/bookmark/edit/${this.props.meal.id}`} >Edit Meal</Link>}
+          <Link to={`/bookmark/edit/${this.props.meal.id}`} >Edit Meal</Link>
            <br/>
             {this.state.image ? <img className='meal-img'src={this.state.image} alt='x'/>: null}
             <br/>
@@ -89,22 +92,23 @@ render(){
   const bookmarks = this.context.bookmarks
   const MOD = this.context.MOD
     const view = this.props.view
-  const lists = this.renderMore(this.state.ingredients,this.state.instructions)
-   const index= this.props.index
-   console.log(this.props.meal)
-//    const id=this.props.meal.id
-   const meal={
-  //  id:this.props.meal.id,   // uncommented because it leads to pkey violations (bookmarks have their own id)
-    meal_name:this.props.meal.meal_name,
-    ingredients:this.props.meal.ingredients,
-    instructions:this.props.meal.instructions,
-    image:this.props.meal.image
-}
+    const index= this.props.index
+    //  console.log(this.props.meal)
+    //    const id=this.props.meal.id
+    const meal={
+      //  id:this.props.meal.id,   // uncommented because it leads to pkey violations (bookmarks have their own id)
+      meal_name:this.props.meal.meal_name,
+      ingredients:this.props.meal.ingredients,
+      instructions:this.props.meal.instructions,
+      image:this.props.meal.image
+    }
+    // const lists = this.renderMore(this.props.meal.ingredients,this.props.meal.instructions)
+    console.log(this.props.meal)
     return(
-      <div className={this.state.isEditing && 'edit-meal-page'}> {/* pretty hacky... should try to find another way*/ }
+      <div >
 
         <li
-        className= {this.props.cssClass} id={this.state.seeMore ? `item-selected`: undefined} 
+        className= {this.props.cssClass} id={this.props.id} 
         key={index}
       
         >
@@ -116,13 +120,13 @@ render(){
 
                 {view === 'bookmarks' &&  <div><button className='item-add-btn' onClick={()=>this.context.postMeal(meal)}>+</button> 
              <button className='item-del-btn'onClick={()=>this.context.handleDeleteBookmark(this.props.meal,index)} >x</button> 
-              <Link to={`planner/bookmark/${this.props.meal.id}`} onClick={()=>this.context.findMealById(this.props.meal.id, bookmarks)}>{!this.state.seeMore? 'see more':'see less'}</Link> {/* have to pass this.props.meal.id here to avoid pkey constraint between md and bm */}
+              <Link to={`/bookmark/${this.props.meal.id}`} onClick={()=>this.context.findMealById(this.props.meal.id, bookmarks)}>{!this.state.seeMore? 'see more':'see less'}</Link> {/* have to pass this.props.meal.id here to avoid pkey constraint between md and bm */}
               </div> }
             <p className='meal-name'>{meal.meal_name}</p> 
              </div>
             <div>
            
-            {this.state.seeMore && lists}
+            {/* {view === 'large' && lists} */}
          
             </div>
            
