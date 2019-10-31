@@ -16,15 +16,13 @@ static contextType = MealContext
 
 
   componentDidMount(){
-    //   console.log(this.context.MOD)
+    this.setState({
+      seeMore:this.props.seeMore
+    })
   
   }
 
-isEditing=()=>{
-  this.setState({
-    isEditing:!this.state.isEditing
-  })
-}
+
 
 seeMore = (meal) =>{
     this.setState({
@@ -40,11 +38,11 @@ seeMore = (meal) =>{
         }
     })
 }
-renderMore=()=>{
+renderMore=(ing, inst)=>{
     let ingList=[]
     let instList=[]
-    if(this.state.ingredients){
-        let ing = this.state.ingredients
+    if(ing !== Array){
+        // let ing = this.state.ingredients
             console.log(ing)
         // let ing = this.state.ingredients.replace(/[{}]/g,'').split(',')
        
@@ -53,8 +51,8 @@ renderMore=()=>{
         })} else {
              ingList=<li key={0}>'No ingredients saved for this item'</li>
         }
-        if(this.state.instructions){
-            let inst = this.state.instructions
+        if(inst !== Array){
+            // let inst = this.state.instructions
             console.log(inst)
            
              instList = inst.map((item,index)=>{
@@ -65,7 +63,7 @@ renderMore=()=>{
         }
         return( 
         <div>
-           {this.props.view === 'bookmarks' && <Link to={`/planner/bookmark/edit/${this.props.meal.id}`} onClick={this.isEditing}  >Edit Meal</Link>}
+           {this.props.view === 'bookmarks' && <Link to={`/planner/bookmark/edit/${this.props.meal.id}`} >Edit Meal</Link>}
            <br/>
             {this.state.image ? <img className='meal-img'src={this.state.image} alt='x'/>: null}
             <br/>
@@ -90,8 +88,10 @@ renderMore=()=>{
    
 
 render(){
+  const bookmarks = this.context.bookmarks
+  const MOD = this.context.MOD
     const view = this.props.view
-
+  const lists = this.renderMore(this.state.ingredients,this.state.instructions)
    const index= this.props.index
    console.log(this.props.meal)
 //    const id=this.props.meal.id
@@ -114,18 +114,18 @@ render(){
 
                 {view === 'meals-of-day'&& <div><button className='item-bm-btn'onClick={()=>this.context.handleAddBookmark(meal)}>b</button>
                 <button className='item-del-btn'onClick={()=>this.context.handleDeleteMeal(this.props.meal,index)} >x</button>
-                <Link to={`/planner/meal/${this.props.meal.id}`}onClick={()=>this.seeMore(meal)}>{!this.state.seeMore? 'see more':'see less'}</Link></div>}
+                <Link to={`/planner/meal/${this.props.meal.id}`}onClick={()=>this.context.findMealById(this.props.meal.id, MOD)}>{!this.state.seeMore? 'see more':'see less'}</Link></div>}
 
                 {view === 'bookmarks' &&  <div><button className='item-add-btn' onClick={()=>this.context.postMeal(meal)}>+</button> 
              <button className='item-del-btn'onClick={()=>this.context.handleDeleteBookmark(this.props.meal,index)} >x</button> 
-              <Link to={`/planner/bookmark/${this.props.meal.id}`}onClick={()=>this.seeMore(meal)}>{!this.state.seeMore? 'see more':'see less'}</Link> {/* have to pass this.props.meal.id here to avoid pkey constraint between md and bm */}
+              <Link to={`planner/bookmark/${this.props.meal.id}`} onClick={()=>this.context.findMealById(this.props.meal.id, bookmarks)}>{!this.state.seeMore? 'see more':'see less'}</Link> {/* have to pass this.props.meal.id here to avoid pkey constraint between md and bm */}
               </div> }
             <p className='meal-name'>{meal.meal_name}</p> 
              </div>
             <div>
            
-            {this.state.seeMore && this.renderMore()} 
-          
+            {this.state.seeMore && lists}
+          { this.state.seeMore&& <button onClick={()=>this.props.history.goBack()}></button>}
             </div>
            
         </li>

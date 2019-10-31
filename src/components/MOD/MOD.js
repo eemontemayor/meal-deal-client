@@ -41,7 +41,7 @@ export default class Mod extends Component{
   }
       render(){
         const ModList = this.list(this.context.MOD)
-        console.log(this.context.MOD)
+        // console.log(this.context.MOD)
           return(
               <div className='mod-page'>
                   <ul className='mod-list'>

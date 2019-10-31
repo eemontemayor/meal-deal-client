@@ -1,0 +1,10 @@
+.meal-item-page{
+    background-color: rgb(10, 0, 0);
+    height:100vh;
+    z-index:999;
+    width:100vw;
+}
+.back-btn{
+    height:200px;
+    margin:auto;
+}

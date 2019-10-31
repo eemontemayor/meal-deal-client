@@ -1,15 +1,20 @@
 import React, {Component} from 'react';
 import './PlannerPage.css'
+import {Route, Switch } from 'react-router-dom';
+import PrivateRoute from '../../components/Utils/PrivateRoute'
 import Planner from '../../components/Planner/Planner'
 import dateFormat from 'dateformat';
 import MealApiService from '../../services/meal-api-service'
 import MealContext from '../../contexts/MealContext'
+import MealItemPage from '../MealItemPage/MealItemPage'
 export default class PlannerPage extends Component{
     state = {
         value: new Date(),
         MOD:[],
         formattedDate:'',
         bookmarks:[],
+        
+        selectedMeal:{},
         searchRes:[],
       }
     
@@ -174,7 +179,24 @@ saveSearchResults = (arr) =>{
     })
 }
 
+findMealById=(id, list)=>{
+    console.log(id)
+    let meal 
+    meal = list.filter(i => i.id === id)
+    this.setState({
+        seeMealItem:false,
+        selectedMeal:[]
+    },()=>{
+        this.setState({
+            seeMealItem:!this.state.seeMealItem,
+            selectedMeal:meal[0]
+        })
+        // console.log(bookmark , 'from find bm by id func')
+    })
 
+
+  
+}
 
 
 
@@ -194,6 +216,7 @@ saveSearchResults = (arr) =>{
             saveSearchRes:this.saveSearchResults,
             goBack:this.goBack,
             handleUpdateBookmark:this.handleUpdateBookmark,
+            findMealById:this.findMealById,
             }
            
         return(
@@ -201,6 +224,7 @@ saveSearchResults = (arr) =>{
             <MealContext.Provider value = {value}>
           
             {this.state.value && <Planner value={this.state.value}  />}
+          {this.state.seeMealItem && <MealItemPage meal={this.state.selectedMeal}/>}
            </MealContext.Provider>
             </div>
         )

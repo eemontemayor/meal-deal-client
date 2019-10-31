@@ -27,13 +27,14 @@
     /* position:fixed; */
     /* overflow-y:auto; */
     /* position: relative; */
+    background-color:rgba(128, 0, 128, 0.356);
     position: fixed;
     right:0;
     left:0;
     top:0;
   /* height:50vh; */
   /* max-height:100vh; */
- height:100vh;
+ height:90vh;
   z-index:90;
   list-style: none;
 border:1px solid black;

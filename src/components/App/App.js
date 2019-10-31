@@ -12,7 +12,7 @@ import PlannerPage from '../../routes/Planner/PlannerPage';
 import ExplorerPage from '../../routes/ExplorerPage/ExplorerPage';
 import ShoppingListPage from '../../routes/ShoppingListPage/ShoppingListPage'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
-// import EditMealItem from '../Meal_Item/EditMealItem';
+import MealItemPage from '../../routes/MealItemPage/MealItemPage';
 
 export default class App extends Component{
   state={
@@ -49,31 +49,34 @@ export default class App extends Component{
               component={RegistrationPage}
             />
                 <PrivateRoute
+              
               path={'/planner'}
               component={PlannerPage}
             /> 
+
+
              <PrivateRoute
-              path={'/planner/meal/:meal_id'}
-              render={({history})=>{
-                
-                return <PlannerPage  />
-              }}
-            
+              
+              path={'/planner/:date'}
+              component={PlannerPage}
             /> 
-                <PrivateRoute
-              path={'/planner/bookmark/:bookmark_id'}
+
+
+
+            {/* <PrivateRoute
+              path={'/planner/meal/:meal_id'}
               render={({routeProps})=>{
-               
-                return <PlannerPage {...routeProps} />
-              }}
-                /> 
-                {/* <PrivateRoute
-              path={'/planner/bookmark/edit/:bookmark_id'}
-              render={({history})=>{
-               
-                return <EditMealItem  />
-              }}
+                  
+                  return <MealItemPage {...routeProps} />
+                }}
+                
                 />  */}
+                {/* <PrivateRoute
+              path={'/bookmark/:bookmark_id'}
+              component={MealItemPage}
+             
+                /> */}
+             
               <PrivateRoute
               path={'/explore'}
               component={ExplorerPage}
