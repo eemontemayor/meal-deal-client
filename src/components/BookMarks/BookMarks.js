@@ -24,7 +24,7 @@ export default class BookMarks extends Component{
         }
         else{
           return bm.map((item, index)=>{
-            return <MealItem  meal={item}  key={index} index={index}view='bookmarks' cssClass='bm-item'/>
+            return <MealItem  meal={item} id={item.id} key={index} index={index}view='bookmarks' cssClass='bm-item'/> // violating pkey 
          })
         }
     }
