@@ -4,12 +4,7 @@ import MealContext from '../../contexts/MealContext'
 import '../Meal_Item/MealItem.css'
 import './Mod.css'
 export default class Mod extends Component{
-   state={
-     MOD:[],
-     seeMore:false,
-     selectedMeal:{}
-     
-   }
+   
   static contextType = MealContext
 
 
@@ -33,7 +28,7 @@ export default class Mod extends Component{
       }
       else{
         return meals.map((item, index)=>{
-          return <MealItem meal={item} key={index} index={index}view='meals-of-day' cssClass='mod-item' seeMore={this.seeMore}/>
+          return <MealItem  meal={item} key={index} index={index}view='meals-of-day' cssClass='mod-item' s/>
        })
       }
    

@@ -175,19 +175,25 @@ console.log(e)
   // MealApiService.updateBookmark(bookmark, id)
 
 }
-findMealById=(id, list)=>{
-  console.log(id)
-  console.log(list)
-  let meal 
-  meal = list.filter(i => i.id === id)
+// findMealById=(id, list)=>{
+//   console.log(id)
+//   console.log(list)
+
+//   let meal 
+//   meal = list.filter(i => i.id === id)
   
-  console.log(meal[0])
-      this.setState({
-          // seeMealItem:!this.state.seeMealItem,
-          selectedMeal:meal[0]
-      })
-      // debugger
-  }
+//   console.log(meal[0])
+
+//   MealApiService.findBookmarkById(id)
+//   .then(meal=>{
+//     this.setState({
+//       // seeMealItem:!this.state.seeMealItem,
+//       selectedMeal:meal[0]
+//   })
+//   })
+      
+      
+//   }
 
 
 goBack=()=>{
@@ -214,7 +220,8 @@ saveSearchResults = (arr) =>{
       goBack:this.goBack,
       handleUpdateBookmark:this.handleUpdateBookmark,
       findMealById:this.findMealById,
-      selectedMeal:this.state.selectedMeal
+      selectedMeal:this.state.selectedMeal,
+      setSelectedMeal:this.setSelectedMeal
       }
     return(
       <div>

@@ -5,31 +5,45 @@ import MealItem from '../../components/Meal_Item/MealItem'
 import MealContext from '../../contexts/MealContext'
 export default class MealItemPage extends Component{
     state={
-        meal:{}
+        selectedMeal:[]
     }
     static contextType = MealContext
     componentDidMount(){
-      
+    //   console.log(this.context.selectedMeal,'selected Meal from mip')
         console.log(this.props.match.params.bookmark_id)
+     
+        
         MealApiService.findBookmarkById(this.props.match.params.bookmark_id)
         .then(meal =>{
+            
+            console.log(meal[0])
+
+            // this.context.setSelectedMeal(meal)
             this.setState({
-                meal:meal[0],
-                selectedMeal:this.context.selectedMeal
-            },()=>{
-                console.log(this.state)
+                    selectedMeal:meal[0]
+                })
             })
-        })
+                .catch(error =>{
+                    console.error({error})
+                  })
+            
+            
     }
+
+
    
         render(){
-            const meal = this.state.meal
-         
+            const meal = this.state.selectedMeal
+            const m = this.context.selectedMeal
+            console.log(meal.meal_name,'<-----------')
+            // console.log(m[0])
             return(
                 
                 
                 <div className='meal-item-page'><button className='back-btn' onClick={()=>this.props.history.goBack()}>back</button>
-            <MealItem meal={meal} cssClass={'bm-item'} id='item-selected' view='large' />
+            { meal && <MealItem id={meal.id} meal={meal} meal_name={meal.meal_name}image={meal.image}ingredients={meal.ingredients}cssClass={'bm-item'} id='item-selected' view='large' />}
+            
+            
             </div>
             
             )

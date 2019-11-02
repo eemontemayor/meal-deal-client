@@ -27,14 +27,14 @@
     /* position:fixed; */
     /* overflow-y:auto; */
     /* position: relative; */
-    background-color:rgba(0, 128, 32, 0.356);
+    background-color: rgba(145, 255, 0, 0.603);
   
   /* height:50vh; */
   /* max-height:100vh; */
  height:80vh;
- min-height:80vh;
+ min-height:70vh;
  width:90vw;
- min-width:80vw;
+ min-width:70vw;
   /* z-index:90; */
   list-style: none;
 border:1px solid black;
@@ -121,6 +121,7 @@ display:block;
     text-align: left;
     /* margin:auto; */
    display: block;
+
     /* text-align: left; */
     /* background-color: rgb(236, 236, 236); */
 }
@@ -143,6 +144,7 @@ display:block;
     padding:2em;
     /* position: relative;
     left:0; */
+    opacity:90%;
 }
 .inst-list{
     /* display: block; */
@@ -163,6 +165,7 @@ display:block;
     padding:2em;
     /* position: relative;
     right:0; */
+    opacity:90%%;
 }
 .meal-name{
     
