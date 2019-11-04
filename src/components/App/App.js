@@ -80,9 +80,9 @@ export default class App extends Component{
     newMeal.id=undefined
 
     console.log(newMeal,'-=-=-=-=-=-=-=')
-
+    console.log(this.state.MOD)
     newMeal.on_day = this.state.formattedDate
-    if(this.state.MOD.length === undefined || this.state.MOD.length < 6){
+    if(this.state.MOD === undefined || this.state.MOD.length < 6){
     MealApiService.postMeal(newMeal, this.state.formattedDate)
     .then(res =>{ 
 
