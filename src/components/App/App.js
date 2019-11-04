@@ -16,6 +16,7 @@ import MealItemPage from '../../routes/MealItemPage/MealItemPage';
 import MealContext from '../../contexts/MealContext'
 import MealApiService from '../../services/meal-api-service'
 import dateFormat from 'dateformat';
+import config from '../../config';
 
 export default class App extends Component{
   state={
@@ -55,7 +56,8 @@ export default class App extends Component{
 
   onChange = value => {
     const formattedDate=dateFormat(value, 'yyyy-mm-dd')
-   
+  //   let location = config.API_ENDPOINT.replace('api', 'planner')
+  //  window.location = location + '/' +formattedDate
     this.setState({ value,formattedDate },()=>{
     MealApiService.findMealByDate(formattedDate)
     .then(meals =>{ 
