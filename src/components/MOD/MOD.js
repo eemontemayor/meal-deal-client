@@ -19,7 +19,7 @@ export default class Mod extends Component{
       
   
       if( meals === undefined || meals === [] || meals.length <1 ){
-        // debugger
+      
         return <li key='0' className='place-holder'>
      
           Add a meal to this day!
@@ -36,7 +36,7 @@ export default class Mod extends Component{
   }
       render(){
         const ModList = this.list(this.context.MOD)
-        // console.log(this.context.MOD)
+    
           return(
               <div className='mod-page'>
                   <ul className='mod-list'>

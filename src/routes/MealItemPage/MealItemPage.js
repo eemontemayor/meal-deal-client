@@ -5,11 +5,12 @@ import MealItem from '../../components/Meal_Item/MealItem'
 import MealContext from '../../contexts/MealContext'
 export default class MealItemPage extends Component{
     state={
-        selectedMeal:[]
+        selectedMeal:[],
+        cssClass:''
     }
     static contextType = MealContext
     componentDidMount(){
-    //   console.log(this.context.selectedMeal,'selected Meal from mip')
+
    
     if(this.props.match.params.bookmark_id){
         console.log(this.props.match.params.bookmark_id)
@@ -31,8 +32,10 @@ export default class MealItemPage extends Component{
         }
         if(this.props.match.params.meal_id){
 
-            console.log(this.props.match.params.meal_id,'<<<<<<<<<<<<<<<<<<<<<<,<<<')
-         MealApiService.findMealById(this.props.match.params.meal_id, this.context.formattedDate)
+       
+         MealApiService.findMealById(this.props.match.params.meal_id
+            , this.props.match.params.date
+            )
          .then(meal =>{
              
              console.log(meal[0])
