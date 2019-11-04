@@ -82,7 +82,7 @@ export default class App extends Component{
     console.log(newMeal,'-=-=-=-=-=-=-=')
 
     newMeal.on_day = this.state.formattedDate
-    if(this.state.MOD.length < 6){
+    if(this.state.MOD.length === undefined || this.state.MOD.length < 6){
     MealApiService.postMeal(newMeal, this.state.formattedDate)
     .then(res =>{ 
 
