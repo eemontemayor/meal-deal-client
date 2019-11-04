@@ -34,9 +34,7 @@ export default class MealItemPage extends Component{
    
         render(){
             const meal = this.state.selectedMeal
-            const m = this.context.selectedMeal
-            console.log(meal.meal_name,'<-----------')
-            // console.log(m[0])
+            
             return(
                 
                 
