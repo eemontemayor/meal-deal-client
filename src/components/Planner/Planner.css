@@ -88,6 +88,7 @@
   
     }
     .mod-container{
+        margin-top: 80px;
         position:fixed;
         top:50%;
         width:50%;
