@@ -132,6 +132,7 @@ handleAddBookmark=(meal)=>{ //adds to bookmark table in db
   .map(word => word.charAt(0).toUpperCase() + word.slice(1))
   .join(' ')
 
+  let list= this.state.bookmarks
 
   const newBookmark = {
     meal_name:name,
@@ -139,11 +140,13 @@ handleAddBookmark=(meal)=>{ //adds to bookmark table in db
     image:meal.image
   }
 
-  const list = this.state.bookmarks.map(i=> {
+   if( list !==undefined) {
+
+   list = list.map(i=> {
       return i.meal_name
   })
-
- if(!list.includes(newBookmark.meal_name)){
+   }
+ if( list === undefined || !list.includes(newBookmark.meal_name)){
       MealApiService.postBookmark(newBookmark)
       .then(meal =>{ 
           console.log(meal)
