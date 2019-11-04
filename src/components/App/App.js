@@ -176,25 +176,7 @@ console.log(e)
   // MealApiService.updateBookmark(bookmark, id)
 
 }
-// findMealById=(id, list)=>{
-//   console.log(id)
-//   console.log(list)
 
-//   let meal 
-//   meal = list.filter(i => i.id === id)
-  
-//   console.log(meal[0])
-
-//   MealApiService.findBookmarkById(id)
-//   .then(meal=>{
-//     this.setState({
-//       // seeMealItem:!this.state.seeMealItem,
-//       selectedMeal:meal[0]
-//   })
-//   })
-      
-      
-//   }
 
 
 goBack=()=>{
@@ -257,7 +239,11 @@ saveSearchResults = (arr) =>{
               component={PlannerPage}
             /> 
 
-
+              <PrivateRoute
+              
+              exact path={'/meal/:date/:meal_id'}
+              component={MealItemPage}
+            /> 
 
             <PrivateRoute
               exact path={'/bookmark/:bookmark_id'}

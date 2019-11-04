@@ -73,6 +73,25 @@ const MealApiService = {
     // },
 
 //TODO: MAKE RESTFUL
+findMealById(id,date){
+  // console.log(date)
+  return fetch(`${config.API_ENDPOINT}/meals/${date}/${id}`,{
+    method:'GET',
+    headers:{
+      'content-type':'application/json',
+      'authorization':`bearer ${TokenService.getAuthToken()}`,
+    },
+  })
+  .then((mealsRes) => {
+    if (!mealsRes.ok)
+      return mealsRes.json().then(e => Promise.reject(e))
+    return mealsRes.json()
+  })
+  .catch(error => {
+    console.error({error})
+  
+  })
+},
 
 
     postMeal(meal, date){

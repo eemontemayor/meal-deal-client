@@ -10,24 +10,43 @@ export default class MealItemPage extends Component{
     static contextType = MealContext
     componentDidMount(){
     //   console.log(this.context.selectedMeal,'selected Meal from mip')
+   
+    if(this.props.match.params.bookmark_id){
         console.log(this.props.match.params.bookmark_id)
-     
-        
-        MealApiService.findBookmarkById(this.props.match.params.bookmark_id)
-        .then(meal =>{
-            
-            console.log(meal[0])
 
-            // this.context.setSelectedMeal(meal)
-            this.setState({
-                    selectedMeal:meal[0]
+         
+         MealApiService.findBookmarkById(this.props.match.params.bookmark_id)
+         .then(meal =>{
+             
+             console.log(meal[0])
+       
+             this.setState({
+                 selectedMeal:meal[0],
+                 cssClass:'bm-item'
                 })
             })
-                .catch(error =>{
-                    console.error({error})
-                  })
-            
-            
+            .catch(error =>{
+                console.error({error})
+            })
+        }
+        if(this.props.match.params.meal_id){
+
+            console.log(this.props.match.params.meal_id,'<<<<<<<<<<<<<<<<<<<<<<,<<<')
+         MealApiService.findMealById(this.props.match.params.meal_id, this.context.formattedDate)
+         .then(meal =>{
+             
+             console.log(meal[0])
+             
+             
+             this.setState({
+                 selectedMeal:meal[0],
+                 cssClass:'mod-item'
+                })
+            })
+            .catch(error =>{
+                console.error({error})
+            })
+        }   
     }
 
 
@@ -39,7 +58,9 @@ export default class MealItemPage extends Component{
                 
                 
                 <div className='meal-item-page'><button className='back-btn' onClick={()=>this.props.history.goBack()}>back</button>
-            { meal && <MealItem id={meal.id} meal={meal} meal_name={meal.meal_name}image={meal.image}ingredients={meal.ingredients}cssClass={'bm-item'} id='item-selected' view='large' />}
+            { meal && <MealItem 
+            // id={meal.id} 
+            meal={meal} meal_name={meal.meal_name}image={meal.image}ingredients={meal.ingredients}cssClass={this.state.cssClass} id='item-selected' view='large' />}
             
             
             </div>
