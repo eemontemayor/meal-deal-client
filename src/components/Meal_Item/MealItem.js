@@ -29,6 +29,7 @@ static contextType = MealContext
   
 
 renderButtons=()=>{
+  
   if(this.props.view === 'meals-of-day'){
     return (
     <div><button className='item-bm-btn'onClick={()=>this.context.handleAddBookmark(this.props.meal)}>b</button>

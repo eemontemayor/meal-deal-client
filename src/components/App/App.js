@@ -77,6 +77,10 @@ export default class App extends Component{
   
     newMeal.meal_name=name
 
+    newMeal.id=undefined
+
+    console.log(newMeal,'-=-=-=-=-=-=-=')
+
     newMeal.on_day = this.state.formattedDate
     if(this.state.MOD.length < 6){
     MealApiService.postMeal(newMeal, this.state.formattedDate)
