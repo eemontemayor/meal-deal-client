@@ -32,7 +32,7 @@ const MealApiService = {
     },
 
     findMealByDate(date){
-      console.log(date)
+      // console.log(date)
       return fetch(`${config.API_ENDPOINT}/meals/${date}`,{
         method:'GET',
         headers:{
@@ -47,19 +47,43 @@ const MealApiService = {
       })
       .catch(error => {
         console.error({error})
-        console.log('here')
+        // console.log('here')
       })
     },
 
-    postMeal(x){
+    // postMeal(x){
      
-      return fetch(`${config.API_ENDPOINT}/meals`,{ 
+    //   return fetch(`${config.API_ENDPOINT}/meals`,{ 
+    //     method: 'POST',
+    //     headers:{
+    //       'content-type':'application/json',
+    //       'authorization':`bearer ${TokenService.getAuthToken()}`,
+    //     },
+    //     body: JSON.stringify(x)
+
+    //   })
+    //   .then(res => { 
+    //     (!res.ok)
+    //       ? res.json().then(e => Promise.reject(e))
+    //       : res.json()
+    //   })
+    //   .catch(error => {
+    //     console.log({error})
+    //   })
+    // },
+
+//TODO: MAKE RESTFUL
+
+
+    postMeal(meal, date){
+     
+      return fetch(`${config.API_ENDPOINT}/meals/${date}`,{ // should i add date to this endpoint
         method: 'POST',
         headers:{
           'content-type':'application/json',
           'authorization':`bearer ${TokenService.getAuthToken()}`,
         },
-        body: JSON.stringify(x)
+        body: JSON.stringify(meal)
 
       })
       .then(res => { 
@@ -83,6 +107,36 @@ const MealApiService = {
         },
         body: JSON.stringify(meal)
       })
+    },
+
+    updateMeal(meal, meal_id){
+      return fetch(`${config.API_ENDPOINT}/meals/edit/${meal_id}`, { 
+        method: 'PATCH',
+        headers:{
+          'content-type':'application/json',
+        },
+        body: JSON.stringify(meal)
+      })
+      .then(res => { 
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      })
+      .catch(error => {
+        console.log({error})
+      })
+
+    },
+//TODO: MAKE RESTFUL
+    // deleteMeal(meal_id,date){
+    //   return fetch(`${config.API_ENDPOINT}/meals/${date}/${meal_id}`, { // should i add date to this endpoint
+    //     method: 'DELETE',
+    //     headers:{
+    //       'content-type':'application/json',
+    //       'authorization':`bearer ${TokenService.getAuthToken()}`,
+    //     },
+        
+    //   })
       // .then(res => { 
       //   (!res.ok)
       //     ? res.json().then(e => Promise.reject(e))
@@ -91,7 +145,31 @@ const MealApiService = {
       // .catch(error => {
       //   console.log({error})
       // })
+    // },
+
+
+    findBookmarkById(id){
+      // console.log(date)
+      return fetch(`${config.API_ENDPOINT}/bookmarks/${id}`,{
+        method:'GET',
+        headers:{
+          'content-type':'application/json',
+          'authorization':`bearer ${TokenService.getAuthToken()}`,
+        },
+      })
+      .then((mealsRes) => {
+        if (!mealsRes.ok)
+          return mealsRes.json().then(e => Promise.reject(e))
+        return mealsRes.json()
+      })
+      .catch(error => {
+        console.error({error})
+        console.log('here')
+      })
     },
+
+
+
     getBookmarks(){
       
       return fetch(`${config.API_ENDPOINT}/bookmarks`,{
@@ -139,6 +217,38 @@ const MealApiService = {
         },
         body: JSON.stringify(meal)
       })
+   
+    },
+    updateBookmark(bookmark, id){
+      
+      return fetch(`${config.API_ENDPOINT}/bookmarks/edit/${id}`, { 
+        method: 'PATCH',
+        headers:{
+          'content-type':'application/json',
+          'authorization':`bearer ${TokenService.getAuthToken()}`,
+        },
+        body: JSON.stringify(bookmark)
+      })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(error => Promise.reject(error))
+
+        return res.json()
+      })
+      .catch(error => {
+        console.error(error)
+    
+      })
+    },
+//TODO: MAKE RESTFUL make sure you pass in id and not the whole meal
+    // deleteBookmark(bookmark_id){
+    //   return fetch(`${config.API_ENDPOINT}/bookmarks/{bookmark_id}`, { 
+    //     method: 'DELETE',
+    //     headers:{
+    //       'content-type':'application/json',
+    //     },
+    //    
+    //   })
       // .then(res => { 
       //   (!res.ok)
       //     ? res.json().then(e => Promise.reject(e))
@@ -147,7 +257,6 @@ const MealApiService = {
       // .catch(error => {
       //   console.log({error})
       // })
-    },
-
+    // },
 };
 export default MealApiService;

@@ -1,10 +1,50 @@
 .explorer_form{
     text-align: center;
     /* overflow-y: hidden; */
+    width:100%;
+  
 }
 h1{
     text-align: center;
     font-size:1.5em;
     margin-top: 45px;
     
+}
+.searchForm{
+    position:sticky;
+    width:100%;
+    /* height:fit-content; */
+    min-height: 50px;
+    background-color:  rgba(195, 0, 255, 0.863);
+    color:white;
+    /* position:absolute; */
+    top: 100px;
+    padding:20px;
+   
+    
+}
+.submit-search-btn{
+    width:25%;
+    /* float:right; */
+    padding:5px;
+    position: absolute;
+    right:0;
+    top:0;
+    height:100%;
+    background-color: rgb(200, 200, 200);
+    cursor: pointer;
+}
+.submit-search-btn:hover{
+    background-color: rgb(234, 255, 47);
+}
+@media only screen and (min-width: 760px) {
+    .searchForm{
+        border-radius: 5px;
+        margin:auto;
+        width:70%;
+        box-shadow: 3px 3px 2px  rgba(12, 12, 12, 0.514);
+        /* z-index: 5; */
+    }
+
+   
 }

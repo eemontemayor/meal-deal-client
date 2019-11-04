@@ -5,7 +5,7 @@ import './SearchResults.css'
 export default function SearchResults(props){
 
     const results=props.results.map((item,index)=>{
-        return <li key={index}><ResultItem expPage={props.expPage}meal={item}/></li>
+        return <li key={index}><ResultItem expPage={props.expPage}meal={item} postBookmark={props.postBookmark}/></li>
     })
 
     return(

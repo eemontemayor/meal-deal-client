@@ -4,14 +4,14 @@ import dateFormat from 'dateformat';
 import AddMealForm from '../AddMealForm/AddMealForm'
 import BookMarks from '../BookMarks/BookMarks'
 import ExplorerForm from '../ExplorerForm/ExplorerForm'
-import './MealDeal.css'
+import './Planner.css'
 import Calendar from 'react-calendar'
 
 import Mod from '../MOD/MOD'
 import MealContext from '../../contexts/MealContext';
 
 
-export default class MealDeal extends Component{
+export default class Planner extends Component{
     constructor(props) {
         super(props);
         this.state = { 
@@ -48,7 +48,7 @@ export default class MealDeal extends Component{
     render(){
         const day = dateFormat(this.props.value, 'mm/dd/yy')
         const formattedDay=dateFormat(day, 'ddd')
- 
+        console.log(day,'dayfrom planner')
         return(
          
             <div className='meal-deal-page'>
@@ -62,7 +62,8 @@ export default class MealDeal extends Component{
                 <Section  className='mod-container'>
              
                    <p className='meal-date'>
-                    {day} {formattedDay}      
+                    {day}  {formattedDay}      
+                   
                    </p>
                 
                     

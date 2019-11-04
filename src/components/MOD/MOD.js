@@ -1,35 +1,47 @@
 import React,{Component} from 'react'
-import ModItem from './ModItem.js'
+import MealItem from '../Meal_Item/MealItem'
 import MealContext from '../../contexts/MealContext'
+import '../Meal_Item/MealItem.css'
 import './Mod.css'
 export default class Mod extends Component{
    
   static contextType = MealContext
 
-    list=(mod)=>{
-      const meal = mod
-      console.log(meal)
-      if( meal === undefined || meal === []){
+
+  componentDidMount(){
+    // console.log(this.context.formattedDate)
+
+
+}
+
+
+    list=(meals)=>{
+      
+  
+      if( meals === undefined || meals === [] || meals.length <1 ){
         // debugger
-        return <li className='place-holder'>
+        return <li key='0' className='place-holder'>
      
           Add a meal to this day!
           
           </li>
       }
       else{
-        return meal.map((item, index)=>{
-          return <li className='mod-item'key={index}><ModItem meal={item} index={index}/></li>
+        return meals.map((item, index)=>{
+          return <MealItem  meal={item} key={index} index={index}view='meals-of-day' cssClass='mod-item' s/>
        })
       }
    
     
   }
       render(){
+        const ModList = this.list(this.context.MOD)
+        // console.log(this.context.MOD)
           return(
               <div className='mod-page'>
                   <ul className='mod-list'>
-                    {this.list(this.context.MOD)}
+                  { ModList}
+                   
                   </ul>
            
         </div>

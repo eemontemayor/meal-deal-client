@@ -25,17 +25,17 @@ export default class Explorer extends Component{
         this.setState({
           searchTerm: e.target.value
         },()=>{
-            console.log(this.state)
+            // console.log(this.state)
         });
       }
 
 
     handleExplorerSubmit = e => {
         e.preventDefault()
-      console.log(this.state)
+      // console.log(this.state)
         MealApiService.getExplorerMeals(this.state.searchTerm)
           .then(res => {
-            console.log(res.hits)
+            // console.log(res.hits)
             this.setState({
                 searchResults: res.hits
                
@@ -48,7 +48,7 @@ export default class Explorer extends Component{
               })
           })
       }
-
+      
 
     render(){
       console.log(this.props)
@@ -58,7 +58,7 @@ export default class Explorer extends Component{
                 EXPLORER
                 </h1>
                 <div className='explorer_form'>
-            <form onSubmit={this.handleExplorerSubmit}>           
+            <form className='searchForm'onSubmit={this.handleExplorerSubmit}>           
             <div className='searchTerm'onChange={this.handleChange.bind(this)}>
               <label htmlFor='explorer_search_term'>
                 Search for:
@@ -71,11 +71,11 @@ export default class Explorer extends Component{
               </Input>
             </div>
          
-            <Button type='submit'>
+            <Button className='submit-search-btn' type='submit'>
               Search
             </Button>
           </form>
-             {this.state.searchResults && <SearchResults expPage={this.props.expPage} results={this.state.searchResults}/>} 
+             {this.state.searchResults && <SearchResults expPage={this.props.expPage} postBookmark={this.props.postBookmark}results={this.state.searchResults}/>} 
           
         
             </div>
