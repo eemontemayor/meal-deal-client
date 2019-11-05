@@ -40,7 +40,19 @@
       cursor: pointer;
   }
   
-  
+  .employer-btn{
+    text-decoration: underline;
+    border:none;
+   margin-top:20px ;
+   transition: all 1s ease;
+  }
+  .employer-btn:hover{
+    background-color: rgba(62, 197, 241, 0.507);
+    transform: scale(1.5);
+    /* transform: scale(1.5, 1.5); */
+
+
+  }
   footer{
       margin-top:10px;
       padding:5px;
