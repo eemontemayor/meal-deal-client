@@ -8,15 +8,28 @@
     padding:5px;
     margin:auto;
     margin-bottom:5px;
-    max-width: 350px;
+    max-width: 90vw;
     font-size: .75em;
     height:auto;
     min-height:4vh;
-    display:block;
-    
-    /* cursor: pointer; */
-   /* overflow: hidden; */
-
+    /* display:block; */
+   
+}
+.bm-item{
+    list-style: none;
+    border:1px solid black;
+    border-radius:3px;
+    text-align: center;
+    box-shadow: 2px 2px 1px grey;
+    background-color: #AFD275;
+    padding:5px;
+    margin:auto;
+    margin-bottom:5px;
+    max-width: 90vw;
+    font-size: .75em;
+    height:auto;
+    min-height:4vh;
+    /* display:block; */
 }
 .edit-meal-page{
     background-color: pink;
@@ -24,39 +37,22 @@
     z-index:99;
 }
 #item-selected{
-    /* position:fixed; */
-    /* overflow-y:auto; */
-    /* position: relative; */
-    background-color: #AFD275;
   
-  /* height:50vh; */
-  /* max-height:100vh; */
  height:80vh;
  min-height:70vh;
  width:90vw;
  min-width:70vw;
-  /* z-index:90; */
+
   list-style: none;
 border:1px solid black;
 border-radius:3px;
 text-align: center;
-/* min-width:100vw; */
+
 box-shadow: 2px 2px 1px grey;
-/* opacity:95%; */
+
 padding:1.5em;
 margin:auto;
 
-/* overflow: auto; */
-/* bottom: 0;  */
-/* transform: translate(150px, 100px); */
-/* margin-bottom:5px;
-max-width: 450px;
-font-size: 1em;
-
-
-cursor: pointer;
-display:block;
-  /* transition: width 2s, height 2s, transform 2s; */
 }
 #item-selected.mod-item{
     background-color: rgb(97, 230, 212);
@@ -71,28 +67,7 @@ display:block;
     height:100px;
     z-index: 9;
 }
-.bm-item{
-    list-style: none;
-    border:1px solid black;
-    text-align: center;
-    border-radius:3px;
-    box-shadow: 2px 2px 1px grey;
-    background-color: #AFD275;
-    overflow: hidden;
-    padding:5px;
-    margin:auto;
-    margin-bottom:5px;
-    max-width: 350px;
-    font-size: .75em;
-    height:auto;
-    min-height:4vh;
-    display:block;
-    
-    /* cursor: pointer; */
-    /* white-space: nowrap; */
-   /* position: relative;
-    z-index:2; */
-}
+
 .meal-img{
     max-width: 150px;
   margin:auto;
@@ -181,9 +156,9 @@ h6{
     .mod-item{
         height: fit-content;
        max-height:15%;
-        font-size: .70em;
+        font-size: .90em;
         margin-bottom:5px;
-        width:350px;
+        width:35vw;
         /* margin:auto; */
         display:block;
 
@@ -191,7 +166,7 @@ h6{
     }
     .bm-item{
         font-size: 1rem;
-        width:350px;
+        width:35vw;
         margin:auto;
         height:auto;
         display:block;
@@ -202,7 +177,8 @@ h6{
         right:0;
         left:0;
         top:60px;
-        min-height:100vh;
+        height:auto;
+        max-height:90vh;
         /* width:50vw; to do:  use flex here to render lists side by side  */ 
         padding:5em;
         
@@ -217,7 +193,7 @@ h6{
       width:fit-content;
 }
       .meal-img{
-        max-width: 250px;
+        max-width: 350px;
       margin:auto;
       border:1px solid black;
       box-shadow: 2px 2px 2px rgba(12, 12, 12, 0.719);

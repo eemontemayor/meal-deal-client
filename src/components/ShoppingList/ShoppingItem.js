@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function ShoppingItem(props) {
     return (
-      <li>
+      <li className='shopping-item'>
         <h2 style={{
           textDecoration: props.item.checked ? 'line-through' : null,
         }}>

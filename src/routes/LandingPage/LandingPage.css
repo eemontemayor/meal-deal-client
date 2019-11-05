@@ -3,8 +3,7 @@
     width:75vw;
     height:25vh;
     margin:auto;
-    /* margin-bottom:30px; */
-    margin-top:65px;
+    margin-top:50px;
     cursor: pointer;
     color: rgb(244, 248, 16);
     font-size: 3rem;
@@ -16,34 +15,28 @@
 
 
 .explore-btn{
-    /* background-color:grey; */
     background: url('../../images/explorer-pic.jpg')no-repeat center;
-    max-width: 500px;
-    max-height: 500px;
+   
 }
 
-.shoplist-btn{
-    /* background-color:yellow; */
+.shoplist-btn{  
     background:url('../../images/list-pic.jpg')no-repeat center;
 }
 .planner-btn{
-    /* background-color:blue; */
-   
     background: url('../../images/plan-pic.jpg')no-repeat center;
 }
 
 
 .landing-page{
-height:auto;
-width:100%;
+    height:auto;
+    width:100%;
 }
 @media only screen and (min-width: 760px) {
    .landing-btn{
     max-width: 500px;
     max-height: 500px;
-    margin-bottom:50px;
-    margin-top:50px;
-        width:33vw;
-        height:25vh;
+    margin-top:70px;
+    width:45vw;
+    height:25vh;
    }    
 }

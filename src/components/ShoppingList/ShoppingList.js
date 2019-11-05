@@ -1,10 +1,10 @@
 import React from 'react'
 import ShoppingItem from './ShoppingItem'
-
+import './ShoppingList.css'
 export default function ShoppingList(props) {
   console.log(props)
   return (
-    <ul>
+    <ul className='shopping-list'>
       {props.items.map((item, i) =>
         <ShoppingItem
           key={i}

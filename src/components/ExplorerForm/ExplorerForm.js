@@ -55,7 +55,7 @@ export default class Explorer extends Component{
         return(
             <>
               <h1>
-                EXPLORER
+                Search For New Meal Ideas!
                 </h1>
                 <div className='explorer_form'>
             <form className='searchForm'onSubmit={this.handleExplorerSubmit}>           

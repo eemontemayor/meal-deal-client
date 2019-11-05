@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import MealContext from '../../contexts/MealContext'
 import MealItem from '../Meal_Item/MealItem.js'
-
+import './BookMarks.css'
 import '../Meal_Item/MealItem.css'
 export default class BookMarks extends Component{
    

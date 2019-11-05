@@ -9,15 +9,16 @@
 
 .result-item{
     margin-top:25px;
-    margin-bottom:25px;
+   
     /* list-style: none; */
     box-shadow:    6px 10px 3px 6px rgb(228, 158, 180);
     padding:20px;
-    width:100vw;
+    width:95vw;
     min-height:fit-content;
     overflow: auto;
     border:2px solid rgb(228, 158, 180);
-
+    margin-left:auto;
+    margin-right:auto;
 
 }
 
@@ -34,17 +35,17 @@ width:100%;
   
 }
 .meal-options{
-    /* float:right; */
-    /* display:inline-block; */
     margin-left:20px;
 }
-.ingredient-list{
+ul.ingredient-list{
  list-style: circle;
  text-align: left;
- /* display:inline-block; */
- margin-left:80px;
-   /* overflow: scroll; */
+ font-size: .75em;
+ margin:auto;
+ /* border:1px  grey ridge; */
+ height:auto;
 }
+
 
 @media only screen and (min-width: 760px) {
 
@@ -80,10 +81,11 @@ width:100%;
         float:left;
         margin-right:30px;
     }
-    li.ingredient-list{
+    ul.ingredient-list{
         float: right;
         text-align:left;
         margin-top: 10px;
+        font-size: .95em;
          /* max-width:15vw; */
     }
    
