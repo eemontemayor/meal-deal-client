@@ -102,9 +102,9 @@ margin-top:50px;
     width:100%;
     text-align: left;
     margin:auto;
-   display: block;
-
-   
+   display: flex;
+    flex-direction: row;
+   flex-wrap: wrap;
 }
 ul.ing-list{
     /* display: block; */
@@ -183,14 +183,14 @@ h6{
         top:60px;
         height:auto;
         max-height:fit-content;
-        /* width:50vw; to do:  use flex here to render lists side by side  */ 
-        padding:5em;
+        padding:3em;
         margin:auto;
         
     }
   ul.ing-list{
-    
-      margin:auto;
+    margin-bottom: 15px;
+      margin-left:auto;
+      margin-right: auto;
       margin-bottom:15px;
       width:100%;
       max-width:40vw;
@@ -201,7 +201,8 @@ h6{
   ul.inst-list{
     margin-bottom:15px;
     max-width:50vw;
-      margin: auto;
+    margin-left:auto;
+    margin-right: auto;
       width:100%;
       max-width:40vw;
       opacity: 90;
