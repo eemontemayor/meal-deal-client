@@ -53,19 +53,19 @@
     display: contents;
 }
 .add-meal-form-btn{
-    background-color: rgb(0, 255, 255);
+    background-color: rgb(97, 230, 212);
     border-bottom:1px solid black;
 
  
 }
 .bookmarks-btn{
-    background-color: rgb(145, 255, 0);
+    background-color: #AFD275;
     border-bottom:1px solid black;
    
   
 }
 .explorer-btn{
-    background-color: rgb(195, 0, 255);
+    background-color:#C38D9E;
     border-bottom:1px solid black;
  
 }

@@ -44,8 +44,8 @@ class Header extends Component {
         <nav>
           <h1>
             <Link to='/'>
-              <span className='meal'>Meal</span>
-              <span className='deal'>Deal</span>
+              <span className='meal'>MEAL</span>
+              <span className='deal'>DEAL</span>
             </Link>
           </h1>
           <div className='nav-links'>

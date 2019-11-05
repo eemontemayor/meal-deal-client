@@ -1,7 +1,8 @@
 .main-header {
     position: fixed;
     width: 100%;
-    background-color:rgba(254, 255, 255, 0.993);
+    /* background-color:rgba(254, 255, 255, 0.993); */
+    background-image: linear-gradient(to right, rgb(97, 230, 212), #AFD275, #C38D9E);
     height:45px;
     z-index: 4;
     top: 0;
