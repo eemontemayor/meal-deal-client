@@ -38,11 +38,12 @@
 }
 #item-selected{
   
- height:80vh;
+ height:auto;
  min-height:70vh;
  width:90vw;
  min-width:70vw;
-
+ 
+ max-height:fit-content;
   list-style: none;
 border:1px solid black;
 border-radius:3px;
@@ -107,7 +108,7 @@ margin:auto;
     /* display: block; */
     margin:auto;
     margin-bottom:10px;
-    min-height:200px;
+   
     border-radius:3px;
     box-shadow: 2px 2px 1px grey;
     text-align: left;
@@ -115,7 +116,7 @@ margin:auto;
     background-color: rgb(236, 236, 236);
   
   min-width:35vw;
-  max-width:50vw;
+  max-width:80vw;
     margin-left:30px;
     height:fit-content;
     min-height:20vh;
@@ -133,7 +134,7 @@ margin:auto;
     min-width:35vw;
     max-width:50vw;
     text-align: left;
-
+    max-width:80vw;
     margin-left:30px;
     height:fit-content;
     min-height:20vh;
@@ -178,17 +179,21 @@ h6{
         left:0;
         top:60px;
         height:auto;
-        max-height:90vh;
+        max-height:fit-content;
         /* width:50vw; to do:  use flex here to render lists side by side  */ 
         padding:5em;
+        margin:auto;
         
     }
   .ing-list{
       width:fit-content;
       margin:auto;
       margin-bottom:15px;
+      max-width:50vw;
   }
   .inst-list{
+    margin-bottom:15px;
+    max-width:50vw;
       margin: auto;
       width:fit-content;
 }
@@ -198,4 +203,5 @@ h6{
       border:1px solid black;
       box-shadow: 2px 2px 2px rgba(12, 12, 12, 0.719);
     }
+   
 }

@@ -71,11 +71,11 @@ if (newInstList !== undefined) {
 {/* <Link to={`/bookmark/edit/${this.props.meal.id}`} >Edit Meal</Link> */}
   <div className='lists'>
   <ul className='ing-list'>
-Ingredients
+INGREDIENTS:
 {newIngList}
   </ul>
   <ul className='inst-list'>
-    Instructions
+    INSTRUCTIONS:
 {newInstList}
   </ul>
 
