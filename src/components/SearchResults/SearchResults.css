@@ -11,12 +11,12 @@
     margin-top:25px;
     margin-bottom:25px;
     /* list-style: none; */
-    box-shadow:    6px 10px 3px 6px  rgba(195, 0, 255, 0.253) ;
+    box-shadow:    6px 10px 3px 6px rgb(228, 158, 180);
     padding:20px;
     width:100vw;
     min-height:fit-content;
     overflow: auto;
-    border:2px solid  rgba(195, 0, 255, 0.603);
+    border:2px solid rgb(228, 158, 180);
 
 
 }
