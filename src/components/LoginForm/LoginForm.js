@@ -14,7 +14,11 @@ class LoginForm extends Component {
 
   static contextType = UserContext;
 
-  state = { error: null };
+  state = { 
+    error: null,
+    username:'',
+    password:'' 
+  };
 
   firstInput = React.createRef();
 
@@ -42,7 +46,18 @@ class LoginForm extends Component {
   componentDidMount() {
     this.firstInput.current.focus();
   }
-
+  autoFillForm = () =>{
+  
+    this.setState({
+      username:'demoUser',
+      password:'Demopw1!'
+    })
+  }
+  handleChange = (e) => {
+    this.setState({
+    [e.target.name]:e.target.value
+    })
+  }
   render() {
     const { error } = this.state;
     return (
@@ -56,6 +71,8 @@ class LoginForm extends Component {
               ref={this.firstInput}
               id="login-username-input"
               name="username"
+              value={this.state.username}
+              onChange={this.handleChange}
               required
             />
           </div>
@@ -65,6 +82,8 @@ class LoginForm extends Component {
               id="login-password-input"
               name="password"
               type="password"
+              value={this.state.password}
+              onChange={this.handleChange}
               required
             />
           </div>
@@ -72,7 +91,8 @@ class LoginForm extends Component {
           <Button className='log-in-button'type="submit">LOGIN</Button> <br/>
           <Link to="/register" className="login-redirect">
             Need to Sign up?
-          </Link>
+          </Link><br/>
+          <Button className='employer-btn' onClick={this.autoFillForm}>Considering offering me a job?</Button>
           </Section>
         </form>
       </div>

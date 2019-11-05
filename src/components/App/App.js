@@ -16,6 +16,7 @@ import MealItemPage from '../../routes/MealItemPage/MealItemPage';
 import MealContext from '../../contexts/MealContext'
 import MealApiService from '../../services/meal-api-service'
 import dateFormat from 'dateformat';
+import config from '../../config';
 
 export default class App extends Component{
   state={
@@ -24,7 +25,7 @@ export default class App extends Component{
         formattedDate:'',
         MOD:[],
         bookmarks:[],
-        selectedMeal:[],
+        // selectedMeal:[],
         searchRes:[],
   }
   
@@ -49,158 +50,135 @@ export default class App extends Component{
     .then(meals=>{
         this.setState({
             bookmarks:meals
-        },()=>{
-        //  console.log(this.state)
         })
     })
   }
+
   onChange = value => {
     const formattedDate=dateFormat(value, 'yyyy-mm-dd')
-   
+  //   let location = config.API_ENDPOINT.replace('api', 'planner')
+  //  window.location = location + '/' +formattedDate
     this.setState({ value,formattedDate },()=>{
     MealApiService.findMealByDate(formattedDate)
     .then(meals =>{ 
         this.setState({
             MOD:meals
         })
-        })
-    })
-    // console.log(this.state.value)
-  
-}
+      })
+    })  
+  }
+
+
   postMeal=(newMeal)=>{ 
-  
-    let name =  newMeal.meal_name
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ')
+    let name =  newMeal.meal_name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
   
     newMeal.meal_name=name
 
     newMeal.id=undefined
 
-    console.log(this.state.MOD)
-    console.log(newMeal,'-=-=-=-=-=-=-=')
     newMeal.on_day = this.state.formattedDate
     if(this.state.MOD === undefined || this.state.MOD.length < 6){
-    MealApiService.postMeal(newMeal, this.state.formattedDate)
-    .then(res =>{ 
-
-        MealApiService.findMealByDate(this.state.formattedDate)
-        .then(meals =>{ 
-            this.setState({
-                MOD:meals
-            })
-        })
-    })
-    .catch(error => {
-        console.log({error})
-    })
-}
-else{
-    return alert('only 6 meals per day allowed')
-}
-}
-handleDeleteMeal=(meal,index)=>{
-  let newMOD = this.state.MOD
-  let id=meal.id
-  
-  if(id===undefined || !id){
-      console.log('if', index)
-
-    delete newMOD[index]
-    this.setState({
-      MOD:newMOD             
-    })
-  } else{ 
-      console.log('else', index)
-      // MealApiService.deleteMeal(id,this.state.formattedDate)
-      MealApiService.deleteMeal(meal)
-        .then(res =>{
-         
-            delete newMOD[index]
-            this.setState({
-                MOD:newMOD
-              })
-        })
-    }
-}
-handleAddBookmark=(meal)=>{ //adds to bookmark table in db
- 
-  let name =  meal.meal_name
-  .split(' ')
-  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-  .join(' ')
-
-  let list= this.state.bookmarks
-
-  const newBookmark = {
-    meal_name:name,
-    ingredients: meal.ingredients,
-    image:meal.image
-  }
-
-   if( list !==undefined) {
-
-   list = list.map(i=> {
-      return i.meal_name
-  })
-   }
- if( list === undefined || !list.includes(newBookmark.meal_name)){
-      MealApiService.postBookmark(newBookmark)
-      .then(meal =>{ 
-          console.log(meal)
-          MealApiService.getBookmarks()
-          .then(meals=>{
+       MealApiService.postMeal(newMeal, this.state.formattedDate)
+        .then(res =>{ 
+          MealApiService.findMealByDate(this.state.formattedDate)
+            .then(meals =>{ 
               this.setState({
-                  bookmarks:meals
+                  MOD:meals
               })
           })
-      })
-      .catch(error => {
+        })
+        .catch(error => {
           console.log({error})
-      })
-  }else{
-      alert('Meal already in bookmarks!')
+        })
+    } else{
+      return alert('only 6 meals per day allowed')
+    }
   }
-}
 
-handleDeleteBookmark=(meal,index)=>{
-  let newList = this.state.bookmarks
- console.log(meal)
-  MealApiService.deleteBookmark(meal)
-  .then(res =>{
-      delete newList[index]
+  handleDeleteMeal=(meal,index)=>{
+    let newMOD = this.state.MOD
+    let id=meal.id
+    
+    if(id===undefined || !id){
+
+      delete newMOD[index]
       this.setState({
-          bookmarks:newList
+        MOD:newMOD             
       })
-  })
-}
+
+    } else{ 
+        console.log('else', index)
+        // MealApiService.deleteMeal(id,this.state.formattedDate)
+        MealApiService.deleteMeal(meal)
+          .then(res =>{
+          
+            delete newMOD[index]
+              
+            this.setState({
+              MOD:newMOD
+            })
+          })
+    }
+  }
+
+  handleAddBookmark=(meal)=>{ //adds to bookmark table in db
+  
+    let name =  meal.meal_name
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+
+    let list= this.state.bookmarks
+
+    const newBookmark = {
+      meal_name:name,
+      ingredients: meal.ingredients,
+      image:meal.image
+    }
+
+    if( list !==undefined) {
+
+    list = list.map(i=> {
+        return i.meal_name
+    })
+    }
+  if( list === undefined || !list.includes(newBookmark.meal_name)){
+        MealApiService.postBookmark(newBookmark)
+        .then(meal =>{ 
+  
+            MealApiService.getBookmarks()
+            .then(meals=>{
+                this.setState({
+                    bookmarks:meals
+                })
+            })
+        })
+        .catch(error => {
+            console.log({error})
+        })
+    }else{
+        alert('Meal already in bookmarks!')
+    }
+  }
+
+  handleDeleteBookmark=(meal,index)=>{
+    let newList = this.state.bookmarks
+  
+    MealApiService.deleteBookmark(meal)
+    .then(res =>{
+        delete newList[index]
+        this.setState({
+            bookmarks:newList
+        })
+    })
+  }
 handleUpdateBookmark = (e)=>{
   e.preventDefault()
 console.log(e)
   // MealApiService.updateBookmark(bookmark, id)
 
 }
-// findMealById=(id, list)=>{
-//   console.log(id)
-//   console.log(list)
 
-//   let meal 
-//   meal = list.filter(i => i.id === id)
-  
-//   console.log(meal[0])
-
-//   MealApiService.findBookmarkById(id)
-//   .then(meal=>{
-//     this.setState({
-//       // seeMealItem:!this.state.seeMealItem,
-//       selectedMeal:meal[0]
-//   })
-//   })
-      
-      
-//   }
 
 
 goBack=()=>{
@@ -226,9 +204,9 @@ saveSearchResults = (arr) =>{
       saveSearchRes:this.saveSearchResults,
       goBack:this.goBack,
       handleUpdateBookmark:this.handleUpdateBookmark,
-      findMealById:this.findMealById,
       selectedMeal:this.state.selectedMeal,
-      setSelectedMeal:this.setSelectedMeal
+      // findMealById:this.findMealById,
+      // setSelectedMeal:this.setSelectedMeal
       }
     return(
       <div>
@@ -263,7 +241,11 @@ saveSearchResults = (arr) =>{
               component={PlannerPage}
             /> 
 
-
+              <PrivateRoute
+              
+              exact path={'/meal/:date/:meal_id'}
+              component={MealItemPage}
+            /> 
 
             <PrivateRoute
               exact path={'/bookmark/:bookmark_id'}

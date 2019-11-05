@@ -1,16 +1,22 @@
 .meal-item-page{
-    background-color: rgba(10, 0, 0, 0.212);
+    background-color: rgba(10, 0, 0, 0.102);
     height:100vh;
     /* z-index:999; */
     width:100vw;
-    padding:3em;
+    padding:0px;
 }
 .back-btn{
     height:100px;
     width:100px;
     margin:auto;
-    float:right;
-    /* position:relative;
-    right:0;
-    top:0; */
+    /* float:right; */
+    z-index:15;
+     position:fixed;
+    right:80px;
+    top:80; 
+}
+@media only screen and (min-width: 760px) {
+   .meal-item-page{
+       padding:100px;
+   }
 }

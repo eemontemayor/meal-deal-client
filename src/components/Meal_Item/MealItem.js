@@ -34,7 +34,7 @@ renderButtons=()=>{
     return (
     <div><button className='item-bm-btn'onClick={()=>this.context.handleAddBookmark(this.props.meal)}>b</button>
     <button className='item-del-btn'onClick={()=>this.context.handleDeleteMeal(this.props.meal,this.props.index)} >x</button>
-    <Link to={`/planner/meal/${this.props.meal.id}`}>
+    <Link to={`/meal/${this.context.formattedDate}/${this.props.meal.id}`}>
   
   see more</Link>
     </div>)
@@ -68,14 +68,14 @@ if (newInstList !== undefined) {
   newInstList=<li key={0}>'No instructions saved for this item'</li>
 }
  return (<div>
-<Link to={`/bookmark/edit/${this.props.meal.id}`} >Edit Meal</Link>
+{/* <Link to={`/bookmark/edit/${this.props.meal.id}`} >Edit Meal</Link> */}
   <div className='lists'>
   <ul className='ing-list'>
-
+INGREDIENTS:
 {newIngList}
   </ul>
   <ul className='inst-list'>
-    
+    INSTRUCTIONS:
 {newInstList}
   </ul>
 

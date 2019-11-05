@@ -9,7 +9,7 @@ import Calendar from 'react-calendar'
 
 import Mod from '../MOD/MOD'
 import MealContext from '../../contexts/MealContext';
-
+import MealApiService from '../../services/meal-api-service'
 
 export default class Planner extends Component{
     constructor(props) {
@@ -22,9 +22,17 @@ export default class Planner extends Component{
         }
       }
       static contextType = MealContext
-    
-    
+      componentDidMount(){
 
+        // MealApiService.findMealByDate() /// TO DO- fetch using endpoint
+        // .then(meals =>{ 
+        //     this.setState({
+        //         MOD:meals
+        //     })
+        //     })
+        }
+    
+    
     handleClick=(e)=>{
          
         this.setState({

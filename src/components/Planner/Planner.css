@@ -28,7 +28,7 @@
 }
 
 .form-box{
-    padding-top:50px;
+    padding-top:10px;
     background-color:none;
 }
 
@@ -41,7 +41,7 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height:25px;
-    box-shadow: 3px 3px 2px  rgba(116, 116, 116, 0.514) inset;
+    box-shadow: 6px 6px 8px rgba(116, 116, 116, 0.514) inset
     
        
 }
@@ -53,19 +53,19 @@
     display: contents;
 }
 .add-meal-form-btn{
-    background-color: rgb(0, 255, 255);
+    background-color: rgb(97, 230, 212);
     border-bottom:1px solid black;
 
  
 }
 .bookmarks-btn{
-    background-color: rgb(145, 255, 0);
+    background-color: #AFD275;
     border-bottom:1px solid black;
    
   
 }
 .explorer-btn{
-    background-color: rgb(195, 0, 255);
+    background-color:rgb(228, 158, 180);
     border-bottom:1px solid black;
  
 }
@@ -110,9 +110,9 @@
         background-color: rgb(248, 248, 248);
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-        box-shadow: 3px 0px 3px 0px rgba(0, 0, 0, 0.466) inset;
+        box-shadow: 6px 6px 8px rgba(116, 116, 116, 0.514) inset;
         /* overflow: auto; */
-     
+        border-left: 1px solid black;
     }
 
     .form-box{
