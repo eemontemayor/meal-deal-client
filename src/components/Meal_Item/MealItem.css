@@ -109,7 +109,7 @@ margin:auto;
     /* display: block; */
     margin:auto;
     margin-bottom:10px;
-   
+    /* min-height:200px; */
     border-radius:3px;
     box-shadow: 2px 2px 1px grey;
     text-align: left;
@@ -121,27 +121,27 @@ margin:auto;
     margin-left:30px;
     height:fit-content;
     min-height:20vh;
-    padding:2em;
-    opacity:90%;
+    padding:1em;
+    opacity:100%;
 }
 .inst-list{
   
     margin:auto;
-    min-height:200px;
+    /* min-height:200px; */
     
     background-color: rgb(236, 236, 236);
     border-radius:3px;
     box-shadow: 2px 2px 1px grey;
     min-width:35vw;
-    max-width:50vw;
+    max-width:80vw;
     text-align: left;
     max-width:80vw;
     margin-left:30px;
     height:fit-content;
     min-height:20vh;
-    padding:2em;
+    padding:1em;
   
-    opacity:90%;
+    opacity:100%;
 }
 .meal-name{
     
