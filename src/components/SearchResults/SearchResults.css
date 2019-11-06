@@ -60,7 +60,7 @@ ul.ingredient-list{
     .result-item .exp-page{
         background-color: pink;
         max-width: 500px;
-       
+        border-radius: 8px;
     }
 
 
@@ -71,7 +71,7 @@ ul.ingredient-list{
         margin-bottom:25px;
         height:fit-content;
         width:45vw;
-
+        border-radius: 8px;
         /* overflow: scroll; */
         display:block;
     }
