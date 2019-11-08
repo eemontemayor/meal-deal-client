@@ -1,6 +1,11 @@
 *{
     box-sizing: border-box;
 }
+
+.App__main{
+    height:auto;
+    overflow: visible;
+}
 @media only screen and (min-width: 760px) {
    
 }
