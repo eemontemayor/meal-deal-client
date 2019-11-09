@@ -8,7 +8,7 @@
     color: rgb(244, 248, 16);
     font-size: 3rem;
     text-shadow:7px 10px 10px rgb(29, 29, 29);
-    
+    text-align: center;
     border-radius:5px;
     box-shadow: 8px 10px 17px rgba(29, 29, 29, 0.815);
 }
