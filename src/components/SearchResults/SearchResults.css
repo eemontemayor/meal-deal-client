@@ -6,12 +6,15 @@
     /* overflow-y: auto; */
     /* text-align: center; */
 }
-
+input#explorer_search_term.Input{
+    background-color: white;
+}
 .result-item{
     margin-top:25px;
    
     /* list-style: none; */
-    box-shadow:    6px 10px 3px 6px rgb(228, 158, 180);
+    box-shadow: 1px -1px 10px 6px rgb(228, 158, 180);
+   
     padding:20px;
     width:95vw;
     min-height:fit-content;
@@ -74,6 +77,7 @@ ul.ingredient-list{
         border-radius: 8px;
         /* overflow: scroll; */
         display:block;
+        box-shadow:    6px 10px 3px 6px rgb(228, 158, 180);
     }
     .result-item-img{
         max-width:220px;

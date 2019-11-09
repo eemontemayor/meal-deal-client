@@ -3,7 +3,7 @@
     width:75vw;
     height:20vh;
     margin:auto;
-    margin-top:50px;
+    margin-top:75px;
     cursor: pointer;
     color: rgb(244, 248, 16);
     font-size: 3rem;
@@ -13,7 +13,10 @@
     box-shadow: 8px 10px 17px rgba(29, 29, 29, 0.815);
 }
 
-
+/* a.landing-page-link{
+    width: 100%;
+    height:auto;
+} */
 .explore-btn{
     background: url('../../images/explorer-pic.jpg')no-repeat center;
    
@@ -35,8 +38,13 @@
    .landing-btn{
     max-width: 500px;
     max-height: 500px;
-    margin-top:100px;
+
     width:45vw;
     height:23vh;
+    /* cursor: pointer; */
    }    
+   .landing-btn:hover{
+       transform: scale(1.1);
+       transition-duration: 750ms;
+   }
 }

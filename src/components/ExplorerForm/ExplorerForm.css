@@ -30,6 +30,9 @@ button:hover{
 .add-btn:hover{
     background-color:rgb(97, 230, 212)
 }
+input#explorer_search_term.Input{
+    background-color: white;
+}
 .submit-search-btn{
     width:25%;
     padding:5px;
