@@ -8,13 +8,14 @@ export default class BookMarks extends Component{
     static contextType = MealContext
 
     componentDidMount(){
-        // console.log(this.context.bookmarks)
+        this.context.getUserBookmarks()
+      
     }
     
     list=(bookmarks)=>{
         const bm = bookmarks
        
-        if( bm === undefined || bm === []){
+        if( bm === undefined || bm === [] || bm.length<1){
           // debugger
           return <li key='0' className='place-holder'>
        

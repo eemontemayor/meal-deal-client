@@ -28,7 +28,7 @@ export default class Mod extends Component{
       }
       else{
         return meals.map((item, index)=>{
-          return <MealItem  meal={item} key={index} index={index}view='meals-of-day' cssClass='mod-item' s/>
+          return <MealItem  meal={item} key={index} index={index}view='meals-of-day' cssClass='mod-item' />
        })
       }
    
