@@ -5,21 +5,21 @@ export default class LandingPage extends Component{
 render(){
     return(
         <div className='landing-page'>
-            <Link to='/planner' >
-                <button className='landing-btn planner-btn'>
+            <Link to='/planner' className='landing-btn planner-btn'>
+             
                     Plan
-                </button> 
+             
             </Link>
-            <Link to='/explore' >
-            <button className='landing-btn explore-btn'>
+            <Link to='/explore' className='landing-btn explore-btn'>
+           
                Explore
                
-            </button> 
+            
             </Link>
-            <Link to='/shoppinglist' >
-                <button className='landing-btn shoplist-btn'>
+            <Link to='/shoppinglist'className='landing-btn shoplist-btn' >
+                
                     Shopping List
-                </button> 
+                
             </Link>
         </div>
     )
