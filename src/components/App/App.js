@@ -16,7 +16,7 @@ import MealItemPage from '../../routes/MealItemPage/MealItemPage';
 import MealContext from '../../contexts/MealContext'
 import MealApiService from '../../services/meal-api-service'
 import dateFormat from 'dateformat';
-import config from '../../config';
+
 
 export default class App extends Component{
   state={
@@ -120,6 +120,16 @@ export default class App extends Component{
           })
     }
   }
+  getUserBookmarks = () => {
+    MealApiService.getBookmarks()
+    .then(meals=>{
+        this.setState({
+            bookmarks:meals
+        })
+    })
+
+
+  }
 
   handleAddBookmark=(meal)=>{ //adds to bookmark table in db
   
@@ -172,6 +182,9 @@ export default class App extends Component{
         })
     })
   }
+
+  
+
 handleUpdateBookmark = (e)=>{
   e.preventDefault()
 console.log(e)
@@ -204,7 +217,7 @@ saveSearchResults = (arr) =>{
       saveSearchRes:this.saveSearchResults,
       goBack:this.goBack,
       handleUpdateBookmark:this.handleUpdateBookmark,
-      selectedMeal:this.state.selectedMeal,
+      getUserBookmarks:this.getUserBookmarks,
       // findMealById:this.findMealById,
       // setSelectedMeal:this.setSelectedMeal
       }

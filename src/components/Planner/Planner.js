@@ -23,11 +23,13 @@ export default class Planner extends Component{
       }
       static contextType = MealContext
       componentDidMount(){
-
-        // MealApiService.findMealByDate() /// TO DO- fetch using endpoint
+            console.log(this.context)
+        // MealApiService.findMealByDate(this.context.formattedDay) /// TO DO- fetch using endpoint
         // .then(meals =>{ 
         //     this.setState({
         //         MOD:meals
+        //     }, () => {
+        //             console.log(this.state)
         //     })
         //     })
         }

@@ -8,7 +8,8 @@ export default class BookMarks extends Component{
     static contextType = MealContext
 
     componentDidMount(){
-        // console.log(this.context.bookmarks)
+        this.context.getUserBookmarks()
+        console.log('here')
     }
     
     list=(bookmarks)=>{
