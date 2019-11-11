@@ -25,7 +25,6 @@ export default class App extends Component{
         formattedDate:'',
         MOD:[],
         bookmarks:[],
-        // selectedMeal:[],
         searchRes:[],
   }
   
