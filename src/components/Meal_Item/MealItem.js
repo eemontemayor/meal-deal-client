@@ -8,7 +8,6 @@ export default class MealItem extends Component{
   constructor(props){
     super(props)
     this.state={
-      // seeMore:false,
       ingredients:[],
       instructions:[],
       image:''

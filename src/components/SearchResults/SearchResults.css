@@ -3,16 +3,13 @@
     display:contents;
      margin:auto;
     height:fit-content;
-    /* overflow-y: auto; */
-    /* text-align: center; */
 }
+
 input#explorer_search_term.Input{
     background-color: white;
 }
 .result-item{
     margin-top:25px;
-   
-    /* list-style: none; */
     box-shadow: 1px -1px 10px 6px rgb(228, 158, 180);
    
     padding:20px;
@@ -45,7 +42,7 @@ ul.ingredient-list{
  text-align: left;
  font-size: .75em;
  margin:auto;
- /* border:1px  grey ridge; */
+
  height:auto;
 }
 
@@ -75,7 +72,6 @@ ul.ingredient-list{
         height:fit-content;
         width:45vw;
         border-radius: 8px;
-        /* overflow: scroll; */
         display:block;
         box-shadow:    6px 10px 3px 6px rgb(228, 158, 180);
     }
@@ -90,7 +86,7 @@ ul.ingredient-list{
         text-align:left;
         margin-top: 10px;
         font-size: .95em;
-         /* max-width:15vw; */
+        
     }
    
    .search-results{
@@ -98,7 +94,7 @@ ul.ingredient-list{
        width:49vw;
        padding:10px;
         margin:auto;
-        /* background-color: yellow; */
+      
         text-align:none;
     }
   

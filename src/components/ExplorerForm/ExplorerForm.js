@@ -24,8 +24,6 @@ export default class Explorer extends Component{
     handleChange = (e) => {
         this.setState({
           searchTerm: e.target.value
-        },()=>{
-            // console.log(this.state)
         });
       }
 
@@ -35,7 +33,6 @@ export default class Explorer extends Component{
       // console.log(this.state)
         MealApiService.getExplorerMeals(this.state.searchTerm)
           .then(res => {
-            // console.log(res.hits)
             this.setState({
                 searchResults: res.hits
                
