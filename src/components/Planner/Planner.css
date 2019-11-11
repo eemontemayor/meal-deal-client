@@ -89,7 +89,7 @@
     .mod-container{
         margin-top: 80px;
         position:fixed;
-        top:51%;
+        top:55%;
         width:50%;
       margin:auto;
       height:auto;
@@ -133,8 +133,8 @@
     .cal-container{
     
         position:fixed;
-        top:15px;
-        /* height:auto; */
+        top:10px;
+        height:auto;
         width:50%;
       margin:auto;
       
