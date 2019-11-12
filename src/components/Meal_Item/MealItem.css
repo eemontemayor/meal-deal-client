@@ -147,11 +147,9 @@ ul.inst-list{
 }
 .meal-name{
     
-    font-size:1.2em;
+    font-size:1em;
 }
-button:hover{
-    cursor: pointer;
-}
+
 h6{
     text-align: center;
 }
@@ -162,8 +160,7 @@ h6{
         font-size: .85em;
         margin-bottom:5px;
         width:35vw;
-        /* margin:auto; */
-        display:block;
+        
 
 
     }
