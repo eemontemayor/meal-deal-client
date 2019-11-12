@@ -78,6 +78,7 @@ onChange = value => {
     })  
 }
 
+//====================== MEAL CRUD OPERATORS ========================  
 getUserMOD = () => {
   MealApiService.findMealByDate(this.state.formattedDate)
           .then(meals =>{ 
@@ -90,6 +91,7 @@ getUserMOD = () => {
           })
   
 }
+  
 postMeal=(newMeal)=>{ 
     let name =  newMeal.meal_name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
   
@@ -274,40 +276,23 @@ saveSearchResults = (arr) =>{
               path={'/register'}
               component={RegistrationPage}
             />
-                <PrivateRoute
-              
+            <PrivateRoute  
               path={'/planner'}
               component={PlannerPage}
             /> 
-
-
              <PrivateRoute
-              
               path={'/planner/:date'}
               component={PlannerPage}
             /> 
-
-              <PrivateRoute
-              
+              <PrivateRoute             
               exact path={'/meal/:date/:meal_id'}
               component={MealItemPage}
             /> 
-
             <PrivateRoute
               exact path={'/bookmark/:bookmark_id'}
-             component={MealItemPage}
-                
-                /> 
-                {/* <PrivateRoute
-              path={'/bookmark/:bookmark_id'}
-              render={({routeProps})=>{
-                  
-                return <MealItemPage meal={this.state.selectedMeal} {...routeProps} />
-              }}
-              
-              /> 
-              */}
-              <PrivateRoute
+             component={MealItemPage}   
+            />             
+            <PrivateRoute
               path={'/explore'}
               component={ExplorerPage}
             />
@@ -315,7 +300,7 @@ saveSearchResults = (arr) =>{
               path={'/shoppinglist'}
               component={ShoppingListPage}
             />
-          <Route
+            <Route
               component={NotFoundRoute}
             />
           </Switch>
