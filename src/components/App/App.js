@@ -34,7 +34,7 @@ export default class App extends Component{
   }
 
 componentDidMount(){
-
+// TO-DO add a Promise.all here
     const formattedDate=dateFormat(this.state.value, 'yyyy-mm-dd')
     this.setState({formattedDate },()=>{
     MealApiService.findMealByDate(formattedDate)
@@ -121,23 +121,27 @@ handleDeleteMeal=(meal,index)=>{
     let id=meal.id
     
     if(id===undefined || !id){
-
+      console.log('if', index)
       delete newMOD[index]
       this.setState({
         MOD:newMOD             
       })
 
     } else{ 
-        console.log('else', index)
+      console.log('newMod', newMOD)
+      //
         // MealApiService.deleteMeal(id,this.state.formattedDate)
         MealApiService.deleteMeal(meal)
           .then(res =>{
-          
-            delete newMOD[index]
-              
-            this.setState({
-              MOD:newMOD
-            })
+            this.getUserMOD()
+            // delete newMOD[index] **above works better**
+            // console.log('newMod', this.state.MOD)
+            // this.setState({
+            //   MOD:newMOD
+            // })
+          })
+          .catch(error => {
+            console.log({error})
           })
     }
 }
