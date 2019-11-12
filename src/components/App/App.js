@@ -33,7 +33,7 @@ export default class App extends Component{
     return { hasError: true };
   }
 
-  componentDidMount(){
+componentDidMount(){
 
     const formattedDate=dateFormat(this.state.value, 'yyyy-mm-dd')
     this.setState({formattedDate },()=>{
@@ -42,7 +42,10 @@ export default class App extends Component{
         this.setState({
             MOD:meals
         })
-        })
+    })
+    .catch(error => {
+      console.log({error})
+    })
     })
 
     MealApiService.getBookmarks()
@@ -51,9 +54,17 @@ export default class App extends Component{
             bookmarks:meals
         })
     })
-  }
+    .catch(error => {
+      console.log({error})
+    })
+}
 
-  onChange = value => {
+  
+  
+  
+  
+  
+onChange = value => {
     const formattedDate=dateFormat(value, 'yyyy-mm-dd')
   //   let location = config.API_ENDPOINT.replace('api', 'planner')
   //  window.location = location + '/' +formattedDate
@@ -65,10 +76,21 @@ export default class App extends Component{
         })
       })
     })  
-  }
+}
 
-
-  postMeal=(newMeal)=>{ 
+getUserMOD = () => {
+  MealApiService.findMealByDate(this.state.formattedDate)
+          .then(meals =>{ 
+            this.setState({
+                MOD:meals
+            })
+          })
+          .catch(error => {
+            console.log({error})
+          })
+  
+}
+postMeal=(newMeal)=>{ 
     let name =  newMeal.meal_name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
   
     newMeal.meal_name=name
@@ -76,7 +98,7 @@ export default class App extends Component{
     newMeal.id=undefined
 
     newMeal.on_day = this.state.formattedDate
-    if(this.state.MOD === undefined || this.state.MOD.length < 6){
+    if(this.state.MOD === undefined || this.state.MOD.length < 4){
        MealApiService.postMeal(newMeal, this.state.formattedDate)
         .then(res =>{ 
           MealApiService.findMealByDate(this.state.formattedDate)
@@ -90,11 +112,11 @@ export default class App extends Component{
           console.log({error})
         })
     } else{
-      return alert('only 6 meals per day allowed')
+      return alert('only 4 meals per day allowed')
     }
-  }
+}
 
-  handleDeleteMeal=(meal,index)=>{
+handleDeleteMeal=(meal,index)=>{
     let newMOD = this.state.MOD
     let id=meal.id
     
@@ -118,19 +140,24 @@ export default class App extends Component{
             })
           })
     }
-  }
-  getUserBookmarks = () => {
+}
+  //======================= BOOKMARK CRUD OPERATORS ================================//
+  
+getUserBookmarks = () => {
     MealApiService.getBookmarks()
     .then(meals=>{
         this.setState({
             bookmarks:meals
         })
     })
+    .catch(error => {
+      console.log({error})
+    })
 
 
-  }
+}
 
-  handleAddBookmark=(meal)=>{ //adds to bookmark table in db
+handleAddBookmark=(meal)=>{ //adds to bookmark table in db
   
     let name =  meal.meal_name
     .split(' ')
@@ -168,9 +195,9 @@ export default class App extends Component{
     }else{
         alert('Meal already in bookmarks!')
     }
-  }
+}
 
-  handleDeleteBookmark=(meal,index)=>{
+handleDeleteBookmark=(meal,index)=>{
     let newList = this.state.bookmarks
   
     MealApiService.deleteBookmark(meal)
@@ -180,7 +207,7 @@ export default class App extends Component{
             bookmarks:newList
         })
     })
-  }
+}
 
   
 
@@ -190,7 +217,9 @@ console.log(e)
   // MealApiService.updateBookmark(bookmark, id)
 
 }
-
+  
+  
+//======================= HELPER FUNCTIONS ================================//
 
 
 goBack=()=>{
@@ -216,7 +245,8 @@ saveSearchResults = (arr) =>{
       saveSearchRes:this.saveSearchResults,
       goBack:this.goBack,
       handleUpdateBookmark:this.handleUpdateBookmark,
-      getUserBookmarks:this.getUserBookmarks,
+      getUserBookmarks: this.getUserBookmarks,
+      getUserMOD:this.getUserMOD
       // findMealById:this.findMealById,
       // setSelectedMeal:this.setSelectedMeal
       }

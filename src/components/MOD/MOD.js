@@ -10,7 +10,7 @@ export default class Mod extends Component{
 
   componentDidMount(){
     // console.log(this.context.formattedDate)
-
+    this.context.getUserMOD()
 
 }
 
