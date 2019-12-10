@@ -34,7 +34,7 @@ export default class Explorer extends Component{
         MealApiService.getExplorerMeals(this.state.searchTerm)
           .then(res => {
             this.setState({
-                searchResults: res.hits
+                searchResults: res
                
               },()=>{
           

@@ -2,19 +2,45 @@ import config from '../config';
 import TokenService from './token-service';
 
 const MealApiService = {
-  getExplorerMeals(x) {
+  // getExplorerMeals(x) {
 
-    // return fetch(`https://api.edamam.com/search?q=${x}&app_id=${config.APP_ID}&app_key=${config.API_KEY}`, { 
-      return fetch(`https://api.edamam.com/search?q=${x}&app_id=108438ee&app_key=9fa106c05de3b6d9c71df9aecbab94e6`, {  
+  //   // return fetch(`https://api.edamam.com/search?q=${x}&app_id=${config.APP_ID}&app_key=${config.API_KEY}`, { 
+  //     return fetch(`https://api.edamam.com/search?q=${x}&app_id=108438ee&app_key=9fa106c05de3b6d9c71df9aecbab94e6`, {  
+  //     headers: {
+  //       'Accept-Encoding': 'gzip'
+  //     },
       
-      })
-        .then(res =>
-          (!res.ok)
-            ? res.json().then(e => Promise.reject(e))
-            : res.json()
-        );
+  //     })
+  //       .then(res =>
+  //         (!res.ok)
+  //           ? res.json().then(e => Promise.reject(e))
+  //           : res.json()
+  //   )
+  //   .catch(error => {
+  //         console.error({error})
+  //       })
+    
+  // },
+  getExplorerMeals(x) {
+    
+    return fetch(`${config.API_ENDPOINT}/meals/explore/${x}`,{
+      method:'GET',
+      headers:{
+        'content-type':'application/json',
+        'authorization':`bearer ${TokenService.getAuthToken()}`,
+      },
+      
+    })
+      .then((mealsRes) => {
+     
+      if (!mealsRes.ok)
+        return mealsRes.json().then(e => Promise.reject(e))
+      return mealsRes.json()
+    })
+    .catch(error => {
+      console.error({error})
+    })
   },
-
   getUserMeals(){
     return fetch(`${config.API_ENDPOINT}/meals`,{
         method:'GET',
