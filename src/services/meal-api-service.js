@@ -2,25 +2,7 @@ import config from '../config';
 import TokenService from './token-service';
 
 const MealApiService = {
-  // getExplorerMeals(x) {
-
-  //   // return fetch(`https://api.edamam.com/search?q=${x}&app_id=${config.APP_ID}&app_key=${config.API_KEY}`, { 
-  //     return fetch(`https://api.edamam.com/search?q=${x}&app_id=108438ee&app_key=9fa106c05de3b6d9c71df9aecbab94e6`, {  
-  //     headers: {
-  //       'Accept-Encoding': 'gzip'
-  //     },
-      
-  //     })
-  //       .then(res =>
-  //         (!res.ok)
-  //           ? res.json().then(e => Promise.reject(e))
-  //           : res.json()
-  //   )
-  //   .catch(error => {
-  //         console.error({error})
-  //       })
-    
-  // },
+ 
   getExplorerMeals(x) {
     
     return fetch(`${config.API_ENDPOINT}/meals/explore/${x}`,{
@@ -76,30 +58,11 @@ const MealApiService = {
       })
       .catch(error => {
         console.error({error})
-        // console.log('here')
+        
       })
     },
 
-    // postMeal(x){
-     
-    //   return fetch(`${config.API_ENDPOINT}/meals`,{ 
-    //     method: 'POST',
-    //     headers:{
-    //       'content-type':'application/json',
-    //       'authorization':`bearer ${TokenService.getAuthToken()}`,
-    //     },
-    //     body: JSON.stringify(x)
-
-    //   })
-    //   .then(res => { 
-    //     (!res.ok)
-    //       ? res.json().then(e => Promise.reject(e))
-    //       : res.json()
-    //   })
-    //   .catch(error => {
-    //     console.log({error})
-    //   })
-    // },
+  
 
 //TODO: MAKE RESTFUL
 findMealById(id,date){
@@ -288,23 +251,6 @@ findMealById(id,date){
     
       })
     },
-//TODO: MAKE RESTFUL make sure you pass in id and not the whole meal
-    // deleteBookmark(bookmark_id){
-    //   return fetch(`${config.API_ENDPOINT}/bookmarks/{bookmark_id}`, { 
-    //     method: 'DELETE',
-    //     headers:{
-    //       'content-type':'application/json',
-    //     },
-    //    
-    //   })
-      // .then(res => { 
-      //   (!res.ok)
-      //     ? res.json().then(e => Promise.reject(e))
-      //     : res.json()
-      // })
-      // .catch(error => {
-      //   console.log({error})
-      // })
-    // },
+
 };
 export default MealApiService;
