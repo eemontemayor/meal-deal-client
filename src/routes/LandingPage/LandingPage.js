@@ -8,7 +8,9 @@ render(){
         <div className='landing-page'>
             <nav className='SideBarNav'>
             <FontAwesomeIcon className='nav-icon cal-icon' size='3x' icon='calendar-alt' />
-              <FontAwesomeIcon className='nav-icon search-icon' size='3x' icon='search' />
+                <FontAwesomeIcon className='nav-icon search-icon' size='3x' icon='search' />
+                <FontAwesomeIcon className='nav-icon shoppingBasket-icon' size='3x' icon = 'shopping-basket'/>
+
               <FontAwesomeIcon className='nav-icon bookmark-icon' size='3x' icon = 'bookmark'/>
             </nav>
             <Link to='/planner' className='landing-btn planner-btn'>
