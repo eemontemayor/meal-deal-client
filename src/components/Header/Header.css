@@ -1,8 +1,8 @@
 .main-header {
     position: fixed;
     width: 100%;
-    /* background-color:rgba(254, 255, 255, 0.993); */
-    background-image: linear-gradient(to right, rgb(97, 230, 212), #AFD275, rgb(228, 158, 180));
+    background-color:rgba(254, 255, 255, 0.993);
+    /* background-image: linear-gradient(to right, rgb(97, 230, 212), #AFD275, rgb(228, 158, 180)); */
     height:35px;
     z-index: 4;
     top: 0;
@@ -23,8 +23,8 @@
   }
   
   .main-header h1 {
-    float: left;
-    margin: 0;
+    text-align: center;
+    margin:auto;
     font-size: 16px;
   }
   

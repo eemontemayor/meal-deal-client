@@ -1,3 +1,32 @@
+.SideBarNav{
+    display:fixed;
+    /* flex-direction: column; */
+    height:100vh;
+    width:100px;
+    background-color:floralwhite;
+    border-right:1px solid grey;
+    visibility: visible;
+}
+.SideBarNav:hover:before{
+    visibility: collapse;
+    background-color: lightpink;
+}
+.SideBarNav:hover:after{
+    visibility: visible;
+}
+.nav-icon{
+    display:block;
+    height:30vh;
+    border-bottom:1px solid grey;
+    width:150px;
+    margin:auto;
+}
+.nav-icon:hover{
+    cursor: pointer;
+    background-color: lightpink;
+}
+
+
 .landing-btn{
     display:block;
     width:75vw;

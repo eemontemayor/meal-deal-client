@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import UserContext from '../../contexts/UserContext'
 import './Header.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Header extends Component {
   static contextType = UserContext
@@ -50,6 +51,9 @@ class Header extends Component {
           </h1>
           <div className='nav-links'>
             <nav>
+         
+
+
               {this.renderGreeting()}
              
               {TokenService.hasAuthToken()
