@@ -7,13 +7,7 @@
     border-right:1px solid grey;
     visibility: visible;
 }
-.SideBarNav:hover:before{
-    visibility: collapse;
-    background-color: lightpink;
-}
-.SideBarNav:hover:after{
-    visibility: visible;
-}
+
 .nav-icon{
     display:block;
     height:25vh;

@@ -1,13 +1,11 @@
 .main-header {
-    position: fixed;
+  
     width: 100%;
     background-color:rgba(254, 255, 255, 0.993);
-    /* background-image: linear-gradient(to right, rgb(97, 230, 212), #AFD275, rgb(228, 158, 180)); */
-    height:50px;
-    z-index: 4;
-    top: 0;
-    padding: 3px;
-    box-shadow: 10px 13px 15px rgba(0, 0, 0, 0.308);
+    height:40px;
+
+  
+    /* box-shadow: 10px 13px 15px rgba(0, 0, 0, 0.308); */
     opacity: .99;
   }
   
@@ -29,9 +27,7 @@
     display: block;
     float: right;
     font-size: 14px;
-    position: relative;
-    bottom: 6px;
-    width: 300px;
+  
   
   }
   

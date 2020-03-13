@@ -10,3 +10,12 @@
 .sidebar-icons *{
     margin-top:80px;
 }
+
+
+.sidebar:hover:before{
+    visibility: collapse;
+    background-color: lightpink;
+}
+.sidebar:hover:after{
+    visibility: visible;
+}
