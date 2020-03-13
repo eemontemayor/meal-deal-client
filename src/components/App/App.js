@@ -16,7 +16,7 @@ import MealItemPage from '../../routes/MealItemPage/MealItemPage';
 import MealContext from '../../contexts/MealContext'
 import MealApiService from '../../services/meal-api-service'
 import dateFormat from 'dateformat';
-
+import SideBar from '../SideBar/SideBar'
 
 export default class App extends Component{
   state={
@@ -268,7 +268,7 @@ saveSearchResults = (arr) =>{
           
           </header>
           <aside>
-            SIDENAV
+            <SideBar/>
      </aside>
         <main className='App__main'>
        

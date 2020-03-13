@@ -1,0 +1,12 @@
+.sidebar{
+    /* height:100vh; */
+   
+}
+.sidebar-icons{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar-icons *{
+    margin-top:80px;
+}
