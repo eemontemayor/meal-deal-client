@@ -255,12 +255,21 @@ saveSearchResults = (arr) =>{
       getUserMOD:this.getUserMOD
       // findMealById:this.findMealById,
       // setSelectedMeal:this.setSelectedMeal
-      }
+    }
+    
+
+  
+
     return(
-      <div>
+      <div className='App'>
      <MealContext.Provider value = {contextValue}> 
+          <header>
           <Header />
-     
+          
+          </header>
+          <aside>
+            SIDENAV
+     </aside>
         <main className='App__main'>
        
           {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
@@ -304,7 +313,10 @@ saveSearchResults = (arr) =>{
               component={NotFoundRoute}
             />
           </Switch>
-        </main>
+          </main>
+          <footer>
+          FOOTER
+          </footer>
         </MealContext.Provider>
       </div>
     )

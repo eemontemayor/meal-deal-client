@@ -1,12 +1,49 @@
 *{
     box-sizing: border-box;
 }
-
+.App{
+    min-height:100vh;
+    width: 100vw;
+}
 .App__main{
     height:auto;
     width:100%;
     /* overflow: auto; */
 }
 @media only screen and (min-width: 760px) {
-   
+    .App {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        grid-template-rows: 50px 1fr 50px;
+        grid-template-areas:
+          "sidebar header"
+          "sidebar main"
+          "sidebar footer";
+        height: 100vh;
+      }
+      header {
+        grid-area: header;
+        background-color: #648ca6;
+      }
+      aside {
+        grid-area: sidebar;
+        background-color: #394263;
+      }
+      
+      .main {
+        grid-area: main;
+        background-color: #8fd4d9;
+      }
+      
+      footer {
+        grid-area: footer;
+        background-color: #648ca6;
+      }
+      .header, .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+        background-color: #648ca6;
+      }
 }
