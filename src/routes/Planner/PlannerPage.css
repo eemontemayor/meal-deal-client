@@ -1,7 +1,7 @@
 
 .planner-page{
-  height:100vh;
-  width:100vw;
+min-height: calc(100vh - 100px);
+  width:100%;
   background-color: rgb(240, 149, 149);
 
 }

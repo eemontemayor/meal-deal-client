@@ -29,7 +29,7 @@ export default class PlannerPage extends Component{
             <div className='planner-page'>
        
          
-           <Section className='calendar'>
+           <Section >
                     <Calendar className='calendar'
                         onChange={this.context.onChange}
                         value={this.context.value}/>  
