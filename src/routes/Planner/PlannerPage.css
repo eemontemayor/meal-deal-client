@@ -12,23 +12,37 @@ padding:.5em;
  
 
       .planner-page {
+        height:100%;
+        width:100%;
         display: grid;
-        grid-template-columns: repeat(10, 1fr);
-        grid-template-rows: repeat(6, 1fr);
+        grid-template-rows: 100px 1fr;
+        grid-template-columns: 350px 1fr;
         grid-column-gap: 7px;
         grid-row-gap: 0px;
+        grid-template-areas:
+        "search-form search-form"
+        "results calendar"
+     
         }
         
        
-        .div2 { grid-area: 1 / 1 / 7 / 4; }
-     
+        .res-container { 
+          background-color:green;
+          grid-area: results;
+        border-right: 1px solid rgba(128, 128, 128, 0.795);
+        }
+        .search-form-container { 
+
+          grid-area: search-form; 
+          border-bottom: 1px solid black;
+        }
      
      
      
 
 
  .calendar-container{
-  grid-area: 1 / 4 / 7 / 11; 
+  grid-area: calendar; 
    height:auto;
    width:100%;
    max-width: 1200px;
