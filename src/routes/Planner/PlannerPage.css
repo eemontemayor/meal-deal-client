@@ -2,88 +2,10 @@
 .planner-page{
 min-height: calc(100vh - 100px);
   width:100%;
-  /* background-color: rgb(240, 149, 149); */
 padding:.5em;
-/* display: flex; */
-}
-.calendar{
 
 }
 
-    
-
-
-
-.meal-date{
-  font-size:1.2em;
-  text-align: center;
-  margin-top:5px;
-
-}
-
-.calendar{
-
-}
-
-.tileClassName{
-  background-color:pink;
-}
-
-.mod-container{
-  grid-column:1/2;
-  grid-row:2/3;
-  padding-top: 15px;
-}
-
-
-
-.form-box{
-  padding-top:10px;
-  background-color:none;
-}
-
-.form-buttons button {
-  border-top:1px solid black;
-  /* border-bottom:1px solid black; */
-  border-left:1px solid black;
-  border-right:1px solid black;
-  width: 33.3vw;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  height:25px;
- box-shadow: 0px -5px 6px rgba(116, 116, 116, 0.514)    
-     
-}
-.form-buttons{
-  /* position:sticky; */
-  top:40px;
-  z-index:7;
-  position: fixed;
-  display: contents;
-}
-.add-meal-form-btn{
-  background-color: rgb(97, 230, 212);
-  border-bottom:1px solid black;
-
-
-}
-.bookmarks-btn{
-  background-color: #AFD275;
-  border-bottom:1px solid black;
- 
-
-}
-.explorer-btn{
-  background-color:rgb(228, 158, 180);
-  border-bottom:1px solid black;
-
-}
-
-.selected{
-  border-bottom:none;
-  box-shadow: 0px 0px 0px rgb(248, 248, 248);
-  background-color: rgb(248, 248, 248);
-}
 
 /* DESKTOP VIEW */
 @media only screen and (min-width: 760px) {
@@ -101,51 +23,6 @@ padding:.5em;
  }
 
 
-
-  .mod-container{
-      margin-top: 80px;
-      position:fixed;
-      top:55%;
-      width:50%;
-    margin:auto;
-    height:auto;
-    /* height:700px; */
-
-  }
- .form-container{
-      grid-column:2;
-      grid-row:1/3;
-    
-     width:100%;
-  
-     min-height: calc(100vh - 90px);
-     height:auto;
-     margin-right:5px;
-      text-align: center;
-      background-color: rgb(248, 248, 248);
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      box-shadow: -8px 6px 8px rgba(116, 116, 116, 0.514);
-      /* overflow: auto; */
-      border-left: 1px solid black;
-  }
-
-  .form-box{
-      margin:auto;
-      height:auto;
-      width:100%;
-      /* height:fit-content; */
-  }
-
-  .form-buttons button{
-      width:33.3%;
-      height:45px;
-      z-index: 6;
-      position:relative;
-      right:1px;
-      
-      
-  }
 
 
 

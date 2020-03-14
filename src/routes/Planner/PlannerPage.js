@@ -8,8 +8,7 @@ import MealContext from '../../contexts/MealContext'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import BigCalendar from '../../components/Calendar/BigCalendar'
-
-
+import StyledButton from '../../components/Button/Button'
 
 export default class PlannerPage extends Component{
     state = {
