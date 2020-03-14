@@ -9,13 +9,9 @@
     opacity: .97;
   }
   
-  .main-header nav {
-    /* padding: 7px 4%; */
-  }
-  
-  .nav-links nav {
- 
-  }
+div .nav-links *{
+  margin-left:50px;
+}
   
   .main-header h1 {
     text-align: center;

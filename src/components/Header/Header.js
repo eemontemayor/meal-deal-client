@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import UserContext from '../../contexts/UserContext'
 import './Header.css'
@@ -41,7 +41,7 @@ class Header extends Component {
 
   render() {
     return (
-      <header className='main-header'>
+    <div className='main-header'>
         <nav>
           <h1>
             <Link to='/'>
@@ -50,8 +50,11 @@ class Header extends Component {
             </Link>
           </h1>
           <div className='nav-links'>
-            <nav>
-         
+            
+            <NavLink to='/shoppinglist'>
+          
+          <FontAwesomeIcon className='icon shopping' size='1x' icon = 'shopping-basket'/>
+            </NavLink>
 
 
               {this.renderGreeting()}
@@ -59,10 +62,10 @@ class Header extends Component {
               {TokenService.hasAuthToken()
               ? this.renderLogoutLink()
               : this.renderLoginLink()}
-            </nav>
+          
           </div>
         </nav>
-      </header>
+      </div>
     );
   }
 }

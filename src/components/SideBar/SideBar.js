@@ -14,14 +14,11 @@ export default function SideBar() {
           
         <FontAwesomeIcon className='icon search' size='2x' icon='search' />
           </Link>
-          <Link to='bookmarks'>
+          <Link to='/bookmarks'>
       <FontAwesomeIcon className='icon bookmark' size='2x' icon = 'bookmark'/>
 
           </Link>
-          <Link to='shoppinglist'>
-          
-        <FontAwesomeIcon className='icon shopping' size='2x' icon = 'shopping-basket'/>
-          </Link>
+      
 
         </div>
     </div>

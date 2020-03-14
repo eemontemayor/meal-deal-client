@@ -35,11 +35,7 @@ export default class PlannerPage extends Component{
          
             <div className='calendar-container' >
               <BigCalendar  />
-              {/* <Calendar className='calendar'
-                showDoubleView='true'
-                view='week'
-                        onChange={this.context.onChange}
-                        value={this.context.value}/>   */}
+              
             </div>
             {/* <Section className='mod-container'>
                     <p className='meal-date'>
