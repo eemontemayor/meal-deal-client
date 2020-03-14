@@ -46,6 +46,7 @@ export default class BigCalendar extends Component {
           maxDetail={'month'}
           // showNavigation={false}
           // showWeekNumbers={true}
+          showFixedNumberOfWeeks={false}
           minDate	={new Date(this.state.today.getFullYear(),this.state.today.getMonth()-1)}
           maxDate	={new Date(this.state.today.getFullYear(),this.state.today.getMonth()+2)}
        

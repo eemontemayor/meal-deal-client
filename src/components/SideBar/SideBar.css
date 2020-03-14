@@ -1,14 +1,17 @@
 div.sidebar{
     min-height:100vh;
-    
+   
+    display: flex;
+    flex-direction: column;
     width:50px;
-    background-color: hotpink;
+    background-color: rgb(255, 255, 255);
    
 }
 div.sidebar-icons{
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+    width:100%;
+    height: auto;
+   text-align: center;
+  margin: auto;
 }
 .sidebar-icons *{
    
@@ -24,12 +27,15 @@ div.sidebar-icons{
     /* visibility: visible; */
 }
 
-.sidebar-icons a {
-    margin-top:50px;
-  margin-bottom: 50px;
+.sidebar-icons .icon {
+    margin-top:60px;
+  margin-bottom: 60px;
   
+
+}
+.icon{
 }
 .icon:hover{
- 
+ background-color: yellow;
     cursor: pointer;
 }

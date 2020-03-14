@@ -4,6 +4,7 @@ min-height: calc(100vh - 100px);
   width:100%;
   /* background-color: rgb(240, 149, 149); */
 padding:.5em;
+/* display: flex; */
 }
 .calendar{
 
@@ -87,7 +88,7 @@ padding:.5em;
 /* DESKTOP VIEW */
 @media only screen and (min-width: 760px) {
   .planner-page{
-    display: grid;
+    display: flex;
      
     }
 
