@@ -8,12 +8,12 @@
 .App__main{
     /* height:auto;
     width:100%; */
-    /* overflow: auto; */
+    overflow: auto;
 }
 @media only screen and (min-width: 760px) {
     .App {
         display: grid;
-        grid-template-columns: 100px 1fr;
+        grid-template-columns:50px 1fr;
         grid-template-rows: 50px 1fr 50px;
         grid-template-areas:
           "aside header"
@@ -26,6 +26,7 @@
         background-color: #648ca6;
       }
       aside {
+        /* display:none; */
         grid-area: aside;
         background-color: #cfd8f6;
      
@@ -33,7 +34,7 @@
       
       main {
         grid-area: main;
-        background-color: #8fd4d9;
+        background-color:rgb(233, 233, 233);
       }
       
       footer {
@@ -45,6 +46,6 @@
         align-items: center;
         justify-content: space-between;
         padding: 0 5px;
-        background-color: #648ca6;
+        /* background-color: #648ca6; */
       }
 }

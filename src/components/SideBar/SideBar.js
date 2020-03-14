@@ -8,19 +8,19 @@ export default function SideBar() {
         <div className='sidebar-icons'>
           <Link to='/planner'>
             
-        <FontAwesomeIcon className='cal-icon' size='3x' icon='calendar-alt' />
+        <FontAwesomeIcon className='icon cal' size='2x' icon='calendar-alt' />
           </Link>
           <Link to='/explorer'>
           
-        <FontAwesomeIcon className='search-icon' size='3x' icon='search' />
+        <FontAwesomeIcon className='icon search' size='2x' icon='search' />
           </Link>
           <Link to='bookmarks'>
-      <FontAwesomeIcon className='bookmark-icon' size='3x' icon = 'bookmark'/>
+      <FontAwesomeIcon className='icon bookmark' size='2x' icon = 'bookmark'/>
 
           </Link>
           <Link to='shoppinglist'>
           
-        <FontAwesomeIcon className='shoppingBasket-icon' size='3x' icon = 'shopping-basket'/>
+        <FontAwesomeIcon className='icon shopping' size='2x' icon = 'shopping-basket'/>
           </Link>
 
         </div>

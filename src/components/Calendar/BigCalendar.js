@@ -55,9 +55,9 @@ export default class BigCalendar extends Component {
          
          
          
-          navigationLabel={({ date, label, locale, view }) => `Current view: ${view}, date: ${date.toLocaleDateString(locale)}`}
+          // navigationLabel={({ date, label, locale, view }) => `Current view: ${view}, date: ${date.toLocaleDateString(locale)}`}
           formatLongDate	={(locale, date) => formatDate(date, 'ddd MMM')}
-          onDrillDown={({ activeStartDate, view }) => alert('Drilled down to: ', activeStartDate, view)}	
+          onDrillUp={({ activeStartDate, view }) => alert('Drilled up to: ', activeStartDate, view)}	
           // formatShortWeekday={(locale, date) => formatDate(date, 'dd')}
           // value={this.context.value}
         />

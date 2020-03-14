@@ -2,11 +2,11 @@
   
     width: 100%;
     background-color:rgba(254, 255, 255, 0.993);
-    height:40px;
+    height:50px;
 
   
     /* box-shadow: 10px 13px 15px rgba(0, 0, 0, 0.308); */
-    opacity: .99;
+    opacity: .97;
   }
   
   .main-header nav {
