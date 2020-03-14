@@ -23,6 +23,16 @@ div.react-calendar{
    color:blue;
    
  }
+.react-calendar__navigation__next2-button[disabled]{
+  display: none;
+}
+.react-calendar__navigation__prev2-button[disabled]{
+  display: none;
+}
+ .react-calendar__navigation__label{
+   font-size: 2em;
+   color:black;
+ }
 
  .react-calendar button{
   border-right: 1px solid black;

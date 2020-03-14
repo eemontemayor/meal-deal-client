@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar'
-// import 'react-calendar/dist/Calendar.css';
+import 'react-calendar/dist/Calendar.css';
 import formatDate from 'dateformat';
 import './BigCalendar.css'
 import MealContext from '../../contexts/MealContext'
@@ -43,7 +43,7 @@ export default class BigCalendar extends Component {
           onClickDay={(value,locale, event) => console.log('Clicked day: ',  value.toLocaleDateString(locale))}
           calendarType='US'
           onChange={this.onChange}
-          maxDetail={'month'}
+          minDetail={'month'}
           // showNavigation={false}
           // showWeekNumbers={true}
           showFixedNumberOfWeeks={false}
