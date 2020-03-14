@@ -15,7 +15,7 @@ padding:.5em;
         height:100%;
         width:100%;
         display: grid;
-        grid-template-rows: 100px 1fr;
+        grid-template-rows: 80px 1fr;
         grid-template-columns: 350px 1fr;
         grid-column-gap: 7px;
         grid-row-gap: 0px;
