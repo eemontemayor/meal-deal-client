@@ -27,7 +27,7 @@ padding:.5em;
         
        
         .res-container { 
-          background-color:green;
+          background-color:white;
           grid-area: results;
         border-right: 1px solid rgba(128, 128, 128, 0.795);
         }

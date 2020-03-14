@@ -8,8 +8,9 @@ import LoginPage from '../../routes/LoginPage.js';
 import RegistrationPage from '../../routes/RegistrationPage';
 import LandingPage from '../../routes/LandingPage/LandingPage'
 import Header from '../Header/Header'
+import BookMarksPage from '../../routes/BookMarksPage/BookMarksPage'
 import CalendarPage from '../../routes/CalendarPage/CalendarPage'
-import PlannerPage from '../../routes/Planner/PlannerPage';
+import PlannerPage from '../../routes/PlannerPage/PlannerPage';
 import ExplorerPage from '../../routes/ExplorerPage/ExplorerPage';
 import ShoppingListPage from '../../routes/ShoppingListPage/ShoppingListPage'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
@@ -289,6 +290,10 @@ saveSearchResults = (arr) =>{
             <PrivateRoute  
               path={'/planner'}
               component={PlannerPage}
+              /> 
+              <PrivateRoute  
+              path={'/bookmarks'}
+              component={BookMarksPage}
               /> 
                 <PrivateRoute  
               path={'/calendar'}

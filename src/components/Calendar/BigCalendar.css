@@ -14,7 +14,8 @@ div.react-calendar{
   background-color:blue;
  } */
  .react-calendar__tile{
-   height:100px;
+   max-height:150px;
+   height: 8.5rem;
    text-align:left;
    font-size: 1.1em;
 

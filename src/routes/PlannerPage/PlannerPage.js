@@ -3,9 +3,9 @@ import './PlannerPage.css'
 import {Section} from '../../components/Utils/Utils'
 import dateFormat from 'dateformat';
 // import Planner from '../../components/Planner/Planner'
-import 'react-calendar/dist/Calendar.css';
+
 import MealContext from '../../contexts/MealContext'
-import Calendar from 'react-calendar'
+
 import 'react-calendar/dist/Calendar.css';
 import BigCalendar from '../../components/Calendar/BigCalendar'
 import StyledButton from '../../components/Button/Button'
