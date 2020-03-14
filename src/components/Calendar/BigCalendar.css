@@ -1,0 +1,45 @@
+div.react-calendar{       
+    width:100%;
+    height:auto;
+    /* max-width: 95vw; */
+    /* transform: scale(1.1); */
+    margin:150px auto;
+  }
+
+ /* .saturday{
+   background-color:greenyellow;
+ }
+ .monday{
+  background-color:blue;
+ } */
+ .react-calendar__tile{
+   height:100px;
+   text-align:left;
+   font-size: 1.1em;
+
+ }
+ .tile-text{
+   color:blue;
+   
+ }
+
+ .react-calendar button{
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+ }
+
+ abbr[title] {
+  text-decoration: underline ;
+}
+
+
+ /* WEEKEND */
+ .react-calendar__month-view__days__day--weekend {
+  color: #d10000;
+}
+
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+  border:none;
+}

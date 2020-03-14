@@ -2,7 +2,7 @@
 .planner-page{
 min-height: calc(100vh - 100px);
   width:100%;
-  background-color: rgb(240, 149, 149);
+  /* background-color: rgb(240, 149, 149); */
 
 }
 .calendar{
@@ -21,8 +21,7 @@ min-height: calc(100vh - 100px);
 }
 
 .calendar{
-  margin:auto;
-  margin-top:50px;
+
 }
 
 .tileClassName{
@@ -88,9 +87,10 @@ min-height: calc(100vh - 100px);
 /* DESKTOP VIEW */
 @media only screen and (min-width: 760px) {
  
- .calendar-container{
-   height:500px;
- }
+ /* .calendar-container{
+   height:400px;
+   width:200px;
+ } */
 
 
 
