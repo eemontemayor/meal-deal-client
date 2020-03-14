@@ -35,11 +35,7 @@ min-height: calc(100vh - 100px);
   padding-top: 15px;
 }
 
-.meal-deal-page{
 
-  height:auto;
-  width:100%;
-}
 
 .form-box{
   padding-top:10px;
@@ -92,14 +88,9 @@ min-height: calc(100vh - 100px);
 /* DESKTOP VIEW */
 @media only screen and (min-width: 760px) {
  
-  div.react-calendar.calendar{       
-    width:100%;
-    height:auto;
-      
-
-     
-  }
-
+ .calendar-container{
+   height:500px;
+ }
 
 
 

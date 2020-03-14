@@ -6,6 +6,11 @@ import dateFormat from 'dateformat';
 import 'react-calendar/dist/Calendar.css';
 import MealContext from '../../contexts/MealContext'
 import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css';
+import BigCalendar from '../../components/Calendar/Calendar'
+
+
+
 export default class PlannerPage extends Component{
     state = {
        
@@ -29,11 +34,14 @@ export default class PlannerPage extends Component{
             <div className='planner-page'>
        
          
-           <Section >
-                    <Calendar className='calendar'
+            <div className='calendar-container' >
+              <BigCalendar  />
+              {/* <Calendar className='calendar'
+                showDoubleView='true'
+                view='week'
                         onChange={this.context.onChange}
-                        value={this.context.value}/>  
-            </Section>
+                        value={this.context.value}/>   */}
+            </div>
             {/* <Section className='mod-container'>
                     <p className='meal-date'>
                      {day}  {formattedDay}      
