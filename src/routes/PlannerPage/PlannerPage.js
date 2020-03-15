@@ -15,17 +15,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class PlannerPage extends Component {
   state = {
-    searching: false,
+    view: 'bm',
     searchResults:[]
 
   };
   static contextType = MealContext;
   componentDidMount() {}
 
-  handleClick = () => {
-    console.log("here");
+  handleClick = (x) => {
+
+    console.log("here",x);
     this.setState({
-      searching: !this.state.searching
+      view:x
     });
   };
 
@@ -50,7 +51,9 @@ export default class PlannerPage extends Component {
         </div>
 
         <div className="search-form-container">
-          <button onClick={this.handleClick}
+          <button
+            onClick={()=>this.handleClick('bm')}
+           
             className='search-form-btn'
             // {`${this.state.searching ? null : 'disabled'}`}
           >
@@ -62,19 +65,19 @@ export default class PlannerPage extends Component {
             
             />
           </button>
-          <button onClick={this.handleClick}
+          <button onClick={()=>this.handleClick('sf')}
             className='search-form-btn'
             // {${!this.state.searching ? `null` : ${`disabled`}}
           >
             {" "}
             <FontAwesomeIcon className="icon search" size="1x" icon="search" />
           </button><br/>
-          {this.state.searching && <SearchForm saveSearchRes={this.saveSearchResults }/>}
+          {this.state.view === 'sf' && <SearchForm saveSearchRes={this.saveSearchResults }/>}
    
         </div>
         <div className="res-container">
-          {!this.state.searching && <BookMarks />}
-        {this.state.searching&&this.state.searchResults.length>1&& <SearchResults searchResults={this.state.searchResults}/>}
+          {this.state.view === 'bm' && <BookMarks />}
+        {this.state.view === 'sf'&&this.state.searchResults.length>1&& <SearchResults searchResults={this.state.searchResults}/>}
         </div>
       </div>
     );

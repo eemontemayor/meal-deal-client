@@ -3,7 +3,7 @@ import MealItem from '../Meal_Item/MealItem'
 import MealContext from '../../contexts/MealContext'
 import '../Meal_Item/MealItem.css'
 import './Mod.css'
-export default class Mod extends Component{
+export default class MOD extends Component{
    
   static contextType = MealContext
 
@@ -27,8 +27,8 @@ export default class Mod extends Component{
           </li>
       }
       else{
-        return meals.map((item, index)=>{
-          return <MealItem  meal={item} key={index} index={index}view='meals-of-day' cssClass='mod-item' />
+        return meals.map((item, index) => {
+          return <MealItem meal={item} key={index} index={index} mod={true}/>
        })
       }
    
@@ -36,15 +36,18 @@ export default class Mod extends Component{
   }
       render(){
         const ModList = this.list(this.context.MOD)
-    
+        
           return(
-              <div className='mod-page'>
+            <>
+              <h3>Meals for :</h3><br/>
+              <h2>{this.context.formattedDate}</h2>
                   <ul className='mod-list'>
                   { ModList}
                    
                   </ul>
+            </>
            
-        </div>
+   
     )
 }
 }

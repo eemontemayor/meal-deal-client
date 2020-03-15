@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
-import formatDate from 'dateformat';
+import dateFormat from 'dateformat';
 import './BigCalendar.css'
 import MealContext from '../../contexts/MealContext'
 export default class BigCalendar extends Component {
@@ -16,48 +16,66 @@ export default class BigCalendar extends Component {
     //   today:new Date()
     // })
     console.log(this.state.date)
-    console.log(formatDate(this.state.today, "W"));
+    console.log(dateFormat(this.state.today, "W"));
   }
 
 
 
 
 
-  onChange = date => this.setState({ date }, () => {
-   console.log(date.getDay(),'<<<')
-    console.log(this.state.date,'<-state.date')
-  })
+  onChange = date => this.setState({ date })
 
+  filterUserMeals = (date) => {
 
+    let meals= this.context.userMeals.filter(item => dateFormat(item.on_day, 'yyyy-mm-dd') === date)
+    
+  
+    return meals
+    
+  
+  }
+
+  renderTileContent = (date ) => {
+    if (date.getDay() === 1) {
+      
+     return <p>Monday!</p> 
+    }
+}
 
   render() {
+    // console.log(this.context.userMeals)
     // const date = this.state.date
-    // const date= this.context.day
-      const weekNumber=formatDate(this.state.today, "W")
+    // const tileContent = this.renderTileContent(this.state.date)
+    const tileContent = ({ date, view }) => view === 'month' && date.getDay() === 0 ? <p>Sunday!</p> : null;
+    let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+2)
+    let minDate=new Date(this.state.today.getFullYear(),this.state.today.getMonth()-1)
+  
+let meals = this.filterUserMeals(this.context.formattedDate)
+
+console.log(meals,'filtered user meals')
     return (
       <div>
         <Calendar
           value={this.state.date}
           
           defaultView='month'
-          onClickDay={(value,locale, event) => console.log('Clicked day: ',  value.toLocaleDateString(locale))}
+          onClickDay={this.context.onChange}
           calendarType='US'
           onChange={this.onChange}
           minDetail={'month'}
-          // showNavigation={false}
-          // showWeekNumbers={true}
+    
           showFixedNumberOfWeeks={false}
-          minDate	={new Date(this.state.today.getFullYear(),this.state.today.getMonth()-1)}
-          maxDate	={new Date(this.state.today.getFullYear(),this.state.today.getMonth()+2)}
+          minDate	={minDate}
+          maxDate	={maxDate}
        
           tileClassName={({ date, view }) => view === 'month' && date.getDay() === 1 ? 'monday' : null}
           // tileClassName={({ date, view }) => view === 'month' && date.getDay() === 6 ? 'saturday' : null}
-          tileContent	={({ activeStartDate, date, view }) => view === 'month' && date.getDay() === 0 ? <p className='tile-text'>It's Sunday!</p> : null}
+          tileContent	={tileContent}
          
          
          
           // navigationLabel={({ date, label, locale, view }) => `Current view: ${view}, date: ${date.toLocaleDateString(locale)}`}
-          formatLongDate	={(locale, date) => formatDate(date, 'ddd MMM')}
+          formatLongDate	={(locale, date) => dateFormat(date, 'ddd MMM')}
           onDrillUp={({ activeStartDate, view }) => alert('Drilled up to: ', activeStartDate, view)}	
           // formatShortWeekday={(locale, date) => formatDate(date, 'dd')}
           // value={this.context.value}

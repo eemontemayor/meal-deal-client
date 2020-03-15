@@ -34,11 +34,12 @@ export default class BookMarks extends Component{
        
     
         return(
-           
+            <>
+                    <h3>BOOKMARKS</h3><br/>
                 <ul className='bm-list'>
                 {this.list(this.context.bookmarks)}
                 </ul>
-       
+       </>
         )
     }
 }

@@ -21,31 +21,37 @@ export default class MealItem extends Component {
   }
 
   renderButtons = () => {
-    // if (this.props.view === "meals-of-day") {
-    //   return (
-    //     <div>
-    //       <button
-    //         className="idel-btn"
-    //         onClick={() =>
-    //           this.context.handleDeleteMeal(this.props.meal, this.props.index)
-    //         }
-    //       >
-    //         x
-    //       </button>
-    //       <Link
-    //         to={`/meal/${this.context.formattedDate}/${this.props.meal.id}`}
-    //       >
-    //         <button className="see-more-btn">...</button>
-    //       </Link>
-    //       <button
-    //         className="bm-btn"
-    //         onClick={() => this.context.handleAddBookmark(this.props.meal)}
-    //       >
-    //         b
-    //       </button>
-    //     </div>
-    //   );
-    // }
+    if (this.props.mod===true) {
+      return (
+        <div>
+          <button
+            className="del-btn"
+            onClick={() =>
+              this.context.handleDeleteMeal(this.props.meal, this.props.index)
+            }
+          >
+              {" "}
+            <FontAwesomeIcon
+              className="icon trash"
+              size="1x"
+              icon="trash-alt"
+            />
+          </button>
+          <Link
+            to={`/meal/${this.context.formattedDate}/${this.props.meal.id}`}
+          >
+            <button className="see-more-btn">...</button>
+          </Link>
+          <button
+            className="bm-btn"
+            onClick={() => this.context.handleAddBookmark(this.props.meal)}
+          >
+            {" "}
+            <FontAwesomeIcon className='icon bookmark' size='1x' icon = 'bookmark'/>    
+          </button>
+        </div>
+      );
+    }
     if (this.props.bookMark=== true) {
       return (
         <div className="item-buttons">

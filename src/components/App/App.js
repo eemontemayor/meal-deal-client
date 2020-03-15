@@ -27,7 +27,7 @@ export default class App extends Component{
         formattedDate:'',
         MOD:[],
         bookmarks:[],
-      
+        userMeals:[]
   }
   
   static getDerivedStateFromError(error) {
@@ -49,7 +49,13 @@ componentDidMount(){
       console.log({error})
     })
     })
-
+  MealApiService.getUserMeals()
+    .then(meals => {
+      this.setState({
+        userMeals:meals
+      })
+    })
+    
     MealApiService.getBookmarks()
     .then(meals=>{
         this.setState({
@@ -61,22 +67,25 @@ componentDidMount(){
     })
 }
 
-  
+
+
   
   
   
   
 onChange = value => {
     const formattedDate=dateFormat(value, 'yyyy-mm-dd')
-  //   let location = config.API_ENDPOINT.replace('api', 'planner')
-  //  window.location = location + '/' +formattedDate
+
     this.setState({ value,formattedDate },()=>{
     MealApiService.findMealByDate(formattedDate)
     .then(meals =>{ 
         this.setState({
             MOD:meals
         })
-      })
+    })
+    .catch(error => {
+      console.log({error})
+    })
     })  
 }
 
@@ -245,7 +254,7 @@ goBack=()=>{
       handleDeleteBookmark:this.handleDeleteBookmark,
       postMeal:this.postMeal,
       onChange:this.onChange,
-     
+     userMeals:this.state.userMeals,
       goBack:this.goBack,
       handleUpdateBookmark:this.handleUpdateBookmark,
       getUserBookmarks: this.getUserBookmarks,
