@@ -1,45 +1,11 @@
-.explorer_form{
-    text-align: center;
-    width:100%;
-  
-}
-h1{
-    text-align: center;
-    font-size:1.5em;
-    margin-top: 65px;
-    
-}
-.searchForm{
-    position:sticky;
-    width:95%;
-    min-height: 60px;
-    background-color: rgb(228, 158, 180);
-    color:white;
-    margin:auto;
-    top: 50px;
-    padding:20px;
-    box-shadow: 3px 3px 2px  rgba(12, 12, 12, 0.514);
-    
-}
-button:hover{
-    cursor: pointer;
-}
-.bm-btn:hover{
-    background-color:#AFD275
-}
-.add-btn:hover{
-    background-color:rgb(97, 230, 212)
-}
-input#explorer_search_term.Input{
-    background-color: white;
-}
+
+
+
 .submit-search-btn{
-    width:25%;
+    width:75px;
     padding:5px;
-    position: absolute;
-    right:0;
-    top:0;
-    height:100%;
+    
+    height:fit-content;
     background-color: rgb(200, 200, 200);
     cursor: pointer;
 }
@@ -48,12 +14,7 @@ input#explorer_search_term.Input{
 }
 
 @media only screen and (min-width: 760px) {
-    .searchForm{
-        border-radius: 5px;
-     
-        width:50%;
-        top: 100px;
-    }
+   
 
    
 }

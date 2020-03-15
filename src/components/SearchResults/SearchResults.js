@@ -1,18 +1,48 @@
 import React from 'react'
-import ResultItem from './ResultItem'
+import MealItem from '../../components/Meal_Item/MealItem'
+
+
 import './SearchResults.css'
 
-export default function SearchResults(props){
+export default class SearchResults extends React.Component{
+    state = {
+    searchResults:[]
+}
 
-    const results=props.results.map((item,index)=>{
-        return <li key={index}><ResultItem expPage={props.expPage}meal={item} postBookmark={props.postBookmark}/></li>
-    })
-
-    return(
-        <div className='results-container'>
-            <ul className={props.expPage?'search-results exp-page':'search-results'}>
-            {results}
+    componentDidMount(){
+        this.setState({
+          searchResults:this.context.searchRes,
+        })      
+    }
+    
+    list=(results)=>{
+        const res = results
+       
+        if( res === null ||res === undefined || res === [] || res.length<1){
+          // debugger
+          return <li key='0' className='place-holder'>
+       
+            Explore new meal ideas!
+            
+            </li>
+        }
+        else{
+          return res.map((item, index)=>{
+              return <MealItem meal={item} id={item.id} key={index} image={item.image}index={index}   postBookmark={this.context.postBookmark}bookMark={false}/> // violating pkey 
+         })
+        }
+    }
+    render() {
+        const results = this.state.searchResults || []
+         
+       
+      
+        return(
+            
+            <ul className='result-list'>
+            {this.list(results)}
             </ul>
-        </div>
-    )
+     
+     )
+    }
 }

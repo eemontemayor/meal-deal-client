@@ -3,7 +3,8 @@ import './PlannerPage.css'
 // import {Section} from '../../components/Utils/Utils'
 import dateFormat from 'dateformat';
 import BookMarks from '../../components/BookMarks/BookMarks'
-import ExplorerForm from '../../components/ExplorerForm/ExplorerForm'
+import SearchResults from '../../components/SearchResults/SearchResults'
+import SearchForm from '../../components/SearchForm/SearchForm'
 import MealContext from '../../contexts/MealContext'
 
 import 'react-calendar/dist/Calendar.css';
@@ -46,7 +47,8 @@ export default class PlannerPage extends Component{
          
             <div className='search-form-container'>
               <button onClick={this.handleClick}>BookMarks</button>
-            <button onClick={this.handleClick}>Search</button>
+              <button onClick={this.handleClick}>Search</button>
+              {this.state.searching && <SearchForm/>}
                      {/* <div className='form-buttons'>
                          <button className={`add-meal-form-btn ${this.state.view==='add-meal-form'?'selected':''}`} id='add-meal-form' onClick={this.handleClick} >Add Meal</button>
                          <button className={`bookmarks-btn ${this.state.view==='bookmarks'?'selected':''}`} id='bookmarks'onClick={this.handleClick}>BookMarks</button>
@@ -60,7 +62,7 @@ export default class PlannerPage extends Component{
             </div>
             <div className='res-container'>
             {/* {this.state.view==='add-meal-form' && <AddMealForm date={day} />} */}
-                         {!this.state.searching ?  <BookMarks />:<ExplorerForm />}
+                         {!this.state.searching ?  <BookMarks />:<SearchResults />}
                          {/* {this.state.view==='search' &&  <ExplorerForm />} */}
             </div>
           
