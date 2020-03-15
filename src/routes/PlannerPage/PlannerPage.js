@@ -38,15 +38,20 @@ export default class PlannerPage extends Component {
         </div>
 
         <div className="search-form-container">
-          <button onClick={this.handleClick}>
+          <button onClick={this.handleClick}
+            // {`${this.state.searching ? null : 'disabled'}`}
+          >
             {" "}
             <FontAwesomeIcon
               className="icon bookmark"
               size="1x"
               icon="bookmark"
+            
             />
           </button>
-          <button onClick={this.handleClick}>
+          <button onClick={this.handleClick}
+            // {${!this.state.searching ? `null` : ${`disabled`}}
+          >
             {" "}
             <FontAwesomeIcon className="icon search" size="1x" icon="search" />
           </button>
