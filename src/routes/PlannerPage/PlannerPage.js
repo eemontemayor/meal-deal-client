@@ -73,8 +73,8 @@ export default class PlannerPage extends Component {
    
         </div>
         <div className="res-container">
-          {!this.state.searching ? <BookMarks /> : <SearchResults searchRes={this.state.searchRes}/>}
-
+          {!this.state.searching && <BookMarks />}
+        {this.state.searching&&this.state.searchResults.length>1&& <SearchResults searchResults={this.state.searchResults}/>}
         </div>
       </div>
     );

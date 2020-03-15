@@ -21,31 +21,31 @@ export default class MealItem extends Component {
   }
 
   renderButtons = () => {
-    if (this.props.view === "meals-of-day") {
-      return (
-        <div>
-          <button
-            className="idel-btn"
-            onClick={() =>
-              this.context.handleDeleteMeal(this.props.meal, this.props.index)
-            }
-          >
-            x
-          </button>
-          <Link
-            to={`/meal/${this.context.formattedDate}/${this.props.meal.id}`}
-          >
-            <button className="see-more-btn">...</button>
-          </Link>
-          <button
-            className="bm-btn"
-            onClick={() => this.context.handleAddBookmark(this.props.meal)}
-          >
-            b
-          </button>
-        </div>
-      );
-    }
+    // if (this.props.view === "meals-of-day") {
+    //   return (
+    //     <div>
+    //       <button
+    //         className="idel-btn"
+    //         onClick={() =>
+    //           this.context.handleDeleteMeal(this.props.meal, this.props.index)
+    //         }
+    //       >
+    //         x
+    //       </button>
+    //       <Link
+    //         to={`/meal/${this.context.formattedDate}/${this.props.meal.id}`}
+    //       >
+    //         <button className="see-more-btn">...</button>
+    //       </Link>
+    //       <button
+    //         className="bm-btn"
+    //         onClick={() => this.context.handleAddBookmark(this.props.meal)}
+    //       >
+    //         b
+    //       </button>
+    //     </div>
+    //   );
+    // }
     if (this.props.bookMark) {
       return (
         <div className="item-buttons">
@@ -141,8 +141,11 @@ export default class MealItem extends Component {
 
   renderMealName = () => {
     if (this.props.searchRes) {
+      console.log('here')
       return <p className="meal-name">{this.props.meal.label}</p>;
-    } else {
+    }
+    
+    if(this.props.bookMark){
       return <p className="meal-name">{this.props.meal.meal_name}</p>;
     }
   };
@@ -158,8 +161,7 @@ export default class MealItem extends Component {
 
 
   render() {
-    console.log(this.props)
-    console.log("_,.-'~'-.,__,.-'~'-.,__(),.-'~'-.,__(),.-'~'-.,__(),.-'~'-.,_")
+
 const view=this.props.view
 const index=this.props.index
     return (
