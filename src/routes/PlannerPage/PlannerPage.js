@@ -30,9 +30,11 @@ export default class PlannerPage extends Component {
   };
 
 
-  saveSearchResults = (...arr) =>{
+  saveSearchResults = (arr) =>{
     this.setState({
-        searchResults:[...arr]
+        searchResults:arr
+    }, () => {
+        console.log(this.state,'<---------')
     })
   }
 
@@ -49,6 +51,7 @@ export default class PlannerPage extends Component {
 
         <div className="search-form-container">
           <button onClick={this.handleClick}
+            className='search-form-btn'
             // {`${this.state.searching ? null : 'disabled'}`}
           >
             {" "}
@@ -60,27 +63,18 @@ export default class PlannerPage extends Component {
             />
           </button>
           <button onClick={this.handleClick}
+            className='search-form-btn'
             // {${!this.state.searching ? `null` : ${`disabled`}}
           >
             {" "}
             <FontAwesomeIcon className="icon search" size="1x" icon="search" />
-          </button>
+          </button><br/>
           {this.state.searching && <SearchForm saveSearchRes={this.saveSearchResults }/>}
-          {/* <div className='form-buttons'>
-                         <button className={`add-meal-form-btn ${this.state.view==='add-meal-form'?'selected':''}`} id='add-meal-form' onClick={this.handleClick} >Add Meal</button>
-                         <button className={`bookmarks-btn ${this.state.view==='bookmarks'?'selected':''}`} id='bookmarks'onClick={this.handleClick}>BookMarks</button>
-                         <button className={`explorer-btn ${this.state.view==='explorer'?'selected':''}`}id='explorer'onClick={this.handleClick}>Explore</button>
-                     </div>
-                     <div className='form-box'>
-                         {this.state.view==='add-meal-form' && <AddMealForm date={day} />}
-                         {this.state.view==='bookmarks' &&  <BookMarks />}
-                         {this.state.view==='explorer' &&  <ExplorerForm />}
-                     </div> */}
+   
         </div>
         <div className="res-container">
-          {/* {this.state.view==='add-meal-form' && <AddMealForm date={day} />} */}
           {!this.state.searching ? <BookMarks /> : <SearchResults searchRes={this.state.searchRes}/>}
-          {/* {this.state.view==='search' &&  <ExplorerForm />} */}
+
         </div>
       </div>
     );

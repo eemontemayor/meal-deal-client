@@ -34,8 +34,8 @@ export default class SearchForm extends React.Component {
         MealApiService.getExplorerMeals(this.state.searchTerm)
           .then(res => {
 
-            console.log(res)
-              this.context.saveSearchResults(res)
+           
+              this.props.saveSearchRes(res)
        
           })
       }

@@ -1,0 +1,7 @@
+.searchForm{
+    min-width:fit-content;
+    display: inline-flex;
+}
+.search-form-btn{
+    display: inline-block;
+}
