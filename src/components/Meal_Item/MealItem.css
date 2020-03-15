@@ -1,36 +1,28 @@
-.mod-item{
-    list-style: none;
-    border:1px solid black;
-    border-radius:3px;
-    text-align: center;
-    box-shadow: 2px 2px 1px grey;
-    background-color: rgb(97, 230, 212);
-    padding:5px;
-    margin:auto;
-    margin-bottom:5px;
-    max-width: 90vw;
-    font-size: .75em;
-    height:auto;
-    min-height:4vh;
-    /* display:block; */
-   
+
+.meal-item {
+    margin-bottom: .7em;
+    min-height: 110px;
+    /* max-height: fit-content; */
+    width:340px;
+    /* min-height: 110px; */
+    display: flex;
+    padding: .5em;
+    border-bottom: .5px solid grey;
+    background-color: ivory;
 }
-.bm-item{
-    list-style: none;
-    border:1px solid black;
-    border-radius:3px;
-    text-align: center;
-    box-shadow: 2px 2px 1px grey;
-    background-color: #AFD275;
-    padding:5px;
-    margin:auto;
-    margin-bottom:5px;
-    max-width: 90vw;
-    font-size: .75em;
-    height:auto;
-    min-height:4vh;
-    /* display:block; */
+.meal-item img{
+    height:100px;
+  float: right;
 }
+.meal-item a{
+    text-decoration: none;
+
+}
+
+.item-buttons{
+  float: left;
+}
+
 .edit-meal-page{
     background-color: pink;
     height:100vh;
@@ -56,12 +48,6 @@ margin-left:auto;
 margin-right:auto;
 margin-top:50px;
 }
-#item-selected.mod-item{
-    background-color: rgb(97, 230, 212);
-}
-#item-selected.bm-item{
-    background-color: #AFD275;
-}
 
 .meal-item-header{
     position:sticky;
@@ -70,28 +56,21 @@ margin-top:50px;
     z-index: 9;
 }
 
-.meal-img{
-    max-width: 150px;
-  margin:auto;
+
+
+.add-btn{
+   
+  
 }
 
-.item-add-btn{
-    background-color: rgba(0, 255, 255, 0.637);
-    float:right;
-    cursor: pointer;
-}
-
-.item-del-btn{
-    background-color: rgba(233, 47, 47, 0.76);
-    float:left;
-    cursor: pointer;
+.del-btn{
+ 
+   
+  
     }
 
-.item-bm-btn{
-    background-color: rgba(145, 255, 0, 0.411);
-    margin-right:5px;
-    float:right;
-    cursor: pointer;
+.see-more-btn{
+   
 }
 .place-holder{
     list-style: none;
@@ -145,14 +124,11 @@ ul.inst-list{
     padding-left:20px;
     opacity:100%;
 }
-.meal-name{
-    
-    font-size:1em;
+p.meal-name{
+    display: inline-flex;
+    /* font-size:1.2em; */
 }
 
-h6{
-    text-align: center;
-}
 
 @media only screen and (min-width: 760px) {
     .mod-item{
@@ -205,11 +181,6 @@ h6{
       padding-left:40px;
       height:auto;
 }
-      .meal-img{
-        max-width: 350px;
-      margin:auto;
-      border:1px solid black;
-      box-shadow: 2px 2px 2px rgba(12, 12, 12, 0.719);
-    }
+     
    
 }

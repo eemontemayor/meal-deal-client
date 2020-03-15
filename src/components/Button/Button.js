@@ -17,14 +17,25 @@ const Button = styled.button`
 const Container = styled.div`
   text-align: center;
 `
-const StyledButton = () => {
+
+export  const StyledButton = (props) => {
+
+
     return (
         <Container>
-        <Button>Normal Button</Button>
-        <Button primary>Primary Button</Button>
+        <Button primary>{props.children}</Button>
+        {/* <Button primary>{props.children}</Button> */}
     </Container>
     )
 }
+// export const SecondaryButton = (props) => {
+//   return (
+//     <Container>
+ 
+//     <Button >{props.children}</Button>
+// </Container>
+// )
+// }
 
 
-  export default StyledButton
+ 

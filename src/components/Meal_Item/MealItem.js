@@ -3,7 +3,7 @@ import MealContext from '../../contexts/MealContext';
 import {Link } from 'react-router-dom';
 import './MealItem.css'
 // import EditMealItem from './EditMealItem'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export default class MealItem extends Component{
   constructor(props){
     super(props)
@@ -31,18 +31,18 @@ renderButtons=()=>{
   
   if(this.props.view === 'meals-of-day'){
     return (
-      <div>
-        <button className='item-bm-btn' onClick={() => this.context.handleAddBookmark(this.props.meal)}>b</button>
-        <button className='item-del-btn'onClick={()=>this.context.handleDeleteMeal(this.props.meal,this.props.index)} >x</button>
-        <Link to={`/meal/${this.context.formattedDate}/${this.props.meal.id}`}>see more</Link>
+      <div className='item-buttons'>
+        <button className='idel-btn'onClick={()=>this.context.handleDeleteMeal(this.props.meal,this.props.index)} >x</button>
+        <Link to={`/meal/${this.context.formattedDate}/${this.props.meal.id}`}><button className='see-more-btn'>see more</button></Link>
+        <button className='bm-btn' onClick={() => this.context.handleAddBookmark(this.props.meal)}>b</button>
       </div>)
   }
-  if(this.props.view === 'bookmarks'){
+  if(this.props.bookMark){
     return(
-      <div>
-        <button className='item-add-btn' onClick={()=>this.context.postMeal(this.props.meal)}>+</button> 
-        <button className='item-del-btn'onClick={()=>this.context.handleDeleteBookmark(this.props.meal,this.props.index)} >x</button> 
-        <Link to={`/bookmark/${this.props.meal.id}`}> See More </Link> {/* have to pass this.props.meal.id here to avoid pkey constraint between md and bm */}
+      <div className='item-buttons'>
+        <button className='del-btn'onClick={()=>this.context.handleDeleteBookmark(this.props.meal,this.props.index)} > <FontAwesomeIcon className='icon trash' size='1x' icon='trash-alt' /></button> 
+        <Link to={`/bookmark/${this.props.meal.id}`}> <button className='see-more-btn'>see more</button>  </Link> {/* have to pass this.props.meal.id here to avoid pkey constraint between md and bm */}
+        <button className='add-btn' onClick={()=>this.context.postMeal(this.props.meal)}> <FontAwesomeIcon className='icon plus' size='1x' icon='plus' /></button> 
       </div> 
       
     )
@@ -68,7 +68,7 @@ renderLists=(ingList,instList)=>{
     }
  
   return (
-    <div>
+    <div >
       {/* <Link to={`/bookmark/edit/${this.props.meal.id}`} >Edit Meal</Link> */}
       <div className='lists'>
         <ul className='ing-list'>
@@ -93,11 +93,11 @@ render(){
   
     const view = this.props.view
     const index= this.props.index
-
+console.log(this.props.image)
    
     return(
-      <div >
-        <li className= {this.props.cssClass} id={this.props.id} key={index}>
+        <li  id={this.props.id} key={index}>
+      <div className='meal-item'>
              {this.props.image ? <img className='meal-img'src={this.props.image} alt='x'/>: null}
 
               {this.renderButtons()}
@@ -105,8 +105,8 @@ render(){
             
            {view === 'large' && this.renderLists(this.props.ingredients,this.props.instructions)}
            
-        </li>
       </div>
+        </li>
     )
   }
 }
