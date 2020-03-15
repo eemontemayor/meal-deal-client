@@ -80,19 +80,23 @@ export default class MealItem extends Component {
         </div>
       );
     }
-    if (this.props.searchRes===true) {
+    if (this.props.searchRes === true) {
+      let meal = {
+        meal_name: this.props.meal_name,
+        image: this.props.image,
+        ingredients:this.props.ingredients
+      }
       return (
         <div className="item-buttons">
           <button
             className="bm-btn"
-            onClick={() => this.context.handleAddBookmark(this.props.meal)}
+            onClick={() => this.context.handleAddBookmark(meal)}
           >
-            b
-          </button>
+          <FontAwesomeIcon className='icon bookmark' size='1x' icon = 'bookmark'/>          </button>
           {/* <Link to={`/bookmark/${this.props.meal.id}`}> <button className='see-more-btn'>...</button>  </Link> have to pass this.props.meal.id here to avoid pkey constraint between md and bm */}
           <button
             className="add-btn"
-            onClick={() => this.context.postMeal(this.props.meal)}
+            onClick={() => this.context.postMeal(meal)}
           >
             {" "}
             <FontAwesomeIcon className="icon plus" size="1x" icon="plus" />

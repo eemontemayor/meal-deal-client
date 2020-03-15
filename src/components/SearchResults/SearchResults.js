@@ -22,6 +22,7 @@ export default function SearchResults(props){
                   image={item.recipe.image}
                   index={index}
                   ingredients={item.recipe.ingredientLines}
+                  searchRes={true}
               /> 
          })
         
