@@ -9,6 +9,7 @@
     padding: .5em;
     border-bottom: .5px solid grey;
     background-color: ivory;
+    position: relative;
 }
 .meal-item img{
     height:100px;
@@ -20,9 +21,15 @@
 }
 
 .item-buttons{
-  float: left;
+    height:auto;
+ display: flex;
+ flex-direction: column;
 }
-
+p.meal-name{
+    display: inline-flex;
+    font-size:1.2em;
+    padding-left:15px;
+}
 .edit-meal-page{
     background-color: pink;
     height:100vh;
@@ -58,18 +65,21 @@ margin-top:50px;
 
 
 
-.add-btn{
-   
+button.add-btn{
+    float: right;
+    
+   right:0;
   
 }
 
-.del-btn{
- 
+button.del-btn{
+    float: left;
+ left:0;
    
   
     }
 
-.see-more-btn{
+button.see-more-btn{
    
 }
 .place-holder{
@@ -124,10 +134,7 @@ ul.inst-list{
     padding-left:20px;
     opacity:100%;
 }
-p.meal-name{
-    display: inline-flex;
-    /* font-size:1.2em; */
-}
+
 
 
 @media only screen and (min-width: 760px) {
