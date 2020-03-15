@@ -37,21 +37,21 @@ export default class BigCalendar extends Component {
    let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+2)
    let minDate=new Date(this.state.today.getFullYear(),this.state.today.getMonth()-1)
  
-    let meals = this.filterUserMeals(minDate, maxDate)
+    let mealsArr = this.filterUserMeals(minDate, maxDate)
+
+    // while (mealsArr.length > 0 && date) {
+
     let top = {}
-    Object.assign(top,meals[0])
-    console.log(top.on_day)
-    // let mealDate = dateFormat(meals[0].on_day, 'yyyy-mm-dd')
-    // console.log(mealDate)
-    // let x = dateFormat(meals[0].on_day, 'yyyy-mm-dd')
-    // console.log(x,d)
+    Object.assign(top,mealsArr[0])
+   
+  
       
       if (view === 'month' && d === dateFormat(top.on_day,'yyyy-mm-dd') ) {
-       
-        return <p>{top.meal_name}</p> 
+        let name = top.meal_name
+        
+        return <p>{name}</p> 
       }
  
-    // while (meals.length > 0) {
     //   let top = meals[0]
       
     //   if (view === 'month' && d === dateFormat(meals[0].on_day,'yyyy-mm-dd') ) {
