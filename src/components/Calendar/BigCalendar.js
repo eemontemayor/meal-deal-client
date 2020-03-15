@@ -7,16 +7,12 @@ import MealContext from '../../contexts/MealContext'
 export default class BigCalendar extends Component {
   state = {
     date: new Date(),
-    today:new Date()
+    today: new Date()
   }
   static contextType = MealContext
 
-  componentDidMount(){
-    // this.setState({
-    //   today:new Date()
-    // })
-    console.log(this.state.date)
-    console.log(dateFormat(this.state.today, "W"));
+  componentDidMount() {
+    
   }
 
 
@@ -25,32 +21,55 @@ export default class BigCalendar extends Component {
 
   onChange = date => this.setState({ date })
 
-  filterUserMeals = (date) => {
+  filterUserMeals = (minDate, maxDate) => {
 
-    let meals= this.context.userMeals.filter(item => dateFormat(item.on_day, 'yyyy-mm-dd') === date)
-    
+    let meals = this.context.userMeals.filter(item => dateFormat(item.on_day, 'yyyy-mm-dd') > dateFormat(minDate, 'yyyy-mm-dd') && dateFormat(item.on_day, 'yyyy-mm-dd') < dateFormat(maxDate, 'yyyy-mm-dd'))
+   
   
     return meals
     
   
   }
 
-  renderTileContent = (date ) => {
-    if (date.getDay() === 1) {
+  renderTileContent = ({ date, view }) => {
+   let d =  dateFormat(date, 'yyyy-mm-dd')
+
+   let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+2)
+   let minDate=new Date(this.state.today.getFullYear(),this.state.today.getMonth()-1)
+ 
+    let meals = this.filterUserMeals(minDate, maxDate)
+    let top = {}
+    Object.assign(top,meals[0])
+    console.log(top.on_day)
+    // let mealDate = dateFormat(meals[0].on_day, 'yyyy-mm-dd')
+    // console.log(mealDate)
+    // let x = dateFormat(meals[0].on_day, 'yyyy-mm-dd')
+    // console.log(x,d)
       
-     return <p>Monday!</p> 
-    }
+      if (view === 'month' && d === dateFormat(top.on_day,'yyyy-mm-dd') ) {
+       
+        return <p>{top.meal_name}</p> 
+      }
+ 
+    // while (meals.length > 0) {
+    //   let top = meals[0]
+      
+    //   if (view === 'month' && d === dateFormat(meals[0].on_day,'yyyy-mm-dd') ) {
+    //    
+    //     return <p>{name}</p> 
+    //   }
+    // }
 }
 
   render() {
     // console.log(this.context.userMeals)
     // const date = this.state.date
-    // const tileContent = this.renderTileContent(this.state.date)
-    const tileContent = ({ date, view }) => view === 'month' && date.getDay() === 0 ? <p>Sunday!</p> : null;
+    const tileContent = ({ date, view }) => this.renderTileContent({ date, view })
+    // const tileContent = ({ date, view }) => view === 'month' && date.getDay() === 0 ? <p>Sunday!</p> : null;
     let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+2)
     let minDate=new Date(this.state.today.getFullYear(),this.state.today.getMonth()-1)
   
-let meals = this.filterUserMeals(this.context.formattedDate)
+let meals = this.filterUserMeals(minDate,maxDate)
 
 console.log(meals,'filtered user meals')
     return (

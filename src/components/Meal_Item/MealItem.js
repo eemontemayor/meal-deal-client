@@ -16,8 +16,7 @@ export default class MealItem extends Component {
   static contextType = MealContext;
 
   componentDidMount() {
-    console.log(this.props.meal);
-    console.log(this.props.view);
+   
   }
 
   renderButtons = () => {
@@ -151,7 +150,7 @@ export default class MealItem extends Component {
 
   renderMealName = () => {
     if (this.props.meal_name) {
-      console.log('here')
+   
       return <p className="meal-name">{this.props.meal_name}</p>;
     }
     
