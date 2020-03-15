@@ -15,11 +15,13 @@ export default function SearchResults(props){
 
           return res.map((item, index)=>{
               return <MealItem
-                  meal={item.recipe}
+                  
+                  meal_name={item.recipe.label}
                   searchResult={true}
                   key={index}
                   image={item.recipe.image}
                   index={index}
+                  ingredients={item.recipe.ingredientLines}
               /> 
          })
         

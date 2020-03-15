@@ -46,7 +46,7 @@ export default class MealItem extends Component {
     //     </div>
     //   );
     // }
-    if (this.props.bookMark) {
+    if (this.props.bookMark=== true) {
       return (
         <div className="item-buttons">
           <button
@@ -80,7 +80,7 @@ export default class MealItem extends Component {
         </div>
       );
     }
-    if (this.props.searchRes) {
+    if (this.props.searchRes===true) {
       return (
         <div className="item-buttons">
           <button
@@ -140,9 +140,9 @@ export default class MealItem extends Component {
   };
 
   renderMealName = () => {
-    if (this.props.searchRes) {
+    if (this.props.meal_name) {
       console.log('here')
-      return <p className="meal-name">{this.props.meal.label}</p>;
+      return <p className="meal-name">{this.props.meal_name}</p>;
     }
     
     if(this.props.bookMark){
