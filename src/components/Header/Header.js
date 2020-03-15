@@ -60,14 +60,14 @@ class Header extends Component {
             
             <FontAwesomeIcon className='icon cal' size='1x' icon='calendar-alt' />
               </NavLink>
-              <NavLink to='/explorer'>
+              {/* <NavLink to='/explorer'>
               
             <FontAwesomeIcon className='icon search' size='1x' icon='search' />
               </NavLink>
               <NavLink to='/bookmarks'>
           <FontAwesomeIcon className='icon bookmark' size='1x' icon = 'bookmark'/>
     
-              </NavLink>
+              </NavLink> */}
               {this.renderGreeting()}
              
               {TokenService.hasAuthToken()
