@@ -15,7 +15,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class PlannerPage extends Component {
   state = {
-    searching: false
+    searching: false,
+    searchResults:[]
+
   };
   static contextType = MealContext;
   componentDidMount() {}
@@ -26,6 +28,14 @@ export default class PlannerPage extends Component {
       searching: !this.state.searching
     });
   };
+
+
+  saveSearchResults = (...arr) =>{
+    this.setState({
+        searchResults:[...arr]
+    })
+  }
+
 
   render() {
     const day = dateFormat(this.props.value, "mm/dd/yy");
@@ -55,7 +65,7 @@ export default class PlannerPage extends Component {
             {" "}
             <FontAwesomeIcon className="icon search" size="1x" icon="search" />
           </button>
-          {this.state.searching && <SearchForm />}
+          {this.state.searching && <SearchForm saveSearchRes={this.saveSearchResults }/>}
           {/* <div className='form-buttons'>
                          <button className={`add-meal-form-btn ${this.state.view==='add-meal-form'?'selected':''}`} id='add-meal-form' onClick={this.handleClick} >Add Meal</button>
                          <button className={`bookmarks-btn ${this.state.view==='bookmarks'?'selected':''}`} id='bookmarks'onClick={this.handleClick}>BookMarks</button>
@@ -69,7 +79,7 @@ export default class PlannerPage extends Component {
         </div>
         <div className="res-container">
           {/* {this.state.view==='add-meal-form' && <AddMealForm date={day} />} */}
-          {!this.state.searching ? <BookMarks /> : <SearchResults />}
+          {!this.state.searching ? <BookMarks /> : <SearchResults searchRes={this.state.searchRes}/>}
           {/* {this.state.view==='search' &&  <ExplorerForm />} */}
         </div>
       </div>

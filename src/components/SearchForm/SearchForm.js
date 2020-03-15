@@ -15,9 +15,9 @@ export default class SearchForm extends React.Component {
 
 
     componentDidMount(){
-      this.setState({
-        searchResults:this.context.searchRes,
-      })      
+      // this.setState({
+      //   searchResults:this.context.searchRes,
+      // })      
     }
 
     handleChange = (e) => {
@@ -33,16 +33,10 @@ export default class SearchForm extends React.Component {
       // console.log(this.state)
         MealApiService.getExplorerMeals(this.state.searchTerm)
           .then(res => {
-            this.setState({
-                searchResults: res
-               
-              },()=>{
-          
-                if(!this.props.expPage){
-                  this.context.saveSearchRes(this.state.searchResults)
 
-                }
-              })
+            console.log(res)
+              this.context.saveSearchResults(res)
+       
           })
       }
     render() {

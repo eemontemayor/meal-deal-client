@@ -27,7 +27,7 @@ export default class App extends Component{
         formattedDate:'',
         MOD:[],
         bookmarks:[],
-        searchRes:[],
+      
   }
   
   static getDerivedStateFromError(error) {
@@ -233,11 +233,7 @@ console.log(e)
 goBack=()=>{
   this.props.history.push('/')
 }
-saveSearchResults = (arr) =>{
-  this.setState({
-      searchRes:[...arr]
-  })
-}
+
   render(){
     const  contextValue  = {
       day: this.state.value,
@@ -249,8 +245,7 @@ saveSearchResults = (arr) =>{
       handleDeleteBookmark:this.handleDeleteBookmark,
       postMeal:this.postMeal,
       onChange:this.onChange,
-      searchRes:this.state.searchRes,
-      saveSearchRes:this.saveSearchResults,
+     
       goBack:this.goBack,
       handleUpdateBookmark:this.handleUpdateBookmark,
       getUserBookmarks: this.getUserBookmarks,

@@ -5,13 +5,14 @@ import MealItem from '../../components/Meal_Item/MealItem'
 import './SearchResults.css'
 
 export default class SearchResults extends React.Component{
+    
     state = {
     searchResults:[]
 }
 
     componentDidMount(){
         this.setState({
-          searchResults:this.context.searchRes,
+          searchResults:this.props.searchRes,
         })      
     }
     
