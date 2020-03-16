@@ -23,6 +23,7 @@ export default class BigCalendar extends Component {
 
   filterUserMeals = (minDate, maxDate) => {
 
+
     let meals = this.context.userMeals.filter(item => dateFormat(item.on_day, 'yyyy-mm-dd') > dateFormat(minDate, 'yyyy-mm-dd') && dateFormat(item.on_day, 'yyyy-mm-dd') < dateFormat(maxDate, 'yyyy-mm-dd'))
    
   
@@ -67,11 +68,28 @@ export default class BigCalendar extends Component {
   render() {
     // console.log(this.context.userMeals)
     // const date = this.state.date
-    const tileContent = ({ date, view }) => this.renderTileContent({ date, view })
+
+
+    // const tileContent = ({ date, view }) => this.renderTileContent({ date, view })
+
+    
     // const tileContent = ({ date, view }) => view === 'month' && date.getDay() === 0 ? <p>Sunday!</p> : null;
     let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+2)
     let minDate=new Date(this.state.today.getFullYear(),this.state.today.getMonth()-1)
-  
+    
+    const meals = this.filterUserMeals(minDate, maxDate)
+    
+    const sortedMeals = meals.slice().sort((a, b) =>dateFormat(a.on_day, 'yyyy-mm-dd') - dateFormat(b.on_day, 'yyyy-mm-dd') )
+    console.log(sortedMeals)
+
+   const x = meals.slice().sort(function(a,b){
+      // Turn your strings into dates, and then subtract them
+      // to get a value that is either negative, positive, or zero.
+     return new Date(a.on_day) - new Date(b.on_day);
+     
+
+   });
+    console.log(x)
 
     return (
       <div>
@@ -89,8 +107,8 @@ export default class BigCalendar extends Component {
           maxDate	={maxDate}
        
           tileClassName={({ date, view }) => view === 'month' && date.getDay() === 1 ? 'monday' : null}
-          // tileClassName={({ date, view }) => view === 'month' && date.getDay() === 6 ? 'saturday' : null}
-          tileContent	={tileContent}
+        
+          // tileContent	={tileContent}
          
          
          
