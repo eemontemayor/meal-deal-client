@@ -32,33 +32,34 @@ export default class BigCalendar extends Component {
   }
 
   renderTileContent = ({ date, view }) => {
-   let d =  dateFormat(date, 'yyyy-mm-dd')
+    let d = dateFormat(date, 'yyyy-mm-dd')
 
-   let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+2)
-   let minDate=new Date(this.state.today.getFullYear(),this.state.today.getMonth()-1)
+    let maxDate = new Date(this.state.today.getFullYear(), this.state.today.getMonth() + 2)
+    let minDate = new Date(this.state.today.getFullYear(), this.state.today.getMonth() - 1)
  
     let mealsArr = this.filterUserMeals(minDate, maxDate)
-
-    // while (mealsArr.length > 0 && date) {
-
     let top = {}
-    Object.assign(top,mealsArr[0])
-   
-  
+    Object.assign(top, mealsArr.shift())
+
+
+
+    console.log(mealsArr)
+  //   while (mealsArr.length > 0 && date) {
+    
+    //   let tileContentArr = []
       
-      if (view === 'month' && d === dateFormat(top.on_day,'yyyy-mm-dd') ) {
-        let name = top.meal_name
-        
-        return <p>{name}</p> 
-      }
- 
-    //   let top = meals[0]
       
-    //   if (view === 'month' && d === dateFormat(meals[0].on_day,'yyyy-mm-dd') ) {
-    //    
-    //     return <p>{name}</p> 
-    //   }
+    // if (view === 'month' && d === dateFormat(top.on_day, 'yyyy-mm-dd')) {
+    //   let name = top.meal_name
+    //   tileContentArr.push(name)
     // }
+  //     mealsArr.shift()
+  //       console.log(tileContentArr, d, '<=======')
+  //       console.log(mealsArr)
+  //     return tileContentArr
+  //   }
+  // }
+    
 }
 
   render() {
@@ -69,9 +70,7 @@ export default class BigCalendar extends Component {
     let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+2)
     let minDate=new Date(this.state.today.getFullYear(),this.state.today.getMonth()-1)
   
-let meals = this.filterUserMeals(minDate,maxDate)
 
-console.log(meals,'filtered user meals')
     return (
       <div>
         <Calendar
