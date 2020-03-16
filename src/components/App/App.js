@@ -55,6 +55,9 @@ componentDidMount(){
         userMeals:meals
       })
     })
+    .catch(error => {
+      console.log({error})
+    })
     
     MealApiService.getBookmarks()
     .then(meals=>{

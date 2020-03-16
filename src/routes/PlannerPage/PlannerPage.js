@@ -6,7 +6,7 @@ import BookMarks from "../../components/BookMarks/BookMarks";
 import SearchResults from "../../components/SearchResults/SearchResults";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import MealContext from "../../contexts/MealContext";
-
+import MealApiService from '../../services/meal-api-service';
 import "react-calendar/dist/Calendar.css";
 import BigCalendar from "../../components/Calendar/BigCalendar";
 import { StyledButton } from "../../components/Button/Button";
@@ -16,11 +16,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default class PlannerPage extends Component {
   state = {
     view: 'bm',
-    searchResults:[]
+    date: new Date(),
+    today: new Date(),
+    searchResults: [],
+    meals:[]
 
   };
   static contextType = MealContext;
-  componentDidMount() {}
+  componentDidMount() {
+
+    MealApiService.getUserMeals()
+    .then(meals => {
+      this.setState({meals})
+    })
+    .catch(error => {
+      console.log({error})
+    })
+
+
+  }
 
   handleClick = (x) => {
 
@@ -43,11 +57,11 @@ export default class PlannerPage extends Component {
   render() {
     const day = dateFormat(this.props.value, "mm/dd/yy");
     const formattedDay = dateFormat(day, "ddd");
-
+    const meals = this.state.meals
     return (
       <div className="planner-page">
         <div className="calendar-container">
-          <BigCalendar />
+          <BigCalendar userMeals={meals} />
         </div>
 
         <div className="search-form-container">
