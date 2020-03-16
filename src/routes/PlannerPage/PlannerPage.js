@@ -61,7 +61,9 @@ export default class PlannerPage extends Component {
     return (
       <div className="planner-page">
         <div className="calendar-container">
-          <BigCalendar userMeals={meals} />
+          <BigCalendar
+            userMeals={meals}
+          />
         </div>
 
         <div className="search-form-container">
