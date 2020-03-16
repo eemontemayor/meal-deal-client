@@ -39,6 +39,8 @@ export default class BigCalendar extends Component {
  
     let mealsArr = this.filterUserMeals(minDate, maxDate)
     let top = {}
+
+    
     Object.assign(top, mealsArr.shift())
 
 
