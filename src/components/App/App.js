@@ -114,7 +114,7 @@ postMeal=(newMeal)=>{
     newMeal.id=undefined
 
     newMeal.on_day = this.state.formattedDate
-    if(this.state.MOD === undefined || this.state.MOD.length < 4){
+    if(this.state.MOD === undefined || this.state.MOD.length < 3){
        MealApiService.postMeal(newMeal, this.state.formattedDate)
         .then(res =>{ 
           MealApiService.findMealByDate(this.state.formattedDate)
@@ -128,7 +128,7 @@ postMeal=(newMeal)=>{
           console.log({error})
         })
     } else{
-      return alert('only 4 meals per day allowed')
+      return alert('only 3 meals per day allowed')
     }
 }
 

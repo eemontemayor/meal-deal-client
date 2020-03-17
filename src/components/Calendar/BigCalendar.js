@@ -6,17 +6,20 @@ import './BigCalendar.css'
 import MealApiService from '../../services/meal-api-service'
 import MealContext from '../../contexts/MealContext'
 export default class BigCalendar extends Component {
-  state = {
-    date: new Date(),
-    today: new Date(),
-    counter:0
-  }
+  constructor(props){
+    super(props);
+    console.log(this.props); // prints out whatever is inside props
+    this.state = {
+      date: new Date(),
+      today: new Date(),
+      counter:0
+    }
+
+}
   static contextType = MealContext
 
   componentDidMount() {
-    this.setState({
-      counter:this.state.counter+1
-    })
+   
 
     // MealApiService.getUserMeals()
     // .then(meals => {
@@ -36,11 +39,12 @@ export default class BigCalendar extends Component {
 
   onChange = date => this.setState({ date })
 
-  filterUserMealsByRange = (minDate, maxDate) => {
-
-
-    let filteredMeals = this.context.userMeals.filter(item => dateFormat(item.on_day, 'yyyy-mm-dd') > dateFormat(minDate, 'yyyy-mm-dd') && dateFormat(item.on_day, 'yyyy-mm-dd') < dateFormat(maxDate, 'yyyy-mm-dd'))
-    // let filteredMeals = meals.filter(item => dateFormat(item.on_day, 'yyyy-mm-dd') > dateFormat(minDate, 'yyyy-mm-dd') && dateFormat(item.on_day, 'yyyy-mm-dd') < dateFormat(maxDate, 'yyyy-mm-dd'))
+  filterUserMealsByRange = (minDate, maxDate,meals) => {
+    let filteredMeals
+    if (meals) {
+      
+       filteredMeals = meals.filter(item => dateFormat(item.on_day, 'yyyy-mm-dd') > dateFormat(minDate, 'yyyy-mm-dd') && dateFormat(item.on_day, 'yyyy-mm-dd') < dateFormat(maxDate, 'yyyy-mm-dd'))
+    }
 
   
     return filteredMeals
@@ -65,29 +69,30 @@ export default class BigCalendar extends Component {
     console.log(d,'=====',view)
     let meals = this.props.userMeals
 
+    let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+2)
+    let minDate = new Date(this.state.today.getFullYear(), this.state.today.getMonth()-1)
 
-
-// const filteredMeals = this.filterUserMealsByRange(minDate, maxDate)
-
+const filteredMeals = this.filterUserMealsByRange(minDate, maxDate,meals)
+const sortedMeals = this.sortUserMeals(filteredMeals)
 
     // this way works, but it's wasteful/////////////////
-    let tileContentArr = []
-      tileContentArr = this.filterMealsByDate(d, meals)
+    let tileContentArr
+      tileContentArr = this.filterMealsByDate(d, sortedMeals)
 
-      if (tileContentArr !== undefined && tileContentArr.length > 0) {
+      if (tileContentArr !== undefined ) {
   
         let result = []
         for (let i = 0; i < tileContentArr.length; i++){
           let name = tileContentArr[i]['meal_name']
           result.push(<p>{name}</p> )
         }
+       
         return result
       
       }
       
     /////////////////////////
-    let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+1)
-    let minDate = new Date(this.state.today.getFullYear(), this.state.today.getMonth())
+  
     
     
     // let sortedMeals = this.sortUserMeals(filteredMeals)

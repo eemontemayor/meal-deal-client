@@ -91,9 +91,11 @@ export default class PlannerPage extends Component {
           {this.state.view === 'sf' && <SearchForm saveSearchRes={this.saveSearchResults }/>}
    
         </div>
+      
         <div className="res-container">
           {this.state.view === 'bm' && <BookMarks />}
-        {this.state.view === 'sf'&&this.state.searchResults.length>1&& <SearchResults searchResults={this.state.searchResults}/>}
+            {this.state.view === 'sf' && this.state.searchResults.length > 1 && <SearchResults searchResults={this.state.searchResults} />}
+       
         </div>
       </div>
     );
