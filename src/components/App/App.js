@@ -249,6 +249,7 @@ goBack=()=>{
   render(){
     const  contextValue  = {
       day: this.state.value,
+   
       formattedDate:this.state.formattedDate,
       MOD: this.state.MOD,
       bookmarks:this.state.bookmarks,

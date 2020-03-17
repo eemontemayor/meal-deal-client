@@ -3,6 +3,7 @@ import MealItem from '../Meal_Item/MealItem'
 import MealContext from '../../contexts/MealContext'
 import '../Meal_Item/MealItem.css'
 import './Mod.css'
+import dateFormat from 'dateformat';
 export default class MOD extends Component{
    
   static contextType = MealContext
@@ -36,13 +37,11 @@ export default class MOD extends Component{
   }
       render(){
         const ModList = this.list(this.context.MOD)
-        
+        const date = dateFormat(this.context.day,'mm/dd')
           return(
             <>
-              <p className = 'mod-text'>Meals for :
-              <span>
-                  {this.context.formattedDate}
-                </span>
+              <p className = 'mod-day'>
+                  {date}
                 </p>
                   <ul className='mod-list'>
                   {/* { ModList} */}
