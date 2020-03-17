@@ -3,7 +3,8 @@
 .mod-list{
   height:auto;
   width:100%;
-  padding:0px;
+  
+  list-style: none;
   
 }
 .mod-page{
@@ -13,13 +14,17 @@
     /* overflow-y:auto; */
    
 }
-
+.mod-text{
+    color:white;
+    display: inline-flex;
+}
 
 @media only screen and (min-width: 760px) {
 
 
    
     .mod-list{
+        margin:0;
        display: flex;
        flex-direction: row;
     }

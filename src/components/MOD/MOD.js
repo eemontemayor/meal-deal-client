@@ -39,12 +39,14 @@ export default class MOD extends Component{
         
           return(
             <>
-              <h3>Meals for :</h3><br/>
-              <h2>{this.context.formattedDate}</h2>
+              <p className = 'mod-text'>Meals for :
+              <span>
+                  {this.context.formattedDate}
+                </span>
+                </p>
                   <ul className='mod-list'>
-                  { ModList}
-                   
-                  </ul>
+                  {/* { ModList} */}
+{ this.list(this.context.MOD)}                  </ul>
             </>
            
    

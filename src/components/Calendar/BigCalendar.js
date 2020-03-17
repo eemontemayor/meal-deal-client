@@ -53,14 +53,20 @@ export default class BigCalendar extends Component {
   }
   filterMealsByDate = (date, arr) => {
     let result = [];
-    result = arr.filter(i => dateFormat(i.on_day, 'yyyy-mm-dd') === date)
-    return result
+  
+      
+      result = arr.filter(i => dateFormat(i.on_day, 'yyyy-mm-dd') === date)
+      return result
+    
   }
 
   // should sort array and pop to save on Big O 
   sortUserMeals = (meals) => {
-    let sorted = meals.slice().sort((a,b) =>new Date(a.on_day) - new Date(b.on_day))
-  return sorted
+   
+      
+      let sorted = meals.slice().sort((a,b) =>new Date(a.on_day) - new Date(b.on_day))
+      return sorted
+   
     }
   
 

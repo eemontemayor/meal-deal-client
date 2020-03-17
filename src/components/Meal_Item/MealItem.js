@@ -212,7 +212,7 @@ const view=this.props.view
 const index=this.props.index
     return (
       <li id={this.props.id ? this.props.id : null} key={index}>
-        <div className="meal-item">
+        <div className={this.props.mod ? 'meal-item mod':"meal-item"}>
     {this.renderMealImage()}
 
           {this.renderButtons()}
