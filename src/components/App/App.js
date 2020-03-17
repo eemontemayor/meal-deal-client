@@ -71,8 +71,18 @@ componentDidMount(){
 }
 
 
-
+  getUserMeals = () => {
   
+    MealApiService.getUserMeals()
+    .then(meals => {
+      this.setState({
+        userMeals:meals
+      })
+    })
+    .catch(error => {
+      console.log({error})
+    })
+  }
   
   
   
@@ -117,12 +127,8 @@ postMeal=(newMeal)=>{
     if(this.state.MOD === undefined || this.state.MOD.length < 3){
        MealApiService.postMeal(newMeal, this.state.formattedDate)
         .then(res =>{ 
-          MealApiService.findMealByDate(this.state.formattedDate)
-            .then(meals =>{ 
-              this.setState({
-                  MOD:meals
-              })
-          })
+         this.getUserMOD()
+          this.getUserMeals()
         })
         .catch(error => {
           console.log({error})
@@ -133,14 +139,17 @@ postMeal=(newMeal)=>{
 }
 
 handleDeleteMeal=(meal,index)=>{
-    let newMOD = this.state.MOD
+  let newMOD = this.state.MOD
+  let mealList = this.state.userMeals
     let id=meal.id
     
     if(id===undefined || !id){
       console.log('if', index)
       delete newMOD[index]
+      delete mealList[index]
       this.setState({
-        MOD:newMOD             
+        MOD: newMOD,
+        userMeals:mealList
       })
 
     } else{ 
@@ -150,6 +159,7 @@ handleDeleteMeal=(meal,index)=>{
         MealApiService.deleteMeal(meal)
           .then(res =>{
             this.getUserMOD()
+            this.getUserMeals()
             // delete newMOD[index] **above works better**
             // console.log('newMod', this.state.MOD)
             // this.setState({
@@ -262,7 +272,8 @@ goBack=()=>{
       goBack:this.goBack,
       handleUpdateBookmark:this.handleUpdateBookmark,
       getUserBookmarks: this.getUserBookmarks,
-      getUserMOD:this.getUserMOD
+      getUserMOD: this.getUserMOD,
+      getUserMeals:this.getUserMeals
       // findMealById:this.findMealById,
       // setSelectedMeal:this.setSelectedMeal
     }

@@ -12,15 +12,15 @@ export default class BigCalendar extends Component {
     this.state = {
       date: new Date(),
       today: new Date(),
-      counter:0
+     
     }
 
 }
   static contextType = MealContext
 
   componentDidMount() {
-   
-
+   this.context.getUserMeals()
+    console.log(this.state)
     // MealApiService.getUserMeals()
     // .then(meals => {
     //   this.setState({meals})
@@ -70,10 +70,10 @@ export default class BigCalendar extends Component {
     }
   
 
-  renderTileContent = ({ date, view }) => {
+  renderTileContent = ({ date, view },arr) => {
     let d = dateFormat(date, 'yyyy-mm-dd')
     console.log(d,'=====',view)
-    let meals = this.context.userMeals
+    let meals = arr
 
     let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+2)
     let minDate = new Date(this.state.today.getFullYear(), this.state.today.getMonth()-1)
@@ -99,66 +99,7 @@ const sortedMeals = this.sortUserMeals(filteredMeals)
       
     /////////////////////////
   
-    
-    
-    // let sortedMeals = this.sortUserMeals(filteredMeals)
-    
-    // let tileContentArr = this.filterMealsByDate(d, sortedMeals)
-
-
-
-// let tileContentArr = []
-// tileContentArr.push(this.filterMealsByDate(d, meals) ) 
-// tileContentArr.length>0 &&console.log(tileContentArr)
-
-
-
-    // let top = {}
-
-    // Object.assign(top,sortedMeals.shift())
-
-    
-    // if (Object.keys(top).length !== 0 && sortedMeals.length !== 0 && date) {
-      
-
-      // let tileContentArr = []
-      // for (let i = 0; i < sortedMeals.length; i++){
-      //   let mealDate = dateFormat(top.on_day, 'yyyy-mm-dd')
-
-
-      //   if (d === mealDate) {
-      //     console.log(top.on_day, d)
-      //     let name = top.meal_name
-      //     tileContentArr.push(name)
-        
-      //     Object.assign(top, sortedMeals.shift())
-      //   }
-        
-      //   return tileContentArr
-
-      
-      // }
-
    
-      
-     
-    
-      
-      // while (Object.keys(top).length !== 0 && d) {
-        
-        
-        
-        // if (d === dateFormat(top.on_day, 'yyyy-mm-dd')) {
-        //   console.log(top, d)
-        //   let name = top.meal_name
-        //   tileContentArr.push(name)
-        
-        //   Object.assign(top, sortedMeals.shift())
-        // }
-        
-        // return tileContentArr
-      // }
-    // }
     }
       render() {
   
@@ -167,8 +108,8 @@ const sortedMeals = this.sortUserMeals(filteredMeals)
     let minDate=new Date(this.state.today.getFullYear(),this.state.today.getMonth()-1)
    
     
-  
-    const tileContent = ({ date, view}) => this.renderTileContent({ date, view })
+    let mealArr = this.context.userMeals
+    const tileContent = ({ date, view}) => this.renderTileContent({ date, view },mealArr)
 
    
 
@@ -176,7 +117,8 @@ const sortedMeals = this.sortUserMeals(filteredMeals)
       <div>
         <Calendar
           value={this.state.date}
-          
+          // value={this.state.day}
+
           defaultView='month'
           onClickDay={this.context.onChange}
           calendarType='US'
@@ -191,7 +133,7 @@ const sortedMeals = this.sortUserMeals(filteredMeals)
         
           tileContent	={tileContent}
          
-         
+       
          
          
           // value={this.context.value}
