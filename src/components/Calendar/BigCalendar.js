@@ -67,7 +67,7 @@ export default class BigCalendar extends Component {
   renderTileContent = ({ date, view }) => {
     let d = dateFormat(date, 'yyyy-mm-dd')
     console.log(d,'=====',view)
-    let meals = this.props.userMeals
+    let meals = this.context.userMeals
 
     let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+2)
     let minDate = new Date(this.state.today.getFullYear(), this.state.today.getMonth()-1)
@@ -156,10 +156,9 @@ const sortedMeals = this.sortUserMeals(filteredMeals)
     }
       render() {
   
-    // let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+1)
-    // let minDate = new Date(this.state.today.getFullYear(), this.state.today.getMonth() - 1)
-    let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+1)
-    let minDate=new Date(this.state.today.getFullYear(),this.state.today.getMonth())
+ 
+    let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+2)
+    let minDate=new Date(this.state.today.getFullYear(),this.state.today.getMonth()-1)
    
     
   

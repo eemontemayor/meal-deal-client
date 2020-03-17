@@ -20,37 +20,37 @@ export default class MealItem extends Component {
   }
 
   renderButtons = () => {
-    if (this.props.mod===true) {
-      return (
-        <div>
-          <button
-            className="del-btn"
-            onClick={() =>
-              this.context.handleDeleteMeal(this.props.meal, this.props.index)
-            }
-          >
-              {" "}
-            <FontAwesomeIcon
-              className="icon trash"
-              size="1x"
-              icon="trash-alt"
-            />
-          </button>
-          <Link
-            to={`/meal/${this.context.formattedDate}/${this.props.meal.id}`}
-          >
-            <button className="see-more-btn">...</button>
-          </Link>
-          <button
-            className="bm-btn"
-            onClick={() => this.context.handleAddBookmark(this.props.meal)}
-          >
-            {" "}
-            <FontAwesomeIcon className='icon bookmark' size='1x' icon = 'bookmark'/>    
-          </button>
-        </div>
-      );
-    }
+    // if (this.props.mod===true) {
+    //   return (
+    //     <div>
+    //       <button
+    //         className="del-btn"
+    //         onClick={() =>
+    //           this.context.handleDeleteMeal(this.props.meal, this.props.index)
+    //         }
+    //       >
+    //           {" "}
+    //         <FontAwesomeIcon
+    //           className="icon trash"
+    //           size="1x"
+    //           icon="trash-alt"
+    //         />
+    //       </button>
+    //       <Link
+    //         to={`/meal/${this.context.formattedDate}/${this.props.meal.id}`}
+    //       >
+    //         <button className="see-more-btn">...</button>
+    //       </Link>
+    //       <button
+    //         className="bm-btn"
+    //         onClick={() => this.context.handleAddBookmark(this.props.meal)}
+    //       >
+    //         {" "}
+    //         <FontAwesomeIcon className='icon bookmark' size='1x' icon = 'bookmark'/>    
+    //       </button>
+    //     </div>
+    //   );
+    // }
     if (this.props.bookMark=== true) {
       return (
         <div className="item-buttons">
@@ -84,6 +84,41 @@ export default class MealItem extends Component {
           </button>
         </div>
       );
+    }
+
+    if (this.props.mod === true) { 
+      return (
+        <div className="item-buttons">
+        <button
+          className="del-btn"
+          onClick={() =>
+            this.context.handleDeleteMeal(
+              this.props.meal,
+              this.props.index
+            )
+          }
+        >
+          {" "}
+          <FontAwesomeIcon
+            className="icon trash"
+            size="1x"
+            icon="trash-alt"
+          />
+        </button>
+        <Link to={`/meal/${this.props.meal.id}`}>
+          {" "}
+          <button className="see-more-btn">...</button>{" "}
+        </Link>{" "}
+        {/* have to pass this.props.meal.id here to avoid pkey constraint between md and bm */}
+        <button
+          className="bm-btn"
+          onClick={() => this.context.handleAddBookmark(this.props.meal)}
+        >
+          {" "}
+          <FontAwesomeIcon className="icon plus" size="1x" icon="bookmark" />
+        </button>
+      </div>
+      )
     }
     if (this.props.searchRes === true) {
       let meal = {
@@ -153,7 +188,9 @@ export default class MealItem extends Component {
    
       return <p className="meal-name">{this.props.meal_name}</p>;
     }
-    
+    if(this.props.mod){
+      return <p className="meal-name">{this.props.meal.meal_name}</p>;
+    }
     if(this.props.bookMark){
       return <p className="meal-name">{this.props.meal.meal_name}</p>;
     }
