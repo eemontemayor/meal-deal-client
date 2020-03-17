@@ -5,7 +5,16 @@
 padding:.5em;
 
 }
+button.search-form-btn{
+  padding:10px;
+  margin:5px;
+  background-color: transparent;
+}
+button.search-form-btn.disabled{
+  background-color: yellow;
+  pointer-events: none;
 
+}
 
 /* DESKTOP VIEW */
 @media only screen and (min-width: 760px) {
@@ -51,7 +60,9 @@ padding:.5em;
    margin: auto;
    background: #006edc;
      }
-     
+     button:hover{
+       cursor: pointer;
+     }
 
 
  .calendar-container{

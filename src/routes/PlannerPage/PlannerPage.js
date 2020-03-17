@@ -68,7 +68,8 @@ export default class PlannerPage extends Component {
         <div className="search-form-container">
           <button
             onClick={() => this.handleClick("bm")}
-            className="search-form-btn"
+     
+            className={this.state.view === 'sf' ? "search-form-btn":"search-form-btn disabled"}
           >
             {" "}
             <FontAwesomeIcon
@@ -79,7 +80,8 @@ export default class PlannerPage extends Component {
           </button>
           <button
             onClick={() => this.handleClick("sf")}
-            className="search-form-btn"
+          
+            className={this.state.view === 'bm' ? "search-form-btn":"search-form-btn disabled"}
           >
             {" "}
             <FontAwesomeIcon className="icon search"
