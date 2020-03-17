@@ -5,3 +5,15 @@
 .search-form-btn{
     display: inline-block;
 }
+
+.submit-search-btn{
+    width:75px;
+    padding:3px;
+    
+    height:fit-content;
+    background-color: rgb(200, 200, 200);
+    cursor: pointer;
+}
+.submit-search-btn:hover{
+    background-color: rgb(47, 255, 109);
+}
