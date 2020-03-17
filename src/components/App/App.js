@@ -344,7 +344,7 @@ goBack=()=>{
           </Switch>
           </main>
           <footer>
-          FOOTER
+          
           </footer>
         </MealContext.Provider>
       </div>

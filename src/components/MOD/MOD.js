@@ -41,11 +41,14 @@ export default class MOD extends Component{
           return(
             <>
               <p className = 'mod-day'>
-                  {date}
+                  {date} 
                 </p>
                   <ul className='mod-list'>
                   {/* { ModList} */}
-{ this.list(this.context.MOD)}                  </ul>
+                {this.list(this.context.MOD)}                  </ul>
+                <p className = 'mod-day'>
+                  {date} 
+                </p>
             </>
            
    

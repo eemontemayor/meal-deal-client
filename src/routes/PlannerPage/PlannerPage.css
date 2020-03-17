@@ -58,7 +58,9 @@ button.search-form-btn.disabled{
        height:95px;
    width:100%;
    margin: auto;
-   background: #006edc;
+   border-left:.5px solid rgba(128, 128, 128, 0.363);
+   border-bottom:.5px solid rgba(128, 128, 128, 0.363);
+  
      }
      button:hover{
        cursor: pointer;

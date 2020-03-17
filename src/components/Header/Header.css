@@ -41,9 +41,11 @@ div .nav-links *{
   }
   
   .deal {
+    font-size: 1.3em;
     color:  rgb(195, 0, 255)
   }
   .meal{
+    font-size: 1.3em;
     color: rgb(64, 110, 3)
   }
   

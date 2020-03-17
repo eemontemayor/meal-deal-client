@@ -10,7 +10,8 @@ export default class MealItem extends Component {
     this.state = {
       ingredients: [],
       instructions: [],
-      image: ""
+      image: "",
+      viewIngredients:false
     };
   }
   static contextType = MealContext;
@@ -19,38 +20,17 @@ export default class MealItem extends Component {
    
   }
 
+//   handleViewIngredients=()=>{
+//     this.setState({
+//         viewIngredients:!this.state.viewIngredients
+//     },()=>{
+//         console.log(this.state)
+//     })
+// }
+
+
   renderButtons = () => {
-    // if (this.props.mod===true) {
-    //   return (
-    //     <div>
-    //       <button
-    //         className="del-btn"
-    //         onClick={() =>
-    //           this.context.handleDeleteMeal(this.props.meal, this.props.index)
-    //         }
-    //       >
-    //           {" "}
-    //         <FontAwesomeIcon
-    //           className="icon trash"
-    //           size="1x"
-    //           icon="trash-alt"
-    //         />
-    //       </button>
-    //       <Link
-    //         to={`/meal/${this.context.formattedDate}/${this.props.meal.id}`}
-    //       >
-    //         <button className="see-more-btn">...</button>
-    //       </Link>
-    //       <button
-    //         className="bm-btn"
-    //         onClick={() => this.context.handleAddBookmark(this.props.meal)}
-    //       >
-    //         {" "}
-    //         <FontAwesomeIcon className='icon bookmark' size='1x' icon = 'bookmark'/>    
-    //       </button>
-    //     </div>
-    //   );
-    // }
+ 
     if (this.props.bookMark=== true) {
       return (
         <div className="item-buttons">
@@ -105,7 +85,9 @@ export default class MealItem extends Component {
             icon="trash-alt"
           />
         </button>
-        <Link to={`/meal/${this.props.meal.id}`}>
+        <Link
+            to={`/meal/${this.context.formattedDate}/${this.props.meal.id}`}
+          >
           {" "}
           <button className="see-more-btn">...</button>{" "}
         </Link>{" "}
@@ -132,8 +114,10 @@ export default class MealItem extends Component {
             className="bm-btn"
             onClick={() => this.context.handleAddBookmark(meal)}
           >
-          <FontAwesomeIcon className='icon bookmark' size='1x' icon = 'bookmark'/>          </button>
-          {/* <Link to={`/bookmark/${this.props.meal.id}`}> <button className='see-more-btn'>...</button>  </Link> have to pass this.props.meal.id here to avoid pkey constraint between md and bm */}
+          <FontAwesomeIcon className='icon bookmark' size='1x' icon = 'bookmark'/>          </button>      
+            {" "}
+            <button className="see-more-btn">...</button>{" "}
+         {" "}
           <button
             className="add-btn"
             onClick={() => this.context.postMeal(meal)}
@@ -146,42 +130,7 @@ export default class MealItem extends Component {
     }
   };
 
-  renderLists = (ingList, instList) => {
-    let newIngList = ingList;
-    let newInstList = instList;
 
-    if (newIngList !== undefined) {
-      newIngList = newIngList.map((item, index) => {
-        return <li key={index}>{item}</li>;
-      });
-    } else {
-      newIngList = <li key={0}>'No ingredients saved for this item'</li>;
-    }
-
-    if (newInstList !== undefined) {
-      newInstList = newInstList.map((item, index) => {
-        return <li key={index}>{item}</li>;
-      });
-    } else {
-      newInstList = <li key={0}>'No instructions saved for this item'</li>;
-    }
-
-    return (
-      <div>
-        {/* <Link to={`/bookmark/edit/${this.props.meal.id}`} >Edit Meal</Link> */}
-        <div className="lists">
-          <ul className="ing-list">
-            INGREDIENTS:
-            {newIngList}
-          </ul>
-          <ul className="inst-list">
-            INSTRUCTIONS:
-            {newInstList}
-          </ul>
-        </div>
-      </div>
-    );
-  };
 
   renderMealName = () => {
     if (this.props.meal_name) {
@@ -208,7 +157,7 @@ export default class MealItem extends Component {
 
   render() {
 
-const view=this.props.view
+
 const index=this.props.index
     return (
       <li id={this.props.id ? this.props.id : null} key={index}>
@@ -218,8 +167,6 @@ const index=this.props.index
           {this.renderButtons()}
          {this.renderMealName()}
 
-          {view === "large" &&
-            this.renderLists(this.props.ingredients, this.props.instructions)}
         </div>
       </li>
     );
