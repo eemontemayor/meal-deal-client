@@ -4,6 +4,8 @@ import MealContext from '../../contexts/MealContext'
 import '../Meal_Item/MealItem.css'
 import './Mod.css'
 import dateFormat from 'dateformat';
+import AddMealForm from '../../components/AddMealForm/AddMealForm'
+
 export default class MOD extends Component{
    
   static contextType = MealContext
@@ -21,10 +23,12 @@ export default class MOD extends Component{
   
       if( meals === undefined || meals === [] || meals.length <1 ){
       
-        return <li key='0' className='place-holder'>
+        return <li key='0'
+          // className='meal-item mod'
+        >
      
-          Add a meal to this day!
-          
+        
+          <AddMealForm/>
           </li>
       }
       else{

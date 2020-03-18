@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Button, Input, Section } from '../Utils/Utils';
 import MealContext from '../../contexts/MealContext';
 import './AddMealForm.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 export default class AddMealForm extends Component{
@@ -96,15 +97,14 @@ handleAddInst=(ev)=>{
        const ingList=this.renderIngList()
         const instList=this.renderInstList()
         return(
-    <div className='add-meal-page'>
+    // <div className='add-meal-page'>
         <form onSubmit={this.handlePostMeal.bind(this)} className='add-meal-form'>
 
-        <Button type='submit' className='form-add-btn'>Add Meal</Button><br/>
                 
             <div className='add_meal_form'>
               <label htmlFor='addMealForm_meal_name'>
                 Meal Name
-              </label>
+              </label><br/>
               <Input
                 type="text"
                 name='meal_name'
@@ -113,7 +113,13 @@ handleAddInst=(ev)=>{
                 >
               </Input>
             </div>
-          
+
+            <Button type='submit' className='form-add-btn'>
+            {" "}
+            <FontAwesomeIcon className="icon plus" size="1x" icon="plus" />
+              
+              </Button>
+{/*           
             <div className= 'ingredients-input'>
                 <label htmlFor='ingredients'>Ingredients
                 </label>
@@ -163,9 +169,9 @@ handleAddInst=(ev)=>{
             </ul>
 
           </Section>
-            </div>
+            </div> */}
           </form>
-     </div>  
+    //  </div>  
         )
     }
 }
