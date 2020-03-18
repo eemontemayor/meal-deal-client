@@ -12,12 +12,12 @@ render(){
                     Plan
              
             </Link>
-            <Link to='/explore' className='landing-btn explore-btn'>
+            {/* <Link to='/explore' className='landing-btn explore-btn'>
            
                Explore
                
             
-            </Link>
+            </Link> */}
             <Link to='/shoppinglist'className='landing-btn shoplist-btn' >
                 
                     Shopping List
