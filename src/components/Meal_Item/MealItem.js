@@ -161,7 +161,7 @@ export default class MealItem extends Component {
 const index=this.props.index
     return (
       <li id={this.props.id ? this.props.id : null} key={index}>
-        <div className={this.props.mod ? 'meal-item mod':"meal-item"}>
+        <div className={this.props.mod ? 'mod-item':"meal-item"}>
     {this.renderMealImage()}
 
           {this.renderButtons()}

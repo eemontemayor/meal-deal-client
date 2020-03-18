@@ -25,6 +25,7 @@
 
 .meal-info-container{
 /* width: 100%; */
+padding:60px;
 height:auto;
 margin: auto;
 display: flex;

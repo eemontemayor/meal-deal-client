@@ -9,15 +9,18 @@
     padding: .5em;
     border-bottom: .5px solid grey;
     border-right: .5px solid grey;
-    background-color: ivory;
+    background-color: rgb(255, 255, 247);
     position: relative;
 }
 .meal-item img{
     height:80px;
   float: right;
 }
-
-div.meal-item.mod{
+.mod-item img{
+    height:80px;
+  float: right;
+}
+.mod-item{
     background-color:  #006edce8;
     color:white;
     width:300px;
@@ -27,6 +30,11 @@ margin:5px;
     border-bottom: .5px solid rgb(255, 255, 255);
     border-right: .5px solid rgb(255, 255, 255);
 }
+.mod-item .item-buttons{
+    display:flex;
+    flex-direction: row;
+}
+
 .meal-item a{
     text-decoration: none;
 
@@ -44,7 +52,7 @@ div.item-buttons button:hover{
     background-color:yellow;
 }
 p.meal-name{
-    display: inline-flex;
+    /* display: inline-flex; */
     font-size:1.1em;
     padding-left:15px;
     margin:auto
@@ -84,19 +92,7 @@ margin-top:50px;
 
 
 
-button.add-btn{
-    float: right;
-    
-   right:0;
-  
-}
 
-button.del-btn{
-    float: left;
- left:0;
-   
-  
-    }
 
 button.see-more-btn{
    

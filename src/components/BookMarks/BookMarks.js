@@ -35,7 +35,7 @@ export default class BookMarks extends Component{
     
         return(
             <>
-                    <h3>BOOKMARKS</h3><br/>
+                    <h4 className='bm-title'>BOOKMARKS</h4><br/>
                 <ul className='bm-list'>
                 {this.list(this.context.bookmarks)}
                 </ul>
