@@ -92,7 +92,7 @@ class LoginForm extends Component {
           <Link to="/register" className="login-redirect">
             Need to Sign up?
           </Link><br/>
-          <Button className='employer-btn' onClick={this.autoFillForm}>Considering offering me a job?</Button>
+          {/* <Button className='employer-btn' onClick={this.autoFillForm}>Considering offering me a job?</Button> */}
           </Section>
         </form>
       </div>

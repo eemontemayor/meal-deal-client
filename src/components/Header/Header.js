@@ -35,7 +35,7 @@ class Header extends Component {
 
   renderGreeting() {
     return TokenService.hasAuthToken() && window.innerWidth > 760
-    ? <p>Hi {this.context.user.name}!</p>
+    ? <p id='user-name'>Hi {this.context.user.name}!</p>
     : ''
   }
 

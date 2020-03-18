@@ -20,7 +20,7 @@ div .nav-links *{
   }
   
   .nav-links {
-    display: block;
+    display: inline-flex;
     float: right;
     font-size: 14px;
   
@@ -29,6 +29,7 @@ div .nav-links *{
   
   .nav-links a {
     margin-left: 1em;
+    text-decoration: none;
   }
   
   .nav-links p {
@@ -48,11 +49,14 @@ div .nav-links *{
     font-size: 1.3em;
     color: rgb(64, 110, 3)
   }
+  p#user-name{
+    position: absolute;
+    left: 50px;
+    top: 10px;
   
+  }
   @media only screen and (max-width: 760px) {
-    .nav-links {
-      width: 225px;
-    }
+   
     .nav-links a, .nav-links p {
       font-size: .85em;
     }
@@ -60,16 +64,11 @@ div .nav-links *{
     .main-header h1 {
     text-align: left;
     }
-    .nav-links {
-      display: inline-flex;
-      float: right;
-      font-size: 14px;
-    
-    
-    }
+  
     div .nav-links *{
-      margin-right:20px;
+      margin-right:10px;
     }
+  
    
   }
   
