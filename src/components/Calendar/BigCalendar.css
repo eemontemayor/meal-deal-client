@@ -59,3 +59,14 @@ div.react-calendar{
   background: none;
   border:none;
 }
+
+/* MOBILE VIEW */
+@media only screen and (max-width: 760px) {
+  .react-calendar__tile{
+    max-height:100px;
+
+    text-align:left;
+    font-size: .7em;
+ 
+  }
+}

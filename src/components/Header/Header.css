@@ -51,21 +51,25 @@ div .nav-links *{
   
   @media only screen and (max-width: 760px) {
     .nav-links {
-      width: 200px;
+      width: 225px;
     }
     .nav-links a, .nav-links p {
       font-size: .85em;
     }
   
-    .main-header nav {
+    .main-header h1 {
+    text-align: left;
+    }
+    .nav-links {
+      display: inline-flex;
+      float: right;
+      font-size: 14px;
+    
     
     }
-  
-    .nav-links nav{
-      display: inline-block;
-      padding-right: 0;
-      padding-left: 0;
-      width: 160px;
+    div .nav-links *{
+      margin-right:20px;
     }
+   
   }
   
