@@ -15,12 +15,12 @@ export default class CalendarPage extends React.Component{
              Plan
       
      </Link>
-     <Link to='/explore' className='cal-page-btn explore-btn'>
+     {/* <Link to='/explore' className='cal-page-btn explore-btn'>
     
         Explore
         
      
-     </Link>
+     </Link> */}
      <Link to='/shoppinglist'className='cal-page-btn shoplist-btn' >
          
              Shopping List
