@@ -3,7 +3,7 @@ import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import dateFormat from 'dateformat';
 import './BigCalendar.css'
-import MealApiService from '../../services/meal-api-service'
+// import MealApiService from '../../services/meal-api-service'
 import MealContext from '../../contexts/MealContext'
 export default class BigCalendar extends Component {
   constructor(props){
@@ -17,8 +17,8 @@ export default class BigCalendar extends Component {
 }
   static contextType = MealContext
 
-  async componentDidMount() {
-   await this.context.getUserMeals()
+   componentDidMount() {
+    this.context.getUserMeals()
     
     // MealApiService.getUserMeals()
     // .then(meals => {
@@ -55,7 +55,8 @@ export default class BigCalendar extends Component {
   
       
       result = arr.filter(i => dateFormat(i.on_day, 'yyyy-mm-dd') === date)
-      return result
+    // console.log(date,'date', result,"result") 
+    return result
     
   }
 
@@ -63,7 +64,8 @@ export default class BigCalendar extends Component {
   sortUserMeals = (meals) => {
    
       
-      let sorted = meals.slice().sort((a,b) =>new Date(a.on_day) - new Date(b.on_day))
+    let sorted = meals.slice().sort((a, b) => new Date(a.on_day) - new Date(b.on_day))
+
       return sorted
    
     }
@@ -71,14 +73,14 @@ export default class BigCalendar extends Component {
 
    renderTileContent = ({ date, view },arr) => {
     let d = dateFormat(date, 'yyyy-mm-dd')
-   
+
     let meals = arr
 
     let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+2)
     let minDate = new Date(this.state.today.getFullYear(), this.state.today.getMonth()-1)
 
      
-     if (meals !== undefined) {
+    //  if (meals !== undefined) {
         
       
 const filteredMeals =  this.filterUserMealsByRange(minDate, maxDate,meals)
@@ -101,7 +103,7 @@ const sortedMeals = this.sortUserMeals(filteredMeals)
       }
       
     /////////////////////////
-  }
+  // }
    
     }
       render() {
@@ -120,7 +122,8 @@ const sortedMeals = this.sortUserMeals(filteredMeals)
       <div>
         <Calendar
           value={this.state.date}
-          // value={this.state.day}
+          
+          // value={this.context.day}
 
           defaultView='month'
           onClickDay={this.context.onChange}
@@ -139,7 +142,6 @@ const sortedMeals = this.sortUserMeals(filteredMeals)
        
          
          
-          // value={this.context.value}
         />
       
       </div>

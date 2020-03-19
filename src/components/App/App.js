@@ -35,7 +35,7 @@ export default class App extends Component{
     return { hasError: true };
   }
 
-componentDidMount(){
+async componentDidMount(){
 // TO-DO add a Promise.all here
     const formattedDate=dateFormat(this.state.value, 'yyyy-mm-dd')
     this.setState({formattedDate },()=>{
@@ -49,7 +49,7 @@ componentDidMount(){
       console.log({error})
     })
     })
-  MealApiService.getUserMeals()
+  await MealApiService.getUserMeals()
     .then(meals => {
       this.setState({
         userMeals:meals
@@ -59,7 +59,7 @@ componentDidMount(){
       console.log({error})
     })
     
-    MealApiService.getBookmarks()
+   await MealApiService.getBookmarks()
     .then(meals=>{
         this.setState({
             bookmarks:meals

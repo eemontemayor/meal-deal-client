@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Button, Input, Section } from '../Utils/Utils';
+import { Button, Input } from '../Utils/Utils';
 import MealContext from '../../contexts/MealContext';
 import './AddMealForm.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -94,8 +94,8 @@ handleAddInst=(ev)=>{
  }
 
     render(){
-       const ingList=this.renderIngList()
-        const instList=this.renderInstList()
+      //  const ingList=this.renderIngList()
+      //   const instList=this.renderInstList()
         return(
     // <div className='add-meal-page'>
         <form onSubmit={this.handlePostMeal.bind(this)} className='add-meal-form'>

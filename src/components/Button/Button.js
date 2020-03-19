@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import React,{Component} from 'react'
+import React from 'react'
 
 
 const Button = styled.button`

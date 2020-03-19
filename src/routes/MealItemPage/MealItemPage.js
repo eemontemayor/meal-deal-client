@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import './MealItemPage.css'
 import MealApiService from '../../services/meal-api-service'
-import MealItem from '../../components/Meal_Item/MealItem'
+// import MealItem from '../../components/Meal_Item/MealItem'
 import MealContext from '../../contexts/MealContext'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default class MealItemPage extends Component{
