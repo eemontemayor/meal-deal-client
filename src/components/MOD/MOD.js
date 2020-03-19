@@ -11,9 +11,9 @@ export default class MOD extends Component{
   static contextType = MealContext
 
 
-  componentDidMount(){
+ async componentDidMount(){
     // console.log(this.context.formattedDate)
-    this.context.getUserMOD()
+   await this.context.getUserMOD()
 
 }
 

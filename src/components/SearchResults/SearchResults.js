@@ -32,11 +32,10 @@ export default function SearchResults(props){
         return(
             
             <ul className='result-list'>
-            {props.searchResults ? list(props.searchResults):<li key='0' className='place-holder'>
-       
-       Explore new meal ideas!
-       
-       </li> }
+                {props.searchResults && list(props.searchResults)}
+                
+                
+             
             </ul>
      
      )

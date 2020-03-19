@@ -8,7 +8,6 @@ import MealContext from '../../contexts/MealContext'
 export default class BigCalendar extends Component {
   constructor(props){
     super(props);
-    console.log(this.props); // prints out whatever is inside props
     this.state = {
       date: new Date(),
       today: new Date(),
@@ -20,7 +19,7 @@ export default class BigCalendar extends Component {
 
   async componentDidMount() {
    await this.context.getUserMeals()
-    console.log(this.state)
+    
     // MealApiService.getUserMeals()
     // .then(meals => {
     //   this.setState({meals})
@@ -72,7 +71,7 @@ export default class BigCalendar extends Component {
 
   renderTileContent = ({ date, view },arr) => {
     let d = dateFormat(date, 'yyyy-mm-dd')
-    console.log(d,'=====',view)
+   
     let meals = arr
 
     let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+2)
@@ -81,7 +80,7 @@ export default class BigCalendar extends Component {
 const filteredMeals = this.filterUserMealsByRange(minDate, maxDate,meals)
 const sortedMeals = this.sortUserMeals(filteredMeals)
 
-    // this way works, but it's wasteful/////////////////
+    // this way works, but it seems wasteful/////////////////
     let tileContentArr
       tileContentArr = this.filterMealsByDate(d, sortedMeals)
 
