@@ -13,16 +13,6 @@ div.sidebar-icons{
    text-align: center;
   margin: auto;
 }
-.sidebar-icons *{
-   
-   
-}
 
 
-.sidebar:hover:before{
-    /* visibility: collapse;
-    background-color: yellow; */
-}
-.sidebar:hover:after{
-    /* visibility: visible; */
-}
+
