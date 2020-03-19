@@ -69,7 +69,7 @@ export default class BigCalendar extends Component {
     }
   
 
-  renderTileContent = ({ date, view },arr) => {
+   renderTileContent = ({ date, view },arr) => {
     let d = dateFormat(date, 'yyyy-mm-dd')
    
     let meals = arr
@@ -77,7 +77,11 @@ export default class BigCalendar extends Component {
     let maxDate = new Date(this.state.today.getFullYear(),this.state.today.getMonth()+2)
     let minDate = new Date(this.state.today.getFullYear(), this.state.today.getMonth()-1)
 
-const filteredMeals = this.filterUserMealsByRange(minDate, maxDate,meals)
+     
+     if (meals !== undefined) {
+        
+      
+const filteredMeals =  this.filterUserMealsByRange(minDate, maxDate,meals)
 const sortedMeals = this.sortUserMeals(filteredMeals)
 
     // this way works, but it seems wasteful/////////////////
@@ -97,7 +101,7 @@ const sortedMeals = this.sortUserMeals(filteredMeals)
       }
       
     /////////////////////////
-  
+  }
    
     }
       render() {

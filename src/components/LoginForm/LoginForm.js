@@ -46,13 +46,13 @@ class LoginForm extends Component {
   componentDidMount() {
     this.firstInput.current.focus();
   }
-  autoFillForm = () =>{
+  // autoFillForm = () =>{
   
-    this.setState({
-      username:'demoUser',
-      password:'Demopw1!'
-    })
-  }
+  //   this.setState({
+  //     username:'demoUser',
+  //     password:'Demopw1!'
+  //   })
+  // }
   handleChange = (e) => {
     this.setState({
     [e.target.name]:e.target.value
