@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import RegistrationForm from "../components/RegistrationForm/RegistrationForm";
-
+import './RegistLoginPage.css'
 class RegistrationPage extends Component {
 
   static defaultProps = {
@@ -16,11 +16,14 @@ class RegistrationPage extends Component {
 
   render() {
     return (
-      <section>
+      <div className='reg-page'>
+        <div className='reg-form-wrapper'>
+
         <RegistrationForm
           onRegistrationSuccess={this.handleRegistrationSuccess}
-        />
-      </section>
+          />
+          </div>
+      </div>
     );
   }
 }

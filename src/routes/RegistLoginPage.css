@@ -1,0 +1,38 @@
+div.reg-form-wrapper{
+  
+    max-height:700px;
+    max-width:700px;
+ height: auto;
+ width: 100%;
+    margin: auto;
+    padding:5em;
+  
+}
+.log-form-wrapper{
+
+    max-height:700px;
+    max-width:700px;
+ height: auto;
+ width: 100%;
+    margin: auto;
+    padding:5em;
+}
+div.reg-page{
+    height:calc(100vh - 80px);
+    width:100%;
+    background-image: url('../images/regist-pic.jpg') ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  
+}
+div.log-page{
+    height:calc(100vh - 80px);
+    width:100%;
+    height:calc(100vh - 80px);
+    width:100%;
+    background-image: url('../images/regist-pic.jpg') ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
