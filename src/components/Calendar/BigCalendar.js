@@ -18,8 +18,8 @@ export default class BigCalendar extends Component {
 }
   static contextType = MealContext
 
-  componentDidMount() {
-   this.context.getUserMeals()
+  async componentDidMount() {
+   await this.context.getUserMeals()
     console.log(this.state)
     // MealApiService.getUserMeals()
     // .then(meals => {
