@@ -23,14 +23,15 @@ button.search-form-btn.disabled{
  
 
       .planner-page {
-        padding:.5em;
-        height:calc(100vh - 90px);
+        padding:.3em;
+        height:calc(100vh - 80px);
         width:100%;
         display: grid;
         grid-template-rows: 95px 1fr;
         grid-template-columns: 350px 1fr;
         grid-column-gap: 5px;
         grid-row-gap: 0px;
+        overflow-y: scroll;
         grid-template-areas:
         "search-form mod"
         "results calendar"

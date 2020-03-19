@@ -14,7 +14,7 @@ div.react-calendar{
   background-color:blue;
  } */
  .react-calendar__tile{
-   max-height:150px;
+   max-height:110px;
    height: 8.5rem;
    text-align:left;
    font-size: .9em;
@@ -40,8 +40,8 @@ div.react-calendar{
  }
 
  .react-calendar button{
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
+  border-right: .5px solid black;
+  border-bottom: .5px solid black;
  }
 
  abbr[title] {

@@ -75,7 +75,7 @@ export default class BigCalendar extends Component {
 
   
 
-   renderTileContent = ({ date, view },arr) => {
+ async  renderTileContent({ date, view },arr){
     let d = dateFormat(date, 'yyyy-mm-dd')
 
     let meals = arr
@@ -87,7 +87,7 @@ export default class BigCalendar extends Component {
     //  if (meals !== undefined) {
         
       
-const filteredMeals =  this.filterUserMealsByRange(minDate, maxDate,meals)
+const filteredMeals =  await this.filterUserMealsByRange(minDate, maxDate,meals)
 const sortedMeals = this.sortUserMeals(filteredMeals)
 
     // this way works, but it seems wasteful/////////////////

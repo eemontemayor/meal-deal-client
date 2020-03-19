@@ -9,7 +9,7 @@
     "header"
     "main"
     "footer";
-  height: 100vh;
+  min-height: 100vh;
   width:100vw;
 }
 header {
@@ -37,9 +37,9 @@ aside {
   display:none;
 }
 .App__main{
-    /* height:auto;
-    width:100%; */
-    /* overflow: auto; */
+    height:auto;
+    width:100%;
+    overflow-y: scroll;
 }
 @media only screen and (min-width: 760px) {
     .App {
