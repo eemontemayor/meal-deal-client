@@ -17,9 +17,9 @@ export default class BigCalendar extends Component {
 }
   static contextType = MealContext
 
-   componentDidMount() {
-    this.context.getUserMeals()
-    
+  async componentDidMount() {
+   await this.context.getUserMeals()
+    await this.context.getUserMOD()
     // MealApiService.getUserMeals()
     // .then(meals => {
     //   this.setState({meals})
@@ -50,25 +50,29 @@ export default class BigCalendar extends Component {
     
   
   }
+    // should sort array and pop to save on Big O 
+    sortUserMeals = (meals) => {
+   
+      
+      let sorted = meals.slice().sort((a, b) => new Date(a.on_day) - new Date(b.on_day))
+  
+        return sorted
+     
+      }
   filterMealsByDate = (date, arr) => {
     let result = [];
   
-      
-      result = arr.filter(i => dateFormat(i.on_day, 'yyyy-mm-dd') === date)
-    // console.log(date,'date', result,"result") 
+        // date=new Date(date)
+    result = arr.filter(i => {
+      dateFormat(i.on_day, 'yyyy-mm-dd') ===  dateFormat(date, 'yyyy-mm-dd') && console.log(dateFormat(i.on_day, 'yyyy-mm-dd'), '==='  ,dateFormat(date, 'yyyy-mm-dd'),'>',i.meal_name )
+      return dateFormat(i.on_day, 'yyyy-mm-dd') === dateFormat(date, 'yyyy-mm-dd')
+    })
+    // console.log( date,'date', result,"result") 
     return result
     
   }
 
-  // should sort array and pop to save on Big O 
-  sortUserMeals = (meals) => {
-   
-      
-    let sorted = meals.slice().sort((a, b) => new Date(a.on_day) - new Date(b.on_day))
 
-      return sorted
-   
-    }
   
 
    renderTileContent = ({ date, view },arr) => {
