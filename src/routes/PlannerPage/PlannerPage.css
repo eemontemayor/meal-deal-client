@@ -1,6 +1,6 @@
 
 .planner-page{
-/* min-height: calc(100vh - 100px); */
+min-height: calc(100vh - 80px);
   width:100%;
 
 
@@ -23,7 +23,6 @@ button.search-form-btn.disabled{
  
 
       .planner-page {
-        padding:.3em;
         height:calc(100vh - 80px);
         width:100%;
         display: grid;
@@ -41,7 +40,7 @@ button.search-form-btn.disabled{
        
         .res-container { 
           display: flex;
-          height:calc(100vh - 150px);
+          height:calc(100vh - 175px);
           flex-direction: column;
    
           overflow-y: scroll;

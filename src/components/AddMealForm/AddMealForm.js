@@ -38,7 +38,10 @@ export default class AddMealForm extends Component{
       instructions:this.state.instructionsList,    
     }
 
-  this.context.postMeal(newMeal)
+    this.context.postMeal(newMeal)
+      this.setState({meal_name:''})
+     
+ 
    
 }
 
@@ -108,6 +111,7 @@ handleAddInst=(ev)=>{
               <Input
                 type="text"
                 name='meal_name'
+                value={this.state.meal_name}
                 onChange={this.handleChange}
                 required
                 >

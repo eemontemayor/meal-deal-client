@@ -6,7 +6,7 @@
     width:340px;
     /* min-height: 110px; */
     display: flex;
-    padding: .3em;
+    padding: .5em;
     border-bottom: .5px solid grey;
     border-right: .5px solid grey;
     background-color: rgb(255, 255, 247);
@@ -55,7 +55,8 @@ div.item-buttons button:hover{
 p.meal-name{
     /* display: inline-flex; */
     font-size:1.1em;
-    padding-left:15px;
+    padding:3px;
+    text-align: center;
     margin:auto
 }
 .edit-meal-page{

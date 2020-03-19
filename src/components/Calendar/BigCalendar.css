@@ -4,6 +4,10 @@ div.react-calendar{
     /* max-width: 95vw; */
     /* transform: scale(1.1); */
     margin: auto;
+
+    max-width: 1000px;
+    margin: 10px auto;
+
   }
 
 
@@ -15,10 +19,14 @@ div.react-calendar{
  } */
  .react-calendar__tile{
    max-height:110px;
-   height: 8.5rem;
-   text-align:left;
-   font-size: .9em;
+   height: 7.5rem;
+   text-align:right;
+   font-size: .8em;
 
+ }
+ .react-calendar__tile p{
+  text-align:center;
+  margin:7px;
  }
  .tile-text{
    color:blue;

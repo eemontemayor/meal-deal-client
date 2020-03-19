@@ -30,6 +30,14 @@ export default class MOD extends Component{
         
           <AddMealForm/>
           </li>
+      } else if (meals.length < 3) {
+        let form = <li key='0'><AddMealForm/></li> 
+        let mod = meals.map((item, index) => (
+          <MealItem meal={item} key={index} index={index} image={item.image} mod={true} />
+          ))
+          let result=<>{form} {mod}</>
+          
+return result
       }
       else{
         return meals.map((item, index) => {

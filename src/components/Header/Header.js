@@ -42,13 +42,13 @@ class Header extends Component {
   render() {
     return (
     <div className='main-header'>
-        <nav>
           <h1>
             <Link to='/'>
               <span className='meal'>MEAL</span>
               <span className='deal'>DEAL</span>
             </Link>
           </h1>
+        <nav>
           <div className='nav-links'>
             
             <NavLink to='/shoppinglist'>
