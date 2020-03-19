@@ -88,7 +88,7 @@ export default class BigCalendar extends Component {
         
       
 const filteredMeals =  this.filterUserMealsByRange(minDate, maxDate,meals)
-const sortedMeals = this.sortUserMeals(filteredMeals)
+// const sortedMeals = this.sortUserMeals(filteredMeals)
 
     // this way works, but it seems wasteful/////////////////
     let tileContentArr
