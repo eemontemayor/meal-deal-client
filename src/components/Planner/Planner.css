@@ -1,40 +1,37 @@
-.meal-date{
+/* .meal-date{
     font-size:1.2em;
     text-align: center;
     margin-top:5px;
 
-}
+} */
 
-.calendar{
+/* .calendar{
     margin:auto;
     box-shadow: 0px 0px 10px rgba(107, 107, 107, 0.904);
     margin-top:50px;
-}
+} */
 
-.tileClassName{
-    background-color:pink;
-}
 
-.mod-container{
+
+/* .mod-container{
     grid-column:1/2;
     grid-row:2/3;
     padding-top: 15px;
-}
+} */
 
-.meal-deal-page{
+/* .meal-deal-page{
  
     height:auto;
     width:100%;
-}
+} */
 
-.form-box{
+/* .form-box{
     padding-top:10px;
     background-color:none;
-}
+} */
 
-.form-buttons button {
+/* .form-buttons button {
     border-top:1px solid black;
-    /* border-bottom:1px solid black; */
     border-left:1px solid black;
     border-right:1px solid black;
     width: 33.3vw;
@@ -43,41 +40,40 @@
     height:25px;
    box-shadow: 0px -5px 6px rgba(116, 116, 116, 0.514)    
        
-}
-.form-buttons{
-    /* position:sticky; */
+} */
+/* .form-buttons{
     top:40px;
     z-index:7;
     position: fixed;
     display: contents;
-}
-.add-meal-form-btn{
+} */
+/* .add-meal-form-btn{
     background-color: rgb(97, 230, 212);
     border-bottom:1px solid black;
 
  
-}
-.bookmarks-btn{
+} */
+/* .bookmarks-btn{
     background-color: #AFD275;
     border-bottom:1px solid black;
    
   
-}
-.explorer-btn{
+} */
+/* .explorer-btn{
     background-color:rgb(228, 158, 180);
     border-bottom:1px solid black;
  
-}
+} */
 
-.selected{
+/* .selected{
     border-bottom:none;
     box-shadow: 0px 0px 0px rgb(248, 248, 248);
     background-color: rgb(248, 248, 248);
-}
+} */
 
 
 @media only screen and (min-width: 760px) {
-    .meal-deal-page{
+    /* .meal-deal-page{
        padding-top:80px;
         height:auto;
         width:100%;
@@ -85,18 +81,17 @@
         grid-template-columns: 50% 50%;
         grid-template-rows: 50% 50%;
   
-    }
-    .mod-container{
+    } */
+    /* .mod-container{
         margin-top: 80px;
         position:fixed;
         top:55%;
         width:50%;
       margin:auto;
       height:auto;
-      /* height:700px; */
 
-    }
-   .form-container{
+    } */
+   /* .form-container{
         grid-column:2;
         grid-row:1/3;
       
@@ -110,18 +105,16 @@
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         box-shadow: -8px 6px 8px rgba(116, 116, 116, 0.514);
-        /* overflow: auto; */
         border-left: 1px solid black;
-    }
+    } */
 
-    .form-box{
+    /* .form-box{
         margin:auto;
         height:auto;
         width:100%;
-        /* height:fit-content; */
-    }
+    } */
 
-    .form-buttons button{
+    /* .form-buttons button{
         width:33.3%;
         height:45px;
         z-index: 6;
@@ -129,8 +122,8 @@
         right:1px;
         
         
-    }
-    .cal-container{
+    } */
+    /* .cal-container{
     
         position:fixed;
         top:10px;
@@ -140,32 +133,19 @@
       
         
 
-    }
-    div.react-calendar.calendar{       
+    } */
+    /* div.react-calendar.calendar{       
       width:80%;
       height:80%;
         
   
        
-    }
-    .react-calendar button{
-        /* background-color: pink; */
+    } */
+    /* .react-calendar button{
       line-height:1.5;
         font-weight:500;
     font-size: medium; 
-    }
+    } */
   
 
-}
-
-@media only screen and (max-width: 360px) {
-    .calendar{
-        transform: scaleY(0.9)
-    }
-}
-
-@media only screen and (max-width: 320px) {
-    .calendar{
-        transform: scale(0.76)
-    }
 }

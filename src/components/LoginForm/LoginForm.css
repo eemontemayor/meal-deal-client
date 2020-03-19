@@ -53,15 +53,7 @@
 
 
   }
-  footer{
-      margin-top:10px;
-      padding:5px;
-  }
-  
-  footer a{
-      font-size:small;
-     
-  } 
+
   
   .login-error {
     color: red;

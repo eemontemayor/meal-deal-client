@@ -1,45 +1,35 @@
 .main-header {
-    position: fixed;
+  
     width: 100%;
-    /* background-color:rgba(254, 255, 255, 0.993); */
-    background-image: linear-gradient(to right, rgb(97, 230, 212), #AFD275, rgb(228, 158, 180));
-    height:35px;
-    z-index: 4;
-    top: 0;
-    padding: 3px;
-    box-shadow: 10px 13px 15px rgba(0, 0, 0, 0.308);
-    opacity: .99;
+    background-color:rgba(254, 255, 255, 0.993);
+    height:50px;
+
+  
+    /* box-shadow: 10px 13px 15px rgba(0, 0, 0, 0.308); */
+    opacity: .97;
   }
   
-  .main-header nav {
-    padding: 7px 4%;
-  }
-  
-  .nav-links nav {
-    padding-right: 0;
-    padding-left: 0;
-    position: relative;
-    bottom: 2px;
-  }
+div .nav-links *{
+  margin-right:40px;
+}
   
   .main-header h1 {
-    float: left;
-    margin: 0;
+    text-align: center;
+    margin:auto;
     font-size: 16px;
   }
   
   .nav-links {
-    display: block;
+    display: inline-flex;
     float: right;
     font-size: 14px;
-    position: relative;
-    bottom: 6px;
-    width: 300px;
-    text-align: right;
+  
+  
   }
   
   .nav-links a {
     margin-left: 1em;
+    text-decoration: none;
   }
   
   .nav-links p {
@@ -52,29 +42,33 @@
   }
   
   .deal {
+    font-size: 1.3em;
     color:  rgb(195, 0, 255)
   }
   .meal{
+    font-size: 1.3em;
     color: rgb(64, 110, 3)
   }
+  p#user-name{
+    position: absolute;
+    left: 50px;
+    top: 10px;
   
+  }
   @media only screen and (max-width: 760px) {
-    .nav-links {
-      width: 200px;
-    }
+   
     .nav-links a, .nav-links p {
       font-size: .85em;
     }
   
-    .main-header nav {
-      padding: 7px 2%;
+    .main-header h1 {
+    text-align: left;
     }
   
-    .nav-links nav{
-      display: inline-block;
-      padding-right: 0;
-      padding-left: 0;
-      width: 160px;
+    div .nav-links *{
+      margin-right:10px;
     }
+  
+   
   }
   

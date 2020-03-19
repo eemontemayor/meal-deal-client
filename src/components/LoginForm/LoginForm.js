@@ -46,13 +46,13 @@ class LoginForm extends Component {
   componentDidMount() {
     this.firstInput.current.focus();
   }
-  autoFillForm = () =>{
+  // autoFillForm = () =>{
   
-    this.setState({
-      username:'demoUser',
-      password:'Demopw1!'
-    })
-  }
+  //   this.setState({
+  //     username:'demoUser',
+  //     password:'Demopw1!'
+  //   })
+  // }
   handleChange = (e) => {
     this.setState({
     [e.target.name]:e.target.value
@@ -92,7 +92,7 @@ class LoginForm extends Component {
           <Link to="/register" className="login-redirect">
             Need to Sign up?
           </Link><br/>
-          <Button className='employer-btn' onClick={this.autoFillForm}>Considering offering me a job?</Button>
+          {/* <Button className='employer-btn' onClick={this.autoFillForm}>Considering offering me a job?</Button> */}
           </Section>
         </form>
       </div>

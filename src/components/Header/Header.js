@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import UserContext from '../../contexts/UserContext'
 import './Header.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Header extends Component {
   static contextType = UserContext
@@ -34,13 +35,13 @@ class Header extends Component {
 
   renderGreeting() {
     return TokenService.hasAuthToken() && window.innerWidth > 760
-    ? <p>Hi {this.context.user.name}!</p>
+    ? <p id='user-name'>Hi {this.context.user.name}!</p>
     : ''
   }
 
   render() {
     return (
-      <header className='main-header'>
+    <div className='main-header'>
         <nav>
           <h1>
             <Link to='/'>
@@ -49,16 +50,33 @@ class Header extends Component {
             </Link>
           </h1>
           <div className='nav-links'>
-            <nav>
+            
+            <NavLink to='/shoppinglist'>
+          
+          <FontAwesomeIcon className='icon shopping' size='1x' icon = 'shopping-basket'/>
+            </NavLink>
+
+            <NavLink to='/calendar'>
+            
+            <FontAwesomeIcon className='icon cal' size='1x' icon='calendar-alt' />
+              </NavLink>
+              {/* <NavLink to='/explorer'>
+              
+            <FontAwesomeIcon className='icon search' size='1x' icon='search' />
+              </NavLink>
+              <NavLink to='/bookmarks'>
+          <FontAwesomeIcon className='icon bookmark' size='1x' icon = 'bookmark'/>
+    
+              </NavLink> */}
               {this.renderGreeting()}
              
               {TokenService.hasAuthToken()
               ? this.renderLogoutLink()
               : this.renderLoginLink()}
-            </nav>
+          
           </div>
         </nav>
-      </header>
+      </div>
     );
   }
 }

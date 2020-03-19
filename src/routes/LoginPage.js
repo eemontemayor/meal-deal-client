@@ -17,10 +17,12 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <section>
-         
+      <div className='log-page'>
+        <div className='log-form-wrapper'>
+          
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
-      </section>
+         </div>
+      </div>
     );
   }
 }

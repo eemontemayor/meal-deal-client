@@ -3,6 +3,7 @@ import './MealItemPage.css'
 import MealApiService from '../../services/meal-api-service'
 import MealItem from '../../components/Meal_Item/MealItem'
 import MealContext from '../../contexts/MealContext'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default class MealItemPage extends Component{
     state={
         selectedMeal:[],
@@ -51,8 +52,53 @@ export default class MealItemPage extends Component{
             })
         }   
     }
+    renderMeal = (meal) => {
+        return (
+            <div className='meal-info-container'>
+                <img className='meal-item-page-pic'src={meal.image} alt='x'/>
+                <h1>
+                    {meal.meal_name}
+                </h1>
+               {this.renderLists(meal.ingredients, meal.instructions)}
+            </div>
+        )
+    }
+  renderLists = (ingList, instList) => {
+    let newIngList = ingList;
+    // let newInstList = instList;
 
+    if (newIngList !== undefined) {
+      newIngList = newIngList.map((item, index) => {
+        return <li key={index}>{item}</li>;
+      });
+    } else {
+      newIngList = <li key={0}>'No ingredients saved for this item'</li>;
+    }
 
+    // if (newInstList !== null) {
+    //   newInstList = newInstList.map((item, index) => {
+    //     return <li key={index}>{item}</li>;
+    //   });
+    // } else {
+    //   newInstList = <li key={0}>'No instructions saved for this item'</li>;
+    // }
+
+    return (
+      <div>
+        {/* <Link to={`/bookmark/edit/${this.props.meal.id}`} >Edit Meal</Link> */}
+        <div className="meal-item-page-lists">
+          <ul className="page-ing-list">
+            INGREDIENTS:
+            {newIngList}
+          </ul>
+          {/* <ul className="inst-list">
+            INSTRUCTIONS:
+            {newInstList}
+          </ul> */}
+        </div>
+      </div>
+    );
+  };
    
         render(){
             const meal = this.state.selectedMeal
@@ -60,10 +106,12 @@ export default class MealItemPage extends Component{
             return(
                 
                 
-                <div className='meal-item-page'><button className='back-btn' onClick={()=>this.props.history.goBack()}>back</button>
-            { meal && <MealItem 
-            // id={meal.id} 
-            meal={meal} meal_name={meal.meal_name}image={meal.image}ingredients={meal.ingredients}cssClass={this.state.cssClass} id='item-selected' view='large' />}
+                <div className='meal-item-page'><button className='back-btn' onClick={()=>this.props.history.goBack()}> <FontAwesomeIcon
+                className="icon chevron-left"
+                size="1x"
+                icon="chevron-left"
+              /></button>
+        {meal && this.renderMeal(meal)}
             
             
             </div>

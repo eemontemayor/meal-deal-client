@@ -1,44 +1,44 @@
-import React,{Component} from 'react'
-import {Section} from '../Utils/Utils'
-import dateFormat from 'dateformat';
-import AddMealForm from '../AddMealForm/AddMealForm'
-import BookMarks from '../BookMarks/BookMarks'
-import ExplorerForm from '../ExplorerForm/ExplorerForm'
-import './Planner.css'
-import Calendar from 'react-calendar'
+// import React,{Component} from 'react'
+// import {Section} from '../Utils/Utils'
+// import dateFormat from 'dateformat';
+// import AddMealForm from '../AddMealForm/AddMealForm'
+// import BookMarks from '../BookMarks/BookMarks'
+// import ExplorerForm from '../ExplorerForm/ExplorerForm'
+// import './Planner.css'
+// import Calendar from 'react-calendar'
 
-import Mod from '../MOD/MOD'
-import MealContext from '../../contexts/MealContext';
-// import MealApiService from '../../services/meal-api-service'
+// import Mod from '../MOD/MOD'
+// import MealContext from '../../contexts/MealContext';
+// // import MealApiService from '../../services/meal-api-service'
 
-export default class Planner extends Component{
-    constructor(props) {
-        super(props);
-        this.state = { 
-            view:'add-meal-form',
-            selected:'add-meal-form',
-            searchRes:[]
+// export default class Planner extends Component{
+//     constructor(props) {
+//         super(props);
+//         this.state = { 
+//             view:'add-meal-form',
+//             selected:'add-meal-form',
+//             searchRes:[]
           
-        }
-      }
-      static contextType = MealContext
-      componentDidMount(){
-            console.log(this.context.formattedDate)
+//         }
+//       }
+//       static contextType = MealContext
+//       componentDidMount(){
+//             console.log(this.context.formattedDate)
       
-        }
+//         }
     
     
-    handleClick=(e)=>{
+//     handleClick=(e)=>{
          
-        this.setState({
-            view:e.target.id,
-            selected:e.target.className,
+//         this.setState({
+//             view:e.target.id,
+//             selected:e.target.className,
          
-        },()=>{
-            console.log(this.state)
-        })
+//         },()=>{
+//             console.log(this.state)
+//         })
    
-      }
+//       }
 
 
       
@@ -48,40 +48,36 @@ export default class Planner extends Component{
 
 
       
-    render(){
-        const day = dateFormat(this.props.value, 'mm/dd/yy')
-        const formattedDay=dateFormat(day, 'ddd')
+//     render(){
+//         const day = dateFormat(this.props.value, 'mm/dd/yy')
+//         const formattedDay=dateFormat(day, 'ddd')
      
-        return(
+//         return(
          
-            <div className='meal-deal-page'>
-                <Section className='cal-container'>
-                    <Calendar className='calendar' id='cal'
-                        onChange={this.context.onChange}
-                        value={this.context.value}/>  
-                </Section>
+//             <div className='meal-deal-page'>
+//              
 
-                <Section  className='mod-container'>
-                   <p className='meal-date'>
-                    {day}  {formattedDay}      
-                   </p>
-                    <Mod className='meals-of-day' />
-                </Section>
+//                 <Section  className='mod-container'>
+//                    <p className='meal-date'>
+//                     {day}  {formattedDay}      
+//                    </p>
+//                     <Mod className='meals-of-day' />
+//                 </Section>
 
-               <Section className='form-container'>
-                    <div className='form-buttons'>
-                        <button className={`add-meal-form-btn ${this.state.view==='add-meal-form'?'selected':''}`} id='add-meal-form' onClick={this.handleClick} >Add Meal</button>
-                        <button className={`bookmarks-btn ${this.state.view==='bookmarks'?'selected':''}`} id='bookmarks'onClick={this.handleClick}>BookMarks</button>
-                        <button className={`explorer-btn ${this.state.view==='explorer'?'selected':''}`}id='explorer'onClick={this.handleClick}>Explore</button>
-                    </div>
-                    <div className='form-box'>
-                        {this.state.view==='add-meal-form' && <AddMealForm date={day} />}
-                        {this.state.view==='bookmarks' &&  <BookMarks />}
-                        {this.state.view==='explorer' &&  <ExplorerForm />}
-                    </div>
-               </Section>
-            </div>
+//                <Section className='form-container'>
+//                     <div className='form-buttons'>
+//                         <button className={`add-meal-form-btn ${this.state.view==='add-meal-form'?'selected':''}`} id='add-meal-form' onClick={this.handleClick} >Add Meal</button>
+//                         <button className={`bookmarks-btn ${this.state.view==='bookmarks'?'selected':''}`} id='bookmarks'onClick={this.handleClick}>BookMarks</button>
+//                         <button className={`explorer-btn ${this.state.view==='explorer'?'selected':''}`}id='explorer'onClick={this.handleClick}>Explore</button>
+//                     </div>
+//                     <div className='form-box'>
+//                         {this.state.view==='add-meal-form' && <AddMealForm date={day} />}
+//                         {this.state.view==='bookmarks' &&  <BookMarks />}
+//                         {this.state.view==='explorer' &&  <ExplorerForm />}
+//                     </div>
+//                </Section>
+//             </div>
            
-        )
-    }
-}
+//         )
+//     }
+// }

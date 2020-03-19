@@ -25,7 +25,7 @@ export default class BookMarks extends Component{
         }
         else{
           return bm.map((item, index)=>{
-            return <MealItem  meal={item} id={item.id} key={index} index={index}view='bookmarks' cssClass='bm-item'/> // violating pkey 
+              return <MealItem meal={item} id={item.id} key={index} image={item.image}index={index} bookMark={true}/> // violating pkey 
          })
         }
     }
@@ -34,11 +34,12 @@ export default class BookMarks extends Component{
        
     
         return(
-            <div className='bm-page'>
+            <>
+                    <h4 className='bm-title'>BOOKMARKS</h4><br/>
                 <ul className='bm-list'>
                 {this.list(this.context.bookmarks)}
                 </ul>
-            </div>
+       </>
         )
     }
 }

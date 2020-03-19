@@ -3,15 +3,15 @@
   }
   
   .registration-form{
+      opacity:.95;
       border:1px solid black;
       padding:40px;
-      max-width: fit-content;
+      max-width: 400px;
       margin:auto;
       border-radius:10px;
       text-align: end;
       background-color: white;
       box-shadow: 5px 5px 3px grey;
-      margin-top:20vh;
       position: relative;
   }
   .registration-button{
@@ -51,14 +51,7 @@
     color: red;
   }
   
-  footer{
-      margin-top:10px;
-       padding:5px;
-  }
-  
-  footer a{
-      font-size:small;
-  }
+
   @media only screen and (max-width: 760px) {
   
       .registration-form{

@@ -1,18 +1,43 @@
 import React from 'react'
-import ResultItem from './ResultItem'
+import MealItem from '../../components/Meal_Item/MealItem'
+
+
 import './SearchResults.css'
 
 export default function SearchResults(props){
+    console.log(props,'++++++++++++++++++++')
+   
+  
+    
+  const list=(array)=>{
+        const res = array
+       console.log(res)
 
-    const results=props.results.map((item,index)=>{
-        return <li key={index}><ResultItem expPage={props.expPage}meal={item} postBookmark={props.postBookmark}/></li>
-    })
-
-    return(
-        <div className='results-container'>
-            <ul className={props.expPage?'search-results exp-page':'search-results'}>
-            {results}
+          return res.map((item, index)=>{
+              return <MealItem
+                  
+                  meal_name={item.recipe.label}
+                  searchResult={true}
+                  key={index}
+                  image={item.recipe.image}
+                  index={index}
+                  ingredients={item.recipe.ingredientLines}
+                  searchRes={true}
+              /> 
+         })
+        
+    }
+   
+      
+        return(
+            
+            <ul className='result-list'>
+                {props.searchResults && list(props.searchResults)}
+                
+                
+             
             </ul>
-        </div>
-    )
+     
+     )
+    
 }

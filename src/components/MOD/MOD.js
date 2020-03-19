@@ -3,14 +3,17 @@ import MealItem from '../Meal_Item/MealItem'
 import MealContext from '../../contexts/MealContext'
 import '../Meal_Item/MealItem.css'
 import './Mod.css'
-export default class Mod extends Component{
+import dateFormat from 'dateformat';
+import AddMealForm from '../../components/AddMealForm/AddMealForm'
+
+export default class MOD extends Component{
    
   static contextType = MealContext
 
 
-  componentDidMount(){
+ async componentDidMount(){
     // console.log(this.context.formattedDate)
-    this.context.getUserMOD()
+   await this.context.getUserMOD()
 
 }
 
@@ -20,15 +23,17 @@ export default class Mod extends Component{
   
       if( meals === undefined || meals === [] || meals.length <1 ){
       
-        return <li key='0' className='place-holder'>
+        return <li key='0'
+          // className='meal-item mod'
+        >
      
-          Add a meal to this day!
-          
+        
+          <AddMealForm/>
           </li>
       }
       else{
-        return meals.map((item, index)=>{
-          return <MealItem  meal={item} key={index} index={index}view='meals-of-day' cssClass='mod-item' />
+        return meals.map((item, index) => {
+          return <MealItem meal={item} key={index} index={index} image={item.image}mod={true}/>
        })
       }
    
@@ -36,15 +41,21 @@ export default class Mod extends Component{
   }
       render(){
         const ModList = this.list(this.context.MOD)
-    
+        const date = dateFormat(this.context.day,'mm/dd')
           return(
-              <div className='mod-page'>
+            <>
+              <p className = 'mod-day'>
+                  {date} 
+                </p>
                   <ul className='mod-list'>
-                  { ModList}
-                   
-                  </ul>
+                  {/* { ModList} */}
+                {this.list(this.context.MOD)}                  </ul>
+                <p className = 'mod-day'>
+                  {date} 
+                </p>
+            </>
            
-        </div>
+   
     )
 }
 }

@@ -1,4 +1,4 @@
-.add-meal-form{
+/* .add-meal-form{
     text-align: left;
     margin:auto;
     padding:30px;
@@ -8,7 +8,13 @@
     width:90%;
 
    
-}
+} */
+
+
+/* 
+
+
+
 .add-meal-page{
   height:auto;
   width:100%;
@@ -55,11 +61,29 @@ background-color: rgb(0, 255, 255);
   padding:10px;
   box-shadow: 0px 0px 5px rgba(107, 107, 107, 0.616);
   border-radius: 5px;
-}
+} */
 @media only screen and (min-width: 760px) {
   .add-meal-form{
-    margin-top:50px;
-    width:70%;
-
+    display: inline-block;
+    background-color:  #006edce8;
+    border-radius: 5px;
+    color:white;
+    width:300px;
+  padding:1px;
+  margin:5px;
+    height:85px;
+    border-bottom: .5px solid rgb(255, 255, 255);
+    border-right: .5px solid rgb(255, 255, 255);
+  }
+  .add_meal_form{
+text-align: center;
+  }
+  .form-add-btn{
+    margin: auto;
+    text-align: center;
+    float: right;
+    height:40px;
+    width:40px;
+    border-radius: 20px;
   }
 }

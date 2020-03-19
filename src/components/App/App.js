@@ -8,7 +8,9 @@ import LoginPage from '../../routes/LoginPage.js';
 import RegistrationPage from '../../routes/RegistrationPage';
 import LandingPage from '../../routes/LandingPage/LandingPage'
 import Header from '../Header/Header'
-import PlannerPage from '../../routes/Planner/PlannerPage';
+import BookMarksPage from '../../routes/BookMarksPage/BookMarksPage'
+import CalendarPage from '../../routes/CalendarPage/CalendarPage'
+import PlannerPage from '../../routes/PlannerPage/PlannerPage';
 import ExplorerPage from '../../routes/ExplorerPage/ExplorerPage';
 import ShoppingListPage from '../../routes/ShoppingListPage/ShoppingListPage'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
@@ -16,7 +18,7 @@ import MealItemPage from '../../routes/MealItemPage/MealItemPage';
 import MealContext from '../../contexts/MealContext'
 import MealApiService from '../../services/meal-api-service'
 import dateFormat from 'dateformat';
-
+import SideBar from '../SideBar/SideBar'
 
 export default class App extends Component{
   state={
@@ -25,7 +27,7 @@ export default class App extends Component{
         formattedDate:'',
         MOD:[],
         bookmarks:[],
-        searchRes:[],
+        userMeals:[]
   }
   
   static getDerivedStateFromError(error) {
@@ -47,7 +49,16 @@ componentDidMount(){
       console.log({error})
     })
     })
-
+  MealApiService.getUserMeals()
+    .then(meals => {
+      this.setState({
+        userMeals:meals
+      })
+    })
+    .catch(error => {
+      console.log({error})
+    })
+    
     MealApiService.getBookmarks()
     .then(meals=>{
         this.setState({
@@ -59,22 +70,35 @@ componentDidMount(){
     })
 }
 
+
+  getUserMeals = () => {
   
-  
+    MealApiService.getUserMeals()
+    .then(meals => {
+      this.setState({
+        userMeals:meals
+      })
+    })
+    .catch(error => {
+      console.log({error})
+    })
+  }
   
   
   
 onChange = value => {
     const formattedDate=dateFormat(value, 'yyyy-mm-dd')
-  //   let location = config.API_ENDPOINT.replace('api', 'planner')
-  //  window.location = location + '/' +formattedDate
+
     this.setState({ value,formattedDate },()=>{
     MealApiService.findMealByDate(formattedDate)
     .then(meals =>{ 
         this.setState({
             MOD:meals
         })
-      })
+    })
+    .catch(error => {
+      console.log({error})
+    })
     })  
 }
 
@@ -100,33 +124,32 @@ postMeal=(newMeal)=>{
     newMeal.id=undefined
 
     newMeal.on_day = this.state.formattedDate
-    if(this.state.MOD === undefined || this.state.MOD.length < 4){
+    if(this.state.MOD === undefined || this.state.MOD.length < 3){
        MealApiService.postMeal(newMeal, this.state.formattedDate)
         .then(res =>{ 
-          MealApiService.findMealByDate(this.state.formattedDate)
-            .then(meals =>{ 
-              this.setState({
-                  MOD:meals
-              })
-          })
+         this.getUserMOD()
+          this.getUserMeals()
         })
         .catch(error => {
           console.log({error})
         })
     } else{
-      return alert('only 4 meals per day allowed')
+      return alert('only 3 meals per day allowed')
     }
 }
 
 handleDeleteMeal=(meal,index)=>{
-    let newMOD = this.state.MOD
+  let newMOD = this.state.MOD
+  let mealList = this.state.userMeals
     let id=meal.id
     
     if(id===undefined || !id){
       console.log('if', index)
       delete newMOD[index]
+      delete mealList[index]
       this.setState({
-        MOD:newMOD             
+        MOD: newMOD,
+        userMeals:mealList
       })
 
     } else{ 
@@ -136,6 +159,7 @@ handleDeleteMeal=(meal,index)=>{
         MealApiService.deleteMeal(meal)
           .then(res =>{
             this.getUserMOD()
+            this.getUserMeals()
             // delete newMOD[index] **above works better**
             // console.log('newMod', this.state.MOD)
             // this.setState({
@@ -231,14 +255,11 @@ console.log(e)
 goBack=()=>{
   this.props.history.push('/')
 }
-saveSearchResults = (arr) =>{
-  this.setState({
-      searchRes:[...arr]
-  })
-}
+
   render(){
     const  contextValue  = {
       day: this.state.value,
+   
       formattedDate:this.state.formattedDate,
       MOD: this.state.MOD,
       bookmarks:this.state.bookmarks,
@@ -247,20 +268,29 @@ saveSearchResults = (arr) =>{
       handleDeleteBookmark:this.handleDeleteBookmark,
       postMeal:this.postMeal,
       onChange:this.onChange,
-      searchRes:this.state.searchRes,
-      saveSearchRes:this.saveSearchResults,
+     userMeals:this.state.userMeals,
       goBack:this.goBack,
       handleUpdateBookmark:this.handleUpdateBookmark,
       getUserBookmarks: this.getUserBookmarks,
-      getUserMOD:this.getUserMOD
+      getUserMOD: this.getUserMOD,
+      getUserMeals:this.getUserMeals
       // findMealById:this.findMealById,
       // setSelectedMeal:this.setSelectedMeal
-      }
+    }
+    
+
+  
+
     return(
-      <div>
+      <div className='App'>
      <MealContext.Provider value = {contextValue}> 
+          <header>
           <Header />
-     
+          
+          </header>
+          <aside>
+            <SideBar/>
+     </aside>
         <main className='App__main'>
        
           {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
@@ -279,6 +309,14 @@ saveSearchResults = (arr) =>{
             <PrivateRoute  
               path={'/planner'}
               component={PlannerPage}
+              /> 
+              <PrivateRoute  
+              path={'/bookmarks'}
+              component={BookMarksPage}
+              /> 
+                <PrivateRoute  
+              path={'/calendar'}
+              component={CalendarPage}
             /> 
              <PrivateRoute
               path={'/planner/:date'}
@@ -304,7 +342,10 @@ saveSearchResults = (arr) =>{
               component={NotFoundRoute}
             />
           </Switch>
-        </main>
+          </main>
+          <footer>
+          
+          </footer>
         </MealContext.Provider>
       </div>
     )
