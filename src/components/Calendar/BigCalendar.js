@@ -64,7 +64,7 @@ export default class BigCalendar extends Component {
   
         // date=new Date(date)
     result = arr.filter(i => {
-      dateFormat(i.on_day, 'yyyy-mm-dd') ===  dateFormat(date, 'yyyy-mm-dd') && console.log(dateFormat(i.on_day, 'yyyy-mm-dd'), '==='  ,dateFormat(date, 'yyyy-mm-dd'),'>',i.meal_name )
+      // dateFormat(i.on_day, 'yyyy-mm-dd') ===  dateFormat(date, 'yyyy-mm-dd') && console.log(dateFormat(i.on_day, 'yyyy-mm-dd'), '==='  ,dateFormat(date, 'yyyy-mm-dd'),'>',i.meal_name )
       return dateFormat(i.on_day, 'yyyy-mm-dd') === dateFormat(date, 'yyyy-mm-dd')
     })
     // console.log( date,'date', result,"result") 
