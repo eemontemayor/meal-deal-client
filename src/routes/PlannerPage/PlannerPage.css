@@ -74,8 +74,8 @@ button.search-form-btn.disabled{
   grid-area: calendar; 
    height:auto;
    width:100%;
-   max-width: 1200px;
-   margin: auto;
+   max-width: 1000px;
+   margin: 0 auto;
  }
 
 
