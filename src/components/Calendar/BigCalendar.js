@@ -92,7 +92,8 @@ const sortedMeals = this.sortUserMeals(filteredMeals)
 
     // this way works, but it seems wasteful/////////////////
     let tileContentArr
-      tileContentArr = this.filterMealsByDate(d, sortedMeals)
+      // tileContentArr = this.filterMealsByDate(d, sortedMeals)
+      tileContentArr = this.filterMealsByDate(d, filteredMeals)
 
       if (tileContentArr !== undefined ) {
   

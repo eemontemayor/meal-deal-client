@@ -3,9 +3,9 @@ div.react-calendar{
     height:auto;
     /* max-width: 95vw; */
     /* transform: scale(1.1); */
-    margin: auto;
+   
 
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0px auto;
 
   }
