@@ -70,9 +70,9 @@ export default class ShoppingListPage extends Component{
     
         return(
             <div className= 'shopping-list-page'>
-    <header>
+  
           <h1>Shopping List</h1>
-        </header>
+        
          <main>
           <section>
             <AddItemForm 

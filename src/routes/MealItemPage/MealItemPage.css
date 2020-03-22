@@ -7,7 +7,7 @@
       "inst ing"
       ;
       width:90vw;
-    height: 90vh;
+    height:calc(100vh - 175px)
   }
   .back-btn{
       font-size: 1.3em;

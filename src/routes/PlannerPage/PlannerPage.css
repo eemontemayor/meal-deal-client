@@ -73,6 +73,7 @@ button.search-form-btn.disabled{
  .calendar-container{
   grid-area: calendar; 
    height:auto;
+   max-height:calc(100vh - 175px);
    width:100%;
    max-width: 1000px;
    margin: 0 auto;

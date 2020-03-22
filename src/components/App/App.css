@@ -45,11 +45,17 @@ aside {
     .App {
         display: grid;
         grid-template-columns:40px 1fr;
-        grid-template-rows: 40px 1fr 40px;
-        grid-template-areas:
+        /* grid-template-rows: 40px 1fr 40px; */
+        grid-template-rows: 40px 1fr ;
+
+        /* grid-template-areas:
           "aside header"
           "aside main"
-          "aside footer";
+          "aside footer"; */
+          grid-template-areas:
+          "aside header"
+          "aside main";
+         
         height: 100vh;
       }
       aside {
@@ -76,7 +82,7 @@ aside {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 5px;
+        /* padding: 0 5px; */
         /* background-color: #648ca6; */
       }
 }
