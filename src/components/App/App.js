@@ -35,7 +35,7 @@ export default class App extends Component{
     return { hasError: true };
   }
 
-async componentDidMount(){
+componentDidMount(){
 // TO-DO add a Promise.all here
     const formattedDate=dateFormat(this.state.value, 'yyyy-mm-dd')
     this.setState({formattedDate },()=>{
@@ -49,7 +49,7 @@ async componentDidMount(){
       console.log({error})
     })
     })
-  await MealApiService.getUserMeals()
+MealApiService.getUserMeals()
     .then(meals => {
       this.setState({
         userMeals:meals
@@ -59,7 +59,7 @@ async componentDidMount(){
       console.log({error})
     })
     
-   await MealApiService.getBookmarks()
+ MealApiService.getBookmarks()
     .then(meals=>{
         this.setState({
             bookmarks:meals
@@ -70,6 +70,36 @@ async componentDidMount(){
     })
 }
 
+  
+      //////
+  
+  addMeal = meal => {
+    console.log(meal,'from addMeal')
+    this.setState({...this.state.userMeals, meal})
+  }
+  addMOD = meal => {
+    this.setState({...this.state.MOD, meal})
+  }
+  addBookmark = bookmark => {
+    this.setState({...this.state.bookmarks, bookmark})
+  }
+    setBookmarkList = bookmarks => {
+        this.setState({ bookmarks })
+      }
+      setMODList = MOD => {
+        this.setState({ MOD })
+      }
+      setUserMeals = userMeals => {
+        this.setState({ userMeals })
+      }
+  setError = error => {
+    console.error(error)
+    this.setState({ error })
+  }
+
+  clearError = () => {
+    this.setState({ error: null })
+  }
 
   getUserMeals = () => {
   
@@ -116,23 +146,32 @@ getUserMOD = () => {
   
 }
   
-postMeal=(newMeal)=>{ 
-    let name =  newMeal.meal_name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+postMeal=(meal)=>{ 
+    let name =  meal.meal_name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+  let newMeal = {
+
+
+    meal_name:name,
+    ingredients: [meal.ingredients],
+    instructions:[meal.instructions],
+    id:undefined,
+    
+    on_day : this.state.formattedDate
+  }
   
-    newMeal.meal_name=name
 
-    newMeal.id=undefined
 
-    newMeal.on_day = this.state.formattedDate
     if(this.state.MOD === undefined || this.state.MOD.length < 3){
-       MealApiService.postMeal(newMeal, this.state.formattedDate)
-        .then(res =>{ 
-         this.getUserMOD()
-          this.getUserMeals()
-        })
-        .catch(error => {
-          console.log({error})
-        })
+      MealApiService.postMeal(newMeal, this.state.formattedDate)
+      .then(res =>{ 
+        this.getUserMOD()
+         this.getUserMeals()
+       })
+       .catch(error => {
+         console.log({error})
+       })
+        //  .then(this.addMeal)
+        // .catch(this.setError)
     } else{
       return alert('only 3 meals per day allowed')
     }
@@ -198,7 +237,7 @@ handleAddBookmark=(meal)=>{ //adds to bookmark table in db
 
     const newBookmark = {
       meal_name:name,
-      ingredients: meal.ingredients,
+      ingredients: [meal.ingredients],
       image:meal.image
     }
 
@@ -273,7 +312,16 @@ goBack=()=>{
       handleUpdateBookmark:this.handleUpdateBookmark,
       getUserBookmarks: this.getUserBookmarks,
       getUserMOD: this.getUserMOD,
-      getUserMeals:this.getUserMeals
+      getUserMeals: this.getUserMeals,
+
+
+      error: this.state.error,
+            setError: this.setError,
+            clearError: this.clearError,
+              setMODList: this.setMODList,
+              setUserMealsList: this.setUserMeals,
+              setBookmarkList: this.setBookmarkList,
+      addMeal: this.addMeal,
       // findMealById:this.findMealById,
       // setSelectedMeal:this.setSelectedMeal
     }

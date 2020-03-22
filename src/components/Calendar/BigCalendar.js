@@ -18,18 +18,17 @@ export default class BigCalendar extends Component {
   static contextType = MealContext
 
   async componentDidMount() {
-  //   this.context.clearError()
-  // await  MealApiService.getUserMeals()
-  //     .then(this.context.setUserMeals)
-  //     .catch(this.context.setError)
+    this.context.clearError()
+  await  MealApiService.getUserMeals()
+      .then(this.context.setUserMeals)
+      .catch(this.context.setError)
  
-  //   await  MealApiService.findMealByDate(this.state.formattedDate)
-  //       .then(this.context.setMODList)
-  //       .catch(this.context.setError)
+    await  MealApiService.findMealByDate(this.context.formattedDate)
+        .then(this.context.setMODList)
+        .catch(this.context.setError)
  
  
-    await this.context.getUserMeals()
-    await this.context.getUserMOD()
+
   
 
   }

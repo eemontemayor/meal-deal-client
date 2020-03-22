@@ -5,22 +5,24 @@ import '../Meal_Item/MealItem.css'
 import './Mod.css'
 import dateFormat from 'dateformat';
 import AddMealForm from '../../components/AddMealForm/AddMealForm'
-
+import MealApiService from '../../services/meal-api-service'
 export default class MOD extends Component{
    
   static contextType = MealContext
 
 
- async componentDidMount(){
-    // console.log(this.context.formattedDate)
-   await this.context.getUserMOD()
+  componentDidMount(){
+   MealApiService.findMealByDate(this.context.formattedDate)
+     .then(this.context.setMODList)
+    .catch(this.context.setError)
+
 
 }
 
 
-    list=(meals)=>{
-      
-  
+    renderMODList=(mealArr)=>{
+    // const  meals = this.context.MOD
+      const meals = mealArr
       if( meals === undefined || meals === [] || meals.length <1 ){
       
         return <li key='0'
@@ -48,16 +50,22 @@ return result
     
   }
       render(){
-        const ModList = this.list(this.context.MOD)
+        const ModList = this.renderMODList(this.context.MOD)
+        const {error} = this.context
         const date = dateFormat(this.context.day,'mm/dd')
           return(
             <>
               <p className = 'mod-day'>
                   {date} 
                 </p>
-                  <ul className='mod-list'>
-                  {/* { ModList} */}
-                {this.list(this.context.MOD)}
+              <ul className='mod-list'>
+              {error
+          ? <p className='red'>There was an error, try again</p>
+          :ModList}
+               
+                {/* {error
+          ? <p className='red'>There was an error, try again</p>
+          :this.renderMODList()} */}
               </ul>
                 <p className = 'mod-day'>
                   {date} 
