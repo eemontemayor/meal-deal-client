@@ -84,29 +84,32 @@ export default class BigCalendar extends Component {
     let minDate = new Date(this.state.today.getFullYear(), this.state.today.getMonth()-1)
 
      
-    //  if (meals !== undefined) {
-        
+    
+     if (!!(meals && meals.length)) {
       
-const filteredMeals =  this.filterUserMealsByRange(minDate, maxDate,meals)
-// const sortedMeals = this.sortUserMeals(filteredMeals)
+    
 
-    // this way works, but it seems wasteful/////////////////
-    let tileContentArr
-      // tileContentArr = this.filterMealsByDate(d, sortedMeals)
-      tileContentArr = this.filterMealsByDate(d, filteredMeals)
+      
+       const filteredMeals = this.filterUserMealsByRange(minDate, maxDate, meals)
+       // const sortedMeals = this.sortUserMeals(filteredMeals)
 
-      if (tileContentArr !== undefined ) {
+       // this way works, but it seems wasteful/////////////////
+       let tileContentArr
+       // tileContentArr = this.filterMealsByDate(d, sortedMeals)
+       tileContentArr = this.filterMealsByDate(d, filteredMeals)
+
+       if (tileContentArr !== undefined) {
   
-        let result = []
-        for (let i = 0; i < tileContentArr.length; i++){
-          let name = tileContentArr[i]['meal_name']
-          result.push(<p>{name}</p> )
-        }
+         let result = []
+         for (let i = 0; i < tileContentArr.length; i++) {
+           let name = tileContentArr[i]['meal_name']
+           result.push(<p>{name}</p>)
+         }
        
-        return result
+         return result
       
-      }
-      
+       }
+     }
     /////////////////////////
   // }
    

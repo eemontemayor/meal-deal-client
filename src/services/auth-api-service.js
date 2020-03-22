@@ -31,20 +31,20 @@ const AuthApiService = {
           ? res.json().then(err => Promise.reject(err))
           : res.json()
       )
-      .then(res => {
-        /*
-          whenever a logint is performed:
-          1. save the token in local storage
-          2. queue auto logout when the user goes idle
-          3. queue a call to the refresh endpoint based on the JWT's exp value
-        */
-        TokenService.saveAuthToken(res.authToken)
-        IdleService.regiserIdleTimerResets()
-        TokenService.queueCallbackBeforeExpiry(() => {
-          AuthApiService.refreshToken()
-        })
-        return res
-      })
+      // .then(res => {
+      //   /*
+      //     whenever a logint is performed:
+      //     1. save the token in local storage
+      //     2. queue auto logout when the user goes idle
+      //     3. queue a call to the refresh endpoint based on the JWT's exp value
+      //   */
+      //   TokenService.saveAuthToken(res.authToken)
+      //   IdleService.regiserIdleTimerResets()
+      //   TokenService.queueCallbackBeforeExpiry(() => {
+      //     AuthApiService.refreshToken()
+      //   })
+      //   return res
+      // })
   },
 
   refreshToken() {
@@ -59,22 +59,22 @@ const AuthApiService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
-      .then(res => {
-        /*
+      // .then(res => {
+      //   /*
          
-          -  don't need to queue the idle timers again as the user is already logged in.
-          - catch the error here as this refresh is happening behind the scenes
-        */
-        TokenService.saveAuthToken(res.authToken)
-        TokenService.queueCallbackBeforeExpiry(() => {
-          AuthApiService.refreshToken()
-        })
-        return res
-      })
-      .catch(err => {
-        console.log('refresh token request error')
-        console.error(err)
-      }) 
+      //     -  don't need to queue the idle timers again as the user is already logged in.
+      //     - catch the error here as this refresh is happening behind the scenes
+      //   */
+      //   TokenService.saveAuthToken(res.authToken)
+      //   TokenService.queueCallbackBeforeExpiry(() => {
+      //     AuthApiService.refreshToken()
+      //   })
+      //   return res
+      // })
+      // .catch(err => {
+      //   console.log('refresh token request error')
+      //   console.error(err)
+      // }) 
   },
 }
 
