@@ -3,7 +3,7 @@ import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import dateFormat from 'dateformat';
 import './BigCalendar.css'
-// import MealApiService from '../../services/meal-api-service'
+import MealApiService from '../../services/meal-api-service'
 import MealContext from '../../contexts/MealContext'
 export default class BigCalendar extends Component {
   constructor(props){
@@ -18,17 +18,19 @@ export default class BigCalendar extends Component {
   static contextType = MealContext
 
   async componentDidMount() {
-   await this.context.getUserMeals()
+  //   this.context.clearError()
+  // await  MealApiService.getUserMeals()
+  //     .then(this.context.setUserMeals)
+  //     .catch(this.context.setError)
+ 
+  //   await  MealApiService.findMealByDate(this.state.formattedDate)
+  //       .then(this.context.setMODList)
+  //       .catch(this.context.setError)
+ 
+ 
+    await this.context.getUserMeals()
     await this.context.getUserMOD()
-    // MealApiService.getUserMeals()
-    // .then(meals => {
-    //   this.setState({meals})
-    // }, () => {
-        
-    // })
-    // .catch(error => {
-    //   console.log({error})
-    // })
+  
 
   }
 
@@ -98,7 +100,7 @@ export default class BigCalendar extends Component {
        // tileContentArr = this.filterMealsByDate(d, sortedMeals)
        tileContentArr = this.filterMealsByDate(d, filteredMeals)
 
-       if (tileContentArr !== undefined) {
+       if (!!(tileContentArr && tileContentArr.length)) {
   
          let result = []
          for (let i = 0; i < tileContentArr.length; i++) {
