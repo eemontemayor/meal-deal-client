@@ -45,18 +45,15 @@ aside {
     .App {
         display: grid;
         grid-template-columns:40px 1fr;
-        /* grid-template-rows: 40px 1fr 40px; */
-        grid-template-rows: 40px 1fr ;
+        grid-template-rows: 40px 1fr 40px;
+  
 
-        /* grid-template-areas:
+        grid-template-areas:
           "aside header"
           "aside main"
-          "aside footer"; */
-          grid-template-areas:
-          "aside header"
-          "aside main";
-         
-        height: 100vh;
+          "aside footer";
+       
+        min-height: 100vh;
       }
       aside {
         /* display:none; */

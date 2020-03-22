@@ -4,7 +4,7 @@ ul{
 }
 ul .result-list{
  
-    min-height: 700px;
+    /* min-height: 700px; */
     height:auto;    
     width:100%;
    
