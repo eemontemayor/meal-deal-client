@@ -38,7 +38,7 @@ export default class AddMealForm extends Component{
       // instructions:this.state.instructionsList,    
     }
 
-    this.props.handlePostMeal(newMeal)
+    this.context.postMeal(newMeal)
       this.setState({meal_name:''})
      
  

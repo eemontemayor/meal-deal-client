@@ -28,7 +28,7 @@ export default class BigCalendar extends Component {
         .catch(this.context.setError)
  
  
-
+console.log(this.context.userMeals)
   
 
   }
