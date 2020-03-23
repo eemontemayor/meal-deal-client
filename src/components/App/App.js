@@ -151,9 +151,6 @@ export default class App extends Component {
   };
 
 
-
-
-
   //======================= BOOKMARK CRUD OPERATORS ================================//
 
 
