@@ -35,34 +35,17 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    // TO-DO add a Promise.all here
+
     const formattedDate = dateFormat(this.state.value, "yyyy-mm-dd");
     this.setState({ formattedDate }, () => {
       MealApiService.findMealByDate(formattedDate)
-        .then(meals => {
-          this.setState({
-            MOD: meals
-          });
-        })
-        .catch(error => {
-          console.log({ error });
-        });
+        .then(this.setMODList)
+        .catch(this.setError);
     });
 
   }
 
-  //////
 
-  addMeal = meal => {
-    console.log(meal, "from addMeal");
-    this.setState({ ...this.state.userMeals, meal });
-  };
-  addMOD = meal => {
-    this.setState({ ...this.state.MOD, meal });
-  };
-  addBookmark = bookmark => {
-    this.setState({ ...this.state.bookmarks, bookmark });
-  };
   setBookmarkList = bookmarks => {
     this.setState({ bookmarks });
   };
@@ -82,17 +65,10 @@ export default class App extends Component {
     this.setState({ error: null });
   };
 
-  getUserMeals = () => {
-    MealApiService.getUserMeals()
-      .then(meals => {
-        this.setState({
-          userMeals: meals
-        });
-      })
-      .catch(error => {
-        console.log({ error });
-      });
+  goBack = () => {
+    this.props.history.push("/");
   };
+
 
   onChange = value => {
     const formattedDate = dateFormat(value, "yyyy-mm-dd");
@@ -105,17 +81,7 @@ export default class App extends Component {
   };
 
   //====================== MEAL CRUD OPERATORS ========================
-  getUserMOD = () => {
-    MealApiService.findMealByDate(this.state.formattedDate)
-      .then(meals => {
-        this.setState({
-          MOD: meals
-        });
-      })
-      .catch(error => {
-        console.log({ error });
-      });
-  };
+
 
   postMeal = meal => {
     let name = meal.meal_name
@@ -125,26 +91,28 @@ export default class App extends Component {
 
     let newMeal = {
       id: undefined,
-
       meal_name: name,
       image: meal.image,
       ingredients: [meal.ingredients],
       instructions: [meal.instructions],
-
       on_day: this.state.formattedDate
     };
 
     if (this.state.MOD === undefined || this.state.MOD.length < 3) {
       MealApiService.postMeal(newMeal, this.state.formattedDate)
+      .then(res => {
+        MealApiService.findMealByDate(this.state.formattedDate)
+        .then(this.setMODList)
+      })
         .then(res => {
-          this.getUserMOD();
-          this.getUserMeals();
+          MealApiService.getUserMeals()
+          .then(this.setUserMeals)
         })
+      
         .catch(error => {
           console.log({ error });
         });
-      //  .then(this.addMeal)
-      // .catch(this.setError)
+
     } else {
       return alert("only 3 meals per day allowed");
     }
@@ -156,19 +124,19 @@ export default class App extends Component {
     let id = meal.id;
 
     if (id === undefined || !id) {
-      console.log("if undefined", index);
+     
       delete newMOD[index];
       this.setState({
         MOD: newMOD
       });
     } else {
-      console.log("newMod", newMOD);
 
       MealApiService.deleteMeal(meal)
         .then(res => {
           if (res.ok) {
             mealList = mealList.filter(i => i.id !== id);
-            delete newMOD[index];
+            newMOD = newMOD.filter(i=> i.id !== id)
+            // delete newMOD[index];
 
             this.setState({
               MOD: newMOD,
@@ -181,19 +149,14 @@ export default class App extends Component {
         });
     }
   };
+
+
+
+
+
   //======================= BOOKMARK CRUD OPERATORS ================================//
 
-  getUserBookmarks = () => {
-    MealApiService.getBookmarks()
-      .then(meals => {
-        this.setState({
-          bookmarks: meals
-        });
-      })
-      .catch(error => {
-        console.log({ error });
-      });
-  };
+
 
   handleAddBookmark = meal => {
     //adds to bookmark table in db
@@ -220,11 +183,7 @@ export default class App extends Component {
       MealApiService.postBookmark(newBookmark)
         .then(meal => {
           MealApiService.getBookmarks()
-            .then(meals => {
-            this.setState({
-              bookmarks: meals
-            });
-          });
+            .then(this.setBookmarkList);
         })
         .catch(error => {
           console.log({ error });
@@ -251,40 +210,55 @@ export default class App extends Component {
     // MealApiService.updateBookmark(bookmark, id)
   };
 
-  //======================= HELPER FUNCTIONS ================================//
+  
 
-  goBack = () => {
-    this.props.history.push("/");
-  };
+
+
+  //////
+
+  // addMeal = meal => {
+  //   console.log(meal, "from addMeal");
+  //   this.setState({ ...this.state.userMeals, meal });
+  // };
+  // addMOD = meal => {
+  //   this.setState({ ...this.state.MOD, meal });
+  // };
+  // addBookmark = bookmark => {
+  //   this.setState({ ...this.state.bookmarks, bookmark });
+  // };
+
 
   render() {
     const contextValue = {
       day: this.state.value,
-
       formattedDate: this.state.formattedDate,
+      userMeals: this.state.userMeals,
       MOD: this.state.MOD,
       bookmarks: this.state.bookmarks,
-      handleDeleteMeal: this.handleDeleteMeal,
-      handleAddBookmark: this.handleAddBookmark,
-      handleDeleteBookmark: this.handleDeleteBookmark,
-      postMeal: this.postMeal,
-      onChange: this.onChange,
-      userMeals: this.state.userMeals,
-      goBack: this.goBack,
       handleUpdateBookmark: this.handleUpdateBookmark,
-      getUserBookmarks: this.getUserBookmarks,
-      getUserMOD: this.getUserMOD,
-      getUserMeals: this.getUserMeals,
-
+      handleDeleteBookmark: this.handleDeleteBookmark,
+      handleAddBookmark: this.handleAddBookmark,
+     
+     
+     
+      postMeal: this.postMeal,
+      handleDeleteMeal: this.handleDeleteMeal,
+      
+      
+      onChange: this.onChange,
+      goBack: this.goBack,
+  
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
       setMODList: this.setMODList,
       setUserMeals: this.setUserMeals,
       setBookmarkList: this.setBookmarkList,
-      addMeal: this.addMeal
-      // findMealById:this.findMealById,
-      // setSelectedMeal:this.setSelectedMeal
+
+      // addMeal: this.addMeal,
+      // addMOD: this.addMOD,
+      // addBookmark:this.addBookmark
+   
     };
 
     return (

@@ -19,16 +19,16 @@ export default class BigCalendar extends Component {
 
    componentDidMount() {
     this.context.clearError()
-    MealApiService.getUserMeals()
-      .then(this.context.setUserMeals)
-      .catch(this.context.setError)
+    // MealApiService.getUserMeals()
+    //   .then(this.context.setUserMeals)
+    //   .catch(this.context.setError)
  
-      MealApiService.findMealByDate(this.context.formattedDate)
-        .then(this.context.setMODList)
-        .catch(this.context.setError)
+      // MealApiService.findMealByDate(this.context.formattedDate)
+      //   .then(this.context.setMODList)
+      //   .catch(this.context.setError)
  
  
-console.log(this.context.userMeals)
+
   
 
   }
