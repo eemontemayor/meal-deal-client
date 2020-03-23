@@ -19,9 +19,9 @@ const MealApiService = {
         return mealsRes.json().then(e => Promise.reject(e))
       return mealsRes.json()
     })
-    .catch(error => {
-      console.error({error})
-    })
+    // .catch(error => {
+    //   console.error({error})
+    // })
   },
   getUserMeals(){
     return fetch(`${config.API_ENDPOINT}/meals`,{
@@ -36,9 +36,9 @@ const MealApiService = {
           return mealsRes.json().then(e => Promise.reject(e))
         return mealsRes.json()
       })
-      .catch(error => {
-        console.error({error})
-      })
+      // .catch(error => {
+      //   console.error({error})
+      // })
    
     },
 
@@ -56,10 +56,10 @@ const MealApiService = {
           return mealsRes.json().then(e => Promise.reject(e))
         return mealsRes.json()
       })
-      .catch(error => {
-        console.error({error})
+      // .catch(error => {
+      //   console.error({error})
         
-      })
+      // })
     },
 
   
@@ -79,10 +79,10 @@ findMealById(id,date){
       return mealsRes.json().then(e => Promise.reject(e))
     return mealsRes.json()
   })
-  .catch(error => {
-    console.error({error})
+  // .catch(error => {
+  //   console.error({error})
   
-  })
+  // })
 },
 
 
@@ -102,9 +102,9 @@ findMealById(id,date){
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       })
-      .catch(error => {
-        console.log({error})
-      })
+      // .catch(error => {
+      //   console.log({error})
+      // })
     },
 
 
@@ -133,9 +133,9 @@ findMealById(id,date){
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       })
-      .catch(error => {
-        console.log({error})
-      })
+      // .catch(error => {
+      //   console.log({error})
+      // })
 
     },
 //TODO: MAKE RESTFUL
@@ -173,10 +173,10 @@ findMealById(id,date){
           return mealsRes.json().then(e => Promise.reject(e))
         return mealsRes.json()
       })
-      .catch(error => {
-        console.error({error})
-        console.log('here')
-      })
+      // .catch(error => {
+      //   console.error({error})
+      //   console.log('here')
+      // })
     },
 
 
@@ -195,9 +195,9 @@ findMealById(id,date){
           return mealsRes.json().then(e => Promise.reject(e))
         return mealsRes.json()
       })
-      .catch(error => {
-        console.error({error})
-      })
+      // .catch(error => {
+      //   console.error({error})
+      // })
     },
     postBookmark(x){
      
@@ -216,9 +216,9 @@ findMealById(id,date){
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       })
-      .catch(error => {
-        console.log({error})
-      })
+      // .catch(error => {
+      //   console.log({error})
+      // })
     },
     deleteBookmark(meal){
       return fetch(`${config.API_ENDPOINT}/bookmarks`, { 
@@ -246,10 +246,10 @@ findMealById(id,date){
 
         return res.json()
       })
-      .catch(error => {
-        console.error(error)
+      // .catch(error => {
+      //   console.error(error)
     
-      })
+      // })
     },
 
 };

@@ -24,12 +24,8 @@ export default class PlannerPage extends Component {
   static contextType = MealContext;
   componentDidMount() {
     MealApiService.getUserMeals()
-      .then(meals => {
-        this.setState({ meals });
-      })
-      .catch(error => {
-        console.log({ error });
-      });
+      .then(this.context.setUserMeals)
+      .catch(this.context.setError);
   }
 
   handleClick = x => {
@@ -50,20 +46,23 @@ export default class PlannerPage extends Component {
     );
   };
 
+
+
+
+
+
   render() {
-    // const day = dateFormat(this.props.value, "mm/dd/yy");
-    // const formattedDay = dateFormat(day, "ddd");
-    const meals = this.state.meals;
+
+
     return (
       <div className="planner-page">
         <div className="calendar-container">
           <BigCalendar
-            // handleDayClick={this.handleClick}
-            userMeals={meals}
+        
           />
         </div>
         <div className='mod-container'>
-        <MOD/>
+          <MOD />
         </div>
         <div className="search-form-container">
           <button
@@ -95,7 +94,7 @@ export default class PlannerPage extends Component {
         </div>
 
         <div className="res-container">
-          {this.state.view === "bm" && <BookMarks />}
+          {this.state.view === "bm" && <BookMarks  />}
           {this.state.view === "sf" && this.state.searchResults.length > 1 && (
             <SearchResults searchResults={this.state.searchResults} />
           )}

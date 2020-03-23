@@ -67,8 +67,9 @@ export default class MealItemPage extends Component{
     let newIngList = ingList;
     // let newInstList = instList;
 
-    if (newIngList !== undefined) {
-      newIngList = newIngList.map((item, index) => {
+    if (!!(newIngList && newIngList.length)) {
+    
+      newIngList = newIngList.split(',').map((item, index) => {
         return <li key={index}>{item}</li>;
       });
     } else {

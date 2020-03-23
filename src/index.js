@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom'
 import { UserProvider } from './contexts/UserContext'
+// import {MealProvider} from './contexts/MealContext'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faPlus, faChevronLeft, faTrashAlt,faSearch,faEdit,faBookmark,faCalendarAlt,faShoppingBasket

@@ -25,8 +25,9 @@ div.react-calendar{
 
  }
  .react-calendar__tile p{
-  text-align:center;
-  margin:7px;
+  /* word-wrap: break-word; */
+  text-align:left;
+  margin:4px;
  }
  .tile-text{
    color:blue;
