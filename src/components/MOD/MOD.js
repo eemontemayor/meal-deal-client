@@ -30,10 +30,10 @@ export default class MOD extends Component{
         >
      
         
-          <AddMealForm/>
+          <AddMealForm handlePostMeal={this.props.postMeal}/>
           </li>
       } else if (meals.length < 3) {
-        let form = <li key='0'><AddMealForm/></li> 
+        let form = <li key='0'><AddMealForm handlePostMeal={this.props.postMeal}/></li> 
         let mod = meals.map((item, index) => (
           <MealItem meal={item} key={index} index={index} image={item.image} mod={true} />
           ))

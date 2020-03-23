@@ -41,33 +41,33 @@ componentDidMount(){
     this.setState({formattedDate },()=>{
     MealApiService.findMealByDate(formattedDate)
     .then(meals =>{ 
-        this.setState({
-            MOD:meals
-        })
-    })
-    .catch(error => {
-      console.log({error})
-    })
-    })
-MealApiService.getUserMeals()
-    .then(meals => {
       this.setState({
-        userMeals:meals
+          MOD:meals
       })
+  })
+  .catch(error => {
+    console.log({error})
+  })
+  })
+MealApiService.getUserMeals()
+  .then(meals => {
+    this.setState({
+      userMeals:meals
     })
-    .catch(error => {
-      console.log({error})
-    })
-    
- MealApiService.getBookmarks()
-    .then(meals=>{
-        this.setState({
-            bookmarks:meals
-        })
-    })
-    .catch(error => {
-      console.log({error})
-    })
+  })
+  .catch(error => {
+    console.log({error})
+  })
+  
+MealApiService.getBookmarks()
+  .then(meals=>{
+      this.setState({
+          bookmarks:meals
+      })
+  })
+  .catch(error => {
+    console.log({error})
+  })
 }
 
   
@@ -121,14 +121,8 @@ onChange = value => {
 
     this.setState({ value,formattedDate },()=>{
     MealApiService.findMealByDate(formattedDate)
-    .then(meals =>{ 
-        this.setState({
-            MOD:meals
-        })
-    })
-    .catch(error => {
-      console.log({error})
-    })
+    .then(this.setMODList)
+    .catch(this.setError)
     })  
 }
 
@@ -151,7 +145,8 @@ postMeal=(meal)=>{
   let newMeal = {
 
 
-    meal_name:name,
+    meal_name: name,
+    image:meal.image,
     ingredients: [meal.ingredients],
     instructions:[meal.instructions],
     id:undefined,
@@ -199,12 +194,14 @@ handleDeleteMeal=(meal,index)=>{
           .then(res =>{
             this.getUserMOD()
             this.getUserMeals()
-            // delete newMOD[index] **above works better**
-            // console.log('newMod', this.state.MOD)
+            // delete newMOD[index]
+            // delete mealList[index]
             // this.setState({
-            //   MOD:newMOD
+            //   MOD: newMOD,
+            //   userMeals:mealList
             // })
-          })
+          }
+          )
           .catch(error => {
             console.log({error})
           })
@@ -267,13 +264,13 @@ handleAddBookmark=(meal)=>{ //adds to bookmark table in db
 }
 
 handleDeleteBookmark=(meal,index)=>{
-    let newList = this.state.bookmarks
+    let bookmarks = this.state.bookmarks
   
     MealApiService.deleteBookmark(meal)
     .then(res =>{
-        delete newList[index]
+        delete bookmarks[index]
         this.setState({
-            bookmarks:newList
+            bookmarks
         })
     })
 }
