@@ -27,11 +27,15 @@
      
          color:  #006edc;
          margin:none;
-     
+         max-width: calc(100vw - 400px);
+
      }
 
    
     .mod-list{
+
+
+        padding: 1px;
         margin:auto;
        display: flex;
        flex-direction: row;

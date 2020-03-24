@@ -11,6 +11,7 @@
     "footer";
   min-height: 100vh;
   width:100vw;
+  max-width: 100vw;
 }
 header {
   grid-area: header;
@@ -53,7 +54,7 @@ aside {
           "aside main"
           "aside footer";
        
-        min-height: 100vh;
+        max-height: 100vh;
       }
       aside {
         /* display:none; */
@@ -76,10 +77,6 @@ aside {
         background-color:rgba(254, 255, 255, 0.993);
       }
       header footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        /* padding: 0 5px; */
-        /* background-color: #648ca6; */
+      padding:0px;
       }
 }
