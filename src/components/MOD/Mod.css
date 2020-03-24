@@ -18,16 +18,21 @@
    padding:5px;
     color:  #006edc;
     margin:auto;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: bolder;
 }
 
 @media only screen and (min-width: 760px) {
-
+    .mod-day{
+     
+         color:  #006edc;
+         margin:none;
+     
+     }
 
    
     .mod-list{
-        margin:0;
+        margin:auto;
        display: flex;
        flex-direction: row;
     }
