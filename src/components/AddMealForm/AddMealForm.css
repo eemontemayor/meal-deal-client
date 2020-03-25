@@ -62,7 +62,7 @@ background-color: rgb(0, 255, 255);
   box-shadow: 0px 0px 5px rgba(107, 107, 107, 0.616);
   border-radius: 5px;
 } */
-@media only screen and (min-width: 760px) {
+/* @media only screen and (min-width: 760px) { */
   .add-meal-form{
     display: inline-block;
     background-color:  #006edce8;
@@ -86,4 +86,9 @@ text-align: center;
     width:30px;
     border-radius: 15px;
   }
-}
+
+  .form-add-btn:hover{
+    color:white;
+    background-color: #006edce8;
+  }
+/* } */

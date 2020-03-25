@@ -8,7 +8,7 @@
     display: flex;
     padding: .5em;
     border-bottom: .5px solid grey;
-    border-right: .5px solid grey;
+    /* border-right: .5px solid grey; */
     background-color: rgb(255, 255, 247);
     position: relative;
 }
@@ -17,13 +17,13 @@
   float: right;
 }
 .mod-item img{
-    height:80px;
+    height:75px;
   float: right;
 }
 .mod-item{
     background-color:  #006edce8;
     color:white;
-    width:220px;
+    width:215px;
 padding:1px;
 margin:0 5px;
 border-radius: 5px;

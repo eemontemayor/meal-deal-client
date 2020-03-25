@@ -28,7 +28,7 @@ button.search-form-btn.disabled{
         display: grid;
         grid-template-rows: 90px 1fr;
         grid-template-columns: 350px 1fr;
-        grid-column-gap: 5px;
+   
         grid-row-gap: 0px;
         overflow-y: scroll;
         grid-template-areas:
@@ -44,7 +44,7 @@ button.search-form-btn.disabled{
           flex-direction: column;
           background-color:rgba(254, 255, 255, 0.993);
 
-          overflow-y: scroll;
+          overflow-y: auto;
           background-color:none;
           grid-area: results;
         border-right: 1px solid rgba(128, 128, 128, 0.795);
