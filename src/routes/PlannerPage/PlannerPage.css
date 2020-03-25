@@ -40,7 +40,7 @@ button.search-form-btn.disabled{
        
         .res-container { 
           display: flex;
-          height:calc(100vh - 175px);
+          height:calc(100vh - 190px);
           flex-direction: column;
    
           overflow-y: scroll;
@@ -60,7 +60,7 @@ button.search-form-btn.disabled{
        grid-area: mod;
        height:90px;
    /* width:100%; */
-   width: calc(100vw - 400px);
+   width: calc(100vw - 415px);
    margin: auto;
    border-left:.5px solid rgba(128, 128, 128, 0.363);
    border-bottom:.5px solid rgba(128, 128, 128, 0.363);
@@ -74,10 +74,10 @@ button.search-form-btn.disabled{
  .calendar-container{
   grid-area: calendar; 
    height:auto;
-   max-height:calc(100vh - 175px);
+   max-height:calc(100vh - 190px);
    width:100%;
-   max-width: calc(100vw - 400px);
-   margin: 0 auto;
+   max-width: calc(100vw - 415px);
+  padding:5px 5px;
  }
 
 

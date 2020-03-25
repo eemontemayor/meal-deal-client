@@ -54,7 +54,7 @@ div.item-buttons button:hover{
 }
 p.meal-name{
     /* display: inline-flex; */
-    font-size:1.1em;
+    font-size:.9em;
     padding:3px;
     text-align: center;
     margin:auto

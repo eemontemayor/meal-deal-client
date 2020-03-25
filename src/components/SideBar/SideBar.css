@@ -3,7 +3,7 @@ div.sidebar{
    
     display: flex;
     flex-direction: column;
-    width:50px;
+    width:40px;
     background-color: rgb(255, 255, 255);
    
 }
