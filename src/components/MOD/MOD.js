@@ -10,9 +10,9 @@ export default class MOD extends Component {
   static contextType = MealContext;
 
   componentDidMount() {
-     MealApiService.findMealByDate(this.context.formattedDate)
-       .then(this.context.setMODList)
-      .catch(this.context.setError)
+    //  MealApiService.findMealByDate(this.context.formattedDate)
+    //    .then(this.context.setMODList)
+    //   .catch(this.context.setError)
   }
 
   renderMODList = mealArr => {
