@@ -17,6 +17,10 @@ button.search-form-btn.disabled{
   pointer-events: none;
 
 }
+.mod-container{
+  background-color: rgba(214, 214, 214, 0.705);
+  text-align: center;
+}
 
 /* DESKTOP VIEW */
 @media only screen and (min-width: 760px) {
@@ -56,6 +60,7 @@ button.search-form-btn.disabled{
         }
      
      .mod-container{
+    
        display: flex;
        flex-direction: row;
        grid-area: mod;
