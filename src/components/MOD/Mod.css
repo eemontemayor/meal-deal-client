@@ -15,10 +15,10 @@
    
 }
 .mod-day{
-   padding:5px;
+   padding:3px;
     color:  #006edc;
     margin:auto;
-    font-size: 1.1em;
+
     font-weight: bolder;
 }
 
@@ -26,16 +26,14 @@
     .mod-day{
      
          color:  #006edc;
-         margin:none;
-         max-width: calc(100vw - 400px);
+    
 
      }
 
    
     .mod-list{
-
-
-        padding: 1px;
+        overflow-x: auto;
+        overflow-x: auto;
         margin:auto;
        display: flex;
        flex-direction: row;

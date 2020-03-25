@@ -40,9 +40,10 @@ button.search-form-btn.disabled{
        
         .res-container { 
           display: flex;
-          height:calc(100vh - 190px);
+          height:calc(100vh - 180px);
           flex-direction: column;
-   
+          background-color:rgba(254, 255, 255, 0.993);
+
           overflow-y: scroll;
           background-color:none;
           grid-area: results;
@@ -74,7 +75,7 @@ button.search-form-btn.disabled{
  .calendar-container{
   grid-area: calendar; 
    height:auto;
-   max-height:calc(100vh - 190px);
+   max-height:calc(100vh - 180px);
    width:100%;
    max-width: calc(100vw - 415px);
   padding:5px 5px;
