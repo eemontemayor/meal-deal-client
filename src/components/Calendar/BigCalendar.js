@@ -3,7 +3,7 @@ import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import dateFormat from 'dateformat';
 import './BigCalendar.css'
-import MealApiService from '../../services/meal-api-service'
+// import MealApiService from '../../services/meal-api-service'
 import MealContext from '../../contexts/MealContext'
 export default class BigCalendar extends Component {
   constructor(props){

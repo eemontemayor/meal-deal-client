@@ -5,7 +5,7 @@ import "../Meal_Item/MealItem.css";
 import "./Mod.css";
 import dateFormat from "dateformat";
 import AddMealForm from "../../components/AddMealForm/AddMealForm";
-import MealApiService from "../../services/meal-api-service";
+// import MealApiService from "../../services/meal-api-service";
 export default class MOD extends Component {
   static contextType = MealContext;
 
