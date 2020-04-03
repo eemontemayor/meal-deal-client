@@ -58,7 +58,7 @@ export default class Explorer extends Component{
             <form className='searchForm'onSubmit={this.handleExplorerSubmit}>           
             <div className='searchTerm'onChange={this.handleChange.bind(this)}>
               <label htmlFor='explorer_search_term'>
-                Search for:
+               Browse new meals:
               </label>
               <Input
                 required

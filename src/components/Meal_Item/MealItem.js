@@ -164,8 +164,8 @@ const index=this.props.index
         <div className={this.props.mod ===true ? 'mod-item':"meal-item"}>
     {this.renderMealImage()}
 
-          {this.renderButtons()}
          {this.renderMealName()}
+          {this.renderButtons()}
 
         </div>
       </li>

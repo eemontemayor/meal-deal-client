@@ -11,10 +11,7 @@ ul .bm-list{
 .bm-list li{
     list-style: none;
 }
-.bm-title{
-    text-align: center;
-    margin:10px;
-}
+
 @media only screen and (min-width: 760px) {
   
 }

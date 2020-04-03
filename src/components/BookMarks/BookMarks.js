@@ -38,7 +38,7 @@ export default class BookMarks extends Component{
         const {error} = this.context
         return(
             <>
-                    <h4 className='bm-title'>BOOKMARKS</h4><br/>
+                  
                 <ul className='bm-list'>
 
                   {error

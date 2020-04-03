@@ -1,13 +1,14 @@
-
+/* 
 
 
 .submit-search-btn{
     width:75px;
-    padding:5px;
-    
+    border-radius: 10px ;
+    border:2px solid rgb(38, 207, 89);
     height:fit-content;
-    background-color: rgb(200, 200, 200);
+    background-color: rgb(233, 233, 233);
     cursor: pointer;
+    text-align: center;
 }
 .submit-search-btn:hover{
     background-color: rgb(47, 255, 109);
@@ -15,6 +16,20 @@
 
 @media only screen and (min-width: 760px) {
    
-
-   
-}
+    .submit-search-btn{
+        width: 75px;
+        height: 25px;
+        border-radius: 10px ;
+     
+    
+    }
+    .searchTerm{
+        padding:1px;
+       
+    }
+    
+    input#search_search_term{
+       background-color:rgb(248, 246, 246);
+    height:25px;
+   }
+} */

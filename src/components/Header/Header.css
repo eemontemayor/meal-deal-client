@@ -33,6 +33,7 @@ div .nav-links *{
     margin-left: 1em;
     text-decoration: none;
     font-size:1.2em;
+    color: #39134c;
   }
   
   .nav-links p {
@@ -46,16 +47,17 @@ div .nav-links *{
   
   .deal {
     font-size: 1.3em;
-    color:  rgb(195, 0, 255)
+    color: #39134c;
   }
   .meal{
     font-size: 1.3em;
-    color: rgb(64, 110, 3)
+    color: #39134c;
   }
   p#user-name{
     position: absolute;
     left: 50px;
     top: 10px;
+    color: #39134c;
   
   }
   @media only screen and (max-width: 760px) {

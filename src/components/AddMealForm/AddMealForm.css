@@ -79,7 +79,7 @@ background-color: rgb(0, 255, 255);
 text-align: center;
   }
   .form-add-btn{
-    margin: auto;
+    margin: 5px;
     text-align: center;
     float: right;
     height:30px;

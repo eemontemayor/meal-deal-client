@@ -1,5 +1,5 @@
 .log-reg-header {
-    margin: 0;
+  margin: 0px 0px 10px 0px;
     text-align: left;
   }
   
@@ -8,19 +8,27 @@
   }
   
   .log-in-form{
-      border:1px solid black;
-      padding:40px;
+
+    padding: 30px 30px 10px;
       max-width: fit-content;
       margin:auto;
       border-radius:10px;
       text-align: end;
       background-color: white;
-      box-shadow: 5px 5px 3px grey;
-      margin-top:20vh;
+      box-shadow:
+      0 1.7px 2.2px rgba(0, 0, 0, 0.104),
+      0 4.2px 5.3px rgba(0, 0, 0, 0.149),
+      0 7.9px 10px rgba(0, 0, 0, 0.185),
+      0 14.1px 17.9px rgba(0, 0, 0, 0.221),
+      0 26.3px 33.4px rgba(0, 0, 0, 0.266),
+      0 63px 80px rgba(0, 0, 0, 0.37)
+    ;
+    
+      /* margin-top:20vh; */
       position: relative;
   }
   .log-in-button{
-      margin-bottom:8px;
+      margin:5px 0px;
       border:.5px solid black;
       border-radius: 10px;
       padding-top:2px;
@@ -40,31 +48,24 @@
       cursor: pointer;
   }
   
-  .employer-btn{
-    text-decoration: underline;
-    border:none;
-   margin-top:20px ;
-   transition: all 5s ease;
-  }
-  .employer-btn:hover{
-    background-color: rgba(62, 197, 241, 0.507);
-    transform: scale(1.3);
-    /* transform: scale(1.5, 1.5); */
-
-
-  }
-
+  a.login-redirect {
+    margin: 15px 0px;
+   font-size: .9em;
+}
   
   .login-error {
-    color: red;
+    color: rgb(253, 71, 71);
+    font-weight: bolder;
+   
   }
   
   .log-error-container {
-    position: absolute;
-    top: -60px;
-    right: 0;
-    left: 0;
+  
     text-align: center;
     margin: auto;
     color: red;
+ 
   }  
+  .login-input{
+    margin: 5px 0px;
+  }

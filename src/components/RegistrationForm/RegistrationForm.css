@@ -11,9 +11,20 @@
       border-radius:10px;
       text-align: end;
       background-color: white;
-      box-shadow: 5px 5px 3px grey;
+      box-shadow:
+      0 1.7px 2.2px rgba(0, 0, 0, 0.104),
+      0 4.2px 5.3px rgba(0, 0, 0, 0.149),
+      0 7.9px 10px rgba(0, 0, 0, 0.185),
+      0 14.1px 17.9px rgba(0, 0, 0, 0.221),
+      0 26.3px 33.4px rgba(0, 0, 0, 0.266),
+      0 63px 80px rgba(0, 0, 0, 0.37)
+    ;
       position: relative;
   }
+  .registration-form *{
+      margin:2px;
+  }
+
   .registration-button{
       border:.5px solid black;
       background-color: white;
@@ -38,14 +49,12 @@
   .auth-error {
     color: red;
     display: inline-block;
+    font-weight: bolder;
     width: 90%;
   }
   
   .auth-error-container {
-    position: absolute;
-    top: -60px;
-    right: 0;
-    left: 0;
+  
     text-align: center;
     margin: auto;
     color: red;
