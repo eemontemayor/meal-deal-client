@@ -4,11 +4,9 @@
     min-height: 80px;
     max-height: 95px;
     width:325px;
-    /* min-height: 110px; */
     display: flex;
     padding: .5em;
     border-bottom: .5px solid grey;
-    /* border-right: .5px solid grey; */
     background-color: rgb(255, 255, 247);
     position: relative;
 }
@@ -31,7 +29,21 @@ border-radius: 5px;
     height:80px;
  
 }
+.item-buttons button{
+    padding: 0px;
+    margin:0px 7px;
+    height: 24px;
+    border: none;
+    width: 24px;
+    border-radius: 12px;
+    color:black;
+    background-color: transparent;
+}
+.item-buttons button:hover{
+    border:.5px solid black;
+}
 .mod-item .item-buttons button{
+    border: 1px solid white;
   margin:0px 7px;
     height: 24px;
     width: 24px;
@@ -43,6 +55,10 @@ border-radius: 5px;
     display:inline-flex;
     flex-direction: row;
 width: fit-content;
+}
+.mod-item .item-buttons button:hover{
+    background-color: white;
+    color: black;
 }
 .meal-item a{
     text-decoration: none;
@@ -58,10 +74,7 @@ width: fit-content;
 
     /* padding:5px 5px; */
 }
-div.item-buttons button:hover{
-    background-color:white;
-    color:black;
-}
+
 p.meal-name{
 
     font-size:.9em;
