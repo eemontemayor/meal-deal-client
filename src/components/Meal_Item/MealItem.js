@@ -20,13 +20,6 @@ export default class MealItem extends Component {
    
   }
 
-//   handleViewIngredients=()=>{
-//     this.setState({
-//         viewIngredients:!this.state.viewIngredients
-//     },()=>{
-//         console.log(this.state)
-//     })
-// }
 
 
   renderButtons = () => {
@@ -116,7 +109,7 @@ export default class MealItem extends Component {
           >
           <FontAwesomeIcon className='icon bookmark' size='1x' icon = 'bookmark'/>          </button>      
             {" "}
-            <button className="see-more-btn">...</button>{" "}
+            {/* <button className="see-more-btn">...</button>{" "} */}
          {" "}
           <button
             className="add-btn"

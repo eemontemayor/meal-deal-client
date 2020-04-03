@@ -1,13 +1,13 @@
 import React,{Component} from 'react'
 import './MealItemPage.css'
+// import { Link } from "react-router-dom";
 import MealApiService from '../../services/meal-api-service'
-// import MealItem from '../../components/Meal_Item/MealItem'
 import MealContext from '../../contexts/MealContext'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default class MealItemPage extends Component{
     state={
         selectedMeal:[],
-        cssClass:''
+        type:''
     }
     static contextType = MealContext
     componentDidMount(){
@@ -24,7 +24,7 @@ export default class MealItemPage extends Component{
        
              this.setState({
                  selectedMeal:meal[0],
-                 cssClass:'bm-item'
+                //  type:'Bookmark'
                 })
             })
             .catch(error =>{
@@ -44,7 +44,7 @@ export default class MealItemPage extends Component{
              
              this.setState({
                  selectedMeal:meal[0],
-                 cssClass:'mod-item'
+                //  type:'mod'
                 })
             })
             .catch(error =>{
@@ -52,17 +52,29 @@ export default class MealItemPage extends Component{
             })
         }   
     }
+
+    handleEditClick=()=>{alert('edit meal feature coming soon')}
+
     renderMeal = (meal) => {
         return (
-            <div className='meal-info-container'>
-                <img className='meal-item-page-pic'src={meal.image} alt='x'/>
-                <h1>
+          <>
+                <img className='meal-page-pic'src={meal.image} alt='x'/>
+            <div className='meal-page-info-container'>
+                <h1 className = 'meal-page-name'>
                     {meal.meal_name}
                 </h1>
+                  {/* <Link to='/edit'> */}
+                <button className='edit-btn'onClick={this.handleEditClick}>
+                    Edit
+                  </button>
+                    {/* </Link> */}
                {this.renderLists(meal.ingredients, meal.instructions)}
             </div>
+            </>
         )
     }
+
+
   renderLists = (ingList, instList) => {
     let newIngList = ingList;
     // let newInstList = instList;
@@ -85,10 +97,10 @@ export default class MealItemPage extends Component{
     // }
 
     return (
-      <div>
-        {/* <Link to={`/bookmark/edit/${this.props.meal.id}`} >Edit Meal</Link> */}
-        <div className="meal-item-page-lists">
-          <ul className="page-ing-list">
+      <>
+      
+        
+          <ul className="meal-page-ing-list">
             INGREDIENTS:
             {newIngList}
           </ul>
@@ -96,8 +108,8 @@ export default class MealItemPage extends Component{
             INSTRUCTIONS:
             {newInstList}
           </ul> */}
-        </div>
-      </div>
+        </>
+    
     );
   };
    
@@ -107,7 +119,8 @@ export default class MealItemPage extends Component{
             return(
                 
                 
-                <div className='meal-item-page'><button className='back-btn' onClick={()=>this.props.history.goBack()}> <FontAwesomeIcon
+                <div className='meal-item-page'>
+                  <button className='back-btn' onClick={()=>this.props.history.goBack()}> <FontAwesomeIcon
                 className="icon chevron-left"
                 size="1x"
                 icon="chevron-left"

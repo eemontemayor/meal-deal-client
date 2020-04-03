@@ -1,41 +1,99 @@
 .meal-item-page{
-    display: grid;
-    grid-template-columns:150px 1fr;
-    grid-template-rows: 150px 1fr;
-    grid-template-areas:
-      "back item"
-      "inst ing"
-      ;
-      width:90vw;
+  margin: auto;
+    display: flex;
+    flex-direction: column;
+      width:100vw;
+      
     height:calc(100vh - 175px)
   }
   .back-btn{
       font-size: 1.3em;
-    grid-area: back;
-    height:150px;
-    width:150px;
+      position:fixed;
+      top:40px;
+      left:10px;
+    height:90px;
+    width:90px;
+    border-radius: 45px;
  
 }
-
+.back-btn:hover{
+  background-color: tomato;
+}
 .page-ing-list{
     list-style: none;
     margin: auto;
     /* background-color: rgb(49, 30, 30); */
 }
-
-.meal-info-container{
+.edit-btn{
+ margin:0 auto;
+  width: fit-content;
+}
+.meal-page-info-container{
 /* width: 100%; */
 padding:60px;
 height:auto;
-margin: auto;
+width: 100%;
+margin: 0 auto;
 display: flex;
 flex-direction: column;
+padding:10px  35px; 
 }
-.meal-item-page-pic{
-    max-width:400px;
-    max-height:400px;
+.meal-page-pic{
+  margin: 100px auto 20px;
+    max-width:300px;
+    max-height:300px;
+    box-shadow:
+    0 0px 1.9px rgba(0, 0, 0, 0.084),
+    0 0px 4.3px rgba(0, 0, 0, 0.122),
+    0 0px 7.6px rgba(0, 0, 0, 0.15),
+    0 0px 12px rgba(0, 0, 0, 0.175),
+    0 0px 18.5px rgba(0, 0, 0, 0.2),
+    0 0px 28.9px rgba(0, 0, 0, 0.228),
+    0 0px 48px rgba(0, 0, 0, 0.266),
+    0 0px 96px rgba(0, 0, 0, 0.35)
+  ;
+  
+
 }
 @media only screen and (min-width: 760px) {
+  .meal-item-page{
+    margin: auto;
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      "pic info"
 
+      ;
+      width:90vw;
+    height:100%;
+  }
+  .meal-page-pic{
+    margin: auto;
+grid-area:pic;
+width:450px;
+height:450px;
+image-rendering: crisp-edges;
+  }
+  .meal-page-info-container{
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+  }
+  .meal-page-name{
+  }
+  .meal-page-ing-list{
+    text-align: left;
+    margin:20px auto;
+  }
+   .back-btn{
+    font-size: 2.5em;
+    position:fixed;
+    top:10px;
+    left:10px;
+  height:120px;
+  width:120px;
+    border-radius: 60px;
+}
 
 }
