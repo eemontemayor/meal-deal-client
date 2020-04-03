@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import ExplorerForm from '../../components/ExplorerForm/ExplorerForm'
+// import ExplorerForm from '../../components/ExplorerForm/ExplorerForm'
 import MealApiService from '../../services/meal-api-service'
 export default class ExplorerPage extends Component{
 
@@ -59,7 +59,7 @@ export default class ExplorerPage extends Component{
 
         return(
             <div>
-            <ExplorerForm expPage={this.props.match.path} postBookmark={this.postBookmark}/>
+            {/* <ExplorerForm expPage={this.props.match.path} postBookmark={this.postBookmark}/> */}
         </div>
     )
 }

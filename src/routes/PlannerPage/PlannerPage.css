@@ -52,7 +52,7 @@ button.search-form-btn.disabled{
           background-color:rgba(254, 255, 255, 0.993);
 
           overflow-y: auto;
-          background-color:none;
+         
           grid-area: results;
         border-right: 1px solid rgba(128, 128, 128, 0.795);
         }

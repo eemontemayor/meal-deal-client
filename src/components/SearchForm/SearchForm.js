@@ -29,8 +29,7 @@ export default class SearchForm extends React.Component {
 
     handleSearchSubmit = e => {
         e.preventDefault()
-        console.log('here')
-      // console.log(this.state)
+       
         MealApiService.getExplorerMeals(this.state.searchTerm)
           .then(res => {
 

@@ -36,9 +36,9 @@ const MealApiService = {
           return mealsRes.json().then(e => Promise.reject(e))
         return mealsRes.json()
       })
-      // .catch(error => {
-      //   console.error({error})
-      // })
+      .catch(error => {
+        console.error({error})
+      })
    
     },
 

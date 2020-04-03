@@ -26,6 +26,7 @@ export default class App extends Component {
     formattedDate: "",
     MOD: [],
     bookmarks: [],
+    // searchRes:[],
     userMeals: []
   };
 
@@ -49,11 +50,14 @@ export default class App extends Component {
   setBookmarkList = bookmarks => {
     this.setState({ bookmarks });
   };
+  // setSearchRes = searchRes =>{
+  //   this.setState({searchRes})
+  // }
   setMODList = MOD => {
     this.setState({ MOD });
   };
   setUserMeals = userMeals => {
-    console.log('here')
+    
     this.setState({ userMeals });
   };
   setError = error => {
@@ -211,19 +215,6 @@ export default class App extends Component {
 
 
 
-  //////
-
-  // addMeal = meal => {
-  //   console.log(meal, "from addMeal");
-  //   this.setState({ ...this.state.userMeals, meal });
-  // };
-  // addMOD = meal => {
-  //   this.setState({ ...this.state.MOD, meal });
-  // };
-  // addBookmark = bookmark => {
-  //   this.setState({ ...this.state.bookmarks, bookmark });
-  // };
-
 
   render() {
     const contextValue = {
@@ -232,10 +223,10 @@ export default class App extends Component {
       userMeals: this.state.userMeals,
       MOD: this.state.MOD,
       bookmarks: this.state.bookmarks,
+      // searchRes:this.state.searchRes,
       handleUpdateBookmark: this.handleUpdateBookmark,
       handleDeleteBookmark: this.handleDeleteBookmark,
       handleAddBookmark: this.handleAddBookmark,
-     
      
      
       postMeal: this.postMeal,
@@ -251,11 +242,8 @@ export default class App extends Component {
       setMODList: this.setMODList,
       setUserMeals: this.setUserMeals,
       setBookmarkList: this.setBookmarkList,
+      // setSearchRes:this.setSearchRes,
 
-      // addMeal: this.addMeal,
-      // addMOD: this.addMOD,
-      // addBookmark:this.addBookmark
-   
     };
 
     return (
